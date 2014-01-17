@@ -25,6 +25,7 @@
 		05914014188932B7009D87F9 /* KUSearchParamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05914013188932B7009D87F9 /* KUSearchParamManager.m */; };
 		05914017188939B8009D87F9 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05914016188939B8009D87F9 /* ResultsViewController.m */; };
 		0591401A18893B67009D87F9 /* KUResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401918893B67009D87F9 /* KUResponse.m */; };
+		0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401C18893D88009D87F9 /* KUResponseManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		05914016188939B8009D87F9 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		0591401818893B67009D87F9 /* KUResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUResponse.h; sourceTree = "<group>"; };
 		0591401918893B67009D87F9 /* KUResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUResponse.m; sourceTree = "<group>"; };
+		0591401B18893D88009D87F9 /* KUResponseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUResponseManager.h; sourceTree = "<group>"; };
+		0591401C18893D88009D87F9 /* KUResponseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUResponseManager.m; sourceTree = "<group>"; };
 		0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -198,6 +201,8 @@
 				05914013188932B7009D87F9 /* KUSearchParamManager.m */,
 				0591401818893B67009D87F9 /* KUResponse.h */,
 				0591401918893B67009D87F9 /* KUResponse.m */,
+				0591401B18893D88009D87F9 /* KUResponseManager.h */,
+				0591401C18893D88009D87F9 /* KUResponseManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */,
 				0589B112188403F900DBE642 /* AppDelegate.m in Sources */,
 				059140071887E560009D87F9 /* InputViewController.m in Sources */,
 				05914014188932B7009D87F9 /* KUSearchParamManager.m in Sources */,
