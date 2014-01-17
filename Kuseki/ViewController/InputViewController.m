@@ -9,6 +9,7 @@
 #import "InputViewController.h"
 #import "MITextField.h"
 #import "KUSearchParamManager.h"
+#import "ResultsViewController.h"
 
 @interface InputViewController ()
 <UITableViewDataSource, UITableViewDelegate,
@@ -124,6 +125,7 @@ UITextFieldDelegate>
         }
         case 5:{
             UIButton *bt_search = (UIButton*)[cell viewWithTag:1];
+            [bt_search addTarget:self action:@selector(btSearchPressed:) forControlEvents:UIControlEventTouchUpInside];
             break;
         }
     }
@@ -252,6 +254,13 @@ UITextFieldDelegate>
 
 #pragma mark -
 #pragma mark private action
+
+- (void)btSearchPressed
+{
+    ResultsViewController *resultCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultsViewController"];
+    [self.navigationController pushViewController:resultCon animated:YES];
+}
+
 
 - (void)showPickerTrain
 {
