@@ -18,4 +18,7 @@
 @property (nonatomic,strong) NSString *dep_stn;
 @property (nonatomic,strong) NSString *arr_stn;
 
++ (KUSearchParamManager*)sharedManager;
+- (void)initializeParamas;
+
 @end

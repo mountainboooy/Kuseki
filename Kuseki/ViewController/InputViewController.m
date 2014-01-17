@@ -8,10 +8,12 @@
 
 #import "InputViewController.h"
 #import "MITextField.h"
+#import "KUSearchParamManager.h"
 
 @interface InputViewController ()
 <UITableViewDataSource, UITableViewDelegate,
-UIPickerViewDataSource, UIPickerViewDelegate>
+UIPickerViewDataSource, UIPickerViewDelegate,
+UITextFieldDelegate>
 {
     //outlet
     __weak IBOutlet UITableView *_tableView;
@@ -19,6 +21,9 @@ UIPickerViewDataSource, UIPickerViewDelegate>
     
     //constraint
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_train;
+    
+    //modell
+    KUSearchParamManager *_paramManager;
 }
 
 
@@ -45,6 +50,9 @@ UIPickerViewDataSource, UIPickerViewDelegate>
     [nc addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
     
     [nc addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+    
+    //model
+    _paramManager = [KUSearchParamManager sharedManager];
     
     
 }
@@ -190,8 +198,57 @@ UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    
+    NSString *selectedNum = [NSString stringWithFormat:@"%d",row+1];
+    _paramManager.train = selectedNum;
+    
     [self hidePickerTrain];
 }
+
+
+#pragma mark -
+#pragma mark textField
+- (void)textFieldDidEndEditing:(MITextField *)textField
+{
+    switch(textField.indexPath.row){
+        
+        case 0:{//乗車年月日
+            if(textField.tag == 1){//month
+                _paramManager.month = textField.text;
+            
+            }else{//date
+                _paramManager.date = textField.text;
+            }
+            
+            break;
+        }
+           
+        case 1:{//時間
+            if(textField.tag == 1){//hour
+                _paramManager.hour  = textField.text;
+                
+            }else{//minute
+                _paramManager.minute = textField.text;
+            }
+            break;
+        }
+            
+        case 3:{//dep_stn
+            _paramManager.dep_stn = textField.text;
+            break;
+        }
+            
+        case 4:{//arr_strn
+            _paramManager.arr_stn = textField.text;
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+
 
 #pragma mark -
 #pragma mark private action
