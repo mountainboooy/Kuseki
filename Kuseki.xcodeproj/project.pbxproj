@@ -19,13 +19,14 @@
 		0589B122188403FA00DBE642 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0589B101188403F900DBE642 /* Foundation.framework */; };
 		0589B123188403FA00DBE642 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0589B105188403F900DBE642 /* UIKit.framework */; };
 		0589B12B188403FA00DBE642 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0589B129188403FA00DBE642 /* InfoPlist.strings */; };
-		0589B12D188403FA00DBE642 /* KusekiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589B12C188403FA00DBE642 /* KusekiTests.m */; };
 		059140071887E560009D87F9 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059140061887E560009D87F9 /* InputViewController.m */; };
 		0591400D1887EA63009D87F9 /* MITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591400C1887EA63009D87F9 /* MITextField.m */; };
 		05914014188932B7009D87F9 /* KUSearchParamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05914013188932B7009D87F9 /* KUSearchParamManager.m */; };
 		05914017188939B8009D87F9 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05914016188939B8009D87F9 /* ResultsViewController.m */; };
 		0591401A18893B67009D87F9 /* KUResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401918893B67009D87F9 /* KUResponse.m */; };
 		0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401C18893D88009D87F9 /* KUResponseManager.m */; };
+		05A77880188A30D300B1026C /* KUClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7787F188A30D300B1026C /* KUClient.m */; };
+		05A77884188A35BA00B1026C /* KUClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A77883188A35BA00B1026C /* KUClientTests.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +57,6 @@
 		0589B120188403FA00DBE642 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0589B128188403FA00DBE642 /* KusekiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KusekiTests-Info.plist"; sourceTree = "<group>"; };
 		0589B12A188403FA00DBE642 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0589B12C188403FA00DBE642 /* KusekiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KusekiTests.m; sourceTree = "<group>"; };
 		059140051887E560009D87F9 /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
 		059140061887E560009D87F9 /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		0591400B1887EA63009D87F9 /* MITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MITextField.h; sourceTree = "<group>"; };
@@ -69,6 +69,9 @@
 		0591401918893B67009D87F9 /* KUResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUResponse.m; sourceTree = "<group>"; };
 		0591401B18893D88009D87F9 /* KUResponseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUResponseManager.h; sourceTree = "<group>"; };
 		0591401C18893D88009D87F9 /* KUResponseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUResponseManager.m; sourceTree = "<group>"; };
+		05A7787E188A30D300B1026C /* KUClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUClient.h; sourceTree = "<group>"; };
+		05A7787F188A30D300B1026C /* KUClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUClient.m; sourceTree = "<group>"; };
+		05A77883188A35BA00B1026C /* KUClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUClientTests.m; sourceTree = "<group>"; };
 		0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,6 +136,7 @@
 		0589B107188403F900DBE642 /* Kuseki */ = {
 			isa = PBXGroup;
 			children = (
+				05A7787D188A30D300B1026C /* Network */,
 				0591401118893291009D87F9 /* Model */,
 				0591400A1887EA57009D87F9 /* UIParts */,
 				059140041887E51E009D87F9 /* ViewController */,
@@ -159,8 +163,8 @@
 		0589B126188403FA00DBE642 /* KusekiTests */ = {
 			isa = PBXGroup;
 			children = (
-				0589B12C188403FA00DBE642 /* KusekiTests.m */,
 				0589B127188403FA00DBE642 /* Supporting Files */,
+				05A77883188A35BA00B1026C /* KUClientTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -205,6 +209,15 @@
 				0591401C18893D88009D87F9 /* KUResponseManager.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		05A7787D188A30D300B1026C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				05A7787E188A30D300B1026C /* KUClient.h */,
+				05A7787F188A30D300B1026C /* KUClient.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +355,7 @@
 				0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */,
 				0589B112188403F900DBE642 /* AppDelegate.m in Sources */,
 				059140071887E560009D87F9 /* InputViewController.m in Sources */,
+				05A77880188A30D300B1026C /* KUClient.m in Sources */,
 				05914014188932B7009D87F9 /* KUSearchParamManager.m in Sources */,
 				0591401A18893B67009D87F9 /* KUResponse.m in Sources */,
 				05914017188939B8009D87F9 /* ResultsViewController.m in Sources */,
@@ -354,7 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0589B12D188403FA00DBE642 /* KusekiTests.m in Sources */,
+				05A77884188A35BA00B1026C /* KUClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
