@@ -7,12 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void(^KUNetworkCompletion)();
-typedef void(^KUNetworkFailure)();
+typedef void(^KUNetworkCompletion)(NSString *dataString);
+typedef void(^KUNetworkFailure)(NSHTTPURLResponse *res, NSError *error);
 
 @interface KUClient : NSObject
 
-- (void)getSheetInfoWithParam:(NSDictionary*)param completion:(KUNetworkCompletion)completion failure:(KUNetworkFailure)failure;
+@property (nonatomic,copy) KUNetworkCompletion completion;
+@property (nonatomic,copy) KUNetworkFailure failure;
+@property (nonatomic,strong) NSURL *base_url;
+@property (nonatomic,strong) UIWebView *webView;
+
+- (id)initWithBaseUrl:(NSURL*)base_url;
+
+- (void)postPath:(NSString*)path param:(NSDictionary*)param completion:(KUNetworkCompletion)completion failure:(KUNetworkFailure)failure;
+
+- (void)testWebView;
 
 - (NSString*)stringParamFromDictionary:(NSDictionary*)dic_param;
 

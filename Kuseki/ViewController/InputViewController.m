@@ -125,7 +125,7 @@ UITextFieldDelegate>
         }
         case 5:{
             UIButton *bt_search = (UIButton*)[cell viewWithTag:1];
-            [bt_search addTarget:self action:@selector(btSearchPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [bt_search addTarget:self action:@selector(btSearchPressed) forControlEvents:UIControlEventTouchUpInside];
             break;
         }
     }

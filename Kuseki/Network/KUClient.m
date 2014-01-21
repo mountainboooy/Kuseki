@@ -7,36 +7,105 @@
 //
 
 #import "KUClient.h"
+#import "AFHTTPRequestOperation.h"
 
 @interface KUClient()
 <UIWebViewDelegate>
 {
-    UIWebView *_webView;
 }
 @end
 
 @implementation KUClient
 
 
-- (void)getSheetInfoWithParam:(NSDictionary *)param completion:(KUNetworkCompletion)completion failure:(KUNetworkFailure)failure
+- (id)initWithBaseUrl:(NSURL*)base_url;
 {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+
+    _base_url = base_url;
+    _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
+    _webView.delegate = self;
+    
+    return self;
+}
+
+
+
+- (void)postPath:(NSString*)path param:(NSDictionary*)param completion:(KUNetworkCompletion)completion failure:(KUNetworkFailure)failure
+{
+    //action
+    _completion = completion;
+    _failure = failure;
+    
+    //url
+    NSString *base_url_str = [_base_url absoluteString];
+    NSString *full_url_str = [NSString stringWithFormat:@"%@%@",base_url_str, path];
+    NSURL *url = [NSURL URLWithString:full_url_str];
+    NSLog(@"url:%@",url.absoluteString);
     
     //param
-    NSString *param_str = [self stringParamFromDictionary:param];
+    NSString *param_str;
+    if (param) {
+        param_str = [self stringParamFromDictionary:param];
+    }
+    NSLog(@"param_str:%@",param_str);
+    NSData *sendData = [param_str dataUsingEncoding:NSUTF8StringEncoding];
     
-    
-    NSString *url_str = @"http://www1.jr.cyberstation.ne.jp/csws/Vacancy.do";
-    NSURL *url = [NSURL URLWithString:url_str];
+    //request
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"POST"];
-    [req setHTTPBody:[param_str dataUsingEncoding:NSUTF8StringEncoding]];
     [req setValue:@"http://www.jr.cyberstation.ne.jp/vacancy/Vacancy.html" forHTTPHeaderField:@"Referer"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[sendData length]] forHTTPHeaderField:@"Content-Length"];
+    [req setHTTPBody:sendData];
     
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc]initWithRequest:req];
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData *buffer = responseObject;
+        if (buffer) {
+            //resonse
+            int encodeArray[] = {
+                NSUTF8StringEncoding,			// UTF-8
+                NSShiftJISStringEncoding,		// Shift_JIS
+                NSJapaneseEUCStringEncoding,	// EUC-JP
+                NSISO2022JPStringEncoding,		// JIS
+                NSUnicodeStringEncoding,		// Unicode
+                NSASCIIStringEncoding			// ASCII
+            };
+            
+            
+            NSString *dataString = nil;
+            int max = sizeof(encodeArray) / sizeof(encodeArray[0]);
+            
+            for (int i=0; i<max; i++) {
+                dataString = [[NSString alloc]initWithData:buffer encoding:encodeArray[i]];
+                
+                if(dataString){
+                    break;
+                }
+            }
+            
+            if (completion) {
+                completion(dataString);
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        if (failure) {
+            failure(operation.response, error);
+        }
+        
+    }];
     
-    
-    
-    
+    [op start];
+z1
 }
+
 
 
 - (NSString*)stringParamFromDictionary:(NSDictionary*)dic_param
@@ -45,7 +114,7 @@
     //stringの一文で作成
     NSArray *keys = [dic_param allKeys];
     for (NSString *key in keys) {
-        NSString *p = [NSString stringWithFormat:@"%@=%@&",key,dic_param[key]];
+        NSString *p = [NSString stringWithFormat:@"%@=%@&",key,[self urlEncodeString:dic_param[key]]];
     
         [param_str appendString:p];
     }
@@ -55,20 +124,14 @@
 }
 
 
-#pragma mark -
-#pragma mark webView
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+- (NSString*)urlEncodeString:(NSString*)string
 {
-    //error
+    NSString *escapedStfing = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)string, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingShiftJIS));
+    
+    return escapedStfing;
 }
 
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    NSString *body = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    NSLog(@"innerHTML:%@",body);
-}
 
 
 
