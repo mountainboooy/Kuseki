@@ -21,7 +21,6 @@ typedef void(^KUNetworkFailure)(NSHTTPURLResponse *res, NSError *error);
 
 - (void)postPath:(NSString*)path param:(NSDictionary*)param completion:(KUNetworkCompletion)completion failure:(KUNetworkFailure)failure;
 
-- (void)testWebView;
 
 - (NSString*)stringParamFromDictionary:(NSDictionary*)dic_param;
 

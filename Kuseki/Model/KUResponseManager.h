@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef void (^KUResponseNetworkCompletion)();
+typedef void (^KUResponseNetworkFailure)();
 
 @interface KUResponseManager : NSObject
 @property (nonatomic,strong) NSMutableArray *responses;
 
 + (KUResponseManager*)sharedManager;
-- (NSArray*)parseHTML:(NSString*)bodyData;
+- (NSArray*)setInfoWithBodyData:(NSString*)bodyData;
 
 @end

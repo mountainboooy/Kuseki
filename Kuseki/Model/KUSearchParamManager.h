@@ -11,7 +11,7 @@
 @interface KUSearchParamManager : NSObject
 
 @property (nonatomic,strong) NSString *month;
-@property (nonatomic,strong) NSString *date;
+@property (nonatomic,strong) NSString *day;
 @property (nonatomic,strong) NSString *hour;
 @property (nonatomic,strong) NSString *minute;
 @property (nonatomic,strong) NSString *train;

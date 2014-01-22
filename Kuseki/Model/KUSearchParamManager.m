@@ -43,7 +43,7 @@ static KUSearchParamManager *_sharedManager = nil;
 - (void)initializeParamas
 {
     _month = @"01";
-    _date = @"01";
+    _day = @"01";
     _hour  = @"01";
     _minute = @"01";
     _train = @"1";

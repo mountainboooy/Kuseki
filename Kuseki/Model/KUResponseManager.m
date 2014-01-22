@@ -10,6 +10,8 @@
 #import "KUResponse.h"
 #import "HTMLParser.h"
 #import "HTMLNode.h"
+#import "KUSearchParamManager.h"
+#import "KUClient.h"
 
 static KUResponseManager *_sharedManager = nil;
 @implementation KUResponseManager
@@ -51,12 +53,54 @@ static KUResponseManager *_sharedManager = nil;
     }
     
     [_responses addObject:response];
-
 }
 
 
-- (NSArray*)parseHTML:(NSString*)bodyData
+
+//情報取得
+- (void)getResponsesWithParam:(KUSearchParamManager*)paramManager completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure
 {
+    //url
+    NSURL  *base_url = [NSURL URLWithString:@"http://www1.jr.cyberstation.ne.jp/"];
+    NSString *path = @"csws/Vacancy.do";
+    
+    //param
+    NSDictionary *param = @{@"month":paramManager.month,
+                            @"day":paramManager.day,
+                            @"hour":paramManager.hour,
+                            @"minute":paramManager.minute,
+                            @"train":paramManager.train,
+                            @"dep_stn":paramManager.dep_stn,
+                            @"arr_stn":paramManager.arr_stn
+                            };
+    
+    
+    KUClient *client = [[KUClient alloc]initWithBaseUrl:base_url];
+    
+    [client postPath:path param:param completion:^(NSString *dataString) {
+        
+        [self setInfoWithBodyData:dataString];
+        if (completion) {
+            completion();
+        }
+        
+    } failure:^(NSHTTPURLResponse *res, NSError *error) {
+        if (failure) {
+            failure();
+        }
+        
+    }];
+}
+
+
+
+
+
+//パースして格納するまで
+- (NSArray*)setInfoWithBodyData:(NSString*)bodyData
+{
+    //TODO:ここでのエラーハンドリングが重要
+    
     NSError *err = nil;
     HTMLParser *parser = [[HTMLParser alloc]initWithString:bodyData error:&err];
     
@@ -85,19 +129,24 @@ static KUResponseManager *_sharedManager = nil;
             NSArray *tdNodes = [trNode findChildTags:@"td"];
             
             if (tdNodes.count == 7) {
-                NSLog(@"name:%@",[tdNodes[0] contents]);
-                NSLog(@"dep_time:%@",[tdNodes[1] contents]);
-                NSLog(@"arr_time:%@",[tdNodes[2] contents]);
-                NSLog(@"ec_ns:%@",[tdNodes[3] contents]);
-                NSLog(@"ec_s:%@",[tdNodes[4] contents]);
-                NSLog(@"gr_ns:%@",[tdNodes[5] contents]);
-                NSLog(@"gr_s:%@",[tdNodes[6] contents]);
+                
+                //モデルクラス作成
+                NSDictionary *response = @{@"name":[tdNodes[0] contents],
+                                           @"dep_time":[tdNodes[1] contents],
+                                           @"arr_time":[tdNodes[2] contents],
+                                           @"seat_ec_ns":[tdNodes[3] contents],
+                                           @"seat_ec_s":[tdNodes[4] contents],
+                                           @"seat_gr_ns":[tdNodes[5] contents],
+                                           @"seat_gr_s":[tdNodes[6] contents]
+                                           };
+                
+                KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
+                [self addResponse:new_response];
             }
         }
     }
 
     return [NSArray array];
-    
     
 }
 
