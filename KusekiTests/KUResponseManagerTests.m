@@ -1,58 +1,44 @@
 //
-//  KUClientTests.m
+//  KUResponseManagerTests.m
 //  Kuseki
 //
-//  Created by Takeru Yoshihara on 2014/01/18.
+//  Created by Takeru Yoshihara on 2014/01/21.
 //  Copyright (c) 2014年 Takeru Yoshihara. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import "KUResponseManager.h"
 #import "KUClient.h"
 
-@interface KUClientTests : XCTestCase
+@interface KUResponseManagerTests : XCTestCase
 {
     BOOL _isFinished;
 }
+
 @end
 
-@implementation KUClientTests
+@implementation KUResponseManagerTests
 
 - (void)setUp
 {
-    
     [super setUp];
-    _isFinished  = YES;
+    _isFinished = YES;
 }
 
 - (void)tearDown
 {
     do {
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+        [[NSRunLoop currentRunLoop]runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
     } while (!_isFinished);
     
     [super tearDown];
 }
 
-
-- (void)testStringPramFromDictionary
-{
-    NSDictionary *dic_param = @{@"firstname":@"takeru",
-                                @"lastname":@"yoshihara",
-                                @"age":@"33",
-                                @"city":@"osaka"};
-    
-    KUClient *client = [KUClient new];
-    NSString *str_param = [client stringParamFromDictionary:dic_param];
-    NSString *str_correct = @"age=33&lastname=yoshihara&city=osaka&firstname=takeru&";
-    XCTAssertEqualObjects(str_param, str_correct, @"パラメータの作成に失敗");
-    
-}
-
-
-- (void)testPost
+- (void)testParseHTML
 {
     _isFinished = NO;
     
+    //html取得
     NSDictionary *dic_param = @{@"month":@"02",
                                 @"day":@"15",
                                 @"hour":@"15",
@@ -66,17 +52,24 @@
     
     KUClient *client = [[KUClient alloc]initWithBaseUrl:base_url];
     
+    
     [client postPath:path param:dic_param completion:^(NSString *dataString) {
+        
+        NSLog(@"取得成功");
+        KUResponseManager *manager = [KUResponseManager sharedManager];
+        [manager parseHTML:dataString];
+        
         _isFinished = YES;
         
-    
+        
     } failure:^(NSHTTPURLResponse *res, NSError *error) {
-        XCTAssertEqual(res.statusCode, 200u, @"HTMLの取得に失敗");
+        
+        NSLog(@"取得失敗");
         _isFinished = YES;
         
     }];
     
+    
 }
-
 
 @end

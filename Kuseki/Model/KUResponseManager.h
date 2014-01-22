@@ -11,4 +11,7 @@
 @interface KUResponseManager : NSObject
 @property (nonatomic,strong) NSMutableArray *responses;
 
++ (KUResponseManager*)sharedManager;
+- (NSArray*)parseHTML:(NSString*)bodyData;
+
 @end

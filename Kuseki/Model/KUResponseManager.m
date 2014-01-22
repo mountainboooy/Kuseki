@@ -8,6 +8,8 @@
 
 #import "KUResponseManager.h"
 #import "KUResponse.h"
+#import "HTMLParser.h"
+#import "HTMLNode.h"
 
 static KUResponseManager *_sharedManager = nil;
 @implementation KUResponseManager
@@ -53,6 +55,51 @@ static KUResponseManager *_sharedManager = nil;
 }
 
 
+- (NSArray*)parseHTML:(NSString*)bodyData
+{
+    NSError *err = nil;
+    HTMLParser *parser = [[HTMLParser alloc]initWithString:bodyData error:&err];
+    
+    if (err) {
+        return nil;
+    }
+    
+    HTMLNode *bodyNode = [parser body];
+    
+    NSArray *tableNodes = [bodyNode findChildTags:@"table"];
+    NSArray *trNodes;
+    
+    
+    for (HTMLNode *tableNode in tableNodes) {//テーブルの中の<tr>の要素を抽出
+        if ([[tableNode getAttributeNamed:@"border"]isEqualToString:@"3"]) {
+            trNodes = [tableNode findChildTags:@"tr"];
+        }
+    }
+    
+    
+    
+    for (HTMLNode *trNode in trNodes) {
+     
+        if ([trNodes indexOfObject:trNode] > 1 ) {
+            
+            NSArray *tdNodes = [trNode findChildTags:@"td"];
+            
+            if (tdNodes.count == 7) {
+                NSLog(@"name:%@",[tdNodes[0] contents]);
+                NSLog(@"dep_time:%@",[tdNodes[1] contents]);
+                NSLog(@"arr_time:%@",[tdNodes[2] contents]);
+                NSLog(@"ec_ns:%@",[tdNodes[3] contents]);
+                NSLog(@"ec_s:%@",[tdNodes[4] contents]);
+                NSLog(@"gr_ns:%@",[tdNodes[5] contents]);
+                NSLog(@"gr_s:%@",[tdNodes[6] contents]);
+            }
+        }
+    }
+
+    return [NSArray array];
+    
+    
+}
 
 
 
