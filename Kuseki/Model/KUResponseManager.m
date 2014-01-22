@@ -10,7 +10,6 @@
 #import "KUResponse.h"
 #import "HTMLParser.h"
 #import "HTMLNode.h"
-#import "KUSearchParamManager.h"
 #import "KUClient.h"
 
 static KUResponseManager *_sharedManager = nil;

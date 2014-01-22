@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KUSearchParamManager.h"
 typedef void (^KUResponseNetworkCompletion)();
 typedef void (^KUResponseNetworkFailure)();
 
@@ -14,6 +15,9 @@ typedef void (^KUResponseNetworkFailure)();
 @property (nonatomic,strong) NSMutableArray *responses;
 
 + (KUResponseManager*)sharedManager;
+
 - (NSArray*)setInfoWithBodyData:(NSString*)bodyData;
+
+- (void)getResponsesWithParam:(KUSearchParamManager*)paramManager completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure;
 
 @end

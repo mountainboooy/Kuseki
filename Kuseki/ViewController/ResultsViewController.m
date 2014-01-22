@@ -9,12 +9,16 @@
 #import "ResultsViewController.h"
 #import "KUSearchParamManager.h"
 #import "KUClient.h"
+#import "KUResponseManager.h"
 
 @interface ResultsViewController ()
 <UIWebViewDelegate>
 
 {
+    //model
     KUSearchParamManager *_paramManager;
+    KUResponseManager    *_responseManager;
+    
     UIWebView *_webView;
     KUClient *_client;
 }
@@ -29,27 +33,23 @@
 {
     [super viewDidLoad];
     
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"viewDidAppear");
-    
     //model
     _paramManager = [KUSearchParamManager sharedManager];
+    _responseManager = [KUResponseManager sharedManager];
     
-    NSURL *url = [NSURL URLWithString:@"http://yahoo.co.jp"];
-    KUClient *client = [[KUClient alloc]initWithBaseUrl:url];
+    [_responseManager getResponsesWithParam:_paramManager completion:^{
+        NSLog(@"completion:");
+        
+    } failure:^{
+        NSLog(@"failure");
+    }];
     
-
     
-
+    
 }
 
-- (void)test{
-    [_client testWebView];
-    
-}
+
+
 
 - (void)didReceiveMemoryWarning
 {
