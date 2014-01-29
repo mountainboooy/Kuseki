@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053FA1E41899098900DA5A3F /* KUDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E31899098900DA5A3F /* KUDBClient.m */; };
+		053FA1E718990B3300DA5A3F /* KUSearchCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E618990B3300DA5A3F /* KUSearchCondition.m */; };
 		057E0094188E8E5D00070F7D /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0091188E8E5D00070F7D /* HTMLNode.m */; };
 		057E0095188E8E5D00070F7D /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0093188E8E5D00070F7D /* HTMLParser.m */; };
 		057E0097188E8FAF00070F7D /* KUResponseManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0096188E8FAF00070F7D /* KUResponseManagerTests.m */; };
@@ -46,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053FA1E21899098900DA5A3F /* KUDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDBClient.h; sourceTree = "<group>"; };
+		053FA1E31899098900DA5A3F /* KUDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDBClient.m; sourceTree = "<group>"; };
+		053FA1E518990B3300DA5A3F /* KUSearchCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSearchCondition.h; sourceTree = "<group>"; };
+		053FA1E618990B3300DA5A3F /* KUSearchCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSearchCondition.m; sourceTree = "<group>"; };
 		057E0090188E8E5D00070F7D /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
 		057E0091188E8E5D00070F7D /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
 		057E0092188E8E5D00070F7D /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
@@ -234,6 +240,10 @@
 				0591401918893B67009D87F9 /* KUResponse.m */,
 				0591401B18893D88009D87F9 /* KUResponseManager.h */,
 				0591401C18893D88009D87F9 /* KUResponseManager.m */,
+				053FA1E21899098900DA5A3F /* KUDBClient.h */,
+				053FA1E31899098900DA5A3F /* KUDBClient.m */,
+				053FA1E518990B3300DA5A3F /* KUSearchCondition.h */,
+				053FA1E618990B3300DA5A3F /* KUSearchCondition.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053FA1E41899098900DA5A3F /* KUDBClient.m in Sources */,
+				053FA1E718990B3300DA5A3F /* KUSearchCondition.m in Sources */,
 				057E0094188E8E5D00070F7D /* HTMLNode.m in Sources */,
 				057E0095188E8E5D00070F7D /* HTMLParser.m in Sources */,
 				0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */,
@@ -524,6 +536,7 @@
 					"\"${PODS_ROOT}/Headers\"",
 					"\"${PODS_ROOT}/Headers/AFNetworking\"",
 					"\"/usr/include/libxml2\"",
+					"\"${PODS_ROOT}/Headers/FMDB\"",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -543,6 +556,7 @@
 					"\"${PODS_ROOT}/Headers\"",
 					"\"${PODS_ROOT}/Headers/AFNetworking\"",
 					"\"/usr/include/libxml2\"",
+					"\"${PODS_ROOT}/Headers/FMDB\"",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
