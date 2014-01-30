@@ -96,6 +96,12 @@ static KUDBClient *_sharedClient = nil;
 //データ挿入
 - (void)insertResponse:(KUResponse*)response
 {
+    if (!response) {
+        NSException *ex = [NSException exceptionWithName:@"InsertResponseException" reason:nil userInfo:nil];
+        
+        [ex raise];
+    }
+    
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
     NSString *sql = @"INSERT INTO responses(name, dep_time, arr_time, seat_ec_ns, seat_ec_s, seat_gr_ns, seat_gr_s) VALUES(?,?,?,?,?,?,?)";
     
@@ -116,6 +122,10 @@ static KUDBClient *_sharedClient = nil;
 
 - (void)insertCondition:(KUSearchCondition*)condition{
     
+    if (!condition) {
+        return;
+    }
+    
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
     NSString *sql = @"INSERT INTO responses(month, day, hour, minute, train, dep_stn, arr_stn) VALUES(?, ?, ?, ?, ?, ?, ?)";
     
@@ -129,6 +139,12 @@ static KUDBClient *_sharedClient = nil;
 
 //データ削除
 - (void)deleteResponse:(KUResponse*)response{
+    
+    if (!response) {
+        NSException *ex = [NSException exceptionWithName:@"DeleteResponseException" reason:nil userInfo:nil];
+        
+        [ex raise];
+    }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
     NSString *sql = @"DELETE FROM responses WHERE id = ?";
@@ -154,6 +170,12 @@ static KUDBClient *_sharedClient = nil;
 
 //データ更新
 - (void)updateResponse:(KUResponse*)response{
+    
+    if (!response) {
+        NSException *ex = [NSException exceptionWithName:@"UpdateResponseException" reason:nil userInfo:nil];
+        
+        [ex raise];
+    }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
     NSString *sql = @"UPDATE responses SET name = ?, dep_time = ?, arr_time = ?, seat_ec_ns = ?, seat_ec_s = ?, seat_gr_ns = ?, seat_gr_s = ? WHERE id = ? VALUES(?,?,?,?,?,?,?,?)";

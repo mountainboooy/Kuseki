@@ -7,6 +7,7 @@
 //
 
 #import "KUResponse.h"
+#import "KUDBClient.h"
 
 @implementation KUResponse
 
@@ -51,6 +52,25 @@
     else{
         return SEAT_INVALID;
     }
+}
+
+
+- (void)post
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client insertResponse:self];
+}
+
+- (void)delete
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client deleteResponse:self];
+}
+
+- (void)update
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client updateResponse:self];
 }
 
 @end
