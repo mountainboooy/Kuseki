@@ -123,7 +123,9 @@ static KUDBClient *_sharedClient = nil;
 - (void)insertCondition:(KUSearchCondition*)condition{
     
     if (!condition) {
-        return;
+        NSException *ex = [NSException exceptionWithName:@"InsertConditionException" reason:nil userInfo:nil];
+        
+        [ex raise];
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
@@ -157,6 +159,12 @@ static KUDBClient *_sharedClient = nil;
 
 
 - (void)deleteCondition:(KUSearchCondition*)condition{
+    
+    if (!condition) {
+        NSException *ex = [NSException exceptionWithName:@"DeleteConditionException" reason:nil userInfo:nil];
+        
+        [ex raise];
+    }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
     NSString *sql = @"DELETE FROM conditions WHERE id = ?";

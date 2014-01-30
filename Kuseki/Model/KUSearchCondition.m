@@ -7,6 +7,7 @@
 //
 
 #import "KUSearchCondition.h"
+#import "KUDBClient.h"
 
 @implementation KUSearchCondition
 
@@ -30,5 +31,20 @@
     return self;
     
 }
+
+
+- (void)post
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client insertCondition:self];
+}
+
+- (void)delete
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client deleteCondition:self];
+}
+
+
 
 @end
