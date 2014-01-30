@@ -153,12 +153,85 @@ static KUDBClient *_sharedClient = nil;
 
 
 //データ更新
-
-
+- (void)updateResponse:(KUResponse*)response{
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
+    NSString *sql = @"UPDATE responses SET name = ?, dep_time = ?, arr_time = ?, seat_ec_ns = ?, seat_ec_s = ?, seat_gr_ns = ?, seat_gr_s = ? WHERE id = ? VALUES(?,?,?,?,?,?,?,?)";
+    [db open];
+    [db executeUpdate:sql, response.name, response.dep_time, response.arr_time, response.seat_ec_ns, response.seat_ec_s, response.seat_gr_ns, response.seat_gr_s];
+    
+    
+    [db close];
+}
 
 
 
 //データ取得
+- (NSArray*)selectAllResponses
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
+    NSString *sql = @"SELECT * FROM responses";
+    
+    [db open];
+    FMResultSet *results = [db executeQuery:sql];
+    
+    NSMutableArray *array = NSMutableArray.new;
+    
+    while ([results next]) {
+        
+        KUResponse *response = [KUResponse new];
+        
+        response.identifier = [NSString stringWithFormat:@"%d",[results intForColumn:@"id"]];
+        response.name = [results stringForColumn:@"name"];
+        response.dep_time = [results stringForColumn:@"dep_time"];
+        response.arr_time = [results stringForColumn:@"arr_time"];
+        response.seat_ec_ns = [results stringForColumn:@"seat_ec_ns"].intValue;
+        response.seat_ec_s   = [results stringForColumn:@"seat_ec_s"].intValue;
+        response.seat_gr_ns = [results stringForColumn:@"seat_gr_ns"].intValue;
+        response.seat_gr_s  = [results stringForColumn:@"seat_gr_s"].intValue;
+        
+        [array addObject:response];
+    }
+    
+    NSArray *reversedData = [[array reverseObjectEnumerator]allObjects];
+    return reversedData;
+    
+    [db close];
+}
+
+
+- (NSArray*)selectAllConditions
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
+    NSString *sql = @"SELECT * FROM conditions";
+    
+    [db open];
+    FMResultSet *results = [db executeQuery:sql];
+    
+    NSMutableArray *array = NSMutableArray.new;
+    
+    while ([results next]) {
+        
+        NSDictionary *dic = @{@"identifier" : [NSString stringWithFormat:@"%d",[results intForColumn:@"id"]],
+                              @"month"  : [results stringForColumn:@"month"],
+                              @"day"    : [results stringForColumn:@"day"],
+                              @"hour"   : [results stringForColumn:@"hour"],
+                              @"minute" : [results stringForColumn:@"minute"],
+                              @"train"  : [results stringForColumn:@"train"],
+                              @"dep_stn": [results stringForColumn:@"dep_stn"],
+                              @"arr_stn": [results stringForColumn:@"arr_stn"]
+                              };
+        
+        KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic];
+        
+        [array addObject:condition];
+    }
+    
+    NSArray *reversedData = [[array reverseObjectEnumerator]allObjects];
+    return reversedData;
+    
+    [db close];
+}
 
 
 

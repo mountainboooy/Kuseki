@@ -16,9 +16,8 @@ enum KUTableName {KU_TABLE_RESPONSES, KU_TABLE_CONDITIONS };
 @interface KUDBClient : NSObject
 
 @property (nonatomic,strong) NSString *dbPath;
-@property enum KUTableName tableName;
 
 
-- (void)deleteTableWithName:(NSString*)name;
+- (void)deleteTableWithName:(enum KUTableName)tableName;
 
 @end

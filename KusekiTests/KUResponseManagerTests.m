@@ -34,6 +34,7 @@
     [super tearDown];
 }
 
+/*
 - (void)testParseHTML
 {
     _isFinished = NO;
@@ -70,6 +71,6 @@
     }];
     
     
-}
+}*/
 
 @end

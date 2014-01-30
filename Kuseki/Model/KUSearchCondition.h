@@ -20,4 +20,6 @@
 @property (nonatomic,strong) NSString *dep_stn;
 @property (nonatomic,strong) NSString *arr_stn;
 
+
+- (id)initWithDictionary:(NSDictionary*)dic;
 @end

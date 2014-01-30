@@ -18,6 +18,7 @@
         return nil;
     }
     
+    _identifier = dic[@"identifier"];
     _month = dic[@"month"];
     _day = dic[@"day"];
     _hour = dic[@"hour"];

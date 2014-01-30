@@ -43,7 +43,7 @@
     
     KUClient *client = [KUClient new];
     NSString *str_param = [client stringParamFromDictionary:dic_param];
-    NSString *str_correct = @"age=33&lastname=yoshihara&city=osaka&firstname=takeru&";
+    NSString *str_correct = @"age=33&firstname=takeru&lastname=yoshihara&city=osaka&";
     XCTAssertEqualObjects(str_param, str_correct, @"パラメータの作成に失敗");
     
 }
