@@ -129,7 +129,7 @@ static KUDBClient *_sharedClient = nil;
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"INSERT INTO responses(month, day, hour, minute, train, dep_stn, arr_stn) VALUES(?, ?, ?, ?, ?, ?, ?)";
+    NSString *sql = @"INSERT INTO conditions(month, day, hour, minute, train, dep_stn, arr_stn) VALUES(?, ?, ?, ?, ?, ?, ?)";
     
     [db open];
     [db executeUpdate:sql, condition.month, condition.day, condition.hour, condition.minute, condition.train, condition.dep_stn, condition.arr_stn];

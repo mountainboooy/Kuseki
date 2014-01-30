@@ -12,5 +12,6 @@
 
 @property (nonatomic,strong) NSArray *conditions;
 + (KUSearchConditionManager*)sharedManager;
+- (void)getConditionsFromDB;
 
 @end

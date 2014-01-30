@@ -22,4 +22,7 @@
 
 
 - (id)initWithDictionary:(NSDictionary*)dic;
+- (void)postCondition;
+- (void)deleteCondition;
+
 @end

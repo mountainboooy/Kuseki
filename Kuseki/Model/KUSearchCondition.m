@@ -33,13 +33,14 @@
 }
 
 
-- (void)post
+- (void)postCondition
 {
     KUDBClient *client = [KUDBClient sharedClient];
+    [client  createTableWithName:KU_TABLE_CONDITIONS];
     [client insertCondition:self];
 }
 
-- (void)delete
+- (void)deleteCondition
 {
     KUDBClient *client = [KUDBClient sharedClient];
     [client deleteCondition:self];

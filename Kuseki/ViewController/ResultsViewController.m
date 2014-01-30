@@ -11,6 +11,8 @@
 #import "KUClient.h"
 #import "KUResponseManager.h"
 #import "KUResponse.h"
+#import "KUSearchCondition.h"
+#import "KUSearchConditionManager.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -102,5 +104,28 @@
 {
     return 65;
 }
+
+
+
+- (IBAction)btSavePressed:(id)sender {
+    
+    KUSearchCondition *condition = [KUSearchCondition new];
+    condition.month = _paramManager.month;
+    condition.day = _paramManager.day;
+    condition.hour = _paramManager.hour;
+    condition.minute = _paramManager.minute;
+    condition.train  = _paramManager.train;
+    condition.dep_stn = _paramManager.dep_stn;
+    condition.arr_stn = _paramManager.arr_stn;
+    
+    [condition postCondition];
+    
+    //確認
+    KUSearchConditionManager *manager = [KUSearchConditionManager sharedManager];
+    [manager getConditionsFromDB];
+    NSLog(@"array:%d",manager.conditions.count);
+    
+}
+
 
 @end
