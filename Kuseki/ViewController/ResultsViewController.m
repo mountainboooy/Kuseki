@@ -116,6 +116,9 @@
     NSLog(@"array:%d",manager.conditions.count);
     
 }
+- (IBAction)btBackPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 @end

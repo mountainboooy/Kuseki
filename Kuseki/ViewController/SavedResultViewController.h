@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KUSearchCondition.h"
 
 @interface SavedResultViewController : UIViewController
+
+@property(nonatomic,strong) KUSearchCondition  *condition;
 
 @end

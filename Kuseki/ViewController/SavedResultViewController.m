@@ -35,6 +35,13 @@
     
     //model
     _responseManager = [KUResponseManager sharedManager];
+    [_responseManager getResponsesWithParam:_condition completion:^{
+        [_tableView reloadData];
+    } failure:^{
+        NSLog(@"失敗");
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,9 +60,35 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _responseManager.responses.count;
 }
 
 
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+    cell =  [tableView dequeueReusableCellWithIdentifier:@"cell0"];
+    [self updateCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+
+- (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
+    if(_responseManager.responses.count == 0){
+        return;
+    }
+    
+    KUResponse * response = _responseManager.responses[indexPath.row];
+    
+    UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
+    lb_name.text = response.name;
+    
+}
+
+- (IBAction)backBtPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

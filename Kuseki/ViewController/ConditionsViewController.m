@@ -9,6 +9,7 @@
 #import "ConditionsViewController.h"
 #import "KUSearchConditionManager.h"
 #import "KUSearchCondition.h"
+#import "SavedResultViewController.h"
 
 @interface ConditionsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -82,5 +83,15 @@
     
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SavedResultViewController *savedResCon = [self.storyboard instantiateViewControllerWithIdentifier:@"SavedResultViewController"];
+    savedResCon.condition = _conditionManager.conditions[indexPath.row];
+    
+    [self.navigationController pushViewController:savedResCon animated:YES];
+    
+    
+}
 
 @end
