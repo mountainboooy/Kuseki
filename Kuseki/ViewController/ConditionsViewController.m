@@ -7,12 +7,17 @@
 //
 
 #import "ConditionsViewController.h"
+#import "KUSearchConditionManager.h"
+#import "KUSearchCondition.h"
 
 @interface ConditionsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
 {
+    //outlet
     __weak IBOutlet UITableView *_tableView;
     
+    //model
+    KUSearchConditionManager *_conditionManager;
 }
 
 @end
@@ -26,8 +31,13 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    
+    _conditionManager = [KUSearchConditionManager sharedManager];
+}
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [_conditionManager getConditionsFromDB];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,7 +55,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _conditionManager.conditions.count;
 }
 
 
@@ -61,6 +71,14 @@
 
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
+    if (_conditionManager.conditions.count == 0) {
+        return;
+    }
+    
+    KUSearchCondition *condition = _conditionManager.conditions[indexPath.row];
+    
+    UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:1];
+    lb_dep_stn.text = condition.dep_stn;
     
 }
 
