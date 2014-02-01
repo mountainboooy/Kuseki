@@ -8,8 +8,8 @@
 
 #import "InputViewController.h"
 #import "MITextField.h"
-#import "KUSearchParamManager.h"
 #import "ResultsViewController.h"
+#import "KUSearchCondition.h"
 
 @interface InputViewController ()
 <UITableViewDataSource, UITableViewDelegate,
@@ -23,8 +23,8 @@ UITextFieldDelegate>
     //constraint
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_train;
     
-    //modell
-    KUSearchParamManager *_paramManager;
+    //model
+    KUSearchCondition *_condition;
     
     NSArray *_trains;
 }
@@ -55,7 +55,7 @@ UITextFieldDelegate>
     [nc addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
     
     //model
-    _paramManager = [KUSearchParamManager sharedManager];
+    _condition = [KUSearchCondition new];
     
     
     _trains = @[@"のぞみ・ひかり・さくら・みずほ・つばめ",
@@ -135,13 +135,13 @@ UITextFieldDelegate>
         
         case 2:{
             MITextField *tf_train = (MITextField*)[cell viewWithTag:1];
-            tf_train.text = _trains[_paramManager.train.intValue - 1];
+            tf_train.text = _trains[_condition.train.intValue - 1];
             break;
         }
        
         case 3:{
             MITextField *tf_dep_stn = (MITextField*)[cell viewWithTag:1];
-            tf_dep_stn.text = _paramManager.dep_stn;
+            tf_dep_stn.text = _condition.dep_stn;
             tf_dep_stn.delegate = self;
             tf_dep_stn.indexPath = indexPath;
             break;
@@ -149,7 +149,7 @@ UITextFieldDelegate>
             
         case 4:{
             MITextField *tf_arr_stn = (MITextField*)[cell viewWithTag:1];
-            tf_arr_stn.text = _paramManager.arr_stn;
+            tf_arr_stn.text = _condition.arr_stn;
             tf_arr_stn.delegate  = self;
             tf_arr_stn.indexPath = indexPath;
             break;
@@ -233,7 +233,7 @@ UITextFieldDelegate>
 {
     
     NSString *selectedNum = [NSString stringWithFormat:@"%d",(int)row+1];
-    _paramManager.train = selectedNum;
+    _condition.train = selectedNum;
     
     //テーブル更新
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
@@ -254,10 +254,10 @@ UITextFieldDelegate>
         
         case 0:{//乗車年月日
             if(textField.tag == 1){//month
-                _paramManager.month = textField.text;
+                _condition.month = textField.text;
             
             }else{//date
-                _paramManager.day = textField.text;
+                _condition.day = textField.text;
             }
             
             break;
@@ -265,21 +265,21 @@ UITextFieldDelegate>
            
         case 1:{//時間
             if(textField.tag == 1){//hour
-                _paramManager.hour  = textField.text;
+                _condition.hour  = textField.text;
                 
             }else{//minute
-                _paramManager.minute = textField.text;
+                _condition.minute = textField.text;
             }
             break;
         }
             
         case 3:{//dep_stn
-            _paramManager.dep_stn = textField.text;
+            _condition.dep_stn = textField.text;
             break;
         }
             
         case 4:{//arr_strn
-            _paramManager.arr_stn = textField.text;
+            _condition.arr_stn = textField.text;
             break;
         }
             
@@ -301,6 +301,7 @@ UITextFieldDelegate>
 - (void)btSearchPressed
 {
     ResultsViewController *resultCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultsViewController"];
+    resultCon.condition = _condition;
     [self.navigationController pushViewController:resultCon animated:YES];
 }
 

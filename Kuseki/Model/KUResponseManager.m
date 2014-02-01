@@ -57,20 +57,20 @@ static KUResponseManager *_sharedManager = nil;
 
 
 //情報取得
-- (void)getResponsesWithParam:(KUSearchParamManager*)paramManager completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure
+- (void)getResponsesWithParam:(KUSearchCondition*)condition completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure
 {
     //url
     NSURL  *base_url = [NSURL URLWithString:@"http://www1.jr.cyberstation.ne.jp/"];
     NSString *path = @"csws/Vacancy.do";
     
     //param
-    NSDictionary *param = @{@"month":paramManager.month,
-                            @"day":paramManager.day,
-                            @"hour":paramManager.hour,
-                            @"minute":paramManager.minute,
-                            @"train":paramManager.train,
-                            @"dep_stn":paramManager.dep_stn,
-                            @"arr_stn":paramManager.arr_stn
+    NSDictionary *param = @{@"month":condition.month,
+                            @"day":condition.day,
+                            @"hour":condition.hour,
+                            @"minute":condition.minute,
+                            @"train":condition.train,
+                            @"dep_stn":condition.dep_stn,
+                            @"arr_stn":condition.arr_stn
                             };
     
     

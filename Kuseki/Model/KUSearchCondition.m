@@ -33,6 +33,20 @@
 }
 
 
+- (id)init{
+    
+    self = [super init];
+    
+    if(!self){
+        return nil;
+    }
+    
+    [self initializeCondition];
+    
+    return self;
+}
+
+
 - (void)postCondition
 {
     KUDBClient *client = [KUDBClient sharedClient];
@@ -47,5 +61,15 @@
 }
 
 
+- (void)initializeCondition
+{
+    _month = @"01";
+    _day = @"01";
+    _hour  = @"01";
+    _minute = @"01";
+    _train = @"1";
+    _dep_stn = @"東京";
+    _arr_stn = @"新大阪";
+}
 
 @end

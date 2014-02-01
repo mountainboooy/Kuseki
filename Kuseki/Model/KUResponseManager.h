@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "KUSearchParamManager.h"
+#import "KUSearchCondition.h"
 typedef void (^KUResponseNetworkCompletion)();
 typedef void (^KUResponseNetworkFailure)();
 
@@ -18,6 +18,6 @@ typedef void (^KUResponseNetworkFailure)();
 
 - (NSArray*)setInfoWithBodyData:(NSString*)bodyData;
 
-- (void)getResponsesWithParam:(KUSearchParamManager*)paramManager completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure;
+- (void)getResponsesWithParam:(KUSearchCondition*)condition completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure;
 
 @end

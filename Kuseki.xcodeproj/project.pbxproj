@@ -38,6 +38,7 @@
 		05A77880188A30D300B1026C /* KUClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7787F188A30D300B1026C /* KUClient.m */; };
 		05A77884188A35BA00B1026C /* KUClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A77883188A35BA00B1026C /* KUClientTests.m */; };
 		05D7E241189CE93D00E9B04E /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E240189CE93D00E9B04E /* ConditionsViewController.m */; };
+		05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E243189D035400E9B04E /* SavedResultViewController.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,8 @@
 		05A77883188A35BA00B1026C /* KUClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUClientTests.m; sourceTree = "<group>"; };
 		05D7E23F189CE93D00E9B04E /* ConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionsViewController.h; sourceTree = "<group>"; };
 		05D7E240189CE93D00E9B04E /* ConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionsViewController.m; sourceTree = "<group>"; };
+		05D7E242189D035400E9B04E /* SavedResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedResultViewController.h; sourceTree = "<group>"; };
+		05D7E243189D035400E9B04E /* SavedResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedResultViewController.m; sourceTree = "<group>"; };
 		0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -232,6 +235,8 @@
 				05914016188939B8009D87F9 /* ResultsViewController.m */,
 				05D7E23F189CE93D00E9B04E /* ConditionsViewController.h */,
 				05D7E240189CE93D00E9B04E /* ConditionsViewController.m */,
+				05D7E242189D035400E9B04E /* SavedResultViewController.h */,
+				05D7E243189D035400E9B04E /* SavedResultViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */,
 				0545DE64189A64CA008B55F5 /* KUSearchConditionManager.m in Sources */,
 				0589B112188403F900DBE642 /* AppDelegate.m in Sources */,
+				05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */,
 				059140071887E560009D87F9 /* InputViewController.m in Sources */,
 				05A77880188A30D300B1026C /* KUClient.m in Sources */,
 				05914014188932B7009D87F9 /* KUSearchParamManager.m in Sources */,

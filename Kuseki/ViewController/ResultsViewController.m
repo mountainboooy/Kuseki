@@ -23,7 +23,7 @@
     
     
     //model
-    KUSearchParamManager *_paramManager;
+    KUSearchCondition    *_condition;
     KUResponseManager    *_responseManager;
     
     KUClient *_client;
@@ -44,10 +44,9 @@
     _tableView.delegate = self;
     
     //model
-    _paramManager = [KUSearchParamManager sharedManager];
     _responseManager = [KUResponseManager sharedManager];
     
-    [_responseManager getResponsesWithParam:_paramManager completion:^{
+    [_responseManager getResponsesWithParam:_condition completion:^{
         NSLog(@"completion:");
         NSLog(@"num:%lu",(unsigned long)_responseManager.responses.count);
         [_tableView reloadData];
@@ -108,17 +107,8 @@
 
 
 - (IBAction)btSavePressed:(id)sender {
-    
-    KUSearchCondition *condition = [KUSearchCondition new];
-    condition.month = _paramManager.month;
-    condition.day = _paramManager.day;
-    condition.hour = _paramManager.hour;
-    condition.minute = _paramManager.minute;
-    condition.train  = _paramManager.train;
-    condition.dep_stn = _paramManager.dep_stn;
-    condition.arr_stn = _paramManager.arr_stn;
-    
-    [condition postCondition];
+
+    [_condition postCondition];
     
     //確認
     KUSearchConditionManager *manager = [KUSearchConditionManager sharedManager];
