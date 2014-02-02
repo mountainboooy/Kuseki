@@ -108,7 +108,8 @@
     
 }
 
-- (IBAction)backBtPressed:(id)sender {
+
+- (IBAction)btBackPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

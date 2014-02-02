@@ -78,8 +78,22 @@
     
     KUSearchCondition *condition = _conditionManager.conditions[indexPath.row];
     
-    UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:1];
+    //月日
+    UILabel *lb_month_day = (UILabel*)[cell viewWithTag:1];
+    lb_month_day.text = [NSString stringWithFormat:@"%@月%@日", condition.month, condition.day];
+    
+    //時間
+    UILabel *lb_time = (UILabel*)[cell viewWithTag:2];
+    lb_time.text = [NSString stringWithFormat:@"%@時%@分",condition.hour, condition.minute];
+    
+    //dep_stn
+    UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:3];
     lb_dep_stn.text = condition.dep_stn;
+    
+    //arr_stn
+    UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:4];
+    lb_arr_stn.text= condition.arr_stn;
+    
     
 }
 
@@ -93,5 +107,9 @@
     
     
 }
+
+
+
+
 
 @end
