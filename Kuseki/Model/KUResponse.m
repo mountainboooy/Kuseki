@@ -18,7 +18,7 @@
         return nil;
     }
     
-    _name = dic[@"name"];
+    _name = [self validateTrainName:dic[@"name"]];
     _dep_time = dic[@"dep_time"];
     _arr_time = dic[@"arr_time"];
     _seat_ec_ns = [self seatValueForString:dic[@"seat_ec_ns"]];
@@ -72,6 +72,37 @@
 {
     KUDBClient *client = [KUDBClient sharedClient];
     [client updateResponse:self];
+}
+
+
+//列車名を最適化
+- (NSString*)validateTrainName:(NSString*)name
+{
+    NSString *validatedName;
+    
+    //空白を無くす
+    validatedName = [name stringByReplacingOccurrencesOfString:@"　" withString:@" "];
+    
+    //<全席禁煙>も省く
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"＜全席禁煙＞" withString:@""];
+    
+    //数字は半角に
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"０" withString:@"0"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"１" withString:@"1"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"２" withString:@"2"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"３" withString:@"3"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"４" withString:@"4"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"５" withString:@"5"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"６" withString:@"6"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"７" withString:@"7"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"８" withString:@"8"];
+    validatedName = [validatedName stringByReplacingOccurrencesOfString:@"９" withString:@"9"];
+    
+    
+    
+    
+    return validatedName;
+ 
 }
 
 @end

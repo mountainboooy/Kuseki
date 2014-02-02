@@ -23,6 +23,8 @@ static KUResponseManager *_sharedManager = nil;
         _sharedManager.responses = [NSMutableArray new];
         
     }
+    
+    [_sharedManager initializeResponses];
     return _sharedManager;
 }
 
@@ -149,6 +151,11 @@ static KUResponseManager *_sharedManager = nil;
     
 }
 
+
+- (void)initializeResponses
+{
+    [_responses removeAllObjects];
+}
 
 
 
