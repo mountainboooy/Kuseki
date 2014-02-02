@@ -52,4 +52,12 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
++ (void)showAlertWithTitle:(NSString*)title message:(NSString*)message
+{
+    UIAlertView *al = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [al show];
+    
+}
 @end

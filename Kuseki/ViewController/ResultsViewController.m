@@ -151,7 +151,14 @@
 
 - (IBAction)btSavePressed:(id)sender {
 
-    [_condition postCondition];
+    [_condition postConditionWithCompletion:^{
+        NSString *message = @"この検索条件を保存しました";
+        [AppDelegate showAlertWithTitle:nil message:message];
+        
+    } failure:^{
+        NSString *message = @"保存に失敗しました";
+        [AppDelegate showAlertWithTitle:nil message:message];
+    }];
     
     //確認
     KUSearchConditionManager *manager = [KUSearchConditionManager sharedManager];

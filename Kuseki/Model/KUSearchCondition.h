@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "KUSearchParamManager.h"
+typedef void (^KUSearchConditionCompetion)();
+typedef void (^KUSearchConditionFailure)();
 
 @interface KUSearchCondition : NSObject
 
@@ -22,7 +24,7 @@
 
 
 - (id)initWithDictionary:(NSDictionary*)dic;
-- (void)postCondition;
+- (void)postConditionWithCompletion:(KUSearchConditionCompetion)completion failure:(KUSearchConditionFailure)failure;
 - (void)deleteCondition;
 
 @end
