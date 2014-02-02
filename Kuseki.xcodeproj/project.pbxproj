@@ -39,6 +39,11 @@
 		05A77884188A35BA00B1026C /* KUClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A77883188A35BA00B1026C /* KUClientTests.m */; };
 		05D7E241189CE93D00E9B04E /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E240189CE93D00E9B04E /* ConditionsViewController.m */; };
 		05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E243189D035400E9B04E /* SavedResultViewController.m */; };
+		05D7E24B189DFE1400E9B04E /* seat_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D7E246189DFE1400E9B04E /* seat_full@2x.png */; };
+		05D7E24C189DFE1400E9B04E /* seat_invalid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D7E247189DFE1400E9B04E /* seat_invalid@2x.png */; };
+		05D7E24D189DFE1400E9B04E /* seat_bit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D7E248189DFE1400E9B04E /* seat_bit@2x.png */; };
+		05D7E24E189DFE1400E9B04E /* seat_not_exist_smokingseat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D7E249189DFE1400E9B04E /* seat_not_exist_smokingseat@2x.png */; };
+		05D7E24F189DFE1400E9B04E /* seat_vacant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D7E24A189DFE1400E9B04E /* seat_vacant@2x.png */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +107,11 @@
 		05D7E240189CE93D00E9B04E /* ConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionsViewController.m; sourceTree = "<group>"; };
 		05D7E242189D035400E9B04E /* SavedResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedResultViewController.h; sourceTree = "<group>"; };
 		05D7E243189D035400E9B04E /* SavedResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedResultViewController.m; sourceTree = "<group>"; };
+		05D7E246189DFE1400E9B04E /* seat_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seat_full@2x.png"; sourceTree = "<group>"; };
+		05D7E247189DFE1400E9B04E /* seat_invalid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seat_invalid@2x.png"; sourceTree = "<group>"; };
+		05D7E248189DFE1400E9B04E /* seat_bit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seat_bit@2x.png"; sourceTree = "<group>"; };
+		05D7E249189DFE1400E9B04E /* seat_not_exist_smokingseat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seat_not_exist_smokingseat@2x.png"; sourceTree = "<group>"; };
+		05D7E24A189DFE1400E9B04E /* seat_vacant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seat_vacant@2x.png"; sourceTree = "<group>"; };
 		0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -181,6 +191,7 @@
 		0589B107188403F900DBE642 /* Kuseki */ = {
 			isa = PBXGroup;
 			children = (
+				05D7E245189DFE0300E9B04E /* Images */,
 				05A7787D188A30D300B1026C /* Network */,
 				0591401118893291009D87F9 /* Model */,
 				0591400A1887EA57009D87F9 /* UIParts */,
@@ -278,6 +289,18 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		05D7E245189DFE0300E9B04E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				05D7E246189DFE1400E9B04E /* seat_full@2x.png */,
+				05D7E247189DFE1400E9B04E /* seat_invalid@2x.png */,
+				05D7E248189DFE1400E9B04E /* seat_bit@2x.png */,
+				05D7E249189DFE1400E9B04E /* seat_not_exist_smokingseat@2x.png */,
+				05D7E24A189DFE1400E9B04E /* seat_vacant@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +350,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Takeru Yoshihara";
 				TargetAttributes = {
+					0589B0FD188403F900DBE642 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					0589B11E188403FA00DBE642 = {
 						TestTargetID = 0589B0FD188403F900DBE642;
 					};
@@ -357,8 +387,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0589B11A188403F900DBE642 /* Images.xcassets in Resources */,
+				05D7E24E189DFE1400E9B04E /* seat_not_exist_smokingseat@2x.png in Resources */,
+				05D7E24C189DFE1400E9B04E /* seat_invalid@2x.png in Resources */,
 				0589B10C188403F900DBE642 /* InfoPlist.strings in Resources */,
+				05D7E24D189DFE1400E9B04E /* seat_bit@2x.png in Resources */,
 				0589B115188403F900DBE642 /* Main.storyboard in Resources */,
+				05D7E24B189DFE1400E9B04E /* seat_full@2x.png in Resources */,
+				05D7E24F189DFE1400E9B04E /* seat_vacant@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

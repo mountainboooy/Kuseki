@@ -33,6 +33,7 @@
 
 - (enum KUSheetValue)seatValueForString:(NSString*)str
 {
+    NSLog(@"str:%@",str);
     if ([str isEqualToString:@"○"]) {
         return SEAT_VACANT;
     }
@@ -41,7 +42,7 @@
         return SEAT_BIT;
     }
     
-    if ([str isEqualToString:@"*"]) {
+    if ([str isEqualToString:@"＊"]) {
         return SEAT_NOT_EXIST_SMOKINGSEAT;
     }
     

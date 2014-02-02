@@ -82,8 +82,29 @@
     
     KUResponse * response = _responseManager.responses[indexPath.row];
     
+    //name
     UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
     lb_name.text = response.name;
+    
+    //dep_time
+    UILabel *lb_dep_time = (UILabel*)[cell viewWithTag:2];
+    
+    //arr_time
+    UILabel *lb_arr_time = (UILabel*)[cell viewWithTag:3];
+    
+    //ec_ns
+    UIImageView *iv_ec_ns = (UIImageView*)[cell viewWithTag:4];
+    
+    //ec_s
+    UIImageView *iv_ec_s = (UIImageView*)[cell viewWithTag:5];
+    
+    //gr_ns
+    UIImageView *iv_gr_ns = (UIImageView*)[cell viewWithTag:6];
+    
+    //gr_s
+    UIImageView *iv_gr_s = (UIImageView*)[cell viewWithTag:7];
+    
+    
     
 }
 
