@@ -89,6 +89,23 @@
     
 }
 
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header0"];
+    UILabel *lb_month_day = (UILabel*)[cell viewWithTag:1];
+    UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
+    UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
+    
+    lb_month_day.text = [NSString stringWithFormat:@"%@月%@日",_condition.month, _condition.day];
+    lb_dep_stn.text = _condition.dep_stn;
+    lb_arr_stn.text = _condition.arr_stn;
+    
+    return cell;
+    
+}
+
+
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     KUResponse *response = _responseManager.responses[indexPath.row];
@@ -186,5 +203,10 @@
     return [UIImage imageNamed:imgName];
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 35;
+}
 
 @end
