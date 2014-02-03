@@ -9,6 +9,8 @@
 #import "SavedResultViewController.h"
 #import "KUResponse.h"
 #import "KUResponseManager.h"
+#import "KUButton.h"
+#import "KUSwitch.h"
 
 @interface SavedResultViewController ()
 <UITableViewDelegate, UITableViewDataSource>
@@ -127,12 +129,22 @@
     UIImageView *iv_gr_s = (UIImageView*)[cell viewWithTag:7];
     iv_gr_s.image = [self imgForSeatValue:response.seat_gr_s];
     
+    //bt_delete
+    KUButton *bt_delete = (KUButton*)[cell viewWithTag:8];
+    bt_delete.indexPath = indexPath;
+    [bt_delete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //switch
+    KUSwitch *sw_notification = (KUSwitch*)[cell viewWithTag:9];
+    sw_notification.indexPath = indexPath;
+    [sw_notification addTarget:self action:@selector(swNotificationChanged:) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 65;
+    return 100;
 }
 
 
@@ -149,7 +161,18 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)btDeletePressed:(KUButton*)bt
+{
+    NSLog(@"pushDelete");
+    
+}
 
+
+- (void)swNotificationChanged:(KUSwitch*)sw
+{
+    NSString *str = (sw.on)? @"on" : @"off";
+    NSLog(str);
+}
 
 #pragma mark -
 #pragma mark private method
