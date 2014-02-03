@@ -134,6 +134,8 @@
     sw_notification.indexPath = indexPath;
     [sw_notification addTarget:self action:@selector(swNotificationChanged:) forControlEvents:UIControlEventValueChanged];
     
+    sw_notification.on = (response.identifier)? YES:NO;
+    
 }
 
 
@@ -160,7 +162,19 @@
 
 - (void)swNotificationChanged:(KUSwitch*)sw
 {
-    NSString *str = (sw.on)? @"on" : @"off";
+    KUResponse *response = _responseManager.responses[sw.indexPath.row];
+    
+    if (sw.on) {//通知オン
+        [response insertToNotificationList];
+        NSLog(@"on");
+    }
+    
+    else if(!sw.on){//通知オフ
+        [response deleteFromNotificationList];
+        NSLog(@"off");
+    }
+    
+    
 }
 
 #pragma mark -

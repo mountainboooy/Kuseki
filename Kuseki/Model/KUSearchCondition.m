@@ -50,7 +50,6 @@
 - (void)postConditionWithCompletion:(KUSearchConditionCompetion)completion failure:(KUSearchConditionFailure)failure
 {
     KUDBClient *client = [KUDBClient sharedClient];
-    [client  createTableWithName:KU_TABLE_CONDITIONS];
     
     [client insertCondition:self];
     //TODO クライアントからcompletion or failureをうけとる

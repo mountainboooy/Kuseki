@@ -96,6 +96,8 @@ static KUDBClient *_sharedClient = nil;
 //データ挿入
 - (void)insertResponse:(KUResponse*)response
 {
+    [self createTableWithName:KU_TABLE_RESPONSES];
+    
     if (!response) {
         NSException *ex = [NSException exceptionWithName:@"InsertResponseException" reason:nil userInfo:nil];
         
@@ -149,10 +151,12 @@ static KUDBClient *_sharedClient = nil;
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"DELETE FROM responses WHERE id = ?";
+    //NSString *sql = @"DELETE FROM responses WHERE id = ?";
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM responses WHERE id = %@",response.identifier];
+    NSLog(@"sql:%@",sql);
     
     [db open];
-    [db executeUpdate:sql, [NSNumber numberWithInt:[response.identifier intValue]]];
+    [db executeUpdate:sql];
     [db close];
     
 }
