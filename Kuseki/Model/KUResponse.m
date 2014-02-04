@@ -25,10 +25,8 @@
     _seat_ec_s = [self seatValueForString:dic[@"seat_ec_s"]];
     _seat_gr_ns = [self seatValueForString:dic[@"seat_gr_ns"]];
     _seat_gr_s = [self seatValueForString:dic[@"seat_gr_s"]];
-    _identifier = [self identifierOfNotificationList];
     
     return self;
-    
 }
 
 
@@ -57,42 +55,6 @@
 }
 
 
-- (void)insertToNotificationList
-{
-    KUDBClient *client = [KUDBClient sharedClient];
-    [client insertResponse:self];
-}
-
-- (void)deleteFromNotificationList
-{
-    KUDBClient *client = [KUDBClient sharedClient];
-    [client deleteResponse:self];
-}
-
-/*
-- (void)update
-{
-    KUDBClient *client = [KUDBClient sharedClient];
-    [client updateResponse:self];
-}
-*/
-
-
-- (NSString*)identifierOfNotificationList
-{
-    KUDBClient *client = [KUDBClient sharedClient];
-    NSArray *saved_responses = [client selectAllResponses];
-    NSLog(@"arrya.count:%d",saved_responses.count);
-    
-    for (KUResponse * saved_response in saved_responses) {
-        if ([saved_response.name isEqualToString:self.name] &&
-            [saved_response.dep_time isEqualToString:self.dep_time] &&
-            [saved_response.arr_time isEqualToString:self.arr_time]) {
-            return saved_response.identifier;
-        }
-    }
-    return nil;
-}
 
 
 //列車名を最適化
@@ -118,13 +80,30 @@
     validatedName = [validatedName stringByReplacingOccurrencesOfString:@"８" withString:@"8"];
     validatedName = [validatedName stringByReplacingOccurrencesOfString:@"９" withString:@"9"];
     
-    
-    
-    
     return validatedName;
  
 }
 
+
+- (BOOL)isNotificationTarget
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    
+    NSArray *savedTargets = [client selectAllNotificationTargets];
+    for (KUNotificationTarget *savedTarget in savedTargets) {
+        
+        NSLog(@"saved:%@",savedTarget.name);
+        NSLog(@"self:%@",_name);
+        if ([savedTarget.name  isEqualToString:self.name] &&
+            [savedTarget.dep_time isEqualToString:self.dep_time] &&
+            [savedTarget.arr_time isEqualToString:self.arr_time]) {
+            
+            return YES;
+    }
+    }
+    
+    return NO;
+}
 
 
 

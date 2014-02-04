@@ -1,15 +1,17 @@
 //
-//  KUResponse.h
+//  KUNotificationTarget.h
 //  Kuseki
 //
-//  Created by Takeru Yoshihara on 2014/01/17.
+//  Created by Takeru Yoshihara on 2014/02/04.
 //  Copyright (c) 2014年 Takeru Yoshihara. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-enum KUSheetValue {SEAT_VACANT, SEAT_BIT, SEAT_FULL, SEAT_INVALID, SEAT_NOT_EXIST_SMOKINGSEAT };
+#import "KUResponse.h"
+#import "KUSearchCondition.h"
 
-@interface KUResponse : NSObject
+
+@interface KUNotificationTarget : NSObject
 
 @property (nonatomic,strong) NSString *identifier;
 @property (nonatomic,strong) NSString *name;
@@ -19,8 +21,14 @@ enum KUSheetValue {SEAT_VACANT, SEAT_BIT, SEAT_FULL, SEAT_INVALID, SEAT_NOT_EXIS
 @property enum KUSheetValue seat_ec_s;
 @property enum KUSheetValue seat_gr_ns;
 @property enum KUSheetValue seat_gr_s;
+@property (nonatomic,strong) NSString *condition_id;
 
-- (id)initWithDictionary:(NSDictionary*)dic;
-- (BOOL)isNotificationTarget;
++ (void)saveWithResponse:(KUResponse*)response condition:(KUSearchCondition*)condition;
+
++ (void)removeWithResonse:(KUResponse*)response condition:(KUSearchCondition*)condition;
+
++ (void)update;
+
+
 
 @end

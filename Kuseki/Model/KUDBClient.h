@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "KUResponse.h"
+#import "KUNotificationTarget.h"
 #import "KUSearchCondition.h"
 
-enum KUTableName {KU_TABLE_RESPONSES, KU_TABLE_CONDITIONS };
+enum KUTableName {KU_TABLE_NOTIFICATION_TARGETS, KU_TABLE_CONDITIONS };
 
 
 @interface KUDBClient : NSObject
@@ -22,12 +22,16 @@ enum KUTableName {KU_TABLE_RESPONSES, KU_TABLE_CONDITIONS };
 
 - (void)deleteTableWithName:(enum KUTableName)tableName;
 - (void)createTableWithName:(enum KUTableName)tableName;
-- (void)insertResponse:(KUResponse*)response;
+
+- (void)insertNotificationTarget:(KUNotificationTarget*)target;
 - (void)insertCondition:(KUSearchCondition*)condition;
-- (void)deleteResponse:(KUResponse*)response;
+
+- (void)deleteNotificationTarget:(KUNotificationTarget*)target;
 - (void)deleteCondition:(KUSearchCondition*)condition;
-- (void)updateResponse:(KUResponse*)response;
-- (NSArray*)selectAllResponses;
+
+- (void)updateNotificationTarget:(KUNotificationTarget*)target;
+
+- (NSArray*)selectAllNotificationTargets;
 - (NSArray*)selectAllConditions;
 
 @end

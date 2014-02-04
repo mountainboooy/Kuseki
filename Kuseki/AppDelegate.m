@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "KUSearchConditionManager.h"
+#import "KUResponseManager.h"
 
 @implementation AppDelegate
 
@@ -21,7 +23,24 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
+    /*
     NSLog(@"takeru");
+    
+    KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
+    [conditionManager getConditionsFromDB];
+    
+    if (conditionManager.conditions.count == 0) {
+        return;
+    }
+    
+    KUResponseManager *responseManager = [KUResponseManager sharedManager];
+    */
+    
+    
+    
+    //通知用のリストを探す
+    //リストに当てはまるurlから結果を取得
+    //ステータスが変わったものがあれば通知
     
 }
 							

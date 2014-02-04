@@ -152,6 +152,7 @@ static KUResponseManager *_sharedManager = nil;
 }
 
 
+
 - (void)initializeResponses
 {
     [_responses removeAllObjects];

@@ -11,6 +11,7 @@
 #import "KUResponseManager.h"
 #import "KUButton.h"
 #import "KUSwitch.h"
+#import "KUNotificationTarget.h"
 
 @interface SavedResultViewController ()
 <UITableViewDelegate, UITableViewDataSource>
@@ -134,7 +135,7 @@
     sw_notification.indexPath = indexPath;
     [sw_notification addTarget:self action:@selector(swNotificationChanged:) forControlEvents:UIControlEventValueChanged];
     
-    sw_notification.on = (response.identifier)? YES:NO;
+    sw_notification.on = ([response isNotificationTarget])? YES:NO;
     
 }
 
@@ -165,13 +166,13 @@
     KUResponse *response = _responseManager.responses[sw.indexPath.row];
     
     if (sw.on) {//通知オン
-        [response insertToNotificationList];
-        NSLog(@"on");
+        [KUNotificationTarget saveWithResponse:response condition:_condition];
     }
     
     else if(!sw.on){//通知オフ
-        [response deleteFromNotificationList];
-        NSLog(@"off");
+        
+        [KUNotificationTarget removeWithResonse:response condition:_condition];
+        
     }
     
     

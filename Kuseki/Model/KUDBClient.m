@@ -61,8 +61,8 @@ static KUDBClient *_sharedClient = nil;
     if (tableName == KU_TABLE_CONDITIONS) {
         name = @"conditions";
     
-    }else if (tableName == KU_TABLE_RESPONSES){
-        name = @"responses";
+    }else if (tableName == KU_TABLE_NOTIFICATION_TARGETS){
+        name = @"notification_targets";
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
@@ -80,8 +80,8 @@ static KUDBClient *_sharedClient = nil;
     if (tableName == KU_TABLE_CONDITIONS) {//検索条件
         sql = @"CREATE TABLE IF NOT EXISTS conditions (id INTEGER PRIMARY KEY AUTOINCREMENT, month TEXT, day TEXT, hour TEXT, minute TEXT, train TEXT, dep_stn TEXT, arr_stn TEXT)";
         
-    }else if (tableName == KU_TABLE_RESPONSES){//検索結果
-        sql = @"CREATE TABLE IF NOT EXISTS responses (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, dep_time TEXT, arr_time TEXT, seat_ec_ns TEXT, seat_ec_s TEXT, seat_gr_ns TEXT, seat_gr_s TEXT )";
+    }else if (tableName == KU_TABLE_NOTIFICATION_TARGETS){//検索結果
+        sql = @"CREATE TABLE IF NOT EXISTS notification_targets (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, dep_time TEXT, arr_time TEXT, seat_ec_ns TEXT, seat_ec_s TEXT, seat_gr_ns TEXT, seat_gr_s TEXT, condition_id TEXT )";
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
@@ -94,28 +94,28 @@ static KUDBClient *_sharedClient = nil;
 
 
 //データ挿入
-- (void)insertResponse:(KUResponse*)response
+- (void)insertNotificationTarget:(KUNotificationTarget*)target
 {
-    [self createTableWithName:KU_TABLE_RESPONSES];
+    [self createTableWithName:KU_TABLE_NOTIFICATION_TARGETS];
     
-    if (!response) {
-        NSException *ex = [NSException exceptionWithName:@"InsertResponseException" reason:nil userInfo:nil];
+    if (!target) {
+        NSException *ex = [NSException exceptionWithName:@"InsertNotificationTargetException" reason:nil userInfo:nil];
         
         [ex raise];
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"INSERT INTO responses(name, dep_time, arr_time, seat_ec_ns, seat_ec_s, seat_gr_ns, seat_gr_s) VALUES(?,?,?,?,?,?,?)";
+    NSString *sql = @"INSERT INTO notification_targets(name, dep_time, arr_time, seat_ec_ns, seat_ec_s, seat_gr_ns, seat_gr_s, condition_id) VALUES(?,?,?,?,?,?,?,?)";
     
     //クエリ準備
-    NSString *ec_ns = [NSString stringWithFormat:@"%d",response.seat_ec_ns];
-    NSString *ec_s = [NSString stringWithFormat:@"%d",response.seat_ec_s];
-    NSString *gr_ns = [NSString stringWithFormat:@"%d",response.seat_gr_ns];
-    NSString *gr_s  = [NSString stringWithFormat:@"%d",response.seat_gr_s];
+    NSString *ec_ns = [NSString stringWithFormat:@"%d",target.seat_ec_ns];
+    NSString *ec_s = [NSString stringWithFormat:@"%d",target.seat_ec_s];
+    NSString *gr_ns = [NSString stringWithFormat:@"%d",target.seat_gr_ns];
+    NSString *gr_s  = [NSString stringWithFormat:@"%d",target.seat_gr_s];
     
     
     [db open];
-    [db executeUpdate:sql, response.name, response.dep_time, response.arr_time,ec_ns, ec_s, gr_ns, gr_s ];
+    [db executeUpdate:sql, target.name, target.dep_time, target.arr_time, ec_ns, ec_s, gr_ns, gr_s, target.condition_id ];
     
     [db close];
 
@@ -123,6 +123,8 @@ static KUDBClient *_sharedClient = nil;
 
 
 - (void)insertCondition:(KUSearchCondition*)condition{
+    
+    [self createTableWithName:KU_TABLE_CONDITIONS];
     
     if (!condition) {
         NSException *ex = [NSException exceptionWithName:@"InsertConditionException" reason:nil userInfo:nil];
@@ -142,17 +144,17 @@ static KUDBClient *_sharedClient = nil;
 
 
 //データ削除
-- (void)deleteResponse:(KUResponse*)response{
+- (void)deleteNotificationTarget:(KUNotificationTarget*)target{
     
-    if (!response) {
-        NSException *ex = [NSException exceptionWithName:@"DeleteResponseException" reason:nil userInfo:nil];
+    if (!target) {
+        NSException *ex = [NSException exceptionWithName:@"DeleteNotificationTargetException" reason:nil userInfo:nil];
         
         [ex raise];
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    //NSString *sql = @"DELETE FROM responses WHERE id = ?";
-    NSString *sql = [NSString stringWithFormat:@"DELETE FROM responses WHERE id = %@",response.identifier];
+    //NSString *sql = @"DELETE FROM notification_targets WHERE id = ?";
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM notification_targets WHERE id = %@",target.identifier];
     NSLog(@"sql:%@",sql);
     
     [db open];
@@ -181,18 +183,18 @@ static KUDBClient *_sharedClient = nil;
 
 
 //データ更新
-- (void)updateResponse:(KUResponse*)response{
+- (void)updateNotificationtarget:(KUNotificationTarget*)target{
     
-    if (!response) {
-        NSException *ex = [NSException exceptionWithName:@"UpdateResponseException" reason:nil userInfo:nil];
+    if (!target) {
+        NSException *ex = [NSException exceptionWithName:@"UpdateNotificationTargetException" reason:nil userInfo:nil];
         
         [ex raise];
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"UPDATE responses SET name = ?, dep_time = ?, arr_time = ?, seat_ec_ns = ?, seat_ec_s = ?, seat_gr_ns = ?, seat_gr_s = ? WHERE id = ? VALUES(?,?,?,?,?,?,?,?)";
+    NSString *sql = @"UPDATE notification_targets SET name = ?, dep_time = ?, arr_time = ?, seat_ec_ns = ?, seat_ec_s = ?, seat_gr_ns = ?, seat_gr_s = ?, condition_id = ? WHERE id = ? VALUES(?,?,?,?,?,?,?,?)";
     [db open];
-    [db executeUpdate:sql, response.name, response.dep_time, response.arr_time, response.seat_ec_ns, response.seat_ec_s, response.seat_gr_ns, response.seat_gr_s];
+    [db executeUpdate:sql, target.name, target.dep_time, target.arr_time, target.seat_ec_ns, target.seat_ec_s, target.seat_gr_ns, target.seat_gr_s, target.condition_id];
     
     
     [db close];
@@ -201,10 +203,10 @@ static KUDBClient *_sharedClient = nil;
 
 
 //データ取得
-- (NSArray*)selectAllResponses
+- (NSArray*)selectAllNotificationTargets
 {
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"SELECT * FROM responses";
+    NSString *sql = @"SELECT * FROM notification_targets";
     
     [db open];
     FMResultSet *results = [db executeQuery:sql];
@@ -213,18 +215,19 @@ static KUDBClient *_sharedClient = nil;
     
     while ([results next]) {
         
-        KUResponse *response = [KUResponse new];
+        KUNotificationTarget *target = [KUNotificationTarget new];
         
-        response.identifier = [NSString stringWithFormat:@"%d",[results intForColumn:@"id"]];
-        response.name = [results stringForColumn:@"name"];
-        response.dep_time = [results stringForColumn:@"dep_time"];
-        response.arr_time = [results stringForColumn:@"arr_time"];
-        response.seat_ec_ns = [results stringForColumn:@"seat_ec_ns"].intValue;
-        response.seat_ec_s   = [results stringForColumn:@"seat_ec_s"].intValue;
-        response.seat_gr_ns = [results stringForColumn:@"seat_gr_ns"].intValue;
-        response.seat_gr_s  = [results stringForColumn:@"seat_gr_s"].intValue;
+        target.identifier = [NSString stringWithFormat:@"%d",[results intForColumn:@"id"]];
+        target.name = [results stringForColumn:@"name"];
+        target.dep_time = [results stringForColumn:@"dep_time"];
+        target.arr_time = [results stringForColumn:@"arr_time"];
+        target.seat_ec_ns = [results stringForColumn:@"seat_ec_ns"].intValue;
+        target.seat_ec_s   = [results stringForColumn:@"seat_ec_s"].intValue;
+        target.seat_gr_ns = [results stringForColumn:@"seat_gr_ns"].intValue;
+        target.seat_gr_s  = [results stringForColumn:@"seat_gr_s"].intValue;
+        target.condition_id = [results stringForColumn:@"condition_id"];
         
-        [array addObject:response];
+        [array addObject:target];
     }
     
     NSArray *reversedData = [[array reverseObjectEnumerator]allObjects];
