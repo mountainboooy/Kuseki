@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "KUSearchConditionManager.h"
 #import "KUResponseManager.h"
+#import "KUNotificationTargetsManager.h"
+#import "KUNotificationTarget.h"
 
 @implementation AppDelegate
 
@@ -23,20 +25,19 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    /*
-    NSLog(@"takeru");
     
-    KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
-    [conditionManager getConditionsFromDB];
-    
-    if (conditionManager.conditions.count == 0) {
+    KUNotificationTargetsManager *notification_manager;
+    notification_manager = [KUNotificationTargetsManager sharedManager];
+    if (notification_manager.targets.count == 0) {
         return;
     }
     
-    KUResponseManager *responseManager = [KUResponseManager sharedManager];
-    */
     
-    
+    for (KUNotificationTarget *target in notification_manager.targets) {
+        if ([target statusChangeMessage]) {
+            //[localNotificaiton sendMessage:[target statusChangeMessage]
+        }
+    }
     
     //通知用のリストを探す
     //リストに当てはまるurlから結果を取得

@@ -50,6 +50,7 @@
 		05D7E26C189F971B00E9B04E /* KUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E26B189F971B00E9B04E /* KUButton.m */; };
 		05D7E26F189F974A00E9B04E /* KUSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E26E189F974A00E9B04E /* KUSwitch.m */; };
 		05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
+		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,8 @@
 		05D7E26E189F974A00E9B04E /* KUSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSwitch.m; sourceTree = "<group>"; };
 		05FC27F618A0E64A00C2A0F7 /* KUNotificationTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNotificationTarget.h; sourceTree = "<group>"; };
 		05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTarget.m; sourceTree = "<group>"; };
+		05FC27F918A1044900C2A0F7 /* KUNotificationTargetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNotificationTargetsManager.h; sourceTree = "<group>"; };
+		05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTargetsManager.m; sourceTree = "<group>"; };
 		0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -297,6 +300,8 @@
 				0545DE63189A64CA008B55F5 /* KUSearchConditionManager.m */,
 				05FC27F618A0E64A00C2A0F7 /* KUNotificationTarget.h */,
 				05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */,
+				05FC27F918A1044900C2A0F7 /* KUNotificationTargetsManager.h */,
+				05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				05914017188939B8009D87F9 /* ResultsViewController.m in Sources */,
 				0589B10E188403F900DBE642 /* main.m in Sources */,
 				0591400D1887EA63009D87F9 /* MITextField.m in Sources */,
+				05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */,
 				05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */,
 				05D7E26C189F971B00E9B04E /* KUButton.m in Sources */,
 			);
