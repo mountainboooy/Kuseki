@@ -51,5 +51,43 @@
 		<string>川内</string>
 		<string>鹿児島中央</string>
 	</array>
+	<key>station_id_2</key>
+	<array>
+		<string>東京</string>
+		<string>品川</string>
+		<string>新横浜</string>
+		<string>小田原</string>
+		<string>熱海</string>
+		<string>三島</string>
+		<string>新富士</string>
+		<string>静岡</string>
+		<string>掛川</string>
+		<string>浜松</string>
+		<string>豊橋</string>
+		<string>三河安城</string>
+		<string>名古屋</string>
+		<string>岐阜羽島</string>
+		<string>米原</string>
+		<string>京都</string>
+		<string>新大阪</string>
+		<string>新神戸</string>
+		<string>西明石</string>
+		<string>姫路</string>
+		<string>相生</string>
+		<string>岡山</string>
+		<string>新倉敷</string>
+		<string>福山</string>
+		<string>新尾道</string>
+		<string>三原</string>
+		<string>東広島</string>
+		<string>広島</string>
+		<string>新岩国</string>
+		<string>徳山</string>
+		<string>新山口</string>
+		<string>厚狭</string>
+		<string>新下関</string>
+		<string>小倉</string>
+		<string>博多</string>
+	</array>
 </dict>
 </plist>
