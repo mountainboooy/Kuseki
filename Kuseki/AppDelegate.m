@@ -26,6 +26,9 @@
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     
+    NSLog(@"バックグランド");
+    
+    /*
     KUNotificationTargetsManager *notification_manager;
     notification_manager = [KUNotificationTargetsManager sharedManager];
     if (notification_manager.targets.count == 0) {
@@ -34,14 +37,13 @@
     
     
     for (KUNotificationTarget *target in notification_manager.targets) {
-        if ([target statusChangeMessage]) {
-            //[localNotificaiton sendMessage:[target statusChangeMessage]
-        }
+
     }
     
     //通知用のリストを探す
     //リストに当てはまるurlから結果を取得
     //ステータスが変わったものがあれば通知
+     */
     
 }
 							

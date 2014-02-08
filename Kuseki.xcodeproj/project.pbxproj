@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0520D83118A50076006ABD10 /* KUSavedResponsesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */; };
 		053FA1E41899098900DA5A3F /* KUDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E31899098900DA5A3F /* KUDBClient.m */; };
 		053FA1E718990B3300DA5A3F /* KUSearchCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E618990B3300DA5A3F /* KUSearchCondition.m */; };
 		0545DE5F189A5B7A008B55F5 /* KUSearchConditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545DE5E189A5B7A008B55F5 /* KUSearchConditionTests.m */; };
 		0545DE61189A5F2A008B55F5 /* KUDBClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545DE60189A5F2A008B55F5 /* KUDBClientTests.m */; };
 		0545DE64189A64CA008B55F5 /* KUSearchConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545DE63189A64CA008B55F5 /* KUSearchConditionManager.m */; };
+		054C262518A5F6A700BC1F79 /* KUSavedResponsesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8357218A4F15D00A1CA5B /* KUSavedResponsesManager.m */; };
+		054C262618A5F6BE00BC1F79 /* KUClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7787F188A30D300B1026C /* KUClient.m */; };
+		054C262818A5F80600BC1F79 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 054C262718A5F80600BC1F79 /* libxml2.2.dylib */; };
+		054C262918A5FBF100BC1F79 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
+		054C262A18A5FDF700BC1F79 /* KUResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401918893B67009D87F9 /* KUResponse.m */; };
+		054C262B18A5FE0D00BC1F79 /* KUSearchCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E618990B3300DA5A3F /* KUSearchCondition.m */; };
+		054C262C18A5FE2E00BC1F79 /* KUDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E31899098900DA5A3F /* KUDBClient.m */; };
+		054C262D18A6026C00BC1F79 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
+		054C262E18A602F800BC1F79 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0091188E8E5D00070F7D /* HTMLNode.m */; };
+		054C262F18A6031300BC1F79 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0093188E8E5D00070F7D /* HTMLParser.m */; };
 		057E0094188E8E5D00070F7D /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0091188E8E5D00070F7D /* HTMLNode.m */; };
 		057E0095188E8E5D00070F7D /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0093188E8E5D00070F7D /* HTMLParser.m */; };
 		057E0097188E8FAF00070F7D /* KUResponseManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0096188E8FAF00070F7D /* KUResponseManagerTests.m */; };
@@ -37,6 +48,10 @@
 		0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401C18893D88009D87F9 /* KUResponseManager.m */; };
 		05A77880188A30D300B1026C /* KUClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7787F188A30D300B1026C /* KUClient.m */; };
 		05A77884188A35BA00B1026C /* KUClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A77883188A35BA00B1026C /* KUClientTests.m */; };
+		05B39DB918A67A0D0042F250 /* KUStationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B39DB818A67A0D0042F250 /* KUStationsManager.m */; };
+		05B39DBB18A67A530042F250 /* kUStationsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B39DBA18A67A530042F250 /* kUStationsManagerTests.m */; };
+		05B39DBD18A67FFA0042F250 /* StationsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05B39DBC18A67FFA0042F250 /* StationsList.plist */; };
+		05B39DBE18A680020042F250 /* StationsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05B39DBC18A67FFA0042F250 /* StationsList.plist */; };
 		05D7E241189CE93D00E9B04E /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E240189CE93D00E9B04E /* ConditionsViewController.m */; };
 		05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E243189D035400E9B04E /* SavedResultViewController.m */; };
 		05D7E24B189DFE1400E9B04E /* seat_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D7E246189DFE1400E9B04E /* seat_full@2x.png */; };
@@ -49,6 +64,7 @@
 		05D7E255189E0F3700E9B04E /* ic_seat_ns@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D7E252189E0F3700E9B04E /* ic_seat_ns@2x.png */; };
 		05D7E26C189F971B00E9B04E /* KUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E26B189F971B00E9B04E /* KUButton.m */; };
 		05D7E26F189F974A00E9B04E /* KUSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E26E189F974A00E9B04E /* KUSwitch.m */; };
+		05F8357318A4F15D00A1CA5B /* KUSavedResponsesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8357218A4F15D00A1CA5B /* KUSavedResponsesManager.m */; };
 		05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
@@ -65,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSavedResponsesManagerTests.m; sourceTree = "<group>"; };
 		053FA1E21899098900DA5A3F /* KUDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDBClient.h; sourceTree = "<group>"; };
 		053FA1E31899098900DA5A3F /* KUDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDBClient.m; sourceTree = "<group>"; };
 		053FA1E518990B3300DA5A3F /* KUSearchCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSearchCondition.h; sourceTree = "<group>"; };
@@ -73,6 +90,7 @@
 		0545DE60189A5F2A008B55F5 /* KUDBClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDBClientTests.m; sourceTree = "<group>"; };
 		0545DE62189A64CA008B55F5 /* KUSearchConditionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSearchConditionManager.h; sourceTree = "<group>"; };
 		0545DE63189A64CA008B55F5 /* KUSearchConditionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSearchConditionManager.m; sourceTree = "<group>"; };
+		054C262718A5F80600BC1F79 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		057E0090188E8E5D00070F7D /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
 		057E0091188E8E5D00070F7D /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
 		057E0092188E8E5D00070F7D /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
@@ -110,6 +128,10 @@
 		05A7787E188A30D300B1026C /* KUClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUClient.h; sourceTree = "<group>"; };
 		05A7787F188A30D300B1026C /* KUClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUClient.m; sourceTree = "<group>"; };
 		05A77883188A35BA00B1026C /* KUClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUClientTests.m; sourceTree = "<group>"; };
+		05B39DB718A67A0D0042F250 /* KUStationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUStationsManager.h; sourceTree = "<group>"; };
+		05B39DB818A67A0D0042F250 /* KUStationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUStationsManager.m; sourceTree = "<group>"; };
+		05B39DBA18A67A530042F250 /* kUStationsManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kUStationsManagerTests.m; sourceTree = "<group>"; };
+		05B39DBC18A67FFA0042F250 /* StationsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StationsList.plist; sourceTree = "<group>"; };
 		05D7E23F189CE93D00E9B04E /* ConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionsViewController.h; sourceTree = "<group>"; };
 		05D7E240189CE93D00E9B04E /* ConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionsViewController.m; sourceTree = "<group>"; };
 		05D7E242189D035400E9B04E /* SavedResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedResultViewController.h; sourceTree = "<group>"; };
@@ -126,6 +148,8 @@
 		05D7E26B189F971B00E9B04E /* KUButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUButton.m; sourceTree = "<group>"; };
 		05D7E26D189F974A00E9B04E /* KUSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSwitch.h; sourceTree = "<group>"; };
 		05D7E26E189F974A00E9B04E /* KUSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSwitch.m; sourceTree = "<group>"; };
+		05F8357118A4F15D00A1CA5B /* KUSavedResponsesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSavedResponsesManager.h; sourceTree = "<group>"; };
+		05F8357218A4F15D00A1CA5B /* KUSavedResponsesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSavedResponsesManager.m; sourceTree = "<group>"; };
 		05FC27F618A0E64A00C2A0F7 /* KUNotificationTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNotificationTarget.h; sourceTree = "<group>"; };
 		05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTarget.m; sourceTree = "<group>"; };
 		05FC27F918A1044900C2A0F7 /* KUNotificationTargetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNotificationTargetsManager.h; sourceTree = "<group>"; };
@@ -151,10 +175,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054C262818A5F80600BC1F79 /* libxml2.2.dylib in Frameworks */,
 				057E009A188E96D800070F7D /* libxml2.dylib in Frameworks */,
 				0589B121188403FA00DBE642 /* XCTest.framework in Frameworks */,
 				0589B123188403FA00DBE642 /* UIKit.framework in Frameworks */,
 				0589B122188403FA00DBE642 /* Foundation.framework in Frameworks */,
+				054C262918A5FBF100BC1F79 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +222,7 @@
 		0589B100188403F900DBE642 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				054C262718A5F80600BC1F79 /* libxml2.2.dylib */,
 				057E0098188E944C00070F7D /* libxml2.dylib */,
 				0589B101188403F900DBE642 /* Foundation.framework */,
 				0589B103188403F900DBE642 /* CoreGraphics.framework */,
@@ -230,6 +257,7 @@
 				0589B10A188403F900DBE642 /* InfoPlist.strings */,
 				0589B10D188403F900DBE642 /* main.m */,
 				0589B10F188403F900DBE642 /* Kuseki-Prefix.pch */,
+				05B39DBC18A67FFA0042F250 /* StationsList.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,6 +270,8 @@
 				057E0096188E8FAF00070F7D /* KUResponseManagerTests.m */,
 				0545DE5E189A5B7A008B55F5 /* KUSearchConditionTests.m */,
 				0545DE60189A5F2A008B55F5 /* KUDBClientTests.m */,
+				0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */,
+				05B39DBA18A67A530042F250 /* kUStationsManagerTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -302,6 +332,10 @@
 				05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */,
 				05FC27F918A1044900C2A0F7 /* KUNotificationTargetsManager.h */,
 				05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */,
+				05F8357118A4F15D00A1CA5B /* KUSavedResponsesManager.h */,
+				05F8357218A4F15D00A1CA5B /* KUSavedResponsesManager.m */,
+				05B39DB718A67A0D0042F250 /* KUStationsManager.h */,
+				05B39DB818A67A0D0042F250 /* KUStationsManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -424,6 +458,7 @@
 				05D7E24D189DFE1400E9B04E /* seat_bit@2x.png in Resources */,
 				0589B115188403F900DBE642 /* Main.storyboard in Resources */,
 				05D7E24B189DFE1400E9B04E /* seat_full@2x.png in Resources */,
+				05B39DBD18A67FFA0042F250 /* StationsList.plist in Resources */,
 				05D7E254189E0F3700E9B04E /* ic_seat_gr@2x.png in Resources */,
 				05D7E24F189DFE1400E9B04E /* seat_vacant@2x.png in Resources */,
 			);
@@ -434,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0589B12B188403FA00DBE642 /* InfoPlist.strings in Resources */,
+				05B39DBE18A680020042F250 /* StationsList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +515,7 @@
 			files = (
 				053FA1E41899098900DA5A3F /* KUDBClient.m in Sources */,
 				053FA1E718990B3300DA5A3F /* KUSearchCondition.m in Sources */,
+				05F8357318A4F15D00A1CA5B /* KUSavedResponsesManager.m in Sources */,
 				057E0094188E8E5D00070F7D /* HTMLNode.m in Sources */,
 				057E0095188E8E5D00070F7D /* HTMLParser.m in Sources */,
 				0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */,
@@ -492,6 +529,7 @@
 				05D7E241189CE93D00E9B04E /* ConditionsViewController.m in Sources */,
 				0591401A18893B67009D87F9 /* KUResponse.m in Sources */,
 				05914017188939B8009D87F9 /* ResultsViewController.m in Sources */,
+				05B39DB918A67A0D0042F250 /* KUStationsManager.m in Sources */,
 				0589B10E188403F900DBE642 /* main.m in Sources */,
 				0591400D1887EA63009D87F9 /* MITextField.m in Sources */,
 				05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */,
@@ -504,6 +542,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054C262F18A6031300BC1F79 /* HTMLParser.m in Sources */,
+				054C262E18A602F800BC1F79 /* HTMLNode.m in Sources */,
+				054C262D18A6026C00BC1F79 /* KUNotificationTarget.m in Sources */,
+				054C262C18A5FE2E00BC1F79 /* KUDBClient.m in Sources */,
+				05B39DBB18A67A530042F250 /* kUStationsManagerTests.m in Sources */,
+				054C262B18A5FE0D00BC1F79 /* KUSearchCondition.m in Sources */,
+				054C262A18A5FDF700BC1F79 /* KUResponse.m in Sources */,
+				054C262618A5F6BE00BC1F79 /* KUClient.m in Sources */,
+				054C262518A5F6A700BC1F79 /* KUSavedResponsesManager.m in Sources */,
+				0520D83118A50076006ABD10 /* KUSavedResponsesManagerTests.m in Sources */,
 				0545DE61189A5F2A008B55F5 /* KUDBClientTests.m in Sources */,
 				0545DE5F189A5B7A008B55F5 /* KUSearchConditionTests.m in Sources */,
 				057E0097188E8FAF00070F7D /* KUResponseManagerTests.m in Sources */,
@@ -625,6 +673,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -645,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -663,8 +713,9 @@
 		};
 		0589B134188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -677,6 +728,15 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"\"${PODS_ROOT}/Headers/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers\"",
+					"\"/usr/include/libxml2\"",
+					"\"${PODS_ROOT}/Headers/FMDB\"",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -686,8 +746,9 @@
 		};
 		0589B135188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -696,6 +757,15 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"\"${PODS_ROOT}/Headers/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers\"",
+					"\"/usr/include/libxml2\"",
+					"\"${PODS_ROOT}/Headers/FMDB\"",
+					"${PODS_HEADERS_SEARCH_PATHS}",
+				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
