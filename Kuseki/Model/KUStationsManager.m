@@ -11,16 +11,17 @@
 @implementation KUStationsManager
 
 
-+ (NSArray*)stationsWithTrainId:(NSString*)trianId
++ (NSArray*)stationsWithTrainId:(NSString*)trainId
 {
-    NSArray *stations;
-    
-    if ([trainId isEqualToString:@"1"]) {
+    if (!trainId) {
+        return nil;
     }
     
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"StationsList" ofType:@"plist"];
+    NSDictionary *dic_stations = [[NSDictionary alloc]initWithContentsOfFile:path];
+    NSString *key = [NSString stringWithFormat:@"station_id_%@",trainId];
     
-    
-    return stations;
+    return dic_stations[key];
 }
 
 @end
