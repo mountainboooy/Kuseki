@@ -18,10 +18,15 @@ UITextFieldDelegate>
 {
     //outlet
     __weak IBOutlet UITableView *_tableView;
-    __weak IBOutlet UIPickerView *_pickerView;
+    __weak IBOutlet UIPickerView *_picker_train;
+    __weak IBOutlet UIPickerView *_picker_dep;
+    __weak IBOutlet UIPickerView *_picker_arr;
     
     //constraint
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_train;
+    __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_dep;
+    __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_arr;
+    
     
     //model
     KUSearchCondition *_condition;
@@ -44,8 +49,8 @@ UITextFieldDelegate>
     _tableView.dataSource  = self;
     
     //pickerView
-    _pickerView.delegate = self;
-    _pickerView.dataSource = self;
+    _picker_train.delegate = self;
+    _picker_train.dataSource = self;
     
     //notification
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -191,7 +196,23 @@ UITextFieldDelegate>
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 5;
+    switch (pickerView.tag) {
+        case 1://train
+            return 5;
+            break;
+            
+            case 2://dep_stn
+            return 3;
+            
+            case 3://arr_stn
+            return 3;
+            
+        default:
+            break;
+    }
+    
+    return 0;
+    
 }
 
 
@@ -199,31 +220,35 @@ UITextFieldDelegate>
 {
     NSString *title;
     
-    switch(row){
-        case 0:{
-            title = _trains[0];
-            break;
-        }
-        case 1:{
-            title = _trains[1];
-            break;
-        }
-            
-        case 2:{
-            title = _trains[2];
-            break;
-        }
-            
-        case 3:{
-            title = _trains[3];
-            break;
-        }
-            
-        case 4:{
-            title = _trains[4];
-            break;
+    if (pickerView.tag == 1) {//train
+        switch(row){
+            case 0:{
+                title = _trains[0];
+                break;
+            }
+            case 1:{
+                title = _trains[1];
+                break;
+            }
+                
+            case 2:{
+                title = _trains[2];
+                break;
+            }
+                
+            case 3:{
+                title = _trains[3];
+                break;
+            }
+                
+            case 4:{
+                title = _trains[4];
+                break;
+            }
         }
     }
+    
+
     
     return title;
 }
@@ -231,21 +256,49 @@ UITextFieldDelegate>
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    
-    NSString *selectedNum = [NSString stringWithFormat:@"%d",(int)row+1];
-    _condition.train = selectedNum;
-    
-    //テーブル更新
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-    [self updateCell:cell atIndexPath:indexPath];
+    if (pickerView.tag == 1) {//train
+        
+        NSString *selectedNum = [NSString stringWithFormat:@"%d",(int)row+1];
+        _condition.train = selectedNum;
+        
+        //テーブル更新
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+        [self updateCell:cell atIndexPath:indexPath];
+        
+    }
     
     [self hidePickerTrain];
+    [self hidePickerDep];
+    [self hidePickerArr];
+
 }
 
 
 #pragma mark -
 #pragma mark textField
+
+- (BOOL)textFieldShouldBeginEditing:(MITextField *)textField
+{
+    if(textField.indexPath.row == 2){//train
+        NSLog(@"2");
+        return YES;
+    }
+    
+    else if (textField.indexPath.row == 3) {//dep_stn
+        NSLog(@"3");
+        [self showPickerDep];
+    }
+    
+    else{//dep_arr
+        NSLog(@"4");
+        [self showPickerArr];
+    }
+    
+    return NO;
+    
+}
+
 - (void)textFieldDidEndEditing:(MITextField *)textField
 {
     
@@ -306,6 +359,7 @@ UITextFieldDelegate>
 }
 
 
+//picker_train
 - (void)showPickerTrain
 {
     [UIView animateWithDuration:0.3 animations:^{
@@ -321,6 +375,45 @@ UITextFieldDelegate>
         [self.view  layoutIfNeeded];
     }];
 }
+
+
+//picker_dep
+- (void)showPickerDep
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomSpace_picker_dep.constant = -0;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)hidePickerDep
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomSpace_picker_dep.constant = -216;
+        [self.view  layoutIfNeeded];
+    }];
+}
+
+
+//picker_arr
+- (void)showPickerArr
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomSpace_picker_arr.constant = -0;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)hidePickerArr
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomSpace_picker_arr.constant = -216;
+        [self.view  layoutIfNeeded];
+    }];
+}
+
+
+
 
 - (void)keyboardWillAppear:(NSNotification*)notification
 {
