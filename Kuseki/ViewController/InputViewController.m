@@ -10,6 +10,7 @@
 #import "MITextField.h"
 #import "ResultsViewController.h"
 #import "KUSearchCondition.h"
+#import "KUStationsManager.h"
 
 @interface InputViewController ()
 <UITableViewDataSource, UITableViewDelegate,
@@ -32,6 +33,8 @@ UITextFieldDelegate>
     KUSearchCondition *_condition;
     
     NSArray *_trains;
+    NSArray *_stations;
+
 }
 
 
@@ -52,6 +55,12 @@ UITextFieldDelegate>
     _picker_train.delegate = self;
     _picker_train.dataSource = self;
     
+    _picker_dep.delegate = self;
+    _picker_arr.delegate = self;
+    
+    _picker_dep.dataSource = self;
+    _picker_arr.dataSource = self;
+    
     //notification
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
@@ -68,6 +77,9 @@ UITextFieldDelegate>
                         @"はやぶさ・はやて・やまびこ・なすの・つばさ・こまち",
                         @"とき・たにがわ・あさま",
                         @"在来線列車"];
+    
+    //stations
+    [self updateStations];
     
     
 }
@@ -202,10 +214,10 @@ UITextFieldDelegate>
             break;
             
             case 2://dep_stn
-            return 3;
+            return _stations.count;
             
             case 3://arr_stn
-            return 3;
+            return _stations.count;
             
         default:
             break;
@@ -248,7 +260,11 @@ UITextFieldDelegate>
         }
     }
     
-
+    else{//stations
+        title = _stations[row];
+    }
+    
+    
     
     return title;
 }
@@ -261,16 +277,25 @@ UITextFieldDelegate>
         NSString *selectedNum = [NSString stringWithFormat:@"%d",(int)row+1];
         _condition.train = selectedNum;
         
-        //テーブル更新
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-        [self updateCell:cell atIndexPath:indexPath];
+        [self updateStations];
         
+    }
+    
+    else if(pickerView.tag == 2){//dep_stn
+        _condition.dep_stn = _stations[row];
+    }
+    
+    else{//arr_stn
+        _condition.arr_stn = _stations[row];
     }
     
     [self hidePickerTrain];
     [self hidePickerDep];
     [self hidePickerArr];
+    
+    //テーブル更新
+    [_tableView reloadData];
+
 
 }
 
@@ -426,6 +451,14 @@ UITextFieldDelegate>
     _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
 }
 
+
+- (void)updateStations
+{
+    _stations = [KUStationsManager stationsWithTrainId:_condition.train];
+    [_picker_arr reloadAllComponents];
+    [_picker_dep reloadAllComponents];
+    
+}
 
 
 @end
