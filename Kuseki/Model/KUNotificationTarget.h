@@ -30,7 +30,7 @@
 + (void)update;
 
 - (BOOL)isSameTrainWithResponse:(KUResponse*)response;
-
+- (NSArray*)differencesWithResponse:(KUResponse*)response;
 
 
 @end

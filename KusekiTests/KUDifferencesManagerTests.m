@@ -1,5 +1,5 @@
 //
-//  KUNotifiationTargetTests.m
+//  KUDifferencesManagerTests.m
 //  Kuseki
 //
 //  Created by Takeru Yoshihara on 2014/02/11.
@@ -7,14 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "KUNotificationTarget.h"
-#import "KUResponse.h"
+#import "KUDifferencesManager.h"
 
-@interface KUNotifiationTargetTests : XCTestCase
+@interface KUDifferencesManagerTests : XCTestCase
 
 @end
 
-@implementation KUNotifiationTargetTests
+@implementation KUDifferencesManagerTests
 
 - (void)setUp
 {
@@ -28,31 +27,7 @@
     [super tearDown];
 }
 
-- (void)testIsSameTrainWithResponse
-{
-    KUNotificationTarget *target = [KUNotificationTarget new];
-    target.name = @"name";
-    target.dep_time = @"dep_time";
-    target.arr_time = @"arr_time";
-    
-    KUResponse *response1 = [KUResponse new];
-    KUResponse *response2 = [KUResponse new];
-    
-    response1.name = @"name";
-    response1.dep_time = @"dep_time";
-    response1.arr_time = @"arr_time";
-    
-    response2.name = @"name2";
-    response2.dep_time = @"dep_time2";
-    response2.arr_time = @"arr_time2";
-    
-    XCTAssertTrue([target isSameTrainWithResponse:response1], @"通知ターゲットと結果の整合チェックに失敗");
-    XCTAssertFalse([target isSameTrainWithResponse:response2], @"通知ターゲットと結果の整合チェックに失敗");
-    
-}
-
-
-- (void)testDifferencesWithResponse
+- (void)testCompareResponseWithTarget
 {
     KUNotificationTarget *target = [KUNotificationTarget new];
     target.name = @"name";
@@ -63,7 +38,6 @@
     target.seat_gr_ns   = SEAT_FULL;
     target.seat_gr_s    = SEAT_FULL;
     
-    
     KUResponse *response = [KUResponse new];
     response.name = @"name";
     response.dep_time = @"dep_time";
@@ -73,6 +47,12 @@
     response.seat_gr_ns   = SEAT_BIT;
     response.seat_gr_s    = SEAT_BIT;
     
+    KUDifferencesManager *manager = [KUDifferencesManager sharedManager];
+    
+    [manager compareResponse:response withTarget:target];
+    
+    XCTAssertEqual(manager.differences.count, 2u, @"空席情報の差異の取得に失敗");
+
 }
 
 @end

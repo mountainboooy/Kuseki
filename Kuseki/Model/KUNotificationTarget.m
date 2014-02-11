@@ -94,6 +94,7 @@
 }
 
 
+//通知ターゲット(自身）と取得したresponseが同じものかチェックするメソッド
 - (BOOL)isSameTrainWithResponse:(KUResponse *)response
 {
     NSLog(@"res_name:%@",response.name);
@@ -107,9 +108,7 @@
     }
     
     return NO;
-    
 }
-
 
 
 
