@@ -11,6 +11,13 @@
 #import "KUResponseManager.h"
 #import "KUNotificationTargetsManager.h"
 #import "KUNotificationTarget.h"
+#import "KUSavedResponsesManager.h"
+#import "KUDifferencesManager.h"
+#import "KUDifference.h"
+
+@interface AppDelegate()
+<KUSavedResponsesManagerDelegate>
+@end
 
 @implementation AppDelegate
 
@@ -19,7 +26,7 @@
     
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
-    [self addNotification:@"小春" afterSeconds:3 withSound:nil];
+    [self addNotification:@"小春" afterSeconds:6 withSound:@"default"];
     
     return YES;
 }
@@ -27,27 +34,23 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    NSString *message = [NSString stringWithFormat:@"テスト成功:%@",[NSDate date]];
-    [self addNotification:message afterSeconds:1 withSound:nil];
     
-    completionHandler(UIBackgroundFetchResultNewData);
+    //保存中の検索条件一覧をDBから取得
+    KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
+    [conditionManager getConditionsFromDB];
     
-    /*
-    KUNotificationTargetsManager *notification_manager;
-    notification_manager = [KUNotificationTargetsManager sharedManager];
-    if (notification_manager.targets.count == 0) {
-        return;
-    }
+    //保存中の検索条件から新たに空席情報を取得
+    KUSavedResponsesManager *savedResponseManager;
+    savedResponseManager.delegate = self;
+    savedResponseManager = [KUSavedResponsesManager sharedManager];
+    [savedResponseManager getResponsesWithConditions:conditionManager.conditions];
     
+    //後はdelegateメソッド上で処理
     
-    for (KUNotificationTarget *target in notification_manager.targets) {
 
-    }
-    
-    //通知用のリストを探す
-    //リストに当てはまるurlから結果を取得
-    //ステータスが変わったものがあれば通知
-     */
+
+    completionHandler(UIBackgroundFetchResultNewData);
+
     
 }
 
@@ -109,5 +112,40 @@
     
     // アプリケーションに渡す
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
+
+- (void)savedResponseManagerDidFailLoading
+{
+    
+}
+
+
+- (void)savedResponseManager:(id)manager DidFinishLoadingResponses:(NSArray *)responses
+{
+    //通知対象の空席情報と、最新の空席情報で差異がある場合には格納
+    KUDifferencesManager *diffManager = [KUDifferencesManager sharedManager];
+    
+    KUNotificationTargetsManager *targetsManager = [KUNotificationTargetsManager sharedManager];
+    
+    for (KUResponse *new_response in responses) {
+        for (KUNotificationTarget *target in targetsManager.targets) {
+            [diffManager compareResponse:new_response withTarget:target];
+        }
+    }
+    
+    
+    //それぞれの差異情報をlocal通知でお知らせ
+    for (KUDifference* diff in diffManager.differences) {
+        
+        NSString *title = @"空席情報が変化しました";
+        NSString *message = [NSString stringWithFormat:@"%@ %@%@発 %@%@着 %@ %@から%@に変化", name, dep_stn, dep_time, arr_stn, arr_time, seat, previousValue, currentValue];
+        
+        [self addNotification:message afterSeconds:1 withSound:@"default"];
+    }
+    
+    //TODO:情報の更新
+    //TODO:相違情報の項目追加
+    
+    
 }
 @end
