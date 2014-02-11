@@ -94,6 +94,22 @@
 }
 
 
+- (BOOL)isSameTrainWithResponse:(KUResponse *)response
+{
+    NSLog(@"res_name:%@",response.name);
+    NSLog(@"res_dep:%@",response.dep_time);
+    NSLog(@"res_arr:%@",response.arr_time);
+    
+    if ([response.name isEqualToString:_name] &&
+         [response.dep_time isEqualToString:_dep_time] &&
+        [response.arr_time isEqualToString:_arr_time]) {
+        return YES;
+    }
+    
+    return NO;
+    
+}
+
 
 
 

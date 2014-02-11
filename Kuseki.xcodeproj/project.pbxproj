@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0520D83118A50076006ABD10 /* KUSavedResponsesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */; };
+		052F700A18A9CAA400E5C916 /* KUNotifiationTargetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 052F700918A9CAA400E5C916 /* KUNotifiationTargetTests.m */; };
 		053FA1E41899098900DA5A3F /* KUDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E31899098900DA5A3F /* KUDBClient.m */; };
 		053FA1E718990B3300DA5A3F /* KUSearchCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E618990B3300DA5A3F /* KUSearchCondition.m */; };
 		0545DE5F189A5B7A008B55F5 /* KUSearchConditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545DE5E189A5B7A008B55F5 /* KUSearchConditionTests.m */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSavedResponsesManagerTests.m; sourceTree = "<group>"; };
+		052F700918A9CAA400E5C916 /* KUNotifiationTargetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotifiationTargetTests.m; sourceTree = "<group>"; };
 		053FA1E21899098900DA5A3F /* KUDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDBClient.h; sourceTree = "<group>"; };
 		053FA1E31899098900DA5A3F /* KUDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDBClient.m; sourceTree = "<group>"; };
 		053FA1E518990B3300DA5A3F /* KUSearchCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSearchCondition.h; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				0545DE60189A5F2A008B55F5 /* KUDBClientTests.m */,
 				0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */,
 				05B39DBA18A67A530042F250 /* kUStationsManagerTests.m */,
+				052F700918A9CAA400E5C916 /* KUNotifiationTargetTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				0545DE5F189A5B7A008B55F5 /* KUSearchConditionTests.m in Sources */,
 				057E0097188E8FAF00070F7D /* KUResponseManagerTests.m in Sources */,
 				05A77884188A35BA00B1026C /* KUClientTests.m in Sources */,
+				052F700A18A9CAA400E5C916 /* KUNotifiationTargetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

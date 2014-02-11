@@ -29,6 +29,8 @@
 
 + (void)update;
 
+- (BOOL)isSameTrainWithResponse:(KUResponse*)response;
+
 
 
 @end
