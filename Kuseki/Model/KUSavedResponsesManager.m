@@ -12,9 +12,15 @@
 #import "HTMLParser.h"
 #import "HTMLNode.h"
 #import "KUResponse.h"
-
 static KUSavedResponsesManager *_sharedManager = nil;
 
+@interface KUSavedResponsesManager()
+{
+    NSInteger _num_executedConditions;
+    NSInteger _num_conditions;
+}
+
+@end
 
 @implementation KUSavedResponsesManager
 
@@ -62,13 +68,32 @@ static KUSavedResponsesManager *_sharedManager = nil;
 //複数の検索条件から空席情報を取得する
 - (void)getResponsesWithConditions:(NSArray*)conditions
 {
+    _num_executedConditions = 0;
+    _num_conditions = conditions.count;
+    
     for (KUSearchCondition * condition in conditions) {
-        
-        [NSThread sleepForTimeInterval:1.0];
-        [self getResponsesWithParam:condition completion:nil failure:nil];
+        [self performSelector:@selector(delayAction:) withObject:condition afterDelay:2];
     }
+    
+    
 }
 
+//TODO:BlocksKit入れる
+- (void)delayAction:(KUSearchCondition*)condition
+{
+    [self getResponsesWithParam:condition completion:^{
+        _num_executedConditions += 1;
+        
+        if (_num_executedConditions == _num_conditions) {//全ての情報を取得完了
+            [_delegate savedResponseManager:self DidFinishLoadingResponses:_responses];
+        }
+        
+    } failure:^{
+        //エラーハンドリング
+        [_delegate savedResponseManagerDidFailLoading];
+    }];
+    
+}
 
 
 

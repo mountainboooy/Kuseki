@@ -11,6 +11,11 @@
 #import "KUSavedResponsesManager.h"
 
 @interface KUSavedResponsesManagerTests : XCTestCase
+<KUSavedResponsesManagerDelegate>
+
+{
+    BOOL _isFinished;
+}
 
 @end
 
@@ -19,18 +24,50 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    _isFinished = YES;
 }
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    do {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
+    } while (!_isFinished);
+    
     [super tearDown];
+}
+
+
+- (void)testGetResponsesWithParam
+{
+    _isFinished = NO;
+    
+    NSDictionary *dic1 = @{@"identifier":@"1",
+                           @"month":@"2",
+                           @"day":@"20",
+                           @"hour":@"15",
+                           @"minute":@"30",
+                           @"train":@"1",
+                           @"dep_stn":@"東京",
+                           @"arr_stn":@"新大阪"
+                           };
+    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic1];
+    
+    KUSavedResponsesManager *manager =[KUSavedResponsesManager sharedManager];
+    [manager getResponsesWithParam:condition completion:^{
+        XCTAssertTrue(manager.responses.count>0, @"単一条件からの空席情報の取得に失敗");
+        _isFinished = YES;
+    
+    } failure:^{
+        XCTFail(@"単一条件からの空席情報の取得に失敗");
+        _isFinished = YES;
+    }];
+    
 }
 
 - (void)testGetResponsesWithConditions
 {
-    /*
+    _isFinished = NO;
     NSDictionary *dic1 = @{@"identifier":@"1",
                            @"month":@"2",
                            @"day":@"20",
@@ -71,17 +108,25 @@
     
     
     KUSavedResponsesManager *manager = [KUSavedResponsesManager sharedManager];
+    manager.delegate  = self;
     
     [manager getResponsesWithConditions:conditions];
     
-    NSLog(@"manager.responses.count:%d",manager.responses.count);
-    XCTAssertTrue(manager.responses.count > 0, @"複数の空席情報の結果取得に失敗");
     
-    
-    */
+}
 
-    
-    
+
+- (void)savedResponseManager:(id)manager DidFinishLoadingResponses:(NSArray *)responses
+{
+    XCTAssertTrue(responses.count > 0, @"複数の検索条件からの空席情報取得に失敗");
+    NSLog(@"responses.count:%d",responses.count);
+    _isFinished = YES;
+}
+
+- (void)savedResponseManagerDidFailLoading
+{
+    XCTFail(@"複数の検索条件からの空席情報取得に失敗");
+    _isFinished = YES;
 }
 
 @end
