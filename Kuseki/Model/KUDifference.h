@@ -24,4 +24,7 @@
 
 - (id)initWithTarget:(KUNotificationTarget*)target seat:(NSString*)seat previousValue:(enum KUSheetValue)previousValue currentValue:(enum KUSheetValue)currentValue;
 
+- (NSString*)stringWithPreviousValue;
+- (NSString*)stringWithCurrentValue;
+
 @end

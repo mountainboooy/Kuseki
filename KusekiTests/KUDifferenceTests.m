@@ -48,5 +48,28 @@
 }
 
 
+- (void)testStringWithSeatValue
+{
+    //空席情報をstringのマークに変換する機能のテスト
+    
+    //previousValue
+    KUDifference *diff = [KUDifference new];
+    diff.previousValue = SEAT_BIT;
+    XCTAssertEqualObjects([diff stringWithPreviousValue], @"△", @"空席値のstring化に失敗");
+    diff.previousValue = SEAT_FULL;
+    XCTAssertEqualObjects([diff stringWithPreviousValue], @"×", @"空席値のstring化に失敗");
+    
+    diff.previousValue = SEAT_INVALID;
+    XCTAssertEqualObjects([diff stringWithPreviousValue], @"-", @"空席値のstring化に失敗");
+    
+    diff.previousValue = SEAT_NOT_EXIST_SMOKINGSEAT;
+    XCTAssertEqualObjects([diff stringWithPreviousValue], @"＊", @"空席値のstring化に失敗");
+    
+    diff.previousValue = SEAT_VACANT;
+    XCTAssertEqualObjects([diff stringWithPreviousValue], @"○", @"空席値のstring化に失敗");
+    
+}
+
+
 
 @end

@@ -31,4 +31,68 @@
     return self;
 }
 
+- (NSString*)stringWithCurrentValue
+{
+    NSString *value;
+    
+    switch (_currentValue) {
+        case SEAT_BIT:
+            value = @"△";
+            break;
+            
+        case SEAT_FULL:
+            value = @"×";
+            break;
+            
+        case SEAT_INVALID:
+            value = @"-";
+            break;
+            
+        case SEAT_VACANT:
+            value = @"○";
+            break;
+            
+        case SEAT_NOT_EXIST_SMOKINGSEAT:
+            value = @"＊";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
+- (NSString*)stringWithPreviousValue
+{
+    NSString *value;
+    
+    switch (_previousValue) {
+        case SEAT_BIT:
+            value = @"△";
+            break;
+            
+            case SEAT_FULL:
+            value = @"×";
+            break;
+            
+            case SEAT_INVALID:
+            value = @"-";
+            break;
+            
+            case SEAT_VACANT:
+            value = @"○";
+            break;
+            
+            case SEAT_NOT_EXIST_SMOKINGSEAT:
+            value = @"＊";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
 @end
