@@ -19,8 +19,7 @@
     
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
-    [self addNotification:@"takeru" afterSeconds:5 withSound:nil];
-
+    [self addNotification:@"小春" afterSeconds:3 withSound:nil];
     
     return YES;
 }
@@ -28,8 +27,10 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
+    NSString *message = [NSString stringWithFormat:@"テスト成功:%@",[NSDate date]];
+    [self addNotification:message afterSeconds:1 withSound:nil];
     
-    NSLog(@"バックグランド");
+    completionHandler(UIBackgroundFetchResultNewData);
     
     /*
     KUNotificationTargetsManager *notification_manager;
@@ -53,7 +54,7 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"titlte" message:@"message" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"テスト" message:@"成功!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [al show];
 }
