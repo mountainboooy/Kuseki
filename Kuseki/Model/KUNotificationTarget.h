@@ -22,6 +22,8 @@
 @property enum KUSheetValue seat_gr_ns;
 @property enum KUSheetValue seat_gr_s;
 @property (nonatomic,strong) NSString *condition_id;
+@property (nonatomic,strong) NSString *dep_stn;
+@property (nonatomic,strong) NSString *arr_stn;
 
 + (void)saveWithResponse:(KUResponse*)response condition:(KUSearchCondition*)condition;
 

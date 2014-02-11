@@ -10,7 +10,8 @@
 
 @implementation KUDifference
 
-- (id)initWithSeat:(NSString *)seat previousValue:(enum KUSheetValue)previousValue currentValue:(enum KUSheetValue)currentValue
+
+- (id)initWithTarget:(KUNotificationTarget*)target seat:(NSString*)seat previousValue:(enum KUSheetValue)previousValue currentValue:(enum KUSheetValue)currentValue
 {
     self = [super init];
     
@@ -18,12 +19,16 @@
         return nil;
     }
     
+    _trainName = target.name;
+    _dep_stn = target.dep_stn;
+    _arr_stn = target.arr_stn;
+    _dep_time = target.dep_time;
+    _arr_time = target.arr_time;
     _seat = seat;
     _previousValue = previousValue;
     _currentValue = currentValue;
     
     return self;
-    
 }
 
 @end

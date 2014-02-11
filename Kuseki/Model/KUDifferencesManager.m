@@ -56,7 +56,7 @@ static KUDifferencesManager *_sharedManager = nil;
     if (response.seat_ec_ns  != target.seat_ec_ns) {
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
-        new_diff = [[KUDifference alloc]initWithSeat:@"seat_ec_ns" previousValue:target.seat_ec_ns currentValue:response.seat_ec_ns];
+        new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:target.seat_ec_ns currentValue:response.seat_ec_ns];
         
         [self addDifference:new_diff];
         
@@ -66,7 +66,7 @@ static KUDifferencesManager *_sharedManager = nil;
     if (response.seat_ec_s  != target.seat_ec_s) {
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
-        new_diff = [[KUDifference alloc]initWithSeat:@"seat_ec_s" previousValue:target.seat_ec_s currentValue:response.seat_ec_s];
+        new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_s" previousValue:target.seat_ec_s currentValue:response.seat_ec_s];
         
         [self addDifference:new_diff];
     }
@@ -75,7 +75,7 @@ static KUDifferencesManager *_sharedManager = nil;
     if (response.seat_gr_ns  != target.seat_gr_ns) {
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
-        new_diff = [[KUDifference alloc]initWithSeat:@"seat_gr_ns" previousValue:target.seat_gr_ns currentValue:response.seat_gr_ns];
+        new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_gr_ns" previousValue:target.seat_gr_ns currentValue:response.seat_gr_ns];
         
         [self addDifference:new_diff];
     }
@@ -84,7 +84,7 @@ static KUDifferencesManager *_sharedManager = nil;
     if (response.seat_gr_s!= target.seat_gr_s) {
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
-        new_diff = [[KUDifference alloc]initWithSeat:@"seat_gr_s" previousValue:target.seat_gr_s currentValue:response.seat_gr_s];
+        new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_gr_s" previousValue:target.seat_gr_s currentValue:response.seat_gr_s];
         
         [self addDifference:new_diff];
     }

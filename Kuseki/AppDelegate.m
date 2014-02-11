@@ -138,9 +138,12 @@
     for (KUDifference* diff in diffManager.differences) {
         
         NSString *title = @"空席情報が変化しました";
+        /*
         NSString *message = [NSString stringWithFormat:@"%@ %@%@発 %@%@着 %@ %@から%@に変化", name, dep_stn, dep_time, arr_stn, arr_time, seat, previousValue, currentValue];
+         
         
         [self addNotification:message afterSeconds:1 withSound:@"default"];
+         */
     }
     
     //TODO:情報の更新

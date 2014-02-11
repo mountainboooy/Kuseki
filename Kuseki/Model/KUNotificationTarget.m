@@ -13,7 +13,7 @@
 @implementation KUNotificationTarget
 
 
-- (id)initWithResponse:(KUResponse*)response
+- (id)initWithResponse:(KUResponse*)response dep_stn:(NSString*)dep_stn arr_stn:(NSString*)arr_stn
 {
     self = [super init];
     
@@ -28,6 +28,8 @@
     _seat_ec_s  = response.seat_ec_s;
     _seat_gr_ns = response.seat_gr_ns;
     _seat_gr_s = response.seat_gr_s;
+    _dep_stn  = dep_stn;
+    _arr_stn = arr_stn;
     
     return self;
     
@@ -66,7 +68,7 @@
     }
     
     KUNotificationTarget *new_target;
-    new_target = [[KUNotificationTarget alloc]initWithResponse:response];
+    new_target = [[KUNotificationTarget alloc]initWithResponse:response dep_stn:condition.dep_stn arr_stn:condition.arr_stn];
     new_target.condition_id = condition.identifier;
     
     KUDBClient *client = [KUDBClient sharedClient];
