@@ -19,6 +19,9 @@
     
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
+    [self addNotification:@"takeru" afterSeconds:5 withSound:nil];
+
+    
     return YES;
 }
 
@@ -46,6 +49,15 @@
      */
     
 }
+
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"titlte" message:@"message" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [al show];
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -81,5 +93,20 @@
     
     [al show];
     
+}
+
+
+- (void)addNotification:(NSString*)body afterSeconds:(NSTimeInterval)seconds withSound:(NSString*)soundName {
+    
+    // 通知オブジェクトを生成してパラメータ設定
+    UILocalNotification *notification = [UILocalNotification new];
+    
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:seconds];
+    notification.alertBody = body;
+    notification.soundName = soundName;
+    
+    // アプリケーションに渡す
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 @end
