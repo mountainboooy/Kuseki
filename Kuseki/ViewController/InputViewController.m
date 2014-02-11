@@ -23,7 +23,8 @@ UITextFieldDelegate>
     __weak IBOutlet UIPickerView *_picker_dep;
     __weak IBOutlet UIPickerView *_picker_arr;
     __weak IBOutlet UIButton *_btClose_train;
-    
+    __weak IBOutlet UIButton *_btClose_dep;
+    __weak IBOutlet UIButton *_btClose_arr;
     
     //constraint
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_train;
@@ -84,7 +85,11 @@ UITextFieldDelegate>
     [self updateStations];
     
     //button
-    [_btClose_train addTarget:self action:@selector(btCloseTrainPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_btClose_train addTarget:self action:@selector(hidePickerTrain) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_btClose_dep addTarget:self action:@selector(hidePickerDep) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_btClose_arr addTarget:self action:@selector(hidePickerArr) forControlEvents:UIControlEventTouchUpInside];
     
     
 }
@@ -194,12 +199,35 @@ UITextFieldDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 2){
-        //ピッカーを操作
+    [self.view endEditing:YES];
+
+    if(indexPath.row == 2){//train
+        [self hidePickerArr];
+        [self hidePickerDep];
         [self showPickerTrain];
+        return;
     }
     
-    [self.view endEditing:YES];
+    else if(indexPath.row == 3){//dep_stn
+        [self hidePickerArr];
+        [self hidePickerTrain];
+        [self showPickerDep];
+        return;
+        
+    }
+    
+    else if(indexPath.row == 4){//arr_stn
+        [self hidePickerTrain];
+        [self hidePickerDep];
+        [self showPickerArr];
+    }
+    
+    else {
+        [self hidePickerDep];
+        [self hidePickerArr];
+        [self hidePickerTrain];
+    }
+    
     
 }
 
@@ -304,25 +332,11 @@ UITextFieldDelegate>
 #pragma mark -
 #pragma mark textField
 
-- (BOOL)textFieldShouldBeginEditing:(MITextField *)textField
+- (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if(textField.indexPath.row == 2){//train
-        NSLog(@"2");
-        return YES;
-    }
-    
-    else if (textField.indexPath.row == 3) {//dep_stn
-        NSLog(@"3");
-        [self showPickerDep];
-    }
-    
-    else{//dep_arr
-        NSLog(@"4");
-        [self showPickerArr];
-    }
-    
-    return NO;
-    
+    [self hidePickerTrain];
+    [self hidePickerDep];
+    [self hidePickerArr];
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
@@ -466,9 +480,5 @@ UITextFieldDelegate>
 #pragma mark -
 #pragma mark button action
 
-- (void)btCloseTrainPressed
-{
-    [self hidePickerTrain];
-}
 
 @end
