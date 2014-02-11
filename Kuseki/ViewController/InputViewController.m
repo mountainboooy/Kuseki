@@ -22,6 +22,8 @@ UITextFieldDelegate>
     __weak IBOutlet UIPickerView *_picker_train;
     __weak IBOutlet UIPickerView *_picker_dep;
     __weak IBOutlet UIPickerView *_picker_arr;
+    __weak IBOutlet UIButton *_btClose_train;
+    
     
     //constraint
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_train;
@@ -80,6 +82,9 @@ UITextFieldDelegate>
     
     //stations
     [self updateStations];
+    
+    //button
+    [_btClose_train addTarget:self action:@selector(btCloseTrainPressed) forControlEvents:UIControlEventTouchUpInside];
     
     
 }
@@ -289,10 +294,6 @@ UITextFieldDelegate>
         _condition.arr_stn = _stations[row];
     }
     
-    [self hidePickerTrain];
-    [self hidePickerDep];
-    [self hidePickerArr];
-    
     //テーブル更新
     [_tableView reloadData];
 
@@ -460,5 +461,14 @@ UITextFieldDelegate>
     
 }
 
+
+
+#pragma mark -
+#pragma mark button action
+
+- (void)btCloseTrainPressed
+{
+    [self hidePickerTrain];
+}
 
 @end

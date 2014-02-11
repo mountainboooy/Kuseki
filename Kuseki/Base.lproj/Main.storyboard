@@ -238,6 +238,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yeg-vO-T3C">
+                                        <rect key="frame" x="260" y="10" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="閉じる">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -299,6 +306,7 @@
                         <outlet property="_bottomSpace_picker_arr" destination="ZEa-84-Zlv" id="fXB-Ns-Ued"/>
                         <outlet property="_bottomSpace_picker_dep" destination="GMu-pb-YFn" id="5PG-2l-xHz"/>
                         <outlet property="_bottomSpace_picker_train" destination="MN2-xx-TIF" id="Plc-rc-cC8"/>
+                        <outlet property="_btClose_train" destination="Yeg-vO-T3C" id="JnF-MA-6Dk"/>
                         <outlet property="_picker_arr" destination="8GO-TP-r5t" id="OGx-ce-tft"/>
                         <outlet property="_picker_dep" destination="SYy-2C-ufd" id="eWH-4Q-VEX"/>
                         <outlet property="_picker_train" destination="HKI-pL-O2q" id="NMA-rF-0zo"/>
