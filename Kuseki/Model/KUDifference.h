@@ -26,5 +26,7 @@
 
 - (NSString*)stringWithPreviousValue;
 - (NSString*)stringWithCurrentValue;
+- (NSString*)messageForNotification;
+- (NSString*)stringWithSeatGrade;
 
 @end

@@ -26,8 +26,6 @@
     
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
-    [self addNotification:@"小春" afterSeconds:6 withSound:@"default"];
-    
     return YES;
 }
 
@@ -57,7 +55,7 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"テスト" message:@"成功!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"テスト" message:notification.alertBody delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [al show];
 }
@@ -122,7 +120,7 @@
 
 - (void)savedResponseManager:(id)manager DidFinishLoadingResponses:(NSArray *)responses
 {
-    //通知対象の空席情報と、最新の空席情報で差異がある場合には格納
+    //通知対象の空席情報と、最新の空席情報で差異がある場合には再情報をKUDifferenceとして格納
     KUDifferencesManager *diffManager = [KUDifferencesManager sharedManager];
     
     KUNotificationTargetsManager *targetsManager = [KUNotificationTargetsManager sharedManager];
@@ -137,17 +135,12 @@
     //それぞれの差異情報をlocal通知でお知らせ
     for (KUDifference* diff in diffManager.differences) {
         
-        NSString *title = @"空席情報が変化しました";
         
-        NSString *message = [NSString stringWithFormat:@"%@ %@%@発 %@%@着 %@ %@から%@に変化", diff.trainName, diff.dep_stn, diff.dep_time, diff.arr_stn, diff.arr_time, diff.seat, diff.previousValue, diff.currentValue];
-        //
-         
-        
+        NSString *message = [diff messageForNotification];
         [self addNotification:message afterSeconds:1 withSound:@"default"];
         
     }
     
-    //TODO:座席情報のstring化
     //TODO:情報の更新
     
     

@@ -95,4 +95,35 @@
     return value;
 }
 
+
+- (NSString*)stringWithSeatGrade
+{
+    NSString *str_seat;
+    
+    if ([_seat isEqualToString:@"seat_ec_ns"]) {
+        str_seat = @"普通車(禁煙)";
+    
+    }else if([_seat isEqualToString:@"seat_ec_s"]){
+        str_seat = @"普通車(喫煙)";
+    
+    }else if([_seat isEqualToString:@"seat_gr_ns"]){
+        str_seat = @"グリーン車(禁煙)";
+    
+    }else{
+        str_seat  = @"グリーン車(喫煙)";
+        
+    }
+    
+    return str_seat;
+}
+
+
+- (NSString*)messageForNotification
+{
+    NSString *message;
+    message = [NSString stringWithFormat:@"%@ %@%@発 %@%@着 %@ %@から%@に変化",_trainName, _dep_stn, _dep_time, _arr_stn, _arr_time, [self stringWithSeatGrade], [self stringWithPreviousValue], [self stringWithCurrentValue]];
+    
+    return message;
+}
+
 @end

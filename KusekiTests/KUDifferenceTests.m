@@ -71,5 +71,45 @@
 }
 
 
+- (void)testStringWithSeatGrade
+{
+    KUNotificationTarget  *target = [KUNotificationTarget new];
+    target.name = @"のぞみ";
+    target.dep_time = @"11:00";
+    target.arr_time = @"15:00";
+    target.dep_stn = @"東京";
+    target.arr_stn = @"新大阪";
+    
+    KUDifference *diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:SEAT_FULL currentValue:SEAT_BIT];
+    
+    XCTAssertEqualObjects([diff stringWithSeatGrade], @"普通車(禁煙)", @"座席の表示内容変換に失敗");
+    
+    diff.seat = @"seat_ec_s";
+    XCTAssertEqualObjects([diff stringWithSeatGrade], @"普通車(喫煙)", @"座席の表示内容変換に失敗");
+    
+    diff.seat = @"seat_gr_ns";
+    XCTAssertEqualObjects([diff stringWithSeatGrade], @"グリーン車(禁煙)", @"座席の表示内容変換に失敗");
+    
+    diff.seat = @"seat_gr_s";
+    XCTAssertEqualObjects([diff stringWithSeatGrade], @"グリーン車(喫煙)", @"座席の表示内容変換に失敗");
+    
+}
+
+- (void)testMessageForNotification
+{
+    KUNotificationTarget  *target = [KUNotificationTarget new];
+    target.name = @"のぞみ";
+    target.dep_time = @"11:00";
+    target.arr_time = @"15:00";
+    target.dep_stn = @"東京";
+    target.arr_stn = @"新大阪";
+    
+    KUDifference *diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:SEAT_FULL currentValue:SEAT_BIT];
+    
+    NSString *connrectMessage = @"のぞみ 東京11:00発 新大阪15:00着 普通車(禁煙) ×から△に変化";
+    NSString *message = [diff messageForNotification];
+    XCTAssertEqualObjects(message, connrectMessage, @"通知用のメッセージの生成に失敗");
+}
+
 
 @end
