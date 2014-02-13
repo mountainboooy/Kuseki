@@ -30,7 +30,7 @@
 - (void)testInitWithCondition
 {
     
-    KUNotificationTarget  *target;
+    KUNotificationTarget  *target = [KUNotificationTarget new];
     target.name = @"のぞみ";
     target.dep_time = @"11:00";
     target.arr_time = @"15:00";

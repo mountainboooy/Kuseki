@@ -39,9 +39,10 @@
     
     //保存中の検索条件から新たに空席情報を取得
     KUSavedResponsesManager *savedResponseManager;
-    savedResponseManager.delegate = self;
     savedResponseManager = [KUSavedResponsesManager sharedManager];
+    savedResponseManager.delegate = self;
     [savedResponseManager getResponsesWithConditions:conditionManager.conditions];
+    NSLog(@"conditionManager.conditions:%d",conditionManager.conditions.count);
     
     //後はdelegateメソッド上で処理
     

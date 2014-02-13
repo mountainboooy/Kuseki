@@ -12,5 +12,7 @@
 
 @property (nonatomic,strong) NSArray *targets;
 + (KUNotificationTargetsManager*)sharedManager;
+- (void)selectAllTargets;
+- (void)removeAllTargets;
 
 @end

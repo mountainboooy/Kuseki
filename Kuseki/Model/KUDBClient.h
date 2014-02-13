@@ -34,4 +34,6 @@ enum KUTableName {KU_TABLE_NOTIFICATION_TARGETS, KU_TABLE_CONDITIONS };
 - (NSArray*)selectAllNotificationTargets;
 - (NSArray*)selectAllConditions;
 
+- (void)deleteAllTargets;
+
 @end

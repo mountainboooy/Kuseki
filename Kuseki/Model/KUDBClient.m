@@ -81,7 +81,7 @@ static KUDBClient *_sharedClient = nil;
         sql = @"CREATE TABLE IF NOT EXISTS conditions (id INTEGER PRIMARY KEY AUTOINCREMENT, month TEXT, day TEXT, hour TEXT, minute TEXT, train TEXT, dep_stn TEXT, arr_stn TEXT)";
         
     }else if (tableName == KU_TABLE_NOTIFICATION_TARGETS){//検索結果
-        sql = @"CREATE TABLE IF NOT EXISTS notification_targets (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, dep_time TEXT, arr_time TEXT, seat_ec_ns TEXT, seat_ec_s TEXT, seat_gr_ns TEXT, seat_gr_s TEXT, condition_id TEXT )";
+        sql = @"CREATE TABLE IF NOT EXISTS notification_targets (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, dep_time TEXT, arr_time TEXT, seat_ec_ns TEXT, seat_ec_s TEXT, seat_gr_ns TEXT, seat_gr_s TEXT, condition_id TEXT, dep_stn TEXT, arr_stn TEXT )";
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
@@ -105,7 +105,7 @@ static KUDBClient *_sharedClient = nil;
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"INSERT INTO notification_targets(name, dep_time, arr_time, seat_ec_ns, seat_ec_s, seat_gr_ns, seat_gr_s, condition_id) VALUES(?,?,?,?,?,?,?,?)";
+    NSString *sql = @"INSERT INTO notification_targets(name, dep_time, arr_time, seat_ec_ns, seat_ec_s, seat_gr_ns, seat_gr_s, condition_id, dep_stn, arr_stn) VALUES(?,?,?,?,?,?,?,?,?,?)";
     
     //クエリ準備
     NSString *ec_ns = [NSString stringWithFormat:@"%d",target.seat_ec_ns];
@@ -115,7 +115,7 @@ static KUDBClient *_sharedClient = nil;
     
     
     [db open];
-    [db executeUpdate:sql, target.name, target.dep_time, target.arr_time, ec_ns, ec_s, gr_ns, gr_s, target.condition_id ];
+    [db executeUpdate:sql, target.name, target.dep_time, target.arr_time, ec_ns, ec_s, gr_ns, gr_s, target.condition_id , target.dep_stn, target.arr_stn];
     
     [db close];
 
@@ -226,6 +226,8 @@ static KUDBClient *_sharedClient = nil;
         target.seat_gr_ns = [results stringForColumn:@"seat_gr_ns"].intValue;
         target.seat_gr_s  = [results stringForColumn:@"seat_gr_s"].intValue;
         target.condition_id = [results stringForColumn:@"condition_id"];
+        target.dep_stn = [results stringForColumn:@"dep_stn"];
+        target.arr_stn = [results stringForColumn:@"arr_stn"];
         
         [array addObject:target];
     }
@@ -269,6 +271,19 @@ static KUDBClient *_sharedClient = nil;
     
     [db close];
 }
+
+
+- (void)deleteAllTargets
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
+    NSString *sql = @"DELETE FROM notification_targets";
+    NSLog(@"sql:%@",sql);
+    
+    [db open];
+    [db executeUpdate:sql];
+    [db close];
+}
+
 
 
 

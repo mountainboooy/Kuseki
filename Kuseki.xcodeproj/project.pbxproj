@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0500DAD018AB8CE4000D1FF6 /* KUNotificationTargetsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0500DACF18AB8CE4000D1FF6 /* KUNotificationTargetsManagerTests.m */; };
 		0520D83118A50076006ABD10 /* KUSavedResponsesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */; };
 		052F700A18A9CAA400E5C916 /* KUNotifiationTargetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 052F700918A9CAA400E5C916 /* KUNotifiationTargetTests.m */; };
 		053FA1E41899098900DA5A3F /* KUDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 053FA1E31899098900DA5A3F /* KUDBClient.m */; };
@@ -86,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0500DACF18AB8CE4000D1FF6 /* KUNotificationTargetsManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTargetsManagerTests.m; sourceTree = "<group>"; };
 		0520D83018A50076006ABD10 /* KUSavedResponsesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSavedResponsesManagerTests.m; sourceTree = "<group>"; };
 		052F700918A9CAA400E5C916 /* KUNotifiationTargetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotifiationTargetTests.m; sourceTree = "<group>"; };
 		053FA1E21899098900DA5A3F /* KUDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDBClient.h; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				052F700918A9CAA400E5C916 /* KUNotifiationTargetTests.m */,
 				056FD1F318A9E08900A7EE45 /* KUDifferencesManagerTests.m */,
 				056FD1F818A9E89F00A7EE45 /* KUDifferenceTests.m */,
+				0500DACF18AB8CE4000D1FF6 /* KUNotificationTargetsManagerTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				056FD1F418A9E08900A7EE45 /* KUDifferencesManagerTests.m in Sources */,
 				054C262D18A6026C00BC1F79 /* KUNotificationTarget.m in Sources */,
 				054C262C18A5FE2E00BC1F79 /* KUDBClient.m in Sources */,
+				0500DAD018AB8CE4000D1FF6 /* KUNotificationTargetsManagerTests.m in Sources */,
 				05B39DBB18A67A530042F250 /* kUStationsManagerTests.m in Sources */,
 				054C262B18A5FE0D00BC1F79 /* KUSearchCondition.m in Sources */,
 				054C262A18A5FDF700BC1F79 /* KUResponse.m in Sources */,

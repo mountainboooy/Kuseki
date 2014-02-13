@@ -55,4 +55,13 @@ static KUNotificationTargetsManager *_sharedManager = nil;
     
 }
 
+
+- (void)removeAllTargets
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client deleteAllTargets];
+    
+    [self selectAllTargets];
+}
+
 @end
