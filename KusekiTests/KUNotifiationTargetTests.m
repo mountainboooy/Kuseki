@@ -35,6 +35,8 @@
     target.name = @"name";
     target.dep_time = @"dep_time";
     target.arr_time = @"arr_time";
+    target.month = @"01";
+    target.day   = @"19";
     
     KUResponse *response1 = [KUResponse new];
     KUResponse *response2 = [KUResponse new];
@@ -42,10 +44,14 @@
     response1.name = @"name";
     response1.dep_time = @"dep_time";
     response1.arr_time = @"arr_time";
+    response1.month = @"01";
+    response1.day = @"19";
     
-    response2.name = @"name2";
-    response2.dep_time = @"dep_time2";
-    response2.arr_time = @"arr_time2";
+    response2.name = @"name";
+    response2.dep_time = @"dep_time";
+    response2.arr_time = @"arr_time";
+    response2.day = @"20";
+    response1.month = @"01";
     
     XCTAssertTrue([target isSameTrainWithResponse:response1], @"通知ターゲットと結果の整合チェックに失敗");
     XCTAssertFalse([target isSameTrainWithResponse:response2], @"通知ターゲットと結果の整合チェックに失敗");
@@ -68,7 +74,9 @@
                           @"seat_ec_ns":@"○",
                           @"seat_ec_s":@"○",
                           @"seat_gr_ns":@"○",
-                          @"seat_gr_s":@"○"
+                          @"seat_gr_s":@"○",
+                          @"month":@"01",
+                          @"day":@"19"
                           };
     KUResponse *response  = [[KUResponse alloc]initWithDictionary:dic];
     
@@ -93,6 +101,8 @@
     XCTAssertEqual(savedTarget.seat_ec_s, SEAT_VACANT, @"通知対象の保存に失敗");
     XCTAssertEqual(savedTarget.seat_gr_ns, SEAT_VACANT, @"通知対象の保存に失敗");
     XCTAssertEqual(savedTarget.seat_gr_s, SEAT_VACANT, @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.month, @"01", @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.day, @"19", @"通知対象の保存に失敗");
     
     
     

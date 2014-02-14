@@ -61,6 +61,8 @@ static KUResponseManager *_sharedManager = nil;
 //情報取得
 - (void)getResponsesWithParam:(KUSearchCondition*)condition completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure
 {
+    _condition = condition;
+    
     //url
     NSURL  *base_url = [NSURL URLWithString:@"http://www1.jr.cyberstation.ne.jp/"];
     NSString *path = @"csws/Vacancy.do";
@@ -138,7 +140,9 @@ static KUResponseManager *_sharedManager = nil;
                                            @"seat_ec_ns":[tdNodes[3] contents],
                                            @"seat_ec_s":[tdNodes[4] contents],
                                            @"seat_gr_ns":[tdNodes[5] contents],
-                                           @"seat_gr_s":[tdNodes[6] contents]
+                                           @"seat_gr_s":[tdNodes[6] contents],
+                                           @"month":_condition.month,
+                                           @"day":_condition.day
                                            };
                 
                 KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];

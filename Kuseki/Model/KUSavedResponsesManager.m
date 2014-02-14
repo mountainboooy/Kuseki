@@ -119,7 +119,7 @@ static KUSavedResponsesManager *_sharedManager = nil;
     
     [client postPath:path param:param completion:^(NSString *dataString) {
         
-        [self setInfoWithBodyData:dataString];
+        [self setInfoWithBodyData:dataString condition:condition];
         if (completion) {
             completion();
         }
@@ -136,7 +136,7 @@ static KUSavedResponsesManager *_sharedManager = nil;
 
 
 //パースして格納するまで
-- (NSArray*)setInfoWithBodyData:(NSString*)bodyData
+- (NSArray*)setInfoWithBodyData:(NSString*)bodyData condition:(KUSearchCondition*)condition
 {
     //TODO:ここでのエラーハンドリングが重要
     
@@ -176,7 +176,9 @@ static KUSavedResponsesManager *_sharedManager = nil;
                                            @"seat_ec_ns":[tdNodes[3] contents],
                                            @"seat_ec_s":[tdNodes[4] contents],
                                            @"seat_gr_ns":[tdNodes[5] contents],
-                                           @"seat_gr_s":[tdNodes[6] contents]
+                                           @"seat_gr_s":[tdNodes[6] contents],
+                                           @"month":condition.month,
+                                           @"day":condition.day
                                            };
                 
                 KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];

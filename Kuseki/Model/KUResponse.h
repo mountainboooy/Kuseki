@@ -15,6 +15,8 @@ enum KUSheetValue {SEAT_VACANT, SEAT_BIT, SEAT_FULL, SEAT_INVALID, SEAT_NOT_EXIS
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *dep_time;
 @property (nonatomic,strong) NSString *arr_time;
+@property (nonatomic,strong) NSString *month;
+@property (nonatomic,strong) NSString *day;
 @property enum KUSheetValue seat_ec_ns;
 @property enum KUSheetValue seat_ec_s;
 @property enum KUSheetValue seat_gr_ns;

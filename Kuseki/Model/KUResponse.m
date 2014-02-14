@@ -21,6 +21,8 @@
     _name = [self validateTrainName:dic[@"name"]];
     _dep_time = dic[@"dep_time"];
     _arr_time = dic[@"arr_time"];
+    _month = dic[@"month"];
+    _day = dic[@"day"];
     _seat_ec_ns = [self seatValueForString:dic[@"seat_ec_ns"]];
     _seat_ec_s = [self seatValueForString:dic[@"seat_ec_s"]];
     _seat_gr_ns = [self seatValueForString:dic[@"seat_gr_ns"]];

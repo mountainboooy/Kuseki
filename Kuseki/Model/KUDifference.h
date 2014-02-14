@@ -17,6 +17,8 @@
 @property (nonatomic,strong) NSString *arr_stn;
 @property (nonatomic,strong) NSString *dep_time;
 @property (nonatomic,strong) NSString *arr_time;
+@property (nonatomic,strong) NSString *month;
+@property (nonatomic,strong) NSString *day;
 
 @property (nonatomic,strong) NSString *seat;
 @property  enum KUSheetValue previousValue;

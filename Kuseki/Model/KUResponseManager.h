@@ -13,6 +13,7 @@ typedef void (^KUResponseNetworkFailure)();
 
 @interface KUResponseManager : NSObject
 @property (nonatomic,strong) NSMutableArray *responses;
+@property (nonatomic,strong) KUSearchCondition *condition;
 
 + (KUResponseManager*)sharedManager;
 

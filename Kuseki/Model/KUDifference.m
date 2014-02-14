@@ -27,6 +27,8 @@
     _seat = seat;
     _previousValue = previousValue;
     _currentValue = currentValue;
+    _month = target.month;
+    _day = target.day;
     
     return self;
 }
@@ -120,15 +122,14 @@
 
 - (NSString*)messageForNotification
 {
-    /*
+    
     NSString *message;
     NSString *month_day = [self stringWithMonth:_month andDay:_day];
     
     message = [NSString stringWithFormat:@"%@ %@ %@%@発 %@%@着 %@ %@から%@に変化",_trainName, month_day, _dep_stn, _dep_time, _arr_stn, _arr_time, [self stringWithSeatGrade], [self stringWithPreviousValue], [self stringWithCurrentValue]];
     
     return message;
-     */
-    return @"takeru";
+    
 }
 
 

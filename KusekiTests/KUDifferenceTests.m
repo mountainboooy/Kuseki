@@ -27,7 +27,7 @@
     [super tearDown];
 }
 
-- (void)testInitWithCondition
+- (void)testInitWithTarget
 {
     
     KUNotificationTarget  *target = [KUNotificationTarget new];
@@ -36,6 +36,8 @@
     target.arr_time = @"15:00";
     target.dep_stn = @"東京";
     target.arr_stn = @"新大阪";
+    target.month = @"01";
+    target.day = @"19";
     
     KUDifference *diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:SEAT_FULL currentValue:SEAT_BIT];
     
@@ -43,7 +45,9 @@
     XCTAssertEqualObjects(diff.dep_time, target.dep_time, @"空席情報差異の生成に失敗");
     XCTAssertEqualObjects(diff.arr_time, target.arr_time, @"空席情報差異の生成に失敗");
     XCTAssertEqualObjects(diff.dep_stn, target.dep_stn, @"空席情報差異の生成に失敗");
-    XCTAssertEqualObjects(diff.arr_stn, target.arr_stn, @"空席情報差異の生成に失敗");    
+    XCTAssertEqualObjects(diff.arr_stn, target.arr_stn, @"空席情報差異の生成に失敗");
+    XCTAssertEqualObjects(diff.month, target.month, @"空席情報差異の生成に失敗");
+    XCTAssertEqualObjects(diff.day, target.day, @"空席情報差異の生成に失敗");
 
 }
 
@@ -123,10 +127,12 @@
     target.arr_time = @"15:00";
     target.dep_stn = @"東京";
     target.arr_stn = @"新大阪";
+    target.month = @"01";
+    target.day = @"19";
     
     KUDifference *diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:SEAT_FULL currentValue:SEAT_BIT];
     
-    NSString *connrectMessage = @"のぞみ 2/14 東京11:00発 新大阪15:00着 普通車(禁煙) ×から△に変化";
+    NSString *connrectMessage = @"のぞみ 1/19 東京11:00発 新大阪15:00着 普通車(禁煙) ×から△に変化";
     NSString *message = [diff messageForNotification];
     XCTAssertEqualObjects(message, connrectMessage, @"通知用のメッセージの生成に失敗");
 }

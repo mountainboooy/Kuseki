@@ -30,6 +30,9 @@
     _seat_gr_s = response.seat_gr_s;
     _dep_stn  = dep_stn;
     _arr_stn = arr_stn;
+    _month = response.month;
+    _day = response.day;
+    
     
     return self;
     
@@ -105,7 +108,9 @@
     
     if ([response.name isEqualToString:_name] &&
          [response.dep_time isEqualToString:_dep_time] &&
-        [response.arr_time isEqualToString:_arr_time]) {
+        [response.arr_time isEqualToString:_arr_time] &&
+        [response.month isEqualToString:_month] &&
+        [response.day isEqualToString:_day]) {
         return YES;
     }
     

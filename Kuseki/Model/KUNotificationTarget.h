@@ -24,6 +24,8 @@
 @property (nonatomic,strong) NSString *condition_id;
 @property (nonatomic,strong) NSString *dep_stn;
 @property (nonatomic,strong) NSString *arr_stn;
+@property (nonatomic,strong) NSString *month;
+@property (nonatomic,strong) NSString *day;
 
 + (void)saveWithResponse:(KUResponse*)response condition:(KUSearchCondition*)condition;
 
