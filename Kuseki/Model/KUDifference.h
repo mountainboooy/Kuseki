@@ -28,5 +28,6 @@
 - (NSString*)stringWithCurrentValue;
 - (NSString*)messageForNotification;
 - (NSString*)stringWithSeatGrade;
+- (NSString*)stringWithMonth:(NSString*)month andDay:(NSString*)day;
 
 @end

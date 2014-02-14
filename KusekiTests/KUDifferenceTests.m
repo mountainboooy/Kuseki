@@ -95,6 +95,26 @@
     
 }
 
+
+- (void)testStringWithMonthAndDay
+{
+    NSString* month, *day;
+    month = @"01";
+    day = @"09";
+    
+    KUDifference *diff = [KUDifference new];
+    NSString *month_date = [diff stringWithMonth:month andDay:day];
+    
+    XCTAssertEqualObjects(month_date, @"1/9" , @"月日表示の変換に失敗");
+    
+    month = @"11";
+    day = @"19";
+    month_date= [diff stringWithMonth:month andDay:day];
+    XCTAssertEqualObjects(month_date, @"11/19", @"月日表示の変換に失敗");
+    
+}
+
+
 - (void)testMessageForNotification
 {
     KUNotificationTarget  *target = [KUNotificationTarget new];
@@ -106,7 +126,7 @@
     
     KUDifference *diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:SEAT_FULL currentValue:SEAT_BIT];
     
-    NSString *connrectMessage = @"のぞみ 東京11:00発 新大阪15:00着 普通車(禁煙) ×から△に変化";
+    NSString *connrectMessage = @"のぞみ 2/14 東京11:00発 新大阪15:00着 普通車(禁煙) ×から△に変化";
     NSString *message = [diff messageForNotification];
     XCTAssertEqualObjects(message, connrectMessage, @"通知用のメッセージの生成に失敗");
 }

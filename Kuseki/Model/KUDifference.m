@@ -120,10 +120,33 @@
 
 - (NSString*)messageForNotification
 {
+    /*
     NSString *message;
-    message = [NSString stringWithFormat:@"%@ %@%@発 %@%@着 %@ %@から%@に変化",_trainName, _dep_stn, _dep_time, _arr_stn, _arr_time, [self stringWithSeatGrade], [self stringWithPreviousValue], [self stringWithCurrentValue]];
+    NSString *month_day = [self stringWithMonth:_month andDay:_day];
+    
+    message = [NSString stringWithFormat:@"%@ %@ %@%@発 %@%@着 %@ %@から%@に変化",_trainName, month_day, _dep_stn, _dep_time, _arr_stn, _arr_time, [self stringWithSeatGrade], [self stringWithPreviousValue], [self stringWithCurrentValue]];
     
     return message;
+     */
+    return @"takeru";
+}
+
+
+- (NSString*)stringWithMonth:(NSString*)month_origin andDay:(NSString*)day_origin
+{
+    NSString *month, *day;
+    if ([month_origin hasPrefix:@"0"]) {
+        month = [month_origin substringFromIndex:1];
+    
+    }else{ month = month_origin; }
+    
+    
+    if ([day_origin hasPrefix:@"0"]) {
+        day = [day_origin substringFromIndex:1];
+    
+    }else{ day = day_origin; }
+    
+    return [NSString stringWithFormat:@"%@/%@",month, day];
 }
 
 @end
