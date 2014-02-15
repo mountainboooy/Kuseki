@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="43" y="-676"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - 新規検索-->
         <scene sceneID="FxM-qH-hBy">
             <objects>
                 <navigationController definesPresentationContext="YES" id="J5Q-kv-Z6y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="emn-Xl-5Lb"/>
+                    <tabBarItem key="tabBarItem" title="新規検索" id="emn-Xl-5Lb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t6l-Zx-bWb">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -333,7 +333,7 @@
             </objects>
             <point key="canvasLocation" x="1042" y="-832"/>
         </scene>
-        <!--Results View Controller - 結果-->
+        <!--Results View Controller - 検索結果-->
         <scene sceneID="Vt6-Jk-fNX">
             <objects>
                 <viewController storyboardIdentifier="ResultsViewController" id="00Y-iY-hoK" customClass="ResultsViewController" sceneMemberID="viewController">
@@ -473,7 +473,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="結果" id="f5O-tB-jy6">
+                    <navigationItem key="navigationItem" title="検索結果" id="f5O-tB-jy6">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="C5A-Wc-LtU">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sML-6P-dsI">
                                 <rect key="frame" x="16" y="5" width="71" height="33"/>
@@ -510,7 +510,7 @@
             </objects>
             <point key="canvasLocation" x="1429" y="-832"/>
         </scene>
-        <!--Saved Result View Controller - 結果-->
+        <!--Saved Result View Controller - 検索結果-->
         <scene sceneID="q9p-Lf-3VG">
             <objects>
                 <viewController storyboardIdentifier="SavedResultViewController" id="9lU-IC-3KP" customClass="SavedResultViewController" sceneMemberID="viewController">
@@ -661,7 +661,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="結果" id="vhT-zp-IEz">
+                    <navigationItem key="navigationItem" title="検索結果" id="vhT-zp-IEz">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="cGr-sk-p4L">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zbs-XY-yFe">
                                 <rect key="frame" x="16" y="5" width="71" height="33"/>
@@ -688,11 +688,11 @@
             </objects>
             <point key="canvasLocation" x="1429" y="-116"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - 保存した検索条件-->
         <scene sceneID="e11-dJ-Ona">
             <objects>
                 <navigationController definesPresentationContext="YES" id="lgf-KT-zB2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9No-iU-lwt"/>
+                    <tabBarItem key="tabBarItem" title="保存した検索条件" id="9No-iU-lwt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W1x-s3-Na0">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -704,7 +704,7 @@
             </objects>
             <point key="canvasLocation" x="569" y="-116"/>
         </scene>
-        <!--Conditions View Controller-->
+        <!--Conditions View Controller - 保存した検索条件-->
         <scene sceneID="LCm-iY-1sg">
             <objects>
                 <viewController storyboardIdentifier="ConditionsViewController" id="TrM-p4-qN0" customClass="ConditionsViewController" sceneMemberID="viewController">
@@ -771,7 +771,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="34J-xe-vFA"/>
+                    <navigationItem key="navigationItem" title="保存した検索条件" id="34J-xe-vFA"/>
                     <connections>
                         <outlet property="_tableView" destination="2qd-OV-nTc" id="Dsa-fY-0tK"/>
                     </connections>
