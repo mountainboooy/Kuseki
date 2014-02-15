@@ -397,6 +397,7 @@ UITextFieldDelegate>
 {
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_train.constant = 0;
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
     }];
 }
@@ -405,6 +406,7 @@ UITextFieldDelegate>
 {
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_train.constant = -216;
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         [self.view  layoutIfNeeded];
     }];
 }
@@ -416,7 +418,7 @@ UITextFieldDelegate>
     
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_dep.constant = -0;
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 216, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
     }];
 }
@@ -425,7 +427,7 @@ UITextFieldDelegate>
 {
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_dep.constant = -216;
-        _tableView.contentInset = UIEdgeInsetsZero;
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         [self.view  layoutIfNeeded];
     }completion:^(BOOL finished) {
     }];
@@ -438,7 +440,7 @@ UITextFieldDelegate>
     
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -0;
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 216, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
 
     }];
@@ -449,7 +451,7 @@ UITextFieldDelegate>
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -216;
         [self.view  layoutIfNeeded];
-        _tableView.contentInset = UIEdgeInsetsZero;
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         
     } completion:^(BOOL finished) {
     }];
