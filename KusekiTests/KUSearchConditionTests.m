@@ -53,4 +53,10 @@
     
 }
 
+//検索条件の日時が今より古いかどうかをチェック
+- (void)testIsOlderConditionThanNow
+{
+    //あとでやろう
+    
+}
 @end

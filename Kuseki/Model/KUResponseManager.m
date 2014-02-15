@@ -110,6 +110,8 @@ static KUResponseManager *_sharedManager = nil;
 //パースして格納するまで
 - (NSMutableArray*)setInfoWithBodyData:(NSString*)bodyData
 {
+    NSLog(@"BODY DATA:%@", bodyData);
+    
      NSError *err = nil;
     HTMLParser *parser = [[HTMLParser alloc]initWithString:bodyData error:&err];
     NSMutableArray *array = [NSMutableArray new];
@@ -127,6 +129,7 @@ static KUResponseManager *_sharedManager = nil;
     for (HTMLNode *tableNode in tableNodes) {//テーブルの中の<tr>の要素を抽出
         if ([[tableNode getAttributeNamed:@"border"]isEqualToString:@"3"]) {
             trNodes = [tableNode findChildTags:@"tr"];
+            NSLog(@"trNodes.count:%d",trNodes.count);
         }
     }
     
@@ -137,6 +140,7 @@ static KUResponseManager *_sharedManager = nil;
         if ([trNodes indexOfObject:trNode] > 1 ) {
             
             NSArray *tdNodes = [trNode findChildTags:@"td"];
+            NSLog(@"tdNodes.count:%d", tdNodes.count);
             
             if (tdNodes.count == 7) {
                 
