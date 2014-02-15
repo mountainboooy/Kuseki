@@ -67,6 +67,7 @@
     KUNotificationTargetsManager *manager = [KUNotificationTargetsManager sharedManager];
     [manager removeAllTargets];
     
+    //西側
     //response
     NSDictionary *dic = @{@"name":@"のぞみ",
                           @"dep_time":@"10:00",
@@ -104,7 +105,40 @@
     XCTAssertEqualObjects(savedTarget.month, @"01", @"通知対象の保存に失敗");
     XCTAssertEqualObjects(savedTarget.day, @"19", @"通知対象の保存に失敗");
     
+    //東側
+    NSDictionary *dic = @{@"name":@"はやぶさ",
+                          @"dep_time":@"10:00",
+                          @"arr_time":@"12:00",
+                          @"seat_ec_ns":@"○",
+                          @"seat_gr_ns":@"○",
+                          @"seat_gs_ns":@"○",
+                          @"month":@"01",
+                          @"day":@"19"
+                          };
     
+    //condition
+    condition.dep_stn = @"東京";
+    condition.arr_stn = @"秋田";
+    
+    [KUNotificationTarget saveWithResponse:response condition:condition];
+    
+    
+    //保存した内容を確認
+    [manager selectAllTargets];
+    savedTarget = manager.targets[0];
+    
+    XCTAssertEqualObjects(savedTarget.name, @"はやぶさ", @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.dep_time, @"10:00", @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.arr_time, @"12:00", @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.dep_stn, @"東京", @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.arr_stn, @"秋田", @"通知対象の保存に失敗");
+    XCTAssertEqual(savedTarget.seat_ec_ns, SEAT_VACANT, @"通知対象の保存に失敗");
+    XCTAssertEqual(savedTarget.seat_ec_s, nil, @"通知対象の保存に失敗");
+    XCTAssertEqual(savedTarget.seat_gr_ns, nil, @"通知対象の保存に失敗");
+    XCTAssertEqual(savedTarget.seat_gr_s, SEAT_VACANT, @"通知対象の保存に失敗");
+    XCTAssertEqual(savedTarget.seat_gs_ns, SEAT_VACANT, @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.month, @"01", @"通知対象の保存に失敗");
+    XCTAssertEqualObjects(savedTarget.day, @"19", @"通知対象の保存に失敗");
     
     
 }

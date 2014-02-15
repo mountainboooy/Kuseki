@@ -22,6 +22,7 @@ enum KUSheetValue {SEAT_VACANT, SEAT_BIT, SEAT_FULL, SEAT_INVALID, SEAT_NOT_EXIS
 @property enum KUSheetValue seat_gr_ns;
 @property enum KUSheetValue seat_gr_s;
 
+
 - (id)initWithDictionary:(NSDictionary*)dic;
 - (BOOL)isNotificationTarget;
 

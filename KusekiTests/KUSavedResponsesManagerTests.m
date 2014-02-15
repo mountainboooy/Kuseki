@@ -38,7 +38,7 @@
 }
 
 
-- (void)testGetResponsesWithParam
+- (void)testGetResponsesWithParamOfWestLine
 {
     _isFinished = NO;
     
@@ -58,12 +58,49 @@
         XCTAssertTrue(manager.responses.count>0, @"単一条件からの空席情報の取得に失敗");
         _isFinished = YES;
     
-    } failure:^{
+    }failure:^(NSHTTPURLResponse *res, NSError *err) {
         XCTFail(@"単一条件からの空席情報の取得に失敗");
         _isFinished = YES;
     }];
     
 }
+
+
+- (void)testGetResponsesWithParamOfEastLine
+{
+    _isFinished = NO;
+    
+    //東
+    NSDictionary *dic = @{@"year":@"2014",
+                          @"month":@"02",
+                          @"day":@"20",
+                          @"hour":@"15",
+                          @"minute":@"30",
+                          @"train":@"3",
+                          @"dep_stn":@"東京",
+                          @"arr_stn":@"上野"
+                          };
+    
+    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic];
+    
+    KUSavedResponsesManager *manager = [KUSavedResponsesManager sharedManager];
+    
+    [manager getResponsesWithParam:condition completion:^{
+        NSLog(@"空席情報の数：%d",manager.responses.count);
+        XCTAssertTrue(manager.responses.count > 0, @"空席情報の取得に失敗");
+        _isFinished = YES;
+        
+    } failure:^(NSHTTPURLResponse *res, NSError *err) {
+        if (!res && !err) {
+            XCTFail(@"空席情報が0です");
+            
+        }else{
+            XCTFail(@"bodyDataを取得できませんでした");
+        }
+        _isFinished = YES;
+    }];
+}
+
 
 - (void)testGetResponsesWithConditions
 {

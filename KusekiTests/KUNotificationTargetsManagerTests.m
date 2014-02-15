@@ -57,7 +57,6 @@
     [manager removeAllTargets];
     
     XCTAssertEqual(manager.targets.count, 0u, @"通知設定のクリアに失敗");
-    
      
 }
 

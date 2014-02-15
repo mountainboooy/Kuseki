@@ -25,6 +25,7 @@
 		054C262D18A6026C00BC1F79 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
 		054C262E18A602F800BC1F79 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0091188E8E5D00070F7D /* HTMLNode.m */; };
 		054C262F18A6031300BC1F79 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 057E0093188E8E5D00070F7D /* HTMLParser.m */; };
+		056D5A5218AF543B00BF2703 /* KUResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D5A5118AF543B00BF2703 /* KUResponseTests.m */; };
 		056F38D818AF078000D4C264 /* InputViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 056F38D718AF078000D4C264 /* InputViewControllerTests.m */; };
 		056FD1F218A9E05F00A7EE45 /* KUDifferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FD1F118A9E05F00A7EE45 /* KUDifferencesManager.m */; };
 		056FD1F418A9E08900A7EE45 /* KUDifferencesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FD1F318A9E08900A7EE45 /* KUDifferencesManagerTests.m */; };
@@ -100,6 +101,7 @@
 		0545DE62189A64CA008B55F5 /* KUSearchConditionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSearchConditionManager.h; sourceTree = "<group>"; };
 		0545DE63189A64CA008B55F5 /* KUSearchConditionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSearchConditionManager.m; sourceTree = "<group>"; };
 		054C262718A5F80600BC1F79 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		056D5A5118AF543B00BF2703 /* KUResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUResponseTests.m; sourceTree = "<group>"; };
 		056F38D718AF078000D4C264 /* InputViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewControllerTests.m; sourceTree = "<group>"; };
 		056FD1F018A9E05F00A7EE45 /* KUDifferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDifferencesManager.h; sourceTree = "<group>"; };
 		056FD1F118A9E05F00A7EE45 /* KUDifferencesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDifferencesManager.m; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				056FD1F818A9E89F00A7EE45 /* KUDifferenceTests.m */,
 				0500DACF18AB8CE4000D1FF6 /* KUNotificationTargetsManagerTests.m */,
 				056F38D718AF078000D4C264 /* InputViewControllerTests.m */,
+				056D5A5118AF543B00BF2703 /* KUResponseTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				05B39DBB18A67A530042F250 /* kUStationsManagerTests.m in Sources */,
 				054C262B18A5FE0D00BC1F79 /* KUSearchCondition.m in Sources */,
 				054C262A18A5FDF700BC1F79 /* KUResponse.m in Sources */,
+				056D5A5218AF543B00BF2703 /* KUResponseTests.m in Sources */,
 				054C262618A5F6BE00BC1F79 /* KUClient.m in Sources */,
 				054C262518A5F6A700BC1F79 /* KUSavedResponsesManager.m in Sources */,
 				0520D83118A50076006ABD10 /* KUSavedResponsesManagerTests.m in Sources */,
