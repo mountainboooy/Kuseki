@@ -38,7 +38,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"viewWillAppear");
     [_conditionManager getConditionsFromDB];
+    [_tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
