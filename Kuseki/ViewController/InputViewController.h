@@ -10,4 +10,6 @@
 
 @interface InputViewController : UIViewController
 
+- (BOOL)isValidTime:(NSDate*)date;
+
 @end

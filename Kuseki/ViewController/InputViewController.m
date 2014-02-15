@@ -391,14 +391,6 @@ UITextFieldDelegate>
 #pragma mark -
 #pragma mark private action
 
-- (void)btSearchPressed
-{
-    ResultsViewController *resultCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultsViewController"];
-    resultCon.condition = _condition;
-    resultCon.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:resultCon animated:YES];
-}
-
 
 //picker_train
 - (void)showPickerTrain
@@ -491,5 +483,52 @@ UITextFieldDelegate>
 #pragma mark -
 #pragma mark button action
 
+- (void)btSearchPressed
+{
+    
+    ResultsViewController *resultCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultsViewController"];
+    resultCon.condition = _condition;
+    resultCon.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:resultCon animated:YES];
+}
+
+
+- (BOOL)isValidTime:(NSDate*)date
+{
+    
+    if (!date) {
+        [[NSException exceptionWithName:@"TimeValudateionExecption" reason:@"date is null" userInfo:nil] raise];
+    }
+    
+    NSDateFormatter *formatter = [NSDateFormatter new];
+//    formatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US_POSIX"];
+//    formatter.calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+//    formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"JIST"];
+    [formatter setDateFormat:@"HH:mm"];
+    
+    NSString *date_str = [formatter stringFromDate:date];
+    NSLog(@"current time:%@", date_str);
+    
+    NSLog(@"toindex2:%@",[date_str substringToIndex:2]);
+    NSLog(@"fromindex3:%@",[date_str substringFromIndex:3]);
+    
+    
+    if ([date_str substringToIndex:2].intValue < 6 ||
+        ([date_str substringToIndex:2].intValue == 6 &&
+         [date_str substringFromIndex:3].intValue < 30)) {
+        //時間が早すぎる
+            return NO;
+    }
+    
+    if ([date_str substringToIndex:2].intValue > 22 ||
+        ([date_str substringToIndex:2].intValue == 22 &&
+         [date_str substringFromIndex:3].intValue > 30)) {
+        //時間が遅すぎる
+            return NO;
+    }
+    
+    return YES;
+    
+}
 
 @end
