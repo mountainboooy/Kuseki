@@ -10,6 +10,7 @@
 #import "KUSearchConditionManager.h"
 #import "KUSearchCondition.h"
 #import "SavedResultViewController.h"
+#import "KUButton.h"
 
 @interface ConditionsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -96,6 +97,12 @@
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:4];
     lb_arr_stn.text= condition.arr_stn;
     
+    //削除ボタン
+    KUButton *bt_delete = (KUButton*)[cell viewWithTag:5];
+    bt_delete.indexPath = indexPath;
+    [bt_delete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     
 }
 
@@ -157,6 +164,23 @@
     return YES;
     
 }
+
+
+#pragma mark -
+#pragma mark private action
+
+- (void)btDeletePressed:(KUButton*)bt
+{
+    KUSearchCondition *condition = _conditionManager.conditions[bt.indexPath.row];
+    [condition deleteCondition];
+    
+    [_conditionManager getConditionsFromDB];
+    
+    //テーブル更新
+    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
 
 
 @end
