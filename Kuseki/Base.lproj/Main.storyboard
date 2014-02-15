@@ -231,7 +231,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYe-Gj-rzD">
-                                <rect key="frame" x="0.0" y="519" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="603" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKI-pL-O2q">
@@ -256,11 +256,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d93-aE-Lq2">
-                                <rect key="frame" x="0.0" y="520" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="603" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SYy-2C-ufd">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                    <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYy-2C-ufd">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDK-Dh-s7F">
@@ -273,15 +273,19 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="j8d-5c-X9v"/>
+                                    <constraint firstItem="SYy-2C-ufd" firstAttribute="leading" secondItem="d93-aE-Lq2" secondAttribute="leading" id="Hwj-Ln-xnR"/>
+                                    <constraint firstItem="SYy-2C-ufd" firstAttribute="top" secondItem="d93-aE-Lq2" secondAttribute="top" id="ImX-eC-daU"/>
+                                    <constraint firstAttribute="trailing" secondItem="SYy-2C-ufd" secondAttribute="trailing" id="Yiw-Vt-bu6"/>
+                                    <constraint firstAttribute="bottom" secondItem="SYy-2C-ufd" secondAttribute="bottom" id="iah-YP-6eJ"/>
+                                    <constraint firstAttribute="height" constant="216" id="j8d-5c-X9v"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjN-wB-bWG">
-                                <rect key="frame" x="0.0" y="521" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="603" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <pickerView tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-TP-r5t">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                    <pickerView tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-TP-r5t">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V67-XJ-EN7">
@@ -294,7 +298,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="7Ab-pr-i54"/>
+                                    <constraint firstAttribute="height" constant="216" id="7Ab-pr-i54"/>
+                                    <constraint firstAttribute="bottom" secondItem="8GO-TP-r5t" secondAttribute="bottom" id="KQ5-Bz-2j3"/>
+                                    <constraint firstItem="8GO-TP-r5t" firstAttribute="leading" secondItem="gjN-wB-bWG" secondAttribute="leading" id="ROq-nr-mV6"/>
+                                    <constraint firstItem="8GO-TP-r5t" firstAttribute="top" secondItem="gjN-wB-bWG" secondAttribute="top" id="UED-xI-mre"/>
+                                    <constraint firstAttribute="trailing" secondItem="8GO-TP-r5t" secondAttribute="trailing" id="vCI-a6-yh1"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -302,12 +310,12 @@
                         <constraints>
                             <constraint firstItem="mYe-Gj-rzD" firstAttribute="leading" secondItem="b4s-3g-Fkz" secondAttribute="leading" id="6da-cH-HSF"/>
                             <constraint firstAttribute="trailing" secondItem="gjN-wB-bWG" secondAttribute="trailing" id="AmN-qa-u24"/>
-                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="d93-aE-Lq2" secondAttribute="bottom" constant="-163" id="GMu-pb-YFn"/>
+                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="d93-aE-Lq2" secondAttribute="bottom" constant="-300" id="GMu-pb-YFn"/>
                             <constraint firstItem="R40-gM-eIK" firstAttribute="leading" secondItem="b4s-3g-Fkz" secondAttribute="leading" id="I2E-NN-0Z5"/>
                             <constraint firstItem="R40-gM-eIK" firstAttribute="top" secondItem="b4s-3g-Fkz" secondAttribute="top" id="JYg-bh-saQ"/>
-                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="mYe-Gj-rzD" secondAttribute="bottom" constant="-216" id="MN2-xx-TIF"/>
+                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="mYe-Gj-rzD" secondAttribute="bottom" constant="-300" id="MN2-xx-TIF"/>
                             <constraint firstAttribute="trailing" secondItem="d93-aE-Lq2" secondAttribute="trailing" id="W0q-wS-rmX"/>
-                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="gjN-wB-bWG" secondAttribute="bottom" constant="-164" id="ZEa-84-Zlv"/>
+                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="gjN-wB-bWG" secondAttribute="bottom" constant="-300" id="ZEa-84-Zlv"/>
                             <constraint firstAttribute="trailing" secondItem="mYe-Gj-rzD" secondAttribute="trailing" id="hdn-hh-hVv"/>
                             <constraint firstAttribute="trailing" secondItem="R40-gM-eIK" secondAttribute="trailing" id="rLO-E4-TIs"/>
                             <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="R40-gM-eIK" secondAttribute="bottom" id="rYd-tM-U0U"/>
@@ -502,6 +510,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_tableView" destination="BzC-f6-Rc8" id="hbU-SG-mhB"/>
                     </connections>
@@ -680,6 +689,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_tableView" destination="6Jk-Uq-RWM" id="LV6-yW-U0P"/>
                     </connections>

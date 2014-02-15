@@ -104,6 +104,7 @@
 {
     SavedResultViewController *savedResCon = [self.storyboard instantiateViewControllerWithIdentifier:@"SavedResultViewController"];
     savedResCon.condition = _conditionManager.conditions[indexPath.row];
+    savedResCon.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:savedResCon animated:YES];
     

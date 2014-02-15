@@ -395,6 +395,7 @@ UITextFieldDelegate>
 {
     ResultsViewController *resultCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultsViewController"];
     resultCon.condition = _condition;
+    resultCon.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:resultCon animated:YES];
 }
 
@@ -420,8 +421,10 @@ UITextFieldDelegate>
 //picker_dep
 - (void)showPickerDep
 {
+    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_dep.constant = -0;
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 216, 0);
         [self.view layoutIfNeeded];
     }];
 }
@@ -430,7 +433,9 @@ UITextFieldDelegate>
 {
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_dep.constant = -216;
+        _tableView.contentInset = UIEdgeInsetsZero;
         [self.view  layoutIfNeeded];
+    }completion:^(BOOL finished) {
     }];
 }
 
@@ -438,9 +443,12 @@ UITextFieldDelegate>
 //picker_arr
 - (void)showPickerArr
 {
+    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -0;
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 216, 0);
         [self.view layoutIfNeeded];
+
     }];
 }
 
@@ -449,7 +457,11 @@ UITextFieldDelegate>
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -216;
         [self.view  layoutIfNeeded];
+        _tableView.contentInset = UIEdgeInsetsZero;
+        
+    } completion:^(BOOL finished) {
     }];
+    
 }
 
 
@@ -474,7 +486,6 @@ UITextFieldDelegate>
     [_picker_dep reloadAllComponents];
     
 }
-
 
 
 #pragma mark -
