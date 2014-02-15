@@ -16,7 +16,7 @@
 #import "KUDifference.h"
 
 @interface AppDelegate()
-<KUSavedResponsesManagerDelegate>
+<KUSavedResponsesManagerDelegate, UIAlertViewDelegate>
 @end
 
 @implementation AppDelegate
@@ -90,13 +90,16 @@
 }
 
 
-+ (void)showAlertWithTitle:(NSString*)title message:(NSString*)message
++ (void)showAlertWithTitle:(NSString*)title message:(NSString*)message completion:(KUAlertCompetion)completion
 {
-    UIAlertView *al = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    UIAlertView *al = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [al show];
     
 }
+
+
 
 
 - (void)addNotification:(NSString*)body afterSeconds:(NSTimeInterval)seconds withSound:(NSString*)soundName {

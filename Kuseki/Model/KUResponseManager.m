@@ -82,14 +82,22 @@ static KUResponseManager *_sharedManager = nil;
     
     [client postPath:path param:param completion:^(NSString *dataString) {
         
-        [self setInfoWithBodyData:dataString];
+        _responses = [self setInfoWithBodyData:dataString];
+        
+        if (_responses.count == 0) {//取得情報が0の場合
+            if (failure) {
+                failure(nil,nil);
+            }
+            return;
+        }
+        
         if (completion) {
             completion();
         }
         
     } failure:^(NSHTTPURLResponse *res, NSError *error) {
         if (failure) {
-            failure();
+            failure(res, error);
         }
         
     }];
@@ -100,12 +108,11 @@ static KUResponseManager *_sharedManager = nil;
 
 
 //パースして格納するまで
-- (NSArray*)setInfoWithBodyData:(NSString*)bodyData
+- (NSMutableArray*)setInfoWithBodyData:(NSString*)bodyData
 {
-    //TODO:ここでのエラーハンドリングが重要
-    
-    NSError *err = nil;
+     NSError *err = nil;
     HTMLParser *parser = [[HTMLParser alloc]initWithString:bodyData error:&err];
+    NSMutableArray *array = [NSMutableArray new];
     
     if (err) {
         return nil;
@@ -146,12 +153,12 @@ static KUResponseManager *_sharedManager = nil;
                                            };
                 
                 KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
-                [self addResponse:new_response];
+                [array addObject:new_response];
             }
         }
     }
 
-    return [NSArray array];
+    return array;
     
 }
 

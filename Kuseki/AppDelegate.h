@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^KUAlertCompetion)();
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-+ (void)showAlertWithTitle:(NSString*)title message:(NSString*)message;
++ (void)showAlertWithTitle:(NSString*)title message:(NSString*)message completion:(KUAlertCompetion)completion;
 @end

@@ -87,8 +87,7 @@ static KUSavedResponsesManager *_sharedManager = nil;
         if (_num_executedConditions == _num_conditions) {//全ての情報を取得完了
             [_delegate savedResponseManager:self DidFinishLoadingResponses:_responses];
         }
-        
-    } failure:^{
+    }failure:^(NSHTTPURLResponse *res, NSError *err) {
         //エラーハンドリング
         [_delegate savedResponseManagerDidFailLoading];
     }];
@@ -119,16 +118,23 @@ static KUSavedResponsesManager *_sharedManager = nil;
     
     [client postPath:path param:param completion:^(NSString *dataString) {
         
-        [self setInfoWithBodyData:dataString condition:condition];
+        _responses = [self setInfoWithBodyData:dataString condition:condition];
+        
+        if (_responses.count == 0) {//取得件数0の場合
+            if (failure) {
+                failure(nil,nil);
+            }
+            return;
+        }
+        
         if (completion) {
             completion();
         }
         
     } failure:^(NSHTTPURLResponse *res, NSError *error) {
         if (failure) {
-            failure();
+            failure(res, error);
         }
-        
     }];
 }
 
@@ -136,12 +142,11 @@ static KUSavedResponsesManager *_sharedManager = nil;
 
 
 //パースして格納するまで
-- (NSArray*)setInfoWithBodyData:(NSString*)bodyData condition:(KUSearchCondition*)condition
+- (NSMutableArray*)setInfoWithBodyData:(NSString*)bodyData condition:(KUSearchCondition*)condition
 {
-    //TODO:ここでのエラーハンドリングが重要
-    
     NSError *err = nil;
     HTMLParser *parser = [[HTMLParser alloc]initWithString:bodyData error:&err];
+    NSMutableArray *array = [NSMutableArray new];
     
     if (err) {
         return nil;
@@ -182,12 +187,12 @@ static KUSavedResponsesManager *_sharedManager = nil;
                                            };
                 
                 KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
-                [self addResponse:new_response];
+                [array addObject:new_response];
             }
         }
     }
     
-    return [NSArray array];
+    return array;
     
 }
 

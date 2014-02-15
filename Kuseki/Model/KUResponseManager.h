@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KUSearchCondition.h"
 typedef void (^KUResponseNetworkCompletion)();
-typedef void (^KUResponseNetworkFailure)();
+typedef void (^KUResponseNetworkFailure)(NSHTTPURLResponse *res, NSError *err);
 
 @interface KUResponseManager : NSObject
 @property (nonatomic,strong) NSMutableArray *responses;
@@ -17,7 +17,7 @@ typedef void (^KUResponseNetworkFailure)();
 
 + (KUResponseManager*)sharedManager;
 
-- (NSArray*)setInfoWithBodyData:(NSString*)bodyData;
+- (NSMutableArray*)setInfoWithBodyData:(NSString*)bodyData;
 
 - (void)getResponsesWithParam:(KUSearchCondition*)condition completion:(KUResponseNetworkCompletion)completion failure:(KUResponseNetworkFailure)failure;
 

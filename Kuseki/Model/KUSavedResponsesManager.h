@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KUSearchCondition.h"
 typedef void (^KUResponseNetworkCompletion)();
-typedef void (^KUResponseNetworkFailure)();
+typedef void (^KUResponseNetworkFailure)(NSHTTPURLResponse *res, NSError *err);
 @protocol KUSavedResponsesManagerDelegate;
 
 @interface KUSavedResponsesManager : NSObject

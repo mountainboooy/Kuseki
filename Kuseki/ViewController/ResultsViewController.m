@@ -51,12 +51,22 @@
         NSLog(@"num:%lu",(unsigned long)_responseManager.responses.count);
         [_tableView reloadData];
         
-    } failure:^{
-        NSLog(@"failure");
+    } failure:^(NSHTTPURLResponse *res, NSError *err) {
+        if (res || err) {//通信問題、サーバーエラーなど
+            NSString* title = [NSString stringWithFormat:@"statusCode:%d",res.statusCode];
+            NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
+            [AppDelegate showAlertWithTitle:title message:message completion:nil];
+            
+            return;
+        }
+        
+        if(!res && !err){//入力内容に問題あり
+            NSString *message = @"条件に合う空席情報は見つかりませんでした";
+            [AppDelegate showAlertWithTitle:nil message:message completion:nil];
+            return;
+        }
+        
     }];
-    
-    
-    
 }
 
 
@@ -153,11 +163,11 @@
 
     [_condition postConditionWithCompletion:^{
         NSString *message = @"この検索条件を保存しました";
-        [AppDelegate showAlertWithTitle:nil message:message];
+        [AppDelegate showAlertWithTitle:nil message:message completion:nil];
         
     } failure:^{
         NSString *message = @"保存に失敗しました";
-        [AppDelegate showAlertWithTitle:nil message:message];
+        [AppDelegate showAlertWithTitle:nil message:message completion:nil];
     }];
     
     //確認
