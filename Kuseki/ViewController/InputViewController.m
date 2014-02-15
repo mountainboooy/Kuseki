@@ -486,6 +486,11 @@ UITextFieldDelegate>
 - (void)btSearchPressed
 {
     
+    if (![self isValidTime:[NSDate date]]) {
+        NSString *message = @"23:30〜6:30の間は情報が提供されません";
+        [AppDelegate showAlertWithTitle:nil message:message];
+    }
+    
     ResultsViewController *resultCon = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultsViewController"];
     resultCon.condition = _condition;
     resultCon.hidesBottomBarWhenPushed = YES;

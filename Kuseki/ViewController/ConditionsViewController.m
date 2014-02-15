@@ -102,6 +102,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (![self isValidTime:[NSDate date]]) {
+        NSString *message = @"23:30〜6:30の間は情報が提供されません";
+        [AppDelegate showAlertWithTitle:nil message:message];
+    }
+    
+    
     SavedResultViewController *savedResCon = [self.storyboard instantiateViewControllerWithIdentifier:@"SavedResultViewController"];
     savedResCon.condition = _conditionManager.conditions[indexPath.row];
     savedResCon.hidesBottomBarWhenPushed = YES;
@@ -112,7 +118,45 @@
 }
 
 
-
+#pragma mark -
+#pragma mark private methods
+- (BOOL)isValidTime:(NSDate*)date
+{
+    
+    if (!date) {
+        [[NSException exceptionWithName:@"TimeValudateionExecption" reason:@"date is null" userInfo:nil] raise];
+    }
+    
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    //    formatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"en_US_POSIX"];
+    //    formatter.calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    //    formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"JIST"];
+    [formatter setDateFormat:@"HH:mm"];
+    
+    NSString *date_str = [formatter stringFromDate:date];
+    NSLog(@"current time:%@", date_str);
+    
+    NSLog(@"toindex2:%@",[date_str substringToIndex:2]);
+    NSLog(@"fromindex3:%@",[date_str substringFromIndex:3]);
+    
+    
+    if ([date_str substringToIndex:2].intValue < 6 ||
+        ([date_str substringToIndex:2].intValue == 6 &&
+         [date_str substringFromIndex:3].intValue < 30)) {
+            //時間が早すぎる
+            return NO;
+        }
+    
+    if ([date_str substringToIndex:2].intValue > 22 ||
+        ([date_str substringToIndex:2].intValue == 22 &&
+         [date_str substringFromIndex:3].intValue > 30)) {
+            //時間が遅すぎる
+            return NO;
+        }
+    
+    return YES;
+    
+}
 
 
 @end
