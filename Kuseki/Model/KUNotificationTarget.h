@@ -21,6 +21,7 @@
 @property enum KUSheetValue seat_ec_s;
 @property enum KUSheetValue seat_gr_ns;
 @property enum KUSheetValue seat_gr_s;
+@property enum KUSheetValue seat_gs_ns;
 @property (nonatomic,strong) NSString *condition_id;
 @property (nonatomic,strong) NSString *dep_stn;
 @property (nonatomic,strong) NSString *arr_stn;

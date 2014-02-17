@@ -172,10 +172,10 @@ static KUSavedResponsesManager *_sharedManager = nil;
             
             NSArray *tdNodes = [trNode findChildTags:@"td"];
             
-            if (tdNodes.count == 7) {
+            NSDictionary *response;
+            if (tdNodes.count == 7) {//西側
                 
-                //モデルクラス作成
-                NSDictionary *response = @{@"name":[tdNodes[0] contents],
+                response = @{@"name":[tdNodes[0] contents],
                                            @"dep_time":[tdNodes[1] contents],
                                            @"arr_time":[tdNodes[2] contents],
                                            @"seat_ec_ns":[tdNodes[3] contents],
@@ -185,10 +185,22 @@ static KUSavedResponsesManager *_sharedManager = nil;
                                            @"month":condition.month,
                                            @"day":condition.day
                                            };
+
+            }else if(tdNodes.count == 6){//東側
                 
-                KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
-                [array addObject:new_response];
+                response = @{@"name":[tdNodes[0] contents],
+                             @"dep_time":[tdNodes[1] contents],
+                             @"arr_time":[tdNodes[2] contents],
+                             @"seat_ec_ns":[tdNodes[3] contents],
+                             @"seat_gr_ns":[tdNodes[4] contents],
+                             @"seat_gs_ns":[tdNodes[5]contents],
+                             @"month":condition.month,
+                             @"day":condition.day
+                             };
             }
+            
+            KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
+            [array addObject:new_response];
         }
     }
     

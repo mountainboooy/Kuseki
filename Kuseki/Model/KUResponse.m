@@ -27,6 +27,7 @@
     _seat_ec_s = [self seatValueForString:dic[@"seat_ec_s"]];
     _seat_gr_ns = [self seatValueForString:dic[@"seat_gr_ns"]];
     _seat_gr_s = [self seatValueForString:dic[@"seat_gr_s"]];
+    _seat_gs_ns = [self seatValueForString:dic[@"seat_gs_ns"]];
     
     return self;
 }
@@ -34,6 +35,7 @@
 
 - (enum KUSheetValue)seatValueForString:(NSString*)str
 {
+
     NSLog(@"str:%@",str);
     if ([str isEqualToString:@"○"]) {
         return SEAT_VACANT;

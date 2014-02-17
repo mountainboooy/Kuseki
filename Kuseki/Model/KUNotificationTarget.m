@@ -28,6 +28,7 @@
     _seat_ec_s  = response.seat_ec_s;
     _seat_gr_ns = response.seat_gr_ns;
     _seat_gr_s = response.seat_gr_s;
+    _seat_gs_ns = response.seat_gs_ns;
     _dep_stn  = dep_stn;
     _arr_stn = arr_stn;
     _month = response.month;
@@ -102,10 +103,6 @@
 //通知ターゲット(自身）と取得したresponseが同じものかチェックするメソッド
 - (BOOL)isSameTrainWithResponse:(KUResponse *)response
 {
-    NSLog(@"res_name:%@",response.name);
-    NSLog(@"res_dep:%@",response.dep_time);
-    NSLog(@"res_arr:%@",response.arr_time);
-    
     if ([response.name isEqualToString:_name] &&
          [response.dep_time isEqualToString:_dep_time] &&
         [response.arr_time isEqualToString:_arr_time] &&

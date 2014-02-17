@@ -45,15 +45,17 @@ static KUDifferencesManager *_sharedManager = nil;
 - (void)compareResponse:(KUResponse*)response withTarget:(KUNotificationTarget*)target
 {
     if (!response || !target) {
+        NSLog(@"ありません");
         return;
     }
     
     if (![target isSameTrainWithResponse:response]) {
+        NSLog(@"一緒じゃない");
         return;
     }
     
     //普通席禁煙
-    if (response.seat_ec_ns  == target.seat_ec_ns) {
+    if (response.seat_ec_ns  != target.seat_ec_ns) {
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:target.seat_ec_ns currentValue:response.seat_ec_ns];
@@ -85,6 +87,17 @@ static KUDifferencesManager *_sharedManager = nil;
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_gr_s" previousValue:target.seat_gr_s currentValue:response.seat_gr_s];
+        
+        [self addDifference:new_diff];
+    }
+    
+    //グランシート禁煙
+    NSLog(@"response.^^%d",response.seat_gs_ns);
+    NSLog(@"target.[[%d",target.seat_gs_ns);
+    if(response.seat_gs_ns != target.seat_gs_ns){
+        //KUDifferenceを生成して追加
+        KUDifference *new_diff;
+        new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_gs_ns" previousValue:target.seat_gs_ns currentValue:response.seat_gs_ns];
         
         [self addDifference:new_diff];
     }
