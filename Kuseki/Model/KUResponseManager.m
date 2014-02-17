@@ -156,25 +156,35 @@ static KUResponseManager *_sharedManager = nil;
                                            @"seat_gr_s":[tdNodes[6] contents],
                                            @"month":_condition.month,
                                            @"day":_condition.day
-                                           };
-
+                             };
+                KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
+                [array addObject:new_response];
+                
+            
             }else if (tdNodes.count == 6){//東側の新幹線
-            
+                //中身をチェック
+                for (HTMLNode *node in tdNodes){
+                    NSLog(@"content:%@",[node contents]);
+                          
+                    
+                }
                 response = @{@"name":[tdNodes[0] contents],
-                                           @"dep_time":[tdNodes[1] contents],
-                                           @"arr_time":[tdNodes[2] contents],
-                                           @"seat_ec_ns":[tdNodes[3] contents],
-                                           @"seat_gr_ns":[tdNodes[4] contents],
-                                           @"seat_gs_ns":[tdNodes[5]contents],
-                                           @"month":_condition.month,
-                                           @"day":_condition.day
-                                           };
-            
+                             @"dep_time":[tdNodes[1] contents],
+                             @"arr_time":[tdNodes[2] contents],
+                             @"seat_ec_ns":[tdNodes[3] contents],
+                             @"seat_gr_ns":[tdNodes[4] contents],
+                             @"seat_gs_ns":[tdNodes[5]contents],
+                             @"month":_condition.month,
+                             @"day":_condition.day
+                             };
+                
+                KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
+                [array addObject:new_response];
+                
             }
             
-            KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
-            [array addObject:new_response];
-        
+
+            
         }
     }
 

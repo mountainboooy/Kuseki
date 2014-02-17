@@ -36,7 +36,6 @@
 - (enum KUSheetValue)seatValueForString:(NSString*)str
 {
 
-    NSLog(@"str:%@",str);
     if ([str isEqualToString:@"○"]) {
         return SEAT_VACANT;
     }

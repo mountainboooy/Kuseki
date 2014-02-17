@@ -90,8 +90,14 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell *cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"cell0"];
+    if([_condition.train isEqualToString:@"1"] || [_condition.train isEqualToString:@"2"]){//西側
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell0"];
+    
+    }else{//東側
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell1"];
+    }
     
     [self updateCell:cell atIndexPath:indexPath];
     
@@ -120,7 +126,6 @@
 {
     KUResponse *response = _responseManager.responses[indexPath.row];
 
-    
     //name
     UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
     lb_name.text = response.name;
@@ -133,21 +138,39 @@
     UILabel *lb_arr_time = (UILabel*)[cell viewWithTag:3];
     lb_arr_time.text = [NSString stringWithFormat:@"%@着", response.arr_time];
     
-    //ec_ns
-    UIImageView *iv_ec_ns = (UIImageView*)[cell viewWithTag:4];
-    iv_ec_ns.image = [self imgForSeatValue:response.seat_ec_ns];
+    if([_condition.train isEqualToString:@"1"] || [_condition.train isEqualToString:@"2"])
+    {//西側
+        //ec_ns
+        UIImageView *iv_ec_ns = (UIImageView*)[cell viewWithTag:4];
+        iv_ec_ns.image = [self imgForSeatValue:response.seat_ec_ns];
+        
+        //ec_s
+        UIImageView *iv_ec_s = (UIImageView*)[cell viewWithTag:5];
+        iv_ec_s.image = [self imgForSeatValue:response.seat_ec_s];
+        
+        //gr_ns
+        UIImageView *iv_gr_ns = (UIImageView*)[cell viewWithTag:6];
+        iv_gr_ns.image = [self imgForSeatValue:response.seat_gr_ns];
+        
+        //gr_s
+        UIImageView *iv_gr_s = (UIImageView*)[cell viewWithTag:7];
+        iv_gr_s.image = [self imgForSeatValue:response.seat_gr_s];
     
-    //ec_s
-    UIImageView *iv_ec_s = (UIImageView*)[cell viewWithTag:5];
-    iv_ec_s.image = [self imgForSeatValue:response.seat_ec_s];
     
-    //gr_ns
-    UIImageView *iv_gr_ns = (UIImageView*)[cell viewWithTag:6];
-    iv_gr_ns.image = [self imgForSeatValue:response.seat_gr_ns];
+    }else{//東側
+        //ec_ns
+        UIImageView *iv_ec_ns = (UIImageView*)[cell viewWithTag:4];
+        iv_ec_ns.image = [self imgForSeatValue:response.seat_ec_ns];
+        
+        //gr_ns
+        UIImageView *iv_gr_ns = (UIImageView *)[cell viewWithTag:5];
+        iv_gr_ns.image = [self imgForSeatValue:response.seat_gr_ns];
+        
+        //gs_ns
+        UIImageView *iv_gs_ns = (UIImageView*)[cell viewWithTag:6];
+        iv_gs_ns.image = [self imgForSeatValue:response.seat_gs_ns];
+    }
     
-    //gr_s
-    UIImageView *iv_gr_s = (UIImageView*)[cell viewWithTag:7];
-    iv_gr_s.image = [self imgForSeatValue:response.seat_gr_s];
     
 }
 
