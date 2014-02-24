@@ -32,6 +32,7 @@
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
+    NSLog(@"perfom fetch");
     
     //保存中の検索条件一覧をDBから取得
     KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
@@ -46,8 +47,8 @@
     
     //後はdelegateメソッド上で処理
     
-
-
+    
+    
     completionHandler(UIBackgroundFetchResultNewData);
 
     

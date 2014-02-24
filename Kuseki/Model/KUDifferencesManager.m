@@ -55,7 +55,7 @@ static KUDifferencesManager *_sharedManager = nil;
     }
     
     //普通席禁煙
-    if (response.seat_ec_ns  != target.seat_ec_ns) {
+    if (response.seat_ec_ns  == target.seat_ec_ns) {
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:target.seat_ec_ns currentValue:response.seat_ec_ns];
