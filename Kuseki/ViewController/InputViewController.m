@@ -94,6 +94,16 @@ UITextFieldDelegate>
     
 }
 
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+    MITextField *tf = (MITextField*)[cell viewWithTag:1];
+    [tf becomeFirstResponder];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -384,6 +394,78 @@ UITextFieldDelegate>
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath:textField.indexPath];
     [self updateCell:cell atIndexPath:textField.indexPath];
 
+}
+
+
+- (BOOL)textField:(MITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+
+    NSMutableString *text   = [textField.text mutableCopy];
+    [text replaceCharactersInRange:range withString:string];
+    NSIndexPath *nextPath;
+    UITableViewCell *nextCell;
+    MITextField  *nextField;
+    
+    /*
+    //バリデーション
+    if ([self textIsInvalid:]) {
+        NSString *message = @"入力内容が正しくありません";
+        UIAlertView *al = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [al show];
+        return NO;
+    }*/
+
+    
+    switch (textField.indexPath.row) {
+        case 0:{//乗車月日
+            if (textField.tag == 1) {//月
+                if (text.length == 2) {//日に移動
+                    nextPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                    nextField = (MITextField*)[nextCell viewWithTag:2];
+                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                }
+                
+            }else{//日
+                if (text.length == 2) {//時に移動
+                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                    nextField = (MITextField*)[nextCell viewWithTag:1];
+                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                }
+                
+                break;
+            }
+            
+        case 1:{//時間
+            if (textField.tag == 1) {//時
+                if (text.length == 2) {//分に移動
+                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                    nextField = (MITextField*)[nextCell viewWithTag:2];
+                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                }
+                
+            }else{//分
+                if (text.length == 2) {//お乗りになる列車を表示
+                    [self.view endEditing:YES];
+                    [self showPickerTrain];
+                }
+            }
+            break;
+            
+        default:
+            break;
+        }
+            return YES;
+        }
+    }
+    return YES;
+}
+
+- (void)focusNextField:(MITextField*)nextField
+{
+    [nextField becomeFirstResponder];
 }
 
 
