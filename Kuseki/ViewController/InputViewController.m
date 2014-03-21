@@ -25,6 +25,8 @@ UITextFieldDelegate>
     __weak IBOutlet UIButton *_btClose_train;
     __weak IBOutlet UIButton *_btClose_dep;
     __weak IBOutlet UIButton *_btClose_arr;
+    __weak IBOutlet UIButton *_btNext_dep;
+    __weak IBOutlet UIButton *_btSearch_arr;
     
     //constraint
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_train;
@@ -84,13 +86,14 @@ UITextFieldDelegate>
     //stations
     [self updateStations];
     
-    //button
+    //button_close
     [_btClose_train addTarget:self action:@selector(hidePickerTrain) forControlEvents:UIControlEventTouchUpInside];
-    
     [_btClose_dep addTarget:self action:@selector(hidePickerDep) forControlEvents:UIControlEventTouchUpInside];
-    
     [_btClose_arr addTarget:self action:@selector(hidePickerArr) forControlEvents:UIControlEventTouchUpInside];
     
+    //button_next
+    [_btNext_dep addTarget:self action:@selector(btNextDepPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_btSearch_arr addTarget:self action:@selector(btSearchArrPressed) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -554,13 +557,19 @@ UITextFieldDelegate>
 
 - (void)keyboardWillAppear:(NSNotification*)notification
 {
-    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 60, 0);
+   [UIView animateWithDuration:0.3 animations:^{
+    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
+
+   }];
 }
 
 
 - (void)keyboardWillDisappear:(NSNotification*)notification
 {
-    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    [UIView animateWithDuration:0.3 animations:^{
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+
+    }];
 }
 
 
@@ -575,6 +584,19 @@ UITextFieldDelegate>
 
 #pragma mark -
 #pragma mark button action
+
+- (void)btSearchArrPressed
+{
+    [self hidePickerArr];
+    [self btSearchPressed];
+}
+
+- (void)btNextDepPressed
+{
+    [self hidePickerDep];
+    [self showPickerArr];
+}
+
 
 - (void)btSearchPressed
 {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gcr-eE-9kA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gcr-eE-9kA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -263,10 +263,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ws-aK-T3C">
+                                        <rect key="frame" x="13" y="10" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="閉じる">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDK-Dh-s7F">
                                         <rect key="frame" x="260" y="10" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="閉じる">
+                                        <state key="normal" title="次へ">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -290,6 +297,13 @@
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V67-XJ-EN7">
                                         <rect key="frame" x="260" y="10" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="検索">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNw-ky-p1R">
+                                        <rect key="frame" x="17" y="10" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="閉じる">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -328,9 +342,11 @@
                         <outlet property="_bottomSpace_picker_arr" destination="ZEa-84-Zlv" id="fXB-Ns-Ued"/>
                         <outlet property="_bottomSpace_picker_dep" destination="GMu-pb-YFn" id="5PG-2l-xHz"/>
                         <outlet property="_bottomSpace_picker_train" destination="MN2-xx-TIF" id="Plc-rc-cC8"/>
-                        <outlet property="_btClose_arr" destination="V67-XJ-EN7" id="Idb-x5-OEe"/>
-                        <outlet property="_btClose_dep" destination="ZDK-Dh-s7F" id="3EX-2W-oxq"/>
+                        <outlet property="_btClose_arr" destination="WNw-ky-p1R" id="Cvq-JO-MiQ"/>
+                        <outlet property="_btClose_dep" destination="0Ws-aK-T3C" id="6cR-A9-r0K"/>
                         <outlet property="_btClose_train" destination="Yeg-vO-T3C" id="JnF-MA-6Dk"/>
+                        <outlet property="_btNext_dep" destination="ZDK-Dh-s7F" id="T6K-JK-6xW"/>
+                        <outlet property="_btSearch_arr" destination="V67-XJ-EN7" id="N5O-p3-J9l"/>
                         <outlet property="_picker_arr" destination="8GO-TP-r5t" id="OGx-ce-tft"/>
                         <outlet property="_picker_dep" destination="SYy-2C-ufd" id="eWH-4Q-VEX"/>
                         <outlet property="_picker_train" destination="HKI-pL-O2q" id="NMA-rF-0zo"/>
