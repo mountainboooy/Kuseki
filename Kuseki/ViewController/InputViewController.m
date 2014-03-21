@@ -322,6 +322,10 @@ UITextFieldDelegate>
         
         [self updateStations];
         
+        //dep_stnのピッカーを表示
+        [self hidePickerTrain];
+        [self showPickerDep];
+        
     }
     
     else if(pickerView.tag == 2){//dep_stn
@@ -347,6 +351,7 @@ UITextFieldDelegate>
     [self hidePickerTrain];
     [self hidePickerDep];
     [self hidePickerArr];
+    textField.text = @"";
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
@@ -424,6 +429,7 @@ UITextFieldDelegate>
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
                     nextField = (MITextField*)[nextCell viewWithTag:2];
                     [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                    return YES;
                 }
                 
             }else{//日
@@ -432,6 +438,7 @@ UITextFieldDelegate>
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
                     nextField = (MITextField*)[nextCell viewWithTag:1];
                     [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                    return YES;
                 }
                 
                 break;
@@ -444,12 +451,13 @@ UITextFieldDelegate>
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
                     nextField = (MITextField*)[nextCell viewWithTag:2];
                     [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                    return YES;
                 }
                 
             }else{//分
                 if (text.length == 2) {//お乗りになる列車を表示
-                    [self.view endEditing:YES];
-                    [self showPickerTrain];
+                    [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
+                    return YES;
                 }
             }
             break;
@@ -477,6 +485,7 @@ UITextFieldDelegate>
 //picker_train
 - (void)showPickerTrain
 {
+    [self.view endEditing:YES];
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_train.constant = 0;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
