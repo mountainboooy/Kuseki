@@ -114,4 +114,10 @@ static KUDifferencesManager *_sharedManager = nil;
     [_differences addObject:difference];
 }
 
+
+- (void)clearDifferences
+{
+    [_differences removeAllObjects];
+}
+
 @end

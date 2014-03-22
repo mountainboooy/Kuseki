@@ -57,7 +57,8 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"テスト" message:notification.alertBody delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    NSLog(@"空席情報が変化しました");
+    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"空席状況が変化しました" message:notification.alertBody delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [al show];
 }
@@ -147,6 +148,10 @@
     }
     
     //TODO:情報の更新
+    
+    
+    //再情報はクリアする
+    [diffManager clearDifferences];
     
 }
 

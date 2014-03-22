@@ -18,5 +18,6 @@
 
 //ふたつを比べて、空席情報の差異をKUDifferenceとして配列に追加
 - (void)compareResponse:(KUResponse*)response withTarget:(KUNotificationTarget*)target;
+- (void)clearDifferences;
 
 @end
