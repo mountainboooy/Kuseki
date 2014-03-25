@@ -149,8 +149,11 @@ UITextFieldDelegate>
 
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
+    //選択色用のビュー
+    UIView *focus_view = (UIView*)[cell viewWithTag:9];
+
     switch(indexPath.row){
-        case 0:{
+        case 0:{//乗車日
             MITextField  *tf_month = (MITextField*)[cell viewWithTag:1];
             MITextField  *tf_date  = (MITextField*)[cell viewWithTag:2];
             
@@ -162,10 +165,13 @@ UITextFieldDelegate>
             tf_date.delegate = self;
             tf_date.indexPath  = indexPath;
             
+            //選択色
+            focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
+            
             break;
         }
         
-        case 1:{
+        case 1:{//乗車時間
             MITextField  *tf_hour = (MITextField*)[cell viewWithTag:1];
             MITextField  *tf_minute  = (MITextField*)[cell viewWithTag:2];
             
@@ -177,17 +183,23 @@ UITextFieldDelegate>
             tf_minute.delegate = self;
             tf_minute.indexPath  =  indexPath;
             
+            //選択色
+            focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
             
             break;
         }
         
-        case 2:{
+        case 2:{//列車の種類
             MITextField *tf_train = (MITextField*)[cell viewWithTag:1];
             tf_train.text = _trains[_condition.train.intValue - 1];
+            
+            //選択色
+            focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
+            
             break;
         }
        
-        case 3:{
+        case 3:{//乗車駅・降車駅
             MITextField *tf_dep_stn = (MITextField*)[cell viewWithTag:1];
             tf_dep_stn.text = _condition.dep_stn;
             tf_dep_stn.delegate = self;
@@ -197,6 +209,27 @@ UITextFieldDelegate>
             tf_arr_stn.text = _condition.arr_stn;
             tf_arr_stn.delegate  = self;
             tf_arr_stn.indexPath = indexPath;
+            
+            //button
+            UIButton *bt_dep = (UIButton*)[cell viewWithTag:3];
+            UIButton *bt_arr = (UIButton*)[cell viewWithTag:4];
+            [bt_dep addTarget:self action:@selector(btDepPressed) forControlEvents:UIControlEventTouchUpInside];
+            [bt_arr addTarget:self action:@selector(btArrPressed) forControlEvents:UIControlEventTouchUpInside];
+            
+            //選択色
+            //乗車駅・降車駅のそれぞれで位置をずらして表示
+            if (_selected_index == 3) {//乗車駅
+                focus_view.alpha = 0.2;
+                focus_view.frame = CGRectMake(0, 0, cell.bounds.size.width, cell.bounds.size.height/2);
+            
+            }else if(_selected_index == 4){//降車駅
+                focus_view.alpha = 0.2;
+                focus_view.frame = CGRectMake(0, cell.bounds.size.height/2, cell.bounds.size.width, cell.bounds.size.height/2);
+            
+            }else{
+                focus_view.alpha = 0;
+            }
+            
             break;
         }
 
@@ -207,11 +240,7 @@ UITextFieldDelegate>
         }
     }
     
-    //選択色
-    if (indexPath.row != 5) {
-        UIView *focus_view = (UIView*)[cell viewWithTag:9];
-        focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
-    }
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -398,7 +427,7 @@ UITextFieldDelegate>
     [self hidePickerArr];
     textField.text = @"";
     
-    [self setFocusColorWithIndexPath:textField.indexPath];
+    [self setFocusColorWithSelectedIndex:textField.indexPath.row];
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
@@ -529,14 +558,13 @@ UITextFieldDelegate>
 #pragma mark private methods
 
 
-- (void)setFocusColorWithIndexPath:(NSIndexPath*)selected_indexPath
+- (void)setFocusColorWithSelectedIndex:(NSInteger)selected_index
 {
-    if (selected_indexPath.row == 5) {
+    if (selected_index > 4) {
         return;
     }
     
-    _selected_index = selected_indexPath.row;
-    NSLog(@"selected_index:%d",_selected_index);
+    _selected_index = selected_index;
     
     //選択色解除も必要なため、全てのセルを更新
     for (int i=0; i<5; i++) {
@@ -580,7 +608,7 @@ UITextFieldDelegate>
     
     //選択色
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-    [self setFocusColorWithIndexPath:indexPath];
+    [self setFocusColorWithSelectedIndex:indexPath.row];
 }
 
 - (void)hidePickerTrain
@@ -604,8 +632,7 @@ UITextFieldDelegate>
     }];
     
     //選択色
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    [self setFocusColorWithIndexPath:indexPath];
+    [self setFocusColorWithSelectedIndex:3];
 }
 
 - (void)hidePickerDep
@@ -631,8 +658,7 @@ UITextFieldDelegate>
     }];
     
     //選択色
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
-    [self setFocusColorWithIndexPath:indexPath];
+    [self setFocusColorWithSelectedIndex:4];
 }
 
 - (void)hidePickerArr
@@ -646,8 +672,6 @@ UITextFieldDelegate>
     }];
     
 }
-
-
 
 
 - (void)keyboardWillAppear:(NSNotification*)notification
@@ -680,8 +704,27 @@ UITextFieldDelegate>
 #pragma mark -
 #pragma mark button action
 
+- (void)btDepPressed
+{
+    [self.view endEditing:YES];
+    [self hidePickerTrain];
+    [self hidePickerArr];
+    [self showPickerDep];
+}
+
+
+- (void)btArrPressed
+{
+    [self.view endEditing:YES];
+    [self hidePickerTrain];
+    [self showPickerArr];
+    [self hidePickerDep];
+}
+
+
 - (void)btSearchArrPressed
 {
+    [self.view endEditing:YES];
     [self hidePickerArr];
     [self btSearchPressed];
 }
