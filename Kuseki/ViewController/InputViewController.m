@@ -33,12 +33,13 @@ UITextFieldDelegate>
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_dep;
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_arr;
     
-    
     //model
     KUSearchCondition *_condition;
     
+    //other
     NSArray *_trains;
     NSArray *_stations;
+    NSInteger _selected_index;
 
 }
 
@@ -98,6 +99,13 @@ UITextFieldDelegate>
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setTitle];
+}
+
+
 - (void)viewDidAppear:(BOOL)animated
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -124,7 +132,7 @@ UITextFieldDelegate>
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 5;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -184,64 +192,98 @@ UITextFieldDelegate>
             tf_dep_stn.text = _condition.dep_stn;
             tf_dep_stn.delegate = self;
             tf_dep_stn.indexPath = indexPath;
-            break;
-        }
             
-        case 4:{
-            MITextField *tf_arr_stn = (MITextField*)[cell viewWithTag:1];
+            MITextField *tf_arr_stn = (MITextField*)[cell viewWithTag:2];
             tf_arr_stn.text = _condition.arr_stn;
             tf_arr_stn.delegate  = self;
             tf_arr_stn.indexPath = indexPath;
             break;
         }
-        case 5:{
+
+        case 4:{
             UIButton *bt_search = (UIButton*)[cell viewWithTag:1];
             [bt_search addTarget:self action:@selector(btSearchPressed) forControlEvents:UIControlEventTouchUpInside];
             break;
         }
     }
     
-    
+    //選択色
+    if (indexPath.row != 5) {
+        UIView *focus_view = (UIView*)[cell viewWithTag:9];
+        focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    CGFloat height;
+    
+    switch (indexPath.row) {
+        case 0:
+        case 1:
+        case 2:
+            height = 89;
+            break;
+            
+        case 3:
+            height = 178;
+            break;
+            
+        case 4:
+            height = 183;
+            break;
+    }
+    return height;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.view endEditing:YES];
+    
+    //cell取得
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    switch (indexPath.row) {
+        case 0:{//乗車日
+            [self hidePickerArr];
+            [self hidePickerTrain];
+            
+            //text field
+            UITextField *tf_month = (UITextField*)[cell viewWithTag:1];
+            [tf_month becomeFirstResponder];
+            
+            break;
+        }
+            
+        case 1:{//乗車時間
+            [self hidePickerArr];
+            [self hidePickerTrain];
+            
+            //text field
+            UITextField *tf_hour = (UITextField*)[cell viewWithTag:1];
+            [tf_hour becomeFirstResponder];
+            break;
+        }
+            
+        case 2:{//列車の種類
+            [self hidePickerArr];
+            [self hidePickerDep];
+            [self showPickerTrain];
+            break;
+        }
+            
+        case 3:{//乗車駅・降車駅
+            //タップする場所によって分ける必要があるため、ボタンで処理
+            break;
+        }
 
-    if(indexPath.row == 2){//train
-        [self hidePickerArr];
-        [self hidePickerDep];
-        [self showPickerTrain];
-        return;
+        default:{
+            [self hidePickerArr];
+            [self hidePickerDep];
+            [self hidePickerTrain];
+        }
     }
-    
-    else if(indexPath.row == 3){//dep_stn
-        [self hidePickerArr];
-        [self hidePickerTrain];
-        [self showPickerDep];
-        return;
-        
-    }
-    
-    else if(indexPath.row == 4){//arr_stn
-        [self hidePickerTrain];
-        [self hidePickerDep];
-        [self showPickerArr];
-    }
-    
-    else {
-        [self hidePickerDep];
-        [self hidePickerArr];
-        [self hidePickerTrain];
-    }
-    
-    
 }
 
 
@@ -349,12 +391,14 @@ UITextFieldDelegate>
 #pragma mark -
 #pragma mark textField
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (void)textFieldDidBeginEditing:(MITextField *)textField
 {
     [self hidePickerTrain];
     [self hidePickerDep];
     [self hidePickerArr];
     textField.text = @"";
+    
+    [self setFocusColorWithIndexPath:textField.indexPath];
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
@@ -482,8 +526,47 @@ UITextFieldDelegate>
 
 
 #pragma mark -
-#pragma mark private action
+#pragma mark private methods
 
+
+- (void)setFocusColorWithIndexPath:(NSIndexPath*)selected_indexPath
+{
+    if (selected_indexPath.row == 5) {
+        return;
+    }
+    
+    _selected_index = selected_indexPath.row;
+    NSLog(@"selected_index:%d",_selected_index);
+    
+    //選択色解除も必要なため、全てのセルを更新
+    for (int i=0; i<5; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+        [self updateCell:cell atIndexPath:indexPath];
+    }
+}
+
+- (void)clearAllFocus
+{
+    _selected_index = 99;
+    
+    for (int i=0; i<5; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+        [self updateCell:cell atIndexPath:indexPath];
+    }
+}
+
+- (void)setTitle
+{
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 170, 25)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:17];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor =[UIColor lightGrayColor];
+    label.text = @"空席検索";     self.navigationItem.titleView = label;
+
+}
 
 //picker_train
 - (void)showPickerTrain
@@ -494,6 +577,10 @@ UITextFieldDelegate>
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
     }];
+    
+    //選択色
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    [self setFocusColorWithIndexPath:indexPath];
 }
 
 - (void)hidePickerTrain
@@ -515,6 +602,10 @@ UITextFieldDelegate>
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
     }];
+    
+    //選択色
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    [self setFocusColorWithIndexPath:indexPath];
 }
 
 - (void)hidePickerDep
@@ -525,19 +616,23 @@ UITextFieldDelegate>
         [self.view  layoutIfNeeded];
     }completion:^(BOOL finished) {
     }];
+
 }
 
 
 //picker_arr
 - (void)showPickerArr
 {
-    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -0;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
 
     }];
+    
+    //選択色
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
+    [self setFocusColorWithIndexPath:indexPath];
 }
 
 - (void)hidePickerArr
@@ -650,5 +745,6 @@ UITextFieldDelegate>
     return YES;
     
 }
+
 
 @end
