@@ -432,6 +432,7 @@ UITextFieldDelegate>
     [self hidePickerTrain];
     [self hidePickerDep];
     [self hidePickerArr];
+    textField.placeholder = textField.text;
     textField.text = @"";
     
     //テーブルをスクロール
@@ -440,6 +441,14 @@ UITextFieldDelegate>
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
 {
+    
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:textField.indexPath];
+
+    //textFieldが空の場合は元の値に戻す
+    if ([textField.text isEqualToString:@""]) {
+        [self updateCell:cell atIndexPath:textField.indexPath];
+        return;
+    }
     
     NSLog(@"indexPath.row:%d",(int)textField.indexPath.row);
     switch(textField.indexPath.row){
@@ -480,7 +489,6 @@ UITextFieldDelegate>
     }
     
     //テーブル更新
-    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:textField.indexPath];
     [self updateCell:cell atIndexPath:textField.indexPath];
 
 }
