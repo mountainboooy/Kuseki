@@ -194,8 +194,8 @@ UITextFieldDelegate>
         }
         
         case 2:{//列車の種類
-            MITextField *tf_train = (MITextField*)[cell viewWithTag:1];
-            tf_train.text = _trains[_condition.train.intValue - 1];
+            UILabel *lb_train = (UILabel*)[cell viewWithTag:1];
+            lb_train.text = _trains[_condition.train.intValue - 1];
             
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
