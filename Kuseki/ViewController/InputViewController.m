@@ -567,10 +567,21 @@ UITextFieldDelegate>
 
 - (void)initCondition
 {
-    NSDictionary *dic = @{@"month"  :@"01",
-                          @"day"    :@"01",
-                          @"hour"   :@"12",
-                          @"minute" :@"00",
+    //現在の日時を取得
+    NSDate *date = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComps = [calendar components:NSYearCalendarUnit |
+                                   NSMonthCalendarUnit |
+                                   NSDayCalendarUnit |
+                                   NSHourCalendarUnit |
+                                   NSMinuteCalendarUnit
+                                              fromDate:date];
+    
+    
+    NSDictionary *dic = @{@"month"  :[NSString stringWithFormat:@"%02d",dateComps.month],
+                          @"day"    :[NSString stringWithFormat:@"%02d",dateComps.day],
+                          @"hour"   :[NSString stringWithFormat:@"%02d",dateComps.hour],
+                          @"minute" :[NSString stringWithFormat:@"%02d",dateComps.minute],
                           @"train"  :@"1",
                           @"dep_stn":@"東京",
                           @"arr_stn":@"新大阪"
