@@ -426,13 +426,13 @@ UITextFieldDelegate>
 
 - (void)textFieldDidBeginEditing:(MITextField *)textField
 {
+    //選択色表示
+    [self setFocusColorWithSelectedIndex:textField.indexPath.row];
+    
     [self hidePickerTrain];
     [self hidePickerDep];
     [self hidePickerArr];
     textField.text = @"";
-    
-    //選択色表示
-    [self setFocusColorWithSelectedIndex:textField.indexPath.row];
     
     //テーブルをスクロール
     [_tableView scrollToRowAtIndexPath:textField.indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
