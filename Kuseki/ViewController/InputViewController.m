@@ -74,8 +74,8 @@ UITextFieldDelegate>
     
     [nc addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
     
-    //model
-    _condition = [KUSearchCondition new];
+    //検索条件の初期化
+    [self initCondition];
     
     
     _trains = @[@"のぞみ・ひかり・さくら・みずほ・つばめ",
@@ -111,7 +111,7 @@ UITextFieldDelegate>
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
     MITextField *tf = (MITextField*)[cell viewWithTag:1];
-    [tf becomeFirstResponder];
+    //[tf becomeFirstResponder];
 }
 
 
@@ -155,15 +155,17 @@ UITextFieldDelegate>
     switch(indexPath.row){
         case 0:{//乗車日
             MITextField  *tf_month = (MITextField*)[cell viewWithTag:1];
-            MITextField  *tf_date  = (MITextField*)[cell viewWithTag:2];
+            MITextField  *tf_day  = (MITextField*)[cell viewWithTag:2];
             
             tf_month.showsAccessoryView = YES;
             tf_month.delegate = self;
             tf_month.indexPath  = indexPath;
+            tf_month.text = _condition.month;
            
-            tf_date.showsAccessoryView = YES;
-            tf_date.delegate = self;
-            tf_date.indexPath  = indexPath;
+            tf_day.showsAccessoryView = YES;
+            tf_day.delegate = self;
+            tf_day.indexPath  = indexPath;
+            tf_day.text = _condition.day;
             
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
@@ -178,10 +180,12 @@ UITextFieldDelegate>
             tf_hour.showsAccessoryView = YES;
             tf_hour.delegate = self;
             tf_hour.indexPath = indexPath;
+            tf_hour.text = _condition.hour;
             
             tf_minute.showsAccessoryView= YES;
             tf_minute.delegate = self;
             tf_minute.indexPath  =  indexPath;
+            tf_minute.text = _condition.minute;
             
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
@@ -427,7 +431,11 @@ UITextFieldDelegate>
     [self hidePickerArr];
     textField.text = @"";
     
+    //選択色表示
     [self setFocusColorWithSelectedIndex:textField.indexPath.row];
+    
+    //テーブルをスクロール
+    [_tableView scrollToRowAtIndexPath:textField.indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
@@ -557,6 +565,20 @@ UITextFieldDelegate>
 #pragma mark -
 #pragma mark private methods
 
+- (void)initCondition
+{
+    NSDictionary *dic = @{@"month"  :@"01",
+                          @"day"    :@"01",
+                          @"hour"   :@"12",
+                          @"minute" :@"00",
+                          @"train"  :@"1",
+                          @"dep_stn":@"東京",
+                          @"arr_stn":@"新大阪"
+                          };
+    _condition = [[KUSearchCondition alloc]initWithDictionary:dic];
+    
+}
+
 
 - (void)setFocusColorWithSelectedIndex:(NSInteger)selected_index
 {
@@ -609,6 +631,9 @@ UITextFieldDelegate>
     //選択色
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
     [self setFocusColorWithSelectedIndex:indexPath.row];
+    
+    //table スクロール
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)hidePickerTrain
@@ -626,13 +651,17 @@ UITextFieldDelegate>
 {
     
     [UIView animateWithDuration:0.3 animations:^{
-        _bottomSpace_picker_dep.constant = -0;
+        //_bottomSpace_picker_dep.constant = -0;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
     }];
     
     //選択色
     [self setFocusColorWithSelectedIndex:3];
+    
+    //table スクロール
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)hidePickerDep
@@ -651,9 +680,11 @@ UITextFieldDelegate>
 - (void)showPickerArr
 {
     [UIView animateWithDuration:0.3 animations:^{
-        _bottomSpace_picker_arr.constant = -0;
+        //_bottomSpace_picker_arr.constant = -0;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
-        [self.view layoutIfNeeded];
+        NSLog(@"insets_bottom:%f",_tableView.contentInset.bottom);
+        NSLog(@"insets_top:%f",_tableView.contentInset.top);
+        //[self.view layoutIfNeeded];
 
     }];
     
