@@ -443,7 +443,7 @@ UITextFieldDelegate>
 {
     
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath:textField.indexPath];
-
+    
     //textFieldが空の場合は元の値に戻す
     if ([textField.text isEqualToString:@""]) {
         [self updateCell:cell atIndexPath:textField.indexPath];
@@ -489,6 +489,7 @@ UITextFieldDelegate>
     }
     
     //テーブル更新
+    _selected_index = 99;
     [self updateCell:cell atIndexPath:textField.indexPath];
 
 }
@@ -657,6 +658,8 @@ UITextFieldDelegate>
 
 - (void)hidePickerTrain
 {
+    [self clearAllFocus];
+    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_train.constant = -216;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
@@ -670,7 +673,7 @@ UITextFieldDelegate>
 {
     
     [UIView animateWithDuration:0.3 animations:^{
-        //_bottomSpace_picker_dep.constant = -0;
+        _bottomSpace_picker_dep.constant = -0;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
         [self.view layoutIfNeeded];
     }];
@@ -685,6 +688,8 @@ UITextFieldDelegate>
 
 - (void)hidePickerDep
 {
+    [self clearAllFocus];
+    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_dep.constant = -216;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
@@ -699,20 +704,24 @@ UITextFieldDelegate>
 - (void)showPickerArr
 {
     [UIView animateWithDuration:0.3 animations:^{
-        //_bottomSpace_picker_arr.constant = -0;
+        _bottomSpace_picker_arr.constant = -0;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
-        NSLog(@"insets_bottom:%f",_tableView.contentInset.bottom);
-        NSLog(@"insets_top:%f",_tableView.contentInset.top);
-        //[self.view layoutIfNeeded];
+        [self.view layoutIfNeeded];
 
     }];
     
     //選択色
     [self setFocusColorWithSelectedIndex:4];
+    
+    //table スクロール
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)hidePickerArr
 {
+    [self clearAllFocus];
+    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -216;
         [self.view  layoutIfNeeded];
@@ -767,8 +776,8 @@ UITextFieldDelegate>
 {
     [self.view endEditing:YES];
     [self hidePickerTrain];
-    [self showPickerArr];
     [self hidePickerDep];
+    [self showPickerArr];
 }
 
 
