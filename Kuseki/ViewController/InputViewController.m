@@ -214,7 +214,11 @@ UITextFieldDelegate>
             tf_arr_stn.delegate  = self;
             tf_arr_stn.indexPath = indexPath;
             
-            //button
+            //駅の反転ボタン
+            UIButton *bt_reverse = (UIButton*)[cell viewWithTag:5];
+            [bt_reverse addTarget:self action:@selector(btReversePressed) forControlEvents:UIControlEventTouchUpInside];
+            
+            //セル選択用のボタン
             UIButton *bt_dep = (UIButton*)[cell viewWithTag:3];
             UIButton *bt_arr = (UIButton*)[cell viewWithTag:4];
             [bt_dep addTarget:self action:@selector(btDepPressed) forControlEvents:UIControlEventTouchUpInside];
@@ -762,6 +766,21 @@ UITextFieldDelegate>
 
 #pragma mark -
 #pragma mark button action
+
+
+- (void)btReversePressed
+{
+    //出発駅と到着駅を反転
+    NSString* dep_stn = _condition.arr_stn;
+    NSString* arr_stn = _condition.dep_stn;
+    _condition.dep_stn = dep_stn;
+    _condition.arr_stn = arr_stn;
+    
+    for (UITableViewCell *cell in _tableView.visibleCells) {
+        [self updateCell:cell atIndexPath:[_tableView indexPathForCell:cell]];
+    }
+}
+
 
 - (void)btDepPressed
 {
