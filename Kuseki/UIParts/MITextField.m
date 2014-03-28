@@ -110,14 +110,33 @@
         _inputAccessoryView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width , 44)];
         _inputAccessoryView.backgroundColor = [UIColor colorWithRed:0.4 green:0.38 blue:0.36 alpha:0.8];
         
-        //button
+        //button_close
         UIButton *bt_close = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        bt_close.frame = CGRectMake(255, 8, 56, 28);
+        bt_close.frame = CGRectMake(120, 8, 56, 28);
         [bt_close setTitle:@"閉じる" forState:UIControlStateNormal];
         [bt_close setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [bt_close addTarget:self action:@selector(btClosePressed) forControlEvents:UIControlEventTouchUpInside];
         
         [_inputAccessoryView addSubview:bt_close];
+        
+        
+        //button_back
+        UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        bt_back.frame = CGRectMake(10, 8, 56, 28);
+        [bt_back setTitle:@"戻る" forState:UIControlStateNormal];
+        [bt_back setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [bt_back addTarget:self action:@selector(btBackPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_inputAccessoryView addSubview:bt_back];
+        
+        //button_next
+        UIButton *bt_next = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        bt_next.frame = CGRectMake(255, 8, 56, 28);
+        [bt_next setTitle:@"次へ" forState:UIControlStateNormal];
+        [bt_next setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [bt_next addTarget:self action:@selector(btNextPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_inputAccessoryView addSubview:bt_next];
         
         
     }
@@ -128,5 +147,17 @@
 - (void)btClosePressed
 {
     [self resignFirstResponder];
+}
+
+
+-(void)btNextPressed
+{
+    NSLog(@"next");
+}
+
+
+- (void)btBackPressed
+{
+    NSLog(@"back");
 }
 @end
