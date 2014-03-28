@@ -610,7 +610,43 @@ UITextFieldDelegate, MITextFieldDelegate>
 
 - (void)textFieldDidPressNextBt:(MITextField *)textField
 {
-    NSLog(@"next");
+    NSIndexPath *nextPath;
+    UITableViewCell *nextCell;
+    MITextField *nextField;
+    
+    switch (textField.indexPath.row) {
+        case 0:{//月日
+            if (textField.tag == 1) {//月
+                nextPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                nextField = (MITextField*)[nextCell viewWithTag:2];
+                [nextField becomeFirstResponder];
+            
+            }else{//日
+                nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                nextField = (MITextField*)[nextCell viewWithTag:1];
+                [nextField becomeFirstResponder];
+            }
+            break;
+        }
+        case 1:{//時間
+            if (textField.tag == 1) {//時
+                nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                nextField = (MITextField*)[nextCell viewWithTag:2];
+                [nextField becomeFirstResponder];
+                
+            }else{//分
+                [self.view endEditing:YES];
+                [self showPickerTrain];
+            }
+            
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 
