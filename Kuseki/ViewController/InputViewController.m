@@ -521,6 +521,17 @@ UITextFieldDelegate>
     switch (textField.indexPath.row) {
         case 0:{//乗車月日
             if (textField.tag == 1) {//月
+                
+                if (text.length == 1 && text.intValue > 1) {
+                    //2以上の場合は02などに変換して日の設定に移動
+                    textField.text = @"0";
+                    nextPath = [NSIndexPath indexPathForItem:0 inSection:0];
+                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                    nextField = (MITextField*)[nextCell viewWithTag:2];
+                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                    return YES;
+                }
+                
                 if (text.length == 2) {//日に移動
                     nextPath = [NSIndexPath indexPathForRow:0 inSection:0];
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
@@ -530,6 +541,17 @@ UITextFieldDelegate>
                 }
                 
             }else{//日
+                
+                if (text.length == 1 && text.intValue > 3) {
+                    //4以上の場合は04などに変換して次に移動
+                    textField.text = @"0";
+                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                    nextField = (MITextField*)[nextCell viewWithTag:1];
+                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                    return YES;
+                }
+                
                 if (text.length == 2) {//時に移動
                     nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
@@ -543,6 +565,16 @@ UITextFieldDelegate>
             
         case 1:{//時間
             if (textField.tag == 1) {//時
+                if (text.length == 1 && text.intValue > 2) {
+                    //3以上の場合は03などに変換して次に移動
+                    textField.text = @"0";
+                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
+                    nextField = (MITextField*)[nextCell viewWithTag:2];
+                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                    return YES;
+                }
+                
                 if (text.length == 2) {//分に移動
                     nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
@@ -552,6 +584,13 @@ UITextFieldDelegate>
                 }
                 
             }else{//分
+                if (text.length == 1 && text.intValue > 5) {
+                    //6以上の場合は06などに変換して次に移動
+                    textField.text = @"0";
+                    [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
+                    return YES;
+                }
+                
                 if (text.length == 2) {//お乗りになる列車を表示
                     [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
                     return YES;
