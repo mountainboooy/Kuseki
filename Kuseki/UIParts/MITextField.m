@@ -152,12 +152,12 @@
 
 -(void)btNextPressed
 {
-    NSLog(@"next");
+    [self.delegate textFieldDidPressNextBt:self];
 }
 
 
 - (void)btBackPressed
 {
-    NSLog(@"back");
+    [self.delegate textFieldDidPressBackBt:self];
 }
 @end

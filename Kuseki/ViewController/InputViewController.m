@@ -15,7 +15,7 @@
 @interface InputViewController ()
 <UITableViewDataSource, UITableViewDelegate,
 UIPickerViewDataSource, UIPickerViewDelegate,
-UITextFieldDelegate>
+UITextFieldDelegate, MITextFieldDelegate>
 {
     //outlet
     __weak IBOutlet UITableView *_tableView;
@@ -605,6 +605,18 @@ UITextFieldDelegate>
         }
     }
     return YES;
+}
+
+
+- (void)textFieldDidPressNextBt:(MITextField *)textField
+{
+    NSLog(@"next");
+}
+
+
+- (void)textFieldDidPressBackBt:(MITextField *)textField
+{
+    NSLog(@"back");
 }
 
 - (void)focusNextField:(MITextField*)nextField
