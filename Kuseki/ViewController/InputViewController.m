@@ -779,6 +779,19 @@ UITextFieldDelegate>
     for (UITableViewCell *cell in _tableView.visibleCells) {
         [self updateCell:cell atIndexPath:[_tableView indexPathForCell:cell]];
     }
+    
+    //画像の回転
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:3 inSection:0];
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+    
+    UIImageView *arrow = (UIImageView*)[cell viewWithTag:6];
+    CGFloat angle = 180 * M_PI/180.0;
+    [UIView animateWithDuration:0.2 animations:^{
+        arrow.transform = CGAffineTransformMakeRotation(angle);
+    } completion:^(BOOL finished) {
+        //回転後は元に戻す
+        arrow.transform = CGAffineTransformIdentity;
+    }];
 }
 
 
