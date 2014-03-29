@@ -157,12 +157,12 @@ UITextFieldDelegate, MITextFieldDelegate>
             MITextField  *tf_month = (MITextField*)[cell viewWithTag:1];
             MITextField  *tf_day  = (MITextField*)[cell viewWithTag:2];
             
-            tf_month.showsAccessoryView = YES;
+            tf_month.accessory_mode = ACCESSORY_NEXT_CLOSE;
             tf_month.delegate = self;
             tf_month.indexPath  = indexPath;
             tf_month.text = _condition.month;
            
-            tf_day.showsAccessoryView = YES;
+            tf_day.accessory_mode = ACCESSORY_ALL;
             tf_day.delegate = self;
             tf_day.indexPath  = indexPath;
             tf_day.text = _condition.day;
@@ -177,12 +177,12 @@ UITextFieldDelegate, MITextFieldDelegate>
             MITextField  *tf_hour = (MITextField*)[cell viewWithTag:1];
             MITextField  *tf_minute  = (MITextField*)[cell viewWithTag:2];
             
-            tf_hour.showsAccessoryView = YES;
+            tf_hour.accessory_mode = ACCESSORY_ALL;
             tf_hour.delegate = self;
             tf_hour.indexPath = indexPath;
             tf_hour.text = _condition.hour;
             
-            tf_minute.showsAccessoryView= YES;
+            tf_minute.accessory_mode = ACCESSORY_ALL;
             tf_minute.delegate = self;
             tf_minute.indexPath  =  indexPath;
             tf_minute.text = _condition.minute;

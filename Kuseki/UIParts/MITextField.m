@@ -20,7 +20,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _showsAccessoryView = NO;
+        _accessory_mode = ACCESSORY_NONE;
     }
     return self;
 }
@@ -100,7 +100,7 @@
 
 - (UIView*)inputAccessoryView
 {
-    if (!_showsAccessoryView) {
+    if (!_accessory_mode == ACCESSORY_NONE) {
         return nil;
     }
     
@@ -120,15 +120,6 @@
         [_inputAccessoryView addSubview:bt_close];
         
         
-        //button_back
-        UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        bt_back.frame = CGRectMake(10, 8, 56, 28);
-        [bt_back setTitle:@"戻る" forState:UIControlStateNormal];
-        [bt_back setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [bt_back addTarget:self action:@selector(btBackPressed) forControlEvents:UIControlEventTouchUpInside];
-        
-        [_inputAccessoryView addSubview:bt_back];
-        
         //button_next
         UIButton *bt_next = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         bt_next.frame = CGRectMake(255, 8, 56, 28);
@@ -139,6 +130,17 @@
         [_inputAccessoryView addSubview:bt_next];
         
         
+        if (_accessory_mode == ACCESSORY_ALL) {
+            
+            //button_back
+            UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            bt_back.frame = CGRectMake(10, 8, 56, 28);
+            [bt_back setTitle:@"戻る" forState:UIControlStateNormal];
+            [bt_back setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [bt_back addTarget:self action:@selector(btBackPressed) forControlEvents:UIControlEventTouchUpInside];
+            
+            [_inputAccessoryView addSubview:bt_back];
+        }
     }
     return _inputAccessoryView;
 }

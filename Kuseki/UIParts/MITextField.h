@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+enum AccessoryMode {ACCESSORY_ALL, ACCESSORY_NEXT_CLOSE, ACCESSORY_NONE};
 
 @protocol MITextFieldDelegate;
 @interface MITextField : UITextField
 
 @property(nonatomic,strong) NSIndexPath *indexPath;
-@property BOOL showsAccessoryView;
+@property enum AccessoryMode accessory_mode;
 @property (nonatomic,weak) id delegate;
 
 - (BOOL)validateForVariety;
