@@ -70,6 +70,12 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setTitle];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -109,16 +115,18 @@
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header0"];
-    UILabel *lb_month_day = (UILabel*)[cell viewWithTag:1];
+    UILabel *lb_month = (UILabel*)[cell viewWithTag:4];
+    lb_month.text = _condition.month;
+    
+    UILabel *lb_day = (UILabel*)[cell viewWithTag:5];
+    lb_day.text = _condition.day;
+    
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
-    
-    lb_month_day.text = [NSString stringWithFormat:@"%@月%@日",_condition.month, _condition.day];
     lb_dep_stn.text = _condition.dep_stn;
     lb_arr_stn.text = _condition.arr_stn;
     
     return cell;
-    
 }
 
 
@@ -246,7 +254,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 35;
+    return 68;
 }
+
+
+#pragma mark -
+#pragma mark private methods
+
+- (void)setTitle
+{
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 170, 25)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:17];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor =[UIColor lightGrayColor];
+    label.text = @"検索結果";     self.navigationItem.titleView = label;
+}
+
 
 @end
