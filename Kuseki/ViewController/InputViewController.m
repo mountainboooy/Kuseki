@@ -652,7 +652,35 @@ UITextFieldDelegate, MITextFieldDelegate>
 
 - (void)textFieldDidPressBackBt:(MITextField *)textField
 {
-    NSLog(@"back");
+    UITableViewCell *previousCell;
+    MITextField *previousField;
+    
+    switch (textField.indexPath.row) {
+        case 0:{//日
+            previousCell = [_tableView cellForRowAtIndexPath:textField.indexPath];
+            previousField = (MITextField*)[previousCell viewWithTag:1];
+            [previousField becomeFirstResponder];
+            break;
+        }
+        case 1:{
+            if (textField.tag == 1){//時
+                NSIndexPath *previousPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                previousCell = [_tableView cellForRowAtIndexPath:previousPath];
+                previousField = (MITextField*)[previousCell viewWithTag:2];
+                [previousField becomeFirstResponder];
+            
+            }else{//分
+                previousCell = [_tableView cellForRowAtIndexPath:textField.indexPath];
+                previousField = (MITextField*)[previousCell viewWithTag:1];
+                [previousField becomeFirstResponder];
+            }
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 - (void)focusNextField:(MITextField*)nextField
