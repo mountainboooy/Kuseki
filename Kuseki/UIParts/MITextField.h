@@ -28,5 +28,6 @@ enum AccessoryMode {ACCESSORY_ALL, ACCESSORY_NEXT_CLOSE, ACCESSORY_NONE};
 
 - (void)textFieldDidPressNextBt:(MITextField*)textField;
 - (void)textFieldDidPressBackBt:(MITextField*)textField;
+- (void)textFieldDidPressCloseBt:(MITextField*)textField;
 
 @end

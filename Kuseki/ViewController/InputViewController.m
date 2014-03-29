@@ -88,13 +88,16 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self updateStations];
     
     //button_close
-    [_btClose_train addTarget:self action:@selector(hidePickerTrain) forControlEvents:UIControlEventTouchUpInside];
-    [_btClose_dep addTarget:self action:@selector(hidePickerDep) forControlEvents:UIControlEventTouchUpInside];
-    [_btClose_arr addTarget:self action:@selector(hidePickerArr) forControlEvents:UIControlEventTouchUpInside];
+    [_btClose_train addTarget:self action:@selector(btCloseTrainPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_btClose_dep addTarget:self action:@selector(btCloseDepPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_btClose_arr addTarget:self action:@selector(btCloseArrPressed) forControlEvents:UIControlEventTouchUpInside];
     
     //button_next
     [_btNext_dep addTarget:self action:@selector(btNextDepPressed) forControlEvents:UIControlEventTouchUpInside];
     [_btSearch_arr addTarget:self action:@selector(btSearchArrPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    _selected_index = 99;
+    
     
 }
 
@@ -484,11 +487,6 @@ UITextFieldDelegate, MITextFieldDelegate>
         default:
             break;
     }
-    
-    //テーブル更新
-    _selected_index = 99;
-    [self updateCell:cell atIndexPath:textField.indexPath];
-
 }
 
 
@@ -676,11 +674,17 @@ UITextFieldDelegate, MITextFieldDelegate>
     }
 }
 
+
 - (void)focusNextField:(MITextField*)nextField
 {
     [nextField becomeFirstResponder];
 }
 
+
+- (void)textFieldDidPressCloseBt:(MITextField *)textField
+{
+    [self setFocusColorWithSelectedIndex:99];
+}
 
 
 #pragma mark -
@@ -714,7 +718,7 @@ UITextFieldDelegate, MITextFieldDelegate>
 
 - (void)setFocusColorWithSelectedIndex:(NSInteger)selected_index
 {
-    if (selected_index > 4) {
+    if (selected_index > 4 && selected_index !=99) {
         return;
     }
     
@@ -728,16 +732,6 @@ UITextFieldDelegate, MITextFieldDelegate>
     }
 }
 
-- (void)clearAllFocus
-{
-    _selected_index = 99;
-    
-    for (int i=0; i<5; i++) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-        [self updateCell:cell atIndexPath:indexPath];
-    }
-}
 
 - (void)setTitle
 {
@@ -770,8 +764,6 @@ UITextFieldDelegate, MITextFieldDelegate>
 
 - (void)hidePickerTrain
 {
-    [self clearAllFocus];
-    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_train.constant = -300;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
@@ -800,8 +792,6 @@ UITextFieldDelegate, MITextFieldDelegate>
 
 - (void)hidePickerDep
 {
-    [self clearAllFocus];
-    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_dep.constant = -300;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
@@ -832,8 +822,6 @@ UITextFieldDelegate, MITextFieldDelegate>
 
 - (void)hidePickerArr
 {
-    [self clearAllFocus];
-    
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -300;
         [self.view  layoutIfNeeded];
@@ -918,6 +906,12 @@ UITextFieldDelegate, MITextFieldDelegate>
 }
 
 
+- (void)btCloseTrainPressed
+{
+    [self hidePickerTrain];
+    [self setFocusColorWithSelectedIndex:99];
+}
+
 - (void)btDepPressed
 {
     [self.view endEditing:YES];
@@ -941,6 +935,13 @@ UITextFieldDelegate, MITextFieldDelegate>
 }
 
 
+- (void)btCloseDepPressed
+{
+    [self hidePickerDep];
+    [self setFocusColorWithSelectedIndex:99];
+}
+
+
 - (void)btArrPressed
 {
     [self.view endEditing:YES];
@@ -957,12 +958,19 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self btSearchPressed];
 }
 
+
 - (IBAction)btBackArrPressed:(id)sender
 {
     [self hidePickerArr];
     [self showPickerDep];
 }
 
+
+- (void)btCloseArrPressed
+{
+    [self hidePickerArr];
+    [self setFocusColorWithSelectedIndex:99];
+}
 
 
 - (void)btSearchPressed

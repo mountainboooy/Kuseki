@@ -146,6 +146,7 @@
 - (void)btClosePressed
 {
     [self resignFirstResponder];
+    [self.delegate textFieldDidPressCloseBt:self];
 }
 
 
