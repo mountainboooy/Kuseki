@@ -909,6 +909,22 @@ UITextFieldDelegate, MITextFieldDelegate>
     }];
 }
 
+- (IBAction)btNextTarinPressed:(id)sender {
+
+    
+    
+}
+
+
+- (IBAction)btBackTrainPressed:(id)sender {
+    
+    [self hidePickerTrain];
+    NSIndexPath *previousPath  = [NSIndexPath indexPathForRow:1 inSection:0];
+    UITableViewCell *previousCell = [_tableView cellForRowAtIndexPath:previousPath];
+    MITextField *previoustField = (MITextField*)[previousCell viewWithTag:2];
+    [previoustField becomeFirstResponder];
+}
+
 
 - (void)btDepPressed
 {
@@ -916,6 +932,13 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self hidePickerTrain];
     [self hidePickerArr];
     [self showPickerDep];
+}
+
+
+- (void)btNextDepPressed
+{
+    [self hidePickerDep];
+    [self showPickerArr];
 }
 
 
@@ -935,11 +958,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self btSearchPressed];
 }
 
-- (void)btNextDepPressed
-{
-    [self hidePickerDep];
-    [self showPickerArr];
-}
+
 
 
 - (void)btSearchPressed

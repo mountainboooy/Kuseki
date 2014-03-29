@@ -300,7 +300,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYe-Gj-rzD">
-                                <rect key="frame" x="0.0" y="603" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="303" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKI-pL-O2q">
@@ -308,11 +308,31 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yeg-vO-T3C">
-                                        <rect key="frame" x="260" y="10" width="46" height="30"/>
+                                        <rect key="frame" x="137" y="5" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="閉じる">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJT-EO-aFW">
+                                        <rect key="frame" x="262" y="5" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="次へ">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btNextTarinPressed:" destination="rIa-Ei-UiY" eventType="touchUpInside" id="pTt-OM-24F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urN-Bn-kfH">
+                                        <rect key="frame" x="10" y="5" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="戻る">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btBackTrainPressed:" destination="rIa-Ei-UiY" eventType="touchUpInside" id="X2O-QS-9jb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -396,7 +416,7 @@
                             <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="d93-aE-Lq2" secondAttribute="bottom" constant="-300" id="GMu-pb-YFn"/>
                             <constraint firstItem="R40-gM-eIK" firstAttribute="leading" secondItem="b4s-3g-Fkz" secondAttribute="leading" id="I2E-NN-0Z5"/>
                             <constraint firstItem="R40-gM-eIK" firstAttribute="top" secondItem="b4s-3g-Fkz" secondAttribute="top" id="JYg-bh-saQ"/>
-                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="mYe-Gj-rzD" secondAttribute="bottom" constant="-300" id="MN2-xx-TIF"/>
+                            <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="mYe-Gj-rzD" secondAttribute="bottom" id="MN2-xx-TIF"/>
                             <constraint firstAttribute="trailing" secondItem="d93-aE-Lq2" secondAttribute="trailing" id="W0q-wS-rmX"/>
                             <constraint firstItem="bSI-ey-xXf" firstAttribute="top" secondItem="gjN-wB-bWG" secondAttribute="bottom" constant="-300" id="ZEa-84-Zlv"/>
                             <constraint firstAttribute="trailing" secondItem="mYe-Gj-rzD" secondAttribute="trailing" id="hdn-hh-hVv"/>
