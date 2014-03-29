@@ -780,7 +780,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self clearAllFocus];
     
     [UIView animateWithDuration:0.3 animations:^{
-        _bottomSpace_picker_train.constant = -216;
+        _bottomSpace_picker_train.constant = _picker_train.bounds.size.height*-1;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         [self.view  layoutIfNeeded];
     }];
@@ -910,9 +910,8 @@ UITextFieldDelegate, MITextFieldDelegate>
 }
 
 - (IBAction)btNextTarinPressed:(id)sender {
-
-    
-    
+    [self hidePickerTrain];
+    [self showPickerDep];
 }
 
 
@@ -942,6 +941,13 @@ UITextFieldDelegate, MITextFieldDelegate>
 }
 
 
+- (IBAction)btBackDepPressed:(id)sender
+{
+    [self hidePickerDep];
+    [self showPickerTrain];
+}
+
+
 - (void)btArrPressed
 {
     [self.view endEditing:YES];
@@ -958,6 +964,11 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self btSearchPressed];
 }
 
+- (IBAction)btBackArrPressed:(id)sender
+{
+    [self hidePickerArr];
+    [self showPickerDep];
+}
 
 
 

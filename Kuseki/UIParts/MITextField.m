@@ -111,20 +111,18 @@
         _inputAccessoryView.backgroundColor = [UIColor colorWithRed:0.4 green:0.38 blue:0.36 alpha:0.8];
         
         //button_close
-        UIButton *bt_close = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        bt_close.frame = CGRectMake(120, 8, 56, 28);
-        [bt_close setTitle:@"閉じる" forState:UIControlStateNormal];
-        [bt_close setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIButton *bt_close = [UIButton buttonWithType:UIButtonTypeCustom];
+        bt_close.frame = CGRectMake(120, 0, 80, 44);
+        [bt_close setImage:[UIImage imageNamed:@"bt_close_picker"] forState:UIControlStateNormal];
         [bt_close addTarget:self action:@selector(btClosePressed) forControlEvents:UIControlEventTouchUpInside];
         
         [_inputAccessoryView addSubview:bt_close];
         
         
         //button_next
-        UIButton *bt_next = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        bt_next.frame = CGRectMake(255, 8, 56, 28);
-        [bt_next setTitle:@"次へ" forState:UIControlStateNormal];
-        [bt_next setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIButton *bt_next = [UIButton buttonWithType:UIButtonTypeCustom];
+        bt_next.frame = CGRectMake(240, 0, 80, 44);
+        [bt_next setImage:[UIImage imageNamed:@"bt_next_picker"] forState:UIControlStateNormal];
         [bt_next addTarget:self action:@selector(btNextPressed) forControlEvents:UIControlEventTouchUpInside];
         
         [_inputAccessoryView addSubview:bt_next];
@@ -133,10 +131,9 @@
         if (_accessory_mode == ACCESSORY_ALL) {
             
             //button_back
-            UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            bt_back.frame = CGRectMake(10, 8, 56, 28);
-            [bt_back setTitle:@"戻る" forState:UIControlStateNormal];
-            [bt_back setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeCustom1];
+            bt_back.frame = CGRectMake(0, 0, 80, 44);
+            [bt_back setImage:[UIImage imageNamed:@"bt_back_picker"] forState:UIControlStateNormal];
             [bt_back addTarget:self action:@selector(btBackPressed) forControlEvents:UIControlEventTouchUpInside];
             
             [_inputAccessoryView addSubview:bt_back];
