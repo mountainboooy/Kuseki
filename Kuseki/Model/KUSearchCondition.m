@@ -76,4 +76,42 @@
     _arr_stn = @"新大阪";
 }
 
+
+#pragma  mark -
+#pragma  mark validation
+
+- (void)setMonth:(NSString *)month
+{
+    if (month.length == 1) {
+        month = [NSString stringWithFormat:@"0%@",month];
+    }
+    _month = month;
+}
+
+
+- (void)setDay:(NSString *)day
+{
+    if (day.length == 1) {
+        day = [NSString stringWithFormat:@"0%@",day];
+    }
+    _day = day;
+}
+
+
+- (void)setHour:(NSString *)hour
+{
+    if (hour.length == 1) {
+        hour = [NSString stringWithFormat:@"0%@",hour];
+    }
+    _hour = hour;
+}
+
+- (void)setMinute:(NSString *)minute
+{
+    if (minute.length == 1) {
+        minute = [NSString stringWithFormat:@"0%@",minute];
+    }
+    _minute = minute;
+}
+
 @end
