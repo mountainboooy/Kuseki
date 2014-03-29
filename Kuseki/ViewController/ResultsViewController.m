@@ -140,11 +140,11 @@
     
     //dep_time
     UILabel *lb_dep_time = (UILabel*)[cell viewWithTag:2];
-    lb_dep_time.text = [NSString stringWithFormat:@"%@発", response.dep_time];
+    lb_dep_time.text = response.dep_time;
     
     //arr_time
     UILabel *lb_arr_time = (UILabel*)[cell viewWithTag:3];
-    lb_arr_time.text = [NSString stringWithFormat:@"%@着", response.arr_time];
+    lb_arr_time.text = response.arr_time;
     
     if([_condition.train isEqualToString:@"1"] || [_condition.train isEqualToString:@"2"])
     {//西側
@@ -219,27 +219,27 @@
     switch (seatValue) {
         
         case SEAT_VACANT:{
-            imgName = @"seat_vacant";
+            imgName = @"ic_vacant";
             break;
         }
             
         case SEAT_BIT:{
-            imgName = @"seat_bit";
+            imgName = @"ic_bit";
             break;
         }
             
         case SEAT_FULL:{
-            imgName = @"seat_full";
+            imgName = @"ic_full";
             break;
         }
             
         case SEAT_INVALID:{
-            imgName = @"seat_invalid";
+            imgName = @"ic_invalid";
             break;
         }
             
         case SEAT_NOT_EXIST_SMOKINGSEAT:{
-            imgName = @"seat_not_exist_smokingseat";
+            imgName = @"ic_not_exist";
             break;
         }
             
