@@ -352,9 +352,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     
 }
 
-
-- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
+- (NSAttributedString*)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     NSString *title;
     
     if (pickerView.tag == 1) {//train
@@ -389,9 +387,11 @@ UITextFieldDelegate, MITextFieldDelegate>
         title = _stations[row];
     }
     
+    NSAttributedString *attString;
+    attString = [[NSAttributedString alloc]initWithString:title attributes:@{NSForegroundColorAttributeName : [UIColor darkGrayColor]}];
     
+    return attString;
     
-    return title;
 }
 
 
@@ -403,11 +403,6 @@ UITextFieldDelegate, MITextFieldDelegate>
         _condition.train = selectedNum;
         
         [self updateStations];
-        
-        //dep_stnのピッカーを表示
-        [self hidePickerTrain];
-        [self showPickerDep];
-        
     }
     
     else if(pickerView.tag == 2){//dep_stn
@@ -420,8 +415,6 @@ UITextFieldDelegate, MITextFieldDelegate>
     
     //テーブル更新
     [_tableView reloadData];
-
-
 }
 
 
@@ -780,7 +773,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self clearAllFocus];
     
     [UIView animateWithDuration:0.3 animations:^{
-        _bottomSpace_picker_train.constant = _picker_train.bounds.size.height*-1;
+        _bottomSpace_picker_train.constant = -300;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         [self.view  layoutIfNeeded];
     }];
@@ -810,7 +803,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self clearAllFocus];
     
     [UIView animateWithDuration:0.3 animations:^{
-        _bottomSpace_picker_dep.constant = -216;
+        _bottomSpace_picker_dep.constant = -300;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         [self.view  layoutIfNeeded];
     }completion:^(BOOL finished) {
@@ -842,7 +835,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self clearAllFocus];
     
     [UIView animateWithDuration:0.3 animations:^{
-        _bottomSpace_picker_arr.constant = -216;
+        _bottomSpace_picker_arr.constant = -300;
         [self.view  layoutIfNeeded];
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         

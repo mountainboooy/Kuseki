@@ -107,7 +107,7 @@
     if (!_inputAccessoryView) {
         
         //baseView
-        _inputAccessoryView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width , 44)];
+        _inputAccessoryView = [[UIToolbar alloc]initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width , 44)];
         _inputAccessoryView.backgroundColor = [UIColor colorWithRed:0.4 green:0.38 blue:0.36 alpha:0.8];
         
         //button_close
@@ -131,7 +131,7 @@
         if (_accessory_mode == ACCESSORY_ALL) {
             
             //button_back
-            UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeCustom1];
+            UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeCustom];
             bt_back.frame = CGRectMake(0, 0, 80, 44);
             [bt_back setImage:[UIImage imageNamed:@"bt_back_picker"] forState:UIControlStateNormal];
             [bt_back addTarget:self action:@selector(btBackPressed) forControlEvents:UIControlEventTouchUpInside];
