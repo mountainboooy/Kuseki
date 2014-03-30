@@ -100,16 +100,18 @@
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header0"];
-    UILabel *lb_month_day = (UILabel*)[cell viewWithTag:1];
+    UILabel *lb_month = (UILabel*)[cell viewWithTag:4];
+    lb_month.text = _condition.month;
+    
+    UILabel *lb_day = (UILabel*)[cell viewWithTag:5];
+    lb_day.text = _condition.day;
+    
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
-    
-    lb_month_day.text = [NSString stringWithFormat:@"%@月%@日",_condition.month, _condition.day];
     lb_dep_stn.text = _condition.dep_stn;
     lb_arr_stn.text = _condition.arr_stn;
     
     return cell;
-    
 }
 
 
@@ -128,7 +130,11 @@
     
     //dep_time
     UILabel *lb_dep_time = (UILabel*)[cell viewWithTag:2];
-    lb_dep_time.text = [NSString stringWithFormat:@"%@発", response.dep_time];
+    lb_dep_time.text = response.dep_time;
+    
+    //arr_timr
+    UILabel *lb_arr_time = (UILabel*)[cell viewWithTag:3];
+    lb_arr_time.text = response.arr_time;
     
     if([_condition.train isEqualToString:@"1"] || [_condition.train isEqualToString:@"2"])
     {//西側
@@ -175,13 +181,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 44;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 35;
+    return 68;
 }
 
 
@@ -221,27 +227,27 @@
     switch (seatValue) {
             
         case SEAT_VACANT:{
-            imgName = @"seat_vacant";
+            imgName = @"ic_vacant";
             break;
         }
             
         case SEAT_BIT:{
-            imgName = @"seat_bit";
+            imgName = @"ic_bit";
             break;
         }
             
         case SEAT_FULL:{
-            imgName = @"seat_full";
+            imgName = @"ic_full";
             break;
         }
             
         case SEAT_INVALID:{
-            imgName = @"seat_invalid";
+            imgName = @"ic_invalid";
             break;
         }
             
         case SEAT_NOT_EXIST_SMOKINGSEAT:{
-            imgName = @"seat_not_exist_smokingseat";
+            imgName = @"ic_not_exist";
             break;
         }
             
