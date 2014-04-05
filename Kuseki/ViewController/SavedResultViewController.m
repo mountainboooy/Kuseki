@@ -99,7 +99,13 @@
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header0"];
+    NSString *cellIdentifier;
+    
+    if([_condition.train isEqualToString:@"1"] || [_condition.train isEqualToString:@"2"])
+    { cellIdentifier = @"header0";//西
+    }else{ cellIdentifier = @"header1"; }//東
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     UILabel *lb_month = (UILabel*)[cell viewWithTag:4];
     lb_month.text = _condition.month;
     
