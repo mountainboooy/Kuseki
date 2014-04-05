@@ -76,12 +76,16 @@
     [self setTitle];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark -
+#pragma mark tableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -134,10 +138,6 @@
 {
     KUResponse *response = _responseManager.responses[indexPath.row];
 
-    //name
-    UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
-    lb_name.text = response.name;
-    
     //dep_time
     UILabel *lb_dep_time = (UILabel*)[cell viewWithTag:2];
     lb_dep_time.text = response.dep_time;
@@ -179,7 +179,14 @@
         iv_gs_ns.image = [self imgForSeatValue:response.seat_gs_ns];
     }
     
+    //結果選択時は列車名を表示
+    //view
+    UIView *selected_view = (UIView*)[cell viewWithTag:10];
+    selected_view.alpha = 0;
     
+    //name
+    UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
+    lb_name.text = response.name;
 }
 
 
@@ -189,6 +196,25 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //列車名を表示
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIView *selected_view = (UIView*)[cell viewWithTag:10];
+    selected_view.alpha = (selected_view.alpha == 0)? 1:0;
+    
+    //他は選択解除
+    for(UITableViewCell *other_cell in tableView.visibleCells){
+        if(other_cell != cell){
+            UIView *other_view = (UIView*)[other_cell viewWithTag:10];
+            other_view.alpha = 0;
+        }
+    }
+}
+
+
+#pragma mark -
+#pragma mark button action
 
 - (IBAction)btSavePressed:(id)sender {
 
@@ -207,6 +233,8 @@
     NSLog(@"array:%d",manager.conditions.count);
     
 }
+
+
 - (IBAction)btBackPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

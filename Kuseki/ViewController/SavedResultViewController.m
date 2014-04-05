@@ -123,11 +123,6 @@
     
     KUResponse * response = _responseManager.responses[indexPath.row];
     
-    
-    //name
-    UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
-    lb_name.text = response.name;
-    
     //dep_time
     UILabel *lb_dep_time = (UILabel*)[cell viewWithTag:2];
     lb_dep_time.text = response.dep_time;
@@ -169,6 +164,11 @@
         iv_gs_ns.image = [self imgForSeatValue:response.seat_gs_ns];
     }
     
+    //結果選択時は列車名と通知スイッチを表示
+    //view
+    UIView *selected_view = (UIView*)[cell viewWithTag:10];
+    selected_view.alpha = 0;
+    
      //switch
     KUSwitch *sw_notification = (KUSwitch*)[cell viewWithTag:9];
     sw_notification.indexPath = indexPath;
@@ -176,6 +176,9 @@
     
     sw_notification.on = ([response isNotificationTarget])? YES:NO;
     
+    //name
+    UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
+    lb_name.text = response.name;
 }
 
 
@@ -190,6 +193,22 @@
     return 68;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //列車名を表示
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIView *selected_view = (UIView*)[cell viewWithTag:10];
+    selected_view.alpha = (selected_view.alpha == 0)? 1:0;
+    
+    //他は選択解除
+    for(UITableViewCell *other_cell in tableView.visibleCells){
+        if(other_cell != cell){
+        UIView *other_view = (UIView*)[other_cell viewWithTag:10];
+        other_view.alpha = 0;
+        }
+    }
+}
 
 #pragma mark -
 #pragma mark button action
