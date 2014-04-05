@@ -11,6 +11,7 @@
 #import "KUSearchCondition.h"
 #import "SavedResultViewController.h"
 #import "KUButton.h"
+#import "KUNotificationTarget.h"
 
 @interface ConditionsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -171,12 +172,15 @@
 
 - (void)btDeletePressed:(KUButton*)bt
 {
+    //検索条件を削除
     KUSearchCondition *condition = _conditionManager.conditions[bt.indexPath.row];
     [condition deleteCondition];
     
-    [_conditionManager getConditionsFromDB];
-    
+    //この検索条件に関わる通知設定も一斉解除
+    [KUNotificationTarget removeWithCondition:condition];
+
     //テーブル更新
+    [_conditionManager getConditionsFromDB];
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 

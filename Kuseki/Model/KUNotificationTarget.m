@@ -81,6 +81,25 @@
 }
 
 
+//検索条件が該当する通知設定を全て削除
++ (void)removeWithCondition:(KUSearchCondition*)condition
+{
+    if (!condition) {
+        return;
+    }
+    
+    KUDBClient *client = [KUDBClient sharedClient];
+    NSArray *savedTargets = [client selectAllNotificationTargets];
+    
+    for (KUNotificationTarget *savedTarget in savedTargets) {
+        if ([savedTarget.condition_id isEqualToString:condition.identifier]) {
+            [client deleteNotificationTarget:savedTarget];
+        }
+    }
+}
+
+
+//特定の通知設定を削除
 + (void)removeWithResonse:(KUResponse*)response condition:(KUSearchCondition*)condition;
 {
     KUDBClient *client = [KUDBClient sharedClient];
