@@ -56,6 +56,36 @@
 }
 
 
+- (void)testYearFromMonth
+{
+    //現在の西暦年
+    NSDateComponents *comps;
+    comps = [[NSCalendar currentCalendar]components:
+             NSYearCalendarUnit|
+             NSMonthCalendarUnit fromDate:[NSDate date]];
+    NSString *current_year = [NSString stringWithFormat:@"%ld",(long)comps.year];
+    
+    //翌年の西暦年
+    NSString *next_year = [NSString stringWithFormat:@"%ld",comps.year+1];
+    NSString *dep_month;
+    
+    KUSearchCondition *condition = [KUSearchCondition new];
+    dep_month = @"1";
+    
+    
+    //乗車月が今の月よりも少ない数字の場合、翌年の西暦年を返せるか
+    if(comps.month != 1){
+    XCTAssertEqualObjects([condition yearFromMonth:dep_month], next_year, @"西暦年の算出に失敗しました");
+    }else {
+        XCTAssertEqualObjects([condition yearFromMonth:dep_month], current_year, @"席暦年の算出に失敗しました");
+    }
+    
+    //乗車月が今の月よりも大きい数字の場合は、今年の西暦年を返せるか
+    dep_month = @"12";
+    XCTAssertEqualObjects([condition yearFromMonth:dep_month], current_year, @"西暦年の算出に失敗しました");
+}
+
+
 //検索条件の日時が今より古いかどうかをチェック
 - (void)testIsTooOld
 {
@@ -118,5 +148,11 @@
     condition_dayBefore = [[KUSearchCondition alloc]initWithDictionary:dic];
     
     XCTAssertTrue([condition_yearBefore isTooOld], @"条件日の新旧の比較に失敗しました");
+}
+
+
+- (NSString*)yearFromMonth
+{
+    return @"";
 }
 @end
