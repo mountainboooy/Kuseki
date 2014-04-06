@@ -703,10 +703,11 @@ UITextFieldDelegate, MITextFieldDelegate>
                                               fromDate:date];
     
     
-    NSDictionary *dic = @{@"month"  :[NSString stringWithFormat:@"%02d",dateComps.month],
-                          @"day"    :[NSString stringWithFormat:@"%02d",dateComps.day],
-                          @"hour"   :[NSString stringWithFormat:@"%02d",dateComps.hour],
-                          @"minute" :[NSString stringWithFormat:@"%02d",dateComps.minute],
+    NSDictionary *dic = @{@"year"   :[NSString stringWithFormat:@"%ld",(long)dateComps.year],
+                          @"month"  :[NSString stringWithFormat:@"%02ld",(long)dateComps.month],
+                          @"day"    :[NSString stringWithFormat:@"%02ld",(long)dateComps.day],
+                          @"hour"   :[NSString stringWithFormat:@"%02ld",(long)dateComps.hour],
+                          @"minute" :[NSString stringWithFormat:@"%02ld",(long)dateComps.minute],
                           @"train"  :@"1",
                           @"dep_stn":@"東京",
                           @"arr_stn":@"新大阪"
