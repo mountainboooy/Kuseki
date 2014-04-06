@@ -21,11 +21,13 @@
     // Put setup code here; it will be run once, before the first test case.
 }
 
+
 - (void)tearDown
 {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
 }
+
 
 - (void)testInitWithDictionary
 {
@@ -53,10 +55,68 @@
     
 }
 
+
 //検索条件の日時が今より古いかどうかをチェック
-- (void)testIsOlderConditionThanNow
+- (void)testIsTooOld
 {
-    //あとでやろう
+    //1日前の検索条件を作成
+    NSDateComponents *dateComp;
+    dateComp = [NSDateComponents new];
+    [dateComp setDay:-1];
     
+    NSDate *oneDayBefore;
+    oneDayBefore = [[NSCalendar currentCalendar] dateByAddingComponents:dateComp toDate:[NSDate date] options:0];
+    
+    NSDateComponents *comp;
+    comp = [NSDateComponents new];
+    comp = [[NSCalendar currentCalendar]components:
+            NSYearCalendarUnit|
+            NSMonthCalendarUnit|
+            NSDayCalendarUnit|
+            NSHourCalendarUnit|
+            NSMinuteCalendarUnit|
+            NSSecondCalendarUnit fromDate:oneDayBefore];
+    
+    NSDictionary *dic = @{@"identifier" : @"111",
+                          @"month"  : [NSString stringWithFormat:@"%ld",(long)comp.month],
+                          @"day"    : [NSString stringWithFormat:@"%ld",(long)comp.day],
+                          @"hour"   : [NSString stringWithFormat:@"%ld",(long)comp.hour],
+                          @"minute" : [NSString stringWithFormat:@"%ld",(long)comp.minute],
+                          @"train"  : @"train",
+                          @"dep_stn": @"tokyo",
+                          @"arr_stn": @"hakata"
+                          };
+    
+    KUSearchCondition *condition_dayBefore = [[KUSearchCondition alloc]initWithDictionary:dic];
+    XCTAssertTrue([condition_dayBefore isTooOld], @"条件日の新旧の比較に失敗しました");
+    
+    //1年前の検索条件を作成
+    NSDateComponents *yearComp = [NSDateComponents new];
+    [yearComp setYear:-1];
+    
+    NSDate *oneYearBefore = [[NSCalendar currentCalendar] dateByAddingComponents:yearComp toDate:[NSDate date] options:0];
+    
+    comp = [[NSCalendar currentCalendar] components:
+            NSYearCalendarUnit|
+            NSMonthCalendarUnit|
+            NSDayCalendarUnit|
+            NSHourCalendarUnit|
+            NSMinuteCalendarUnit|
+            NSSecondCalendarUnit fromDate:oneYearBefore];
+    
+    dic = @{@"identifier" : @"111",
+            @"month"  : [NSString stringWithFormat:@"%ld",(long)comp.month],
+            @"day"    : [NSString stringWithFormat:@"%ld",(long)comp.day],
+            @"hour"   : [NSString stringWithFormat:@"%ld",(long)comp.hour],
+            @"minute" : [NSString stringWithFormat:@"%ld",(long)comp.minute],
+            @"train"  : @"train",
+            @"dep_stn": @"tokyo",
+            @"arr_stn": @"hakata"
+            };
+    
+    KUSearchCondition *condition_yearBefore;
+    condition_dayBefore = [[KUSearchCondition alloc]initWithDictionary:dic];
+    
+    XCTAssertTrue([condition_yearBefore isTooOld], @"条件日の新旧の比較に失敗しました");
 }
 @end

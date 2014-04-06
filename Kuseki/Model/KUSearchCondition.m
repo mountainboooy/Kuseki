@@ -114,4 +114,10 @@
     _minute = minute;
 }
 
+- (BOOL)isTooOld
+{
+    //テーブルにyearを加えるひつようがありそうなので保留
+    return NO;
+}
+
 @end

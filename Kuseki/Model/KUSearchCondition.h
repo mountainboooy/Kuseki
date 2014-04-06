@@ -26,5 +26,7 @@ typedef void (^KUSearchConditionFailure)();
 - (id)initWithDictionary:(NSDictionary*)dic;
 - (void)postConditionWithCompletion:(KUSearchConditionCompetion)completion failure:(KUSearchConditionFailure)failure;
 - (void)deleteCondition;
+- (BOOL)isTooOld;
+
 
 @end
