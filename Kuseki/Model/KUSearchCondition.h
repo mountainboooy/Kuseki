@@ -14,6 +14,7 @@ typedef void (^KUSearchConditionFailure)();
 @interface KUSearchCondition : NSObject
 
 @property (nonatomic,strong) NSString *identifier;
+@property (nonatomic,strong) NSString *year;
 @property (nonatomic,strong) NSString *month;
 @property (nonatomic,strong) NSString *day;
 @property (nonatomic,strong) NSString *hour;

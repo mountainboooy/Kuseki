@@ -27,6 +27,7 @@
     _train = dic[@"train"];
     _dep_stn = dic[@"dep_stn"];
     _arr_stn = dic[@"arr_stn"];
+    _year = [self yearFromMonth:_month];
     
     return self;
     
