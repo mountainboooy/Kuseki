@@ -78,7 +78,7 @@ static KUDBClient *_sharedClient = nil;
     
     NSString *sql;
     if (tableName == KU_TABLE_CONDITIONS) {//検索条件
-        sql = @"CREATE TABLE IF NOT EXISTS conditions (id INTEGER PRIMARY KEY AUTOINCREMENT, month TEXT, day TEXT, hour TEXT, minute TEXT, train TEXT, dep_stn TEXT, arr_stn TEXT)";
+        sql = @"CREATE TABLE IF NOT EXISTS conditions (id INTEGER PRIMARY KEY AUTOINCREMENT,year TEXT, month TEXT, day TEXT, hour TEXT, minute TEXT, train TEXT, dep_stn TEXT, arr_stn TEXT)";
         
     }else if (tableName == KU_TABLE_NOTIFICATION_TARGETS){//検索結果
         sql = @"CREATE TABLE IF NOT EXISTS notification_targets (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, dep_time TEXT, arr_time TEXT, seat_ec_ns TEXT, seat_ec_s TEXT, seat_gr_ns TEXT, seat_gr_s TEXT, seat_gs_ns TEXT, condition_id TEXT, dep_stn TEXT, arr_stn TEXT, month TEXT, day TEXT )";
@@ -134,10 +134,10 @@ static KUDBClient *_sharedClient = nil;
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"INSERT INTO conditions(month, day, hour, minute, train, dep_stn, arr_stn) VALUES(?, ?, ?, ?, ?, ?, ?)";
+    NSString *sql = @"INSERT INTO conditions(year, month, day, hour, minute, train, dep_stn, arr_stn) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
     
     [db open];
-    [db executeUpdate:sql, condition.month, condition.day, condition.hour, condition.minute, condition.train, condition.dep_stn, condition.arr_stn];
+    [db executeUpdate:sql,condition.year, condition.month, condition.day, condition.hour, condition.minute, condition.train, condition.dep_stn, condition.arr_stn];
     
     [db close];
     
@@ -258,6 +258,7 @@ static KUDBClient *_sharedClient = nil;
     while ([results next]) {
         
         NSDictionary *dic = @{@"identifier" : [NSString stringWithFormat:@"%d",[results intForColumn:@"id"]],
+                              @"year"   : [results stringForColumn:@"year"],
                               @"month"  : [results stringForColumn:@"month"],
                               @"day"    : [results stringForColumn:@"day"],
                               @"hour"   : [results stringForColumn:@"hour"],
