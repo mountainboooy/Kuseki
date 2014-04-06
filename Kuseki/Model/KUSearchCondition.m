@@ -87,6 +87,9 @@
         month = [NSString stringWithFormat:@"0%@",month];
     }
     _month = month;
+    
+    //乗車月に合わせてyearも更新
+    _year = [self yearFromMonth:month];
 }
 
 
