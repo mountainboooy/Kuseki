@@ -35,6 +35,7 @@
     _tableView.dataSource = self;
     
     _conditionManager = [KUSearchConditionManager sharedManager];
+    [_conditionManager deleteOldConditions];
 }
 
 

@@ -37,6 +37,9 @@
     
     //保存中の検索条件一覧をDBから取得
     KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
+    [conditionManager deleteOldConditions];//古い検索条件は捨てる
+    //////TODO古い通知対象は捨てる
+    
     [conditionManager getConditionsFromDB];
     
     //保存中の検索条件から新たに空席情報を取得
