@@ -74,9 +74,8 @@ static KUSavedResponsesManager *_sharedManager = nil;
     for (KUSearchCondition * condition in conditions) {
         [self performSelector:@selector(delayAction:) withObject:condition afterDelay:2];
     }
-    
-    
 }
+
 
 //TODO:BlocksKit入れる
 - (void)delayAction:(KUSearchCondition*)condition

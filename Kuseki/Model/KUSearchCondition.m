@@ -120,7 +120,22 @@
 
 - (BOOL)isTooOld
 {
-    //テーブルにyearを加えるひつようがありそうなので保留
+    //検索条件のNSDate
+    NSDateComponents *comps = [NSDateComponents new];
+    comps.year = _year.intValue;
+    comps.month = _month.intValue;
+    comps.day = _day.intValue;
+    comps.hour = _hour.intValue;
+    comps.minute = _minute.intValue;
+    NSDate *date = [[NSCalendar currentCalendar]dateFromComponents:comps];
+    
+    //現在と比較
+    NSComparisonResult result = [date compare:[NSDate date]];
+    
+    if(result == NSOrderedAscending){//現在より以前
+        return YES;
+    }
+    
     return NO;
 }
 
