@@ -13,5 +13,7 @@
 @property (nonatomic,strong) NSArray *conditions;
 + (KUSearchConditionManager*)sharedManager;
 - (void)getConditionsFromDB;
-
+- (void)deleteOldConditions;
+- (void)deleteAllConditions;
+- (void)deleteAllConditions;
 @end

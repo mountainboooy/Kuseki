@@ -51,4 +51,27 @@ static KUSearchConditionManager *_sharedManager = nil;
 }
 
 
+- (void)deleteAllConditions
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client deleteAllConditions];
+}
+
+- (void)deleteOldConditions
+{
+    [self getConditionsFromDB];
+    
+    for(KUSearchCondition *condition in _conditions)
+    {
+        if([condition isTooOld]){
+            NSLog(@"古い");
+            [condition deleteCondition];
+        }
+    }
+    
+    //保持する検索条件を更新
+    [self getConditionsFromDB];
+}
+
+
 @end

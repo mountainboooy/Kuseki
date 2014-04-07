@@ -64,6 +64,7 @@
 		0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401C18893D88009D87F9 /* KUResponseManager.m */; };
 		05990BCF18E18578005DEE20 /* icon_tab_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05990BCD18E18578005DEE20 /* icon_tab_search@2x.png */; };
 		05990BD018E18578005DEE20 /* icon_tab_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05990BCE18E18578005DEE20 /* icon_tab_list@2x.png */; };
+		059AAEF718F2C40000E10A62 /* KUSearchConditionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 059AAEF618F2C40000E10A62 /* KUSearchConditionManagerTests.m */; };
 		05A77880188A30D300B1026C /* KUClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7787F188A30D300B1026C /* KUClient.m */; };
 		05A77884188A35BA00B1026C /* KUClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A77883188A35BA00B1026C /* KUClientTests.m */; };
 		05B39DB918A67A0D0042F250 /* KUStationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B39DB818A67A0D0042F250 /* KUStationsManager.m */; };
@@ -163,6 +164,7 @@
 		0591401C18893D88009D87F9 /* KUResponseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUResponseManager.m; sourceTree = "<group>"; };
 		05990BCD18E18578005DEE20 /* icon_tab_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tab_search@2x.png"; sourceTree = "<group>"; };
 		05990BCE18E18578005DEE20 /* icon_tab_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tab_list@2x.png"; sourceTree = "<group>"; };
+		059AAEF618F2C40000E10A62 /* KUSearchConditionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSearchConditionManagerTests.m; sourceTree = "<group>"; };
 		05A7787E188A30D300B1026C /* KUClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUClient.h; sourceTree = "<group>"; };
 		05A7787F188A30D300B1026C /* KUClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUClient.m; sourceTree = "<group>"; };
 		05A77883188A35BA00B1026C /* KUClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUClientTests.m; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				0500DACF18AB8CE4000D1FF6 /* KUNotificationTargetsManagerTests.m */,
 				056F38D718AF078000D4C264 /* InputViewControllerTests.m */,
 				056D5A5118AF543B00BF2703 /* KUResponseTests.m */,
+				059AAEF618F2C40000E10A62 /* KUSearchConditionManagerTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				0520D83118A50076006ABD10 /* KUSavedResponsesManagerTests.m in Sources */,
 				0545DE61189A5F2A008B55F5 /* KUDBClientTests.m in Sources */,
 				0545DE5F189A5B7A008B55F5 /* KUSearchConditionTests.m in Sources */,
+				059AAEF718F2C40000E10A62 /* KUSearchConditionManagerTests.m in Sources */,
 				057E0097188E8FAF00070F7D /* KUResponseManagerTests.m in Sources */,
 				056FD1F918A9E89F00A7EE45 /* KUDifferenceTests.m in Sources */,
 				05A77884188A35BA00B1026C /* KUClientTests.m in Sources */,

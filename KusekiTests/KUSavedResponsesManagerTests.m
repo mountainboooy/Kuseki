@@ -160,10 +160,14 @@
     _isFinished = YES;
 }
 
+
 - (void)savedResponseManagerDidFailLoading
 {
     XCTFail(@"複数の検索条件からの空席情報取得に失敗");
     _isFinished = YES;
 }
+
+    
+
 
 @end

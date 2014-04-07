@@ -292,6 +292,18 @@ static KUDBClient *_sharedClient = nil;
 }
 
 
+-(void)deleteAllConditions
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
+    NSString *sql = @"DELETE FROM conditions";
+    NSLog(@"sql:%@",sql);
+    
+    [db open];
+    [db executeUpdate:sql];
+    [db close];
+}
+
+
 
 
 @end

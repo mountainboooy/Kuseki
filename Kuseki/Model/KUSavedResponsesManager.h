@@ -26,8 +26,6 @@ typedef void (^KUResponseNetworkFailure)(NSHTTPURLResponse *res, NSError *err);
 
 
 @protocol KUSavedResponsesManagerDelegate <NSObject>
-
 - (void)savedResponseManager:(id)manager DidFinishLoadingResponses:(NSArray*)responses;
 - (void)savedResponseManagerDidFailLoading;
-
 @end
