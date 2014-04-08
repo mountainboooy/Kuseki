@@ -35,13 +35,14 @@
     _tableView.dataSource = self;
     
     _conditionManager = [KUSearchConditionManager sharedManager];
-    [_conditionManager deleteOldConditions];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"viewWillAppear");
+    //時期を過ぎてしまった検索条件を削除
+    [_conditionManager deleteOldConditions];
+    
     [_conditionManager getConditionsFromDB];
     [_tableView reloadData];
 }
@@ -176,9 +177,6 @@
     //検索条件を削除
     KUSearchCondition *condition = _conditionManager.conditions[bt.indexPath.row];
     [condition deleteCondition];
-    
-    //この検索条件に関わる通知設定も一斉解除
-    [KUNotificationTarget removeWithCondition:condition];
 
     //テーブル更新
     [_conditionManager getConditionsFromDB];
