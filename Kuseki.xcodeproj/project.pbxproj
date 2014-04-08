@@ -756,6 +756,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: TAKERU YOSHIHARA (3ZG8G95HMX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -766,6 +767,7 @@
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "CCD71AFB-9FE4-4F71-B97F-252C2097442B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -787,6 +789,7 @@
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "CCD71AFB-9FE4-4F71-B97F-252C2097442B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
