@@ -185,6 +185,12 @@
     //name
     UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
     lb_name.text = response.name;
+    
+    //通知マーク
+    UIImageView *ic_notification = (UIImageView*)[cell viewWithTag:8];
+    NSString *imgName = ([response isNotificationTarget])? @"notification_on":@"notification_off";
+    ic_notification.alpha = ([response isNotificationTarget])? 1:0.6;
+    ic_notification.image = [UIImage imageNamed:imgName];
 }
 
 
@@ -228,18 +234,23 @@
 - (void)swNotificationChanged:(KUSwitch*)sw
 {
     KUResponse *response = _responseManager.responses[sw.indexPath.row];
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:sw.indexPath];
+    UIImageView *ic_notification = (UIImageView*)[cell viewWithTag:8];
+
     
     if (sw.on) {//通知オン
         [KUNotificationTarget saveWithResponse:response condition:_condition];
+        ic_notification.image = [UIImage imageNamed:@"notification_on"];
+        ic_notification.alpha = 1.0;
     }
     
     else if(!sw.on){//通知オフ
         
         [KUNotificationTarget removeWithResonse:response condition:_condition];
+        ic_notification.image = [UIImage imageNamed:@"notification_off"];
+        ic_notification.alpha = 0.6;
         
     }
-    
-    
 }
 
 #pragma mark -
