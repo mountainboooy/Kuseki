@@ -189,7 +189,7 @@
     //通知マーク
     UIImageView *ic_notification = (UIImageView*)[cell viewWithTag:8];
     NSString *imgName = ([response isNotificationTarget])? @"notification_on":@"notification_off";
-    ic_notification.alpha = ([response isNotificationTarget])? 1:0.6;
+    ic_notification.alpha = ([response isNotificationTarget])? 1:0;
     ic_notification.image = [UIImage imageNamed:imgName];
 }
 
@@ -248,7 +248,7 @@
         
         [KUNotificationTarget removeWithResonse:response condition:_condition];
         ic_notification.image = [UIImage imageNamed:@"notification_off"];
-        ic_notification.alpha = 0.6;
+        ic_notification.alpha = 0;
         
     }
 }
