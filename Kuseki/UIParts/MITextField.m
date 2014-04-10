@@ -112,13 +112,14 @@
         
         //button_close
         UIButton *bt_close = [UIButton buttonWithType:UIButtonTypeCustom];
-        bt_close.frame = CGRectMake(120, 0, 80, 44);
+        bt_close.frame = CGRectMake(0, 0, 80, 44);
         [bt_close setImage:[UIImage imageNamed:@"bt_close_picker"] forState:UIControlStateNormal];
         [bt_close addTarget:self action:@selector(btClosePressed) forControlEvents:UIControlEventTouchUpInside];
         
         [_inputAccessoryView addSubview:bt_close];
         
         
+        /*
         //button_next
         UIButton *bt_next = [UIButton buttonWithType:UIButtonTypeCustom];
         bt_next.frame = CGRectMake(240, 0, 80, 44);
@@ -138,6 +139,7 @@
             
             [_inputAccessoryView addSubview:bt_back];
         }
+         */
     }
     return _inputAccessoryView;
 }

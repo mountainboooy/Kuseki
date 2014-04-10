@@ -262,15 +262,15 @@ UITextFieldDelegate, MITextFieldDelegate>
         case 0:
         case 1:
         case 2:
-            height = 89;
+            height = 72;
             break;
             
         case 3:
-            height = 178;
+            height = 144;
             break;
             
         case 4:
-            height = 183;
+            height = 144;
             break;
     }
     return height;
@@ -740,7 +740,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor =[UIColor lightGrayColor];
+    label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
     label.text = @"空席検索";     self.navigationItem.titleView = label;
 
 }
