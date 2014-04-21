@@ -136,9 +136,23 @@
     
     [self.navigationController pushViewController:savedResCon animated:YES];
     
-    
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //検索条件を削除
+    KUSearchCondition *condition = _conditionManager.conditions[indexPath.row];
+    [condition deleteCondition];
+    
+    //テーブル更新
+    [_conditionManager getConditionsFromDB];
+    //[_tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [_tableView reloadData];
+    
+}
 
 #pragma mark -
 #pragma mark private methods
@@ -182,19 +196,19 @@
 
 
 #pragma mark -
-#pragma mark private action
+#pragma mark button action
 
-- (void)btDeletePressed:(KUButton*)bt
-{
-    //検索条件を削除
-    KUSearchCondition *condition = _conditionManager.conditions[bt.indexPath.row];
-    [condition deleteCondition];
-
-    //テーブル更新
-    [_conditionManager getConditionsFromDB];
-    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+- (IBAction)btEditPressed:(UIButton*)btn {
+    
+    if (_tableView.isEditing) {//編集を完了
+        [_tableView setEditing:NO animated:YES];
+        [btn setTitle:@"編集" forState:UIControlStateNormal];
+        return;
+    }
+    
+    [_tableView setEditing:YES animated:YES];
+    [btn setTitle:@"完了" forState:UIControlStateNormal];
 }
-
 
 
 
