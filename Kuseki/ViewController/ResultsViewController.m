@@ -302,7 +302,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor =[UIColor lightGrayColor];
+    label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
     label.text = @"検索結果";     self.navigationItem.titleView = label;
 }
 

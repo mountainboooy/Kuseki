@@ -86,11 +86,11 @@
     
     //月日
     UILabel *lb_month_day = (UILabel*)[cell viewWithTag:1];
-    lb_month_day.text = [NSString stringWithFormat:@"%@月%@日", condition.month, condition.day];
+    lb_month_day.text = [NSString stringWithFormat:@"%@/%@", condition.month, condition.day];
     
     //時間
     UILabel *lb_time = (UILabel*)[cell viewWithTag:2];
-    lb_time.text = [NSString stringWithFormat:@"%@時%@分",condition.hour, condition.minute];
+    lb_time.text = [NSString stringWithFormat:@"%@ : %@",condition.hour, condition.minute];
     
     //dep_stn
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:3];
@@ -107,6 +107,18 @@
     
     
     
+}
+
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header0"];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 45;
 }
 
 
