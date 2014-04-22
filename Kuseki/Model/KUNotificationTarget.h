@@ -34,7 +34,7 @@
 
 + (void)removeWithResonse:(KUResponse*)response condition:(KUSearchCondition*)condition;
 
-+ (void)update;
+- (void)updateTarget;
 
 - (BOOL)isSameTrainWithResponse:(KUResponse*)response;
 - (NSArray*)differencesWithResponse:(KUResponse*)response;

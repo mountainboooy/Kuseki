@@ -130,7 +130,6 @@
 {
     //通知対象の空席情報と、最新の空席情報で差異がある場合には再情報をKUDifferenceとして格納
     KUDifferencesManager *diffManager = [KUDifferencesManager sharedManager];
-    
     KUNotificationTargetsManager *targetsManager = [KUNotificationTargetsManager sharedManager];
     
     for (KUResponse *new_response in responses) {
@@ -146,10 +145,6 @@
         
         NSString *message = [diff messageForNotification];
         [self addNotification:message afterSeconds:1 withSound:@"default"];
-        
-        //情報の更新
-        
-        
         
     }
     

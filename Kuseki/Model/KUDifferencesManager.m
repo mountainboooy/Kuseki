@@ -54,13 +54,16 @@ static KUDifferencesManager *_sharedManager = nil;
         return;
     }
     
-    //普通席禁煙
+    //普通席禁煙(テストで==にしてる）
     if (response.seat_ec_ns  == target.seat_ec_ns) {
         //KUDifferenceを生成して追加
         KUDifference *new_diff;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_ns" previousValue:target.seat_ec_ns currentValue:response.seat_ec_ns];
         
         [self addDifference:new_diff];
+        
+        //targetの更新
+        target.seat_ec_ns = response.seat_ec_ns;
         
     }
     
@@ -71,6 +74,9 @@ static KUDifferencesManager *_sharedManager = nil;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_ec_s" previousValue:target.seat_ec_s currentValue:response.seat_ec_s];
         
         [self addDifference:new_diff];
+        
+        //targetの更新
+        target.seat_ec_s = response.seat_ec_s;
     }
     
     //グリーン車禁煙
@@ -80,6 +86,9 @@ static KUDifferencesManager *_sharedManager = nil;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_gr_ns" previousValue:target.seat_gr_ns currentValue:response.seat_gr_ns];
         
         [self addDifference:new_diff];
+        
+        //targetの更新
+        target.seat_gr_ns = response.seat_gr_ns;
     }
     
     //グリーン車喫煙
@@ -89,6 +98,9 @@ static KUDifferencesManager *_sharedManager = nil;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_gr_s" previousValue:target.seat_gr_s currentValue:response.seat_gr_s];
         
         [self addDifference:new_diff];
+        
+        //targetの更新
+        target.seat_gr_s = response.seat_gr_s;
     }
     
     //グランシート禁煙
@@ -100,8 +112,12 @@ static KUDifferencesManager *_sharedManager = nil;
         new_diff = [[KUDifference alloc]initWithTarget:target seat:@"seat_gs_ns" previousValue:target.seat_gs_ns currentValue:response.seat_gs_ns];
         
         [self addDifference:new_diff];
+        
+        //targetの更新
+        target.seat_gs_ns = response.seat_gs_ns;
     }
     
+    [target updateTarget];
 }
 
 

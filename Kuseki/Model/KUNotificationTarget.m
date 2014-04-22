@@ -113,11 +113,6 @@
 }
 
 
-+ (void)update
-{
-    //あとで
-}
-
 
 //通知ターゲット(自身）と取得したresponseが同じものかチェックするメソッド
 - (BOOL)isSameTrainWithResponse:(KUResponse *)response
@@ -131,6 +126,13 @@
     }
     
     return NO;
+}
+
+
+- (void)updateTarget
+{
+    KUDBClient *client = [KUDBClient sharedClient];
+    [client updateNotificationTarget:self];
 }
 
 
