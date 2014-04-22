@@ -34,6 +34,8 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
+    [self setTitle];
+    
     _conditionManager = [KUSearchConditionManager sharedManager];
 }
 
@@ -194,6 +196,17 @@
     
 }
 
+
+- (void)setTitle
+{
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 170, 25)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:17];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
+    label.text = @"保存した条件";     self.navigationItem.titleView = label;
+    
+}
 
 #pragma mark -
 #pragma mark button action

@@ -147,12 +147,13 @@
         NSString *message = [diff messageForNotification];
         [self addNotification:message afterSeconds:1 withSound:@"default"];
         
+        //情報の更新
+        
+        
+        
     }
     
-    //TODO:情報の更新
-    
-    
-    //再情報はクリアする
+    //差異情報はクリアする
     [diffManager clearDifferences];
     
 }

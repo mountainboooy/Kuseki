@@ -183,7 +183,7 @@ static KUDBClient *_sharedClient = nil;
 
 
 //データ更新
-- (void)updateNotificationtarget:(KUNotificationTarget*)target{
+- (void)updateNotificationTarget:(KUNotificationTarget*)target{
     
     if (!target) {
         NSException *ex = [NSException exceptionWithName:@"UpdateNotificationTargetException" reason:nil userInfo:nil];
@@ -192,13 +192,19 @@ static KUDBClient *_sharedClient = nil;
     }
     
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    NSString *sql = @"UPDATE notification_targets SET name = ?, dep_time = ?, arr_time = ?, seat_ec_ns = ?, seat_ec_s = ?, seat_gr_ns = ?, seat_gr_s = ?, seat_gs_ns = ?, condition_id = ?, dep_stn = ?, arr_stn = ?, month = ?, day = ? WHERE id = ? VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
     
+    NSString *ec_ns = [NSString stringWithFormat:@"%d",target.seat_ec_ns];
+    NSString *ec_s = [NSString stringWithFormat:@"%d",target.seat_ec_s];
+    NSString *gr_ns = [NSString stringWithFormat:@"%d",target.seat_gr_ns];
+    NSString *gr_s  = [NSString stringWithFormat:@"%d",target.seat_gr_s];
+    NSString *gs_ns = [NSString stringWithFormat:@"%d",target.seat_gs_ns];
+    
+    NSString *sql = [NSString stringWithFormat:@"UPDATE notification_targets SET name='%@', dep_time = '%@', arr_time = '%@', seat_ec_ns = '%@', seat_ec_s = '%@', seat_gr_ns = '%@', seat_gr_s = '%@', seat_gs_ns = '%@', condition_id = '%@', dep_stn = '%@', arr_stn = '%@', month = '%@', day = '%@' WHERE id = %@", target.name, target.dep_time, target.arr_time, ec_ns, ec_s, gr_ns, gr_s, gs_ns, target.condition_id, target.dep_stn, target.arr_stn, target.month, target.day, target.identifier];
+    
+    NSLog(@"sql:%@",sql);
     
     [db open];
-    [db executeUpdate:sql, target.name, target.dep_time, target.arr_time, target.seat_ec_ns, target.seat_ec_s, target.seat_gr_ns, target.seat_gr_s, target.seat_gs_ns, target.condition_id, target.dep_stn, target.arr_stn, target.month, target.day];
-    
-    
+    [db executeUpdate:sql];
     [db close];
 }
 
