@@ -210,18 +210,20 @@
 
 #pragma mark -
 #pragma mark button action
-
-- (IBAction)btEditPressed:(UIButton*)btn {
+- (IBAction)btTrashPressed:(UIBarButtonItem *)sender {
     
     if (_tableView.isEditing) {//編集を完了
         [_tableView setEditing:NO animated:YES];
-        [btn setTitle:@"編集" forState:UIControlStateNormal];
+        [sender setTintColor:[UIColor colorWithRed:0.38 green:0.38 blue:0.38 alpha:1]];
+        
         return;
     }
     
     [_tableView setEditing:YES animated:YES];
-    [btn setTitle:@"完了" forState:UIControlStateNormal];
+    [sender setTintColor:[UIColor colorWithRed:0 green:0.47 blue:1.0 alpha:1.0]];
 }
+
+
 
 
 
