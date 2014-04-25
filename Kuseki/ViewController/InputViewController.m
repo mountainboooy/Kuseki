@@ -198,7 +198,13 @@ UITextFieldDelegate, MITextFieldDelegate>
         
         case 2:{//列車の種類
             UILabel *lb_train = (UILabel*)[cell viewWithTag:1];
-            lb_train.text = _trains[_condition.train.intValue - 1];
+            
+            if(_condition.train.intValue == 3){
+                lb_train.text = @"はやぶさ・はやて・やまびこ・なすの・つばさ・";
+            }else{
+                lb_train.text = _trains[_condition.train.intValue - 1];
+            }
+            
             
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index)? 0.2 : 0;
@@ -405,7 +411,7 @@ UITextFieldDelegate, MITextFieldDelegate>
         NSString *selectedNum = [NSString stringWithFormat:@"%d",(int)row+1];
         _condition.train = selectedNum;
         
-        [self updateStations];
+        //[self updateStations];
     }
     
     else if(pickerView.tag == 2){//dep_stn
