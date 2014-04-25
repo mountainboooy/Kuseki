@@ -411,7 +411,7 @@ UITextFieldDelegate, MITextFieldDelegate>
         NSString *selectedNum = [NSString stringWithFormat:@"%d",(int)row+1];
         _condition.train = selectedNum;
         
-        //[self updateStations];
+        [self updateStations];
     }
     
     else if(pickerView.tag == 2){//dep_stn
