@@ -200,7 +200,7 @@ UITextFieldDelegate, MITextFieldDelegate>
             UILabel *lb_train = (UILabel*)[cell viewWithTag:1];
             
             if(_condition.train.intValue == 3){
-                lb_train.text = @"はやぶさ・はやて・やまびこ・なすの・つばさ・";
+                lb_train.text = @"はやぶさ・はやて・やまびこ・なすの・つばさ";
             }else{
                 lb_train.text = _trains[_condition.train.intValue - 1];
             }
@@ -276,7 +276,7 @@ UITextFieldDelegate, MITextFieldDelegate>
             break;
             
         case 4:
-            height = 183;
+            height = 144;
             break;
     }
     return height;
