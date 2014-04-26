@@ -82,8 +82,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     _trains = @[@"のぞみ・ひかり・さくら・みずほ・つばめ",
                         @"こだま",
                         @"はやぶさ・はやて・やまびこ・なすの・つばさ・こまち",
-                        @"とき・たにがわ・あさま",
-                        @"在来線列車"];
+                        @"とき・たにがわ・あさま"];
     
     //stations
     [self updateStations];
@@ -277,7 +276,7 @@ UITextFieldDelegate, MITextFieldDelegate>
             break;
             
         case 4:
-            height = 144;
+            height = 183;
             break;
     }
     return height;
@@ -345,7 +344,7 @@ UITextFieldDelegate, MITextFieldDelegate>
 {
     switch (pickerView.tag) {
         case 1://train
-            return 5;
+            return 4;
             break;
             
             case 2://dep_stn
