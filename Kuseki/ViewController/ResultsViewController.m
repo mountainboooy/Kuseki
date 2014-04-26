@@ -13,6 +13,7 @@
 #import "KUResponse.h"
 #import "KUSearchCondition.h"
 #import "KUSearchConditionManager.h"
+#import "MBProgressHUD.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -46,12 +47,15 @@
     //model
     _responseManager = [KUResponseManager sharedManager];
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     [_responseManager getResponsesWithParam:_condition completion:^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
         NSLog(@"completion:");
         NSLog(@"num:%lu",(unsigned long)_responseManager.responses.count);
         [_tableView reloadData];
         
     } failure:^(NSHTTPURLResponse *res, NSError *err) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
         if (res || err) {//通信問題、サーバーエラーなど
             NSString* title = [NSString stringWithFormat:@"statusCode:%d",res.statusCode];
             NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";

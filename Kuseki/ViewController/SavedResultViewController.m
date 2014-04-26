@@ -12,6 +12,7 @@
 #import "KUButton.h"
 #import "KUSwitch.h"
 #import "KUNotificationTarget.h"
+#import "MBProgressHUD.h"
 
 @interface SavedResultViewController ()
 <UITableViewDelegate, UITableViewDataSource>
@@ -38,11 +39,14 @@
     
     //model
     _responseManager = [KUResponseManager sharedManager];
+    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+    
     [_responseManager getResponsesWithParam:_condition completion:^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
         [_tableView reloadData];
     
     } failure:^(NSHTTPURLResponse *res, NSError *err) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
         if (res || err) {//通信問題、サーバーエラーなど
             NSString* title = [NSString stringWithFormat:@"statusCode:%d",res.statusCode];
             NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
