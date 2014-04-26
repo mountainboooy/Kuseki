@@ -225,6 +225,14 @@
 
 - (IBAction)btSavePressed:(id)sender {
 
+    KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
+    if(conditionManager.conditions.count  > 29){
+        //保存は30まで
+        NSString *message = @"保存できる検索条件は30件までです";
+        [AppDelegate showAlertWithTitle:nil message:message completion:nil];
+        return;
+    }
+    
     [_condition postConditionWithCompletion:^{
         NSString *message = @"この検索条件を保存しました";
         [AppDelegate showAlertWithTitle:nil message:message completion:nil];

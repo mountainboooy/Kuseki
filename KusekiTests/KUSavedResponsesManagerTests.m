@@ -43,7 +43,7 @@
     _isFinished = NO;
     
     NSDictionary *dic1 = @{@"identifier":@"1",
-                           @"month":@"2",
+                           @"month":@"5",
                            @"day":@"20",
                            @"hour":@"15",
                            @"minute":@"30",
@@ -72,7 +72,7 @@
     
     //東
     NSDictionary *dic = @{@"year":@"2014",
-                          @"month":@"02",
+                          @"month":@"05",
                           @"day":@"20",
                           @"hour":@"15",
                           @"minute":@"30",
@@ -106,7 +106,7 @@
 {
     _isFinished = NO;
     NSDictionary *dic1 = @{@"identifier":@"1",
-                           @"month":@"2",
+                           @"month":@"5",
                            @"day":@"20",
                            @"hour":@"15",
                            @"minute":@"30",
@@ -116,7 +116,7 @@
                            };
     
     NSDictionary *dic2 = @{@"identifier":@"2",
-                           @"month":@"2",
+                           @"month":@"5",
                            @"day":@"21",
                            @"hour":@"15",
                            @"minute":@"30",
@@ -126,7 +126,7 @@
                            };
     
     NSDictionary *dic3 = @{@"identifier":@"3",
-                           @"month":@"2",
+                           @"month":@"5",
                            @"day":@"22",
                            @"hour":@"16",
                            @"minute":@"30",

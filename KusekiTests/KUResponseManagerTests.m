@@ -41,7 +41,7 @@
     
     //西側
     NSDictionary *dic = @{@"year":@"2014",
-                          @"month":@"02",
+                          @"month":@"05",
                           @"day":@"20",
                           @"hour":@"15",
                           @"minute":@"30",
@@ -78,7 +78,7 @@
     
     //東
     NSDictionary *dic = @{@"year":@"2014",
-                          @"month":@"02",
+                          @"month":@"05",
                           @"day":@"20",
                           @"hour":@"15",
                           @"minute":@"30",

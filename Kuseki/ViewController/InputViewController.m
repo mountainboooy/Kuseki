@@ -11,6 +11,7 @@
 #import "ResultsViewController.h"
 #import "KUSearchCondition.h"
 #import "KUStationsManager.h"
+#import "InformationViewController.h"
 
 @interface InputViewController ()
 <UITableViewDataSource, UITableViewDelegate,
@@ -1033,5 +1034,12 @@ UITextFieldDelegate, MITextFieldDelegate>
     
 }
 
+
+- (IBAction)btInfomationPressed:(id)sender {
+    
+    InformationViewController *infoCon = [self.storyboard instantiateViewControllerWithIdentifier:@"InformationViewController"];
+    infoCon.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:infoCon animated:YES];
+}
 
 @end
