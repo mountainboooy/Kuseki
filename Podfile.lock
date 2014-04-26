@@ -22,13 +22,16 @@ PODS:
   - FMDB/common (2.2)
   - FMDB/standard (2.2):
     - FMDB/common
+  - MBProgressHUD (0.8)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FMDB
+  - MBProgressHUD (~> 0.8)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
-  FMDB: 97472cfacf0d9e445e915704fb43b4b142799c36
+  FMDB: e0dd09464b4e1a1cd7fa51ea835ae821b5656865
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1
