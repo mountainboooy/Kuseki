@@ -33,19 +33,29 @@
 {
     NSLog(@"perfom fetch");
     
+    //23::00~06:00の間はアクションしない
+    NSDate *date = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [cal components:NSHourCalendarUnit fromDate:date];
+    
+    if(comps.hour < 06 || comps.hour > 22){
+        return;
+    }
+    
+    
     //保存中の検索条件一覧をDBから取得
     KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
-    [conditionManager deleteOldConditions];//古い検索条件は捨てる
-    //////TODO古い通知対象は捨てる
     
+    [conditionManager deleteOldConditions];//古い検索条件は捨てる
     [conditionManager getConditionsFromDB];
+    NSLog(@"conditionManager.conditions:%ld",conditionManager.conditions.count);
     
     //保存中の検索条件から新たに空席情報を取得
     KUSavedResponsesManager *savedResponseManager;
     savedResponseManager = [KUSavedResponsesManager sharedManager];
     savedResponseManager.delegate = self;
     [savedResponseManager getResponsesWithConditions:conditionManager.conditions];
-    NSLog(@"conditionManager.conditions:%d",conditionManager.conditions.count);
+
     
     //後はdelegateメソッド上で処理
     
