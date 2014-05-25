@@ -276,7 +276,7 @@ UITextFieldDelegate, MITextFieldDelegate>
             break;
             
         case 4:
-            height = 144;
+            height = 83;
             break;
     }
     return height;
@@ -757,7 +757,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     [self.view endEditing:YES];
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_train.constant = 0;
-        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
         [self.view layoutIfNeeded];
     }];
     
@@ -785,7 +785,7 @@ UITextFieldDelegate, MITextFieldDelegate>
     
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_dep.constant = -0;
-        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
         [self.view layoutIfNeeded];
     }];
     
@@ -814,7 +814,7 @@ UITextFieldDelegate, MITextFieldDelegate>
 {
     [UIView animateWithDuration:0.3 animations:^{
         _bottomSpace_picker_arr.constant = -0;
-        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
         [self.view layoutIfNeeded];
 
     }];
@@ -843,7 +843,7 @@ UITextFieldDelegate, MITextFieldDelegate>
 - (void)keyboardWillAppear:(NSNotification*)notification
 {
    [UIView animateWithDuration:0.3 animations:^{
-    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 216, 0);
+    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
 
    }];
 }
