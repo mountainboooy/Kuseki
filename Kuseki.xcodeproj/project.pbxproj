@@ -63,6 +63,7 @@
 		05B39DBB18A67A530042F250 /* kUStationsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B39DBA18A67A530042F250 /* kUStationsManagerTests.m */; };
 		05B39DBD18A67FFA0042F250 /* StationsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05B39DBC18A67FFA0042F250 /* StationsList.plist */; };
 		05B39DBE18A680020042F250 /* StationsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05B39DBC18A67FFA0042F250 /* StationsList.plist */; };
+		05BB14B01945FE9B00A4480D /* btn_change_station.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BB14AF1945FE9B00A4480D /* btn_change_station.png */; };
 		05D7E241189CE93D00E9B04E /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E240189CE93D00E9B04E /* ConditionsViewController.m */; };
 		05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E243189D035400E9B04E /* SavedResultViewController.m */; };
 		05D7E26C189F971B00E9B04E /* KUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E26B189F971B00E9B04E /* KUButton.m */; };
@@ -149,6 +150,7 @@
 		05B39DB818A67A0D0042F250 /* KUStationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUStationsManager.m; sourceTree = "<group>"; };
 		05B39DBA18A67A530042F250 /* kUStationsManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kUStationsManagerTests.m; sourceTree = "<group>"; };
 		05B39DBC18A67FFA0042F250 /* StationsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StationsList.plist; sourceTree = "<group>"; };
+		05BB14AF1945FE9B00A4480D /* btn_change_station.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_change_station.png; sourceTree = "<group>"; };
 		05D7E23F189CE93D00E9B04E /* ConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionsViewController.h; sourceTree = "<group>"; };
 		05D7E240189CE93D00E9B04E /* ConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionsViewController.m; sourceTree = "<group>"; };
 		05D7E242189D035400E9B04E /* SavedResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedResultViewController.h; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		05D7E245189DFE0300E9B04E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05BB14AF1945FE9B00A4480D /* btn_change_station.png */,
 				053EED8418E047C10060822B /* btn_change_station@2x.png */,
 			);
 			path = Images;
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053EED8518E047C10060822B /* btn_change_station@2x.png in Resources */,
+				05BB14B01945FE9B00A4480D /* btn_change_station.png in Resources */,
 				0589B11A188403F900DBE642 /* Images.xcassets in Resources */,
 				0589B10C188403F900DBE642 /* InfoPlist.strings in Resources */,
 				0589B115188403F900DBE642 /* Main.storyboard in Resources */,
