@@ -275,9 +275,17 @@ UITextFieldDelegate, MITextFieldDelegate>
             height = 144;
             break;
             
-        case 4:
-            height = 83;
+        case 4:{
+            NSString *model = [UIDevice currentDevice].model;
+            if([model isEqualToString:@"iPad"] ||
+               [model isEqualToString:@"iPad Simulator"]){
+                height = 140;
+            
+            }else{
+                height = 83;
+            }
             break;
+    }
     }
     return height;
 }
