@@ -13,6 +13,7 @@
 #import "KUSwitch.h"
 #import "KUNotificationTarget.h"
 #import "MBProgressHUD.h"
+#import "Flurry.h"
 
 @interface SavedResultViewController ()
 <UITableViewDelegate, UITableViewDataSource>
@@ -262,6 +263,9 @@
         ic_notification.alpha = 0;
         
     }
+    NSString *value = (sw.on)? @"ON":@"OFF";
+    NSDictionary *param = @{@"value": value};
+    [Flurry logEvent:@"swNotificationChanged" withParameters:param];
 }
 
 #pragma mark -
