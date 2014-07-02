@@ -202,8 +202,8 @@
     UILabel *lb_train = (UILabel *)[cell viewWithTag:1];
 
     if (_condition.train.intValue == 3) {
-      lb_train.text = @"は"
-                      @"やぶさ・はやて・やまびこ・なすの・つばさ";
+      lb_train.text = @"は" @"や"
+                             @"ぶさ・はやて・やまびこ・なすの・つばさ";
     } else {
       lb_train.text = _trains[_condition.train.intValue - 1];
     }
@@ -473,7 +473,7 @@
   NSLog(@"indexPath.row:%d", (int)textField.indexPath.row);
   switch (textField.indexPath.row) {
 
-  case 0: { //乗車年月日
+  case 0: {                   //乗車年月日
     if (textField.tag == 1) { // month
       _condition.month = textField.text;
 
@@ -484,7 +484,7 @@
     break;
   }
 
-  case 1: { //時間
+  case 1: {                   //時間
     if (textField.tag == 1) { // hour
       _condition.hour = textField.text;
 
@@ -877,8 +877,12 @@
 }
 
 - (void)trackEventWithFlurry {
-  // Flurry
   NSDateFormatter *formatter = [NSDateFormatter new];
+  [formatter setTimeZone:[NSTimeZone systemTimeZone]];
+  formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+  formatter.calendar =
+      [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"JST"];
   [formatter setDateFormat:@"yyyy-MM HH:mm:ss"];
   NSString *timestamp = [formatter stringFromDate:[NSDate date]];
 

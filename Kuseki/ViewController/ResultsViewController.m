@@ -249,7 +249,6 @@
     //確認
     KUSearchConditionManager *manager = [KUSearchConditionManager sharedManager];
     [manager getConditionsFromDB];
-    NSLog(@"array:%d",manager.conditions.count);
     
 }
 
