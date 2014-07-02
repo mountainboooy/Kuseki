@@ -12,6 +12,7 @@
 #import "KUSearchCondition.h"
 #import "KUStationsManager.h"
 #import "InformationViewController.h"
+#import "Flurry.h"
 
 @interface InputViewController ()
 <UITableViewDataSource, UITableViewDelegate,
@@ -874,6 +875,26 @@ UITextFieldDelegate, MITextFieldDelegate>
     
 }
 
+- (void)trackEventWithFlurry
+{
+    //Flurry
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyy-MM HH:mm:ss"];
+    NSString *timestamp = [formatter stringFromDate:[NSDate date]];
+    
+    NSDictionary *condition = @{
+                                @"month":_condition.month,
+                                @"day":_condition.day,
+                                @"hour":_condition.hour,
+                                @"minute":_condition.minute,
+                                @"train":_condition.train,
+                                @"dep_stn":_condition.dep_stn,
+                                @"arr_stn":_condition.arr_stn,
+                                @"created_at":timestamp
+                                };
+    
+    [Flurry logEvent:@"btnSearchPressed" withParameters:condition];
+}
 
 #pragma mark -
 #pragma mark button action
@@ -990,7 +1011,6 @@ UITextFieldDelegate, MITextFieldDelegate>
 
 - (void)btSearchPressed
 {
-    
     if (![self isValidTime:[NSDate date]]) {
         NSString *message = @"23:30〜6:30の間は情報が提供されません";
         [AppDelegate showAlertWithTitle:nil message:message completion:nil];
@@ -1000,6 +1020,8 @@ UITextFieldDelegate, MITextFieldDelegate>
     resultCon.condition = _condition;
     resultCon.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:resultCon animated:YES];
+    
+    [self trackEventWithFlurry];
 }
 
 
