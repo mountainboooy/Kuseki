@@ -14,6 +14,7 @@
 #import "KUSearchCondition.h"
 #import "KUSearchConditionManager.h"
 #import "MBProgressHUD.h"
+#import "Flurry.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -240,6 +241,7 @@
     [_condition postConditionWithCompletion:^{
         NSString *message = @"この検索条件を保存しました";
         [AppDelegate showAlertWithTitle:nil message:message completion:nil];
+        [self trackSaveEventWithFlurry];
         
     } failure:^{
         NSString *message = @"保存に失敗しました";
@@ -249,7 +251,6 @@
     //確認
     KUSearchConditionManager *manager = [KUSearchConditionManager sharedManager];
     [manager getConditionsFromDB];
-    NSLog(@"array:%d",manager.conditions.count);
     
 }
 
@@ -316,6 +317,30 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
     label.text = @"検索結果";     self.navigationItem.titleView = label;
+}
+
+- (void)trackSaveEventWithFlurry
+{
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setTimeZone:[NSTimeZone systemTimeZone]];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    formatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"JST"];
+    [formatter setDateFormat:@"yyyy-MM HH:mm:ss"];
+    NSString *timestamp = [formatter stringFromDate:[NSDate date]];
+    
+    NSDictionary *condition = @{
+                                @"month" : self.condition.month,
+                                @"day" : self.condition.day,
+                                @"hour" : self.condition.hour,
+                                @"minute" : self.condition.minute,
+                                @"train" : self.condition.train,
+                                @"dep_stn" : self.condition.dep_stn,
+                                @"arr_stn" : self.condition.arr_stn,
+                                @"created_at" : timestamp
+                                };
+    
+    [Flurry logEvent:@"btnSavePressed" withParameters:condition];
 }
 
 

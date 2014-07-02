@@ -12,6 +12,7 @@
 #import "SavedResultViewController.h"
 #import "KUButton.h"
 #import "KUNotificationTarget.h"
+#import "Flurry.h"
 
 @interface ConditionsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -47,6 +48,14 @@
     
     [_conditionManager getConditionsFromDB];
     [_tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSString *num = [NSString stringWithFormat:@"%d",_conditionManager.conditions.count];
+    NSDictionary *param = @{@"number_of_conditions":num};
+    
+    [Flurry logEvent:@"ConditionsViewDidAppear" withParameters:param];
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,7 +136,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (![self isValidTime:[NSDate date]]) {
-        NSString *message = @"23:30〜6:30の間は情報が提供されません";
+        NSString *message = @"22:30〜6:30の間は情報が提供されません";
         [AppDelegate showAlertWithTitle:nil message:message completion:nil];
     }
     
