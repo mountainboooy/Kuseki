@@ -960,7 +960,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (void)btSearchPressed
 {
     if (![self isValidTime:[NSDate date]]) {
-        NSString *message = @"23:30〜6:30の間は情報が提供されません";
+        NSString *message = @"22:30〜6:30の間は情報が提供されません";
         [AppDelegate showAlertWithTitle:nil message:message completion:nil];
     }
 
