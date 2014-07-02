@@ -68,6 +68,7 @@
 		05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E243189D035400E9B04E /* SavedResultViewController.m */; };
 		05D7E26C189F971B00E9B04E /* KUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E26B189F971B00E9B04E /* KUButton.m */; };
 		05D7E26F189F974A00E9B04E /* KUSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D7E26E189F974A00E9B04E /* KUSwitch.m */; };
+		05DFAAAA19642A01006D5AF2 /* libFlurry_5.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DFAAA919642A01006D5AF2 /* libFlurry_5.1.0.a */; };
 		05F8357318A4F15D00A1CA5B /* KUSavedResponsesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8357218A4F15D00A1CA5B /* KUSavedResponsesManager.m */; };
 		05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
@@ -159,6 +160,8 @@
 		05D7E26B189F971B00E9B04E /* KUButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUButton.m; sourceTree = "<group>"; };
 		05D7E26D189F974A00E9B04E /* KUSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSwitch.h; sourceTree = "<group>"; };
 		05D7E26E189F974A00E9B04E /* KUSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSwitch.m; sourceTree = "<group>"; };
+		05DFAAA819642A01006D5AF2 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		05DFAAA919642A01006D5AF2 /* libFlurry_5.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.1.0.a; sourceTree = "<group>"; };
 		05F8357118A4F15D00A1CA5B /* KUSavedResponsesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUSavedResponsesManager.h; sourceTree = "<group>"; };
 		05F8357218A4F15D00A1CA5B /* KUSavedResponsesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUSavedResponsesManager.m; sourceTree = "<group>"; };
 		05FC27F618A0E64A00C2A0F7 /* KUNotificationTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNotificationTarget.h; sourceTree = "<group>"; };
@@ -176,6 +179,7 @@
 			files = (
 				057E0099188E944C00070F7D /* libxml2.dylib in Frameworks */,
 				0589B104188403F900DBE642 /* CoreGraphics.framework in Frameworks */,
+				05DFAAAA19642A01006D5AF2 /* libFlurry_5.1.0.a in Frameworks */,
 				0589B106188403F900DBE642 /* UIKit.framework in Frameworks */,
 				0589B102188403F900DBE642 /* Foundation.framework in Frameworks */,
 				3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */,
@@ -201,6 +205,7 @@
 		057E008F188E8E5D00070F7D /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				05DFAAA719642A01006D5AF2 /* Flurry */,
 				057E0090188E8E5D00070F7D /* HTMLNode.h */,
 				057E0091188E8E5D00070F7D /* HTMLNode.m */,
 				057E0092188E8E5D00070F7D /* HTMLParser.h */,
@@ -380,6 +385,15 @@
 				053EED8418E047C10060822B /* btn_change_station@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		05DFAAA719642A01006D5AF2 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				05DFAAA819642A01006D5AF2 /* Flurry.h */,
+				05DFAAA919642A01006D5AF2 /* libFlurry_5.1.0.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -709,6 +723,10 @@
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Flurry",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3BCF2ED5-08AA-4E81-BA3A-7554CFCC4CCD";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -734,6 +752,10 @@
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Flurry",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D934AD92-15D2-4DC5-82BF-75F48E5B417D";
 				TARGETED_DEVICE_FAMILY = 1;

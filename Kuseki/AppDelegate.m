@@ -14,6 +14,7 @@
 #import "KUSavedResponsesManager.h"
 #import "KUDifferencesManager.h"
 #import "KUDifference.h"
+#import "Flurry.h"
 
 @interface AppDelegate()
 <KUSavedResponsesManagerDelegate, UIAlertViewDelegate>
@@ -24,6 +25,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    //Flurry
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:@"922D54Y2HGKPS8DBTVZT"];
     
     return YES;
 }
