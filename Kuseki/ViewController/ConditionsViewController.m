@@ -12,6 +12,7 @@
 #import "SavedResultViewController.h"
 #import "KUButton.h"
 #import "KUNotificationTarget.h"
+#import "Flurry.h"
 
 @interface ConditionsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -47,6 +48,14 @@
     
     [_conditionManager getConditionsFromDB];
     [_tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSString *num = [NSString stringWithFormat:@"%d",_conditionManager.conditions.count];
+    NSDictionary *param = @{@"number_of_conditions":num};
+    
+    [Flurry logEvent:@"ConditionsViewDidAppear" withParameters:param];
 }
 
 - (void)didReceiveMemoryWarning
