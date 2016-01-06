@@ -1,8 +1,28 @@
-/* 
-  Localizable.strings
-  Kuseki
-
-  Created by 吉原建 on 12/31/15.
-  Copyright © 2015 Takeru Yoshihara. All rights reserved.
-*/
-"testLocalization" = "日本語";
+/*
+ Localizable.strings
+ Kuseki
+ 
+ Created by 吉原建 on 12/31/15.
+ Copyright © 2015 Takeru Yoshihara. All rights reserved.
+ */
+ "testLocalization" = "日本語";
+ "vacancySearch" = "空席検索";
+ "rideDate" = "乗車日";
+ "rideTime" = "乗車時間";
+ "typeOfTrain" = "列車の種類";
+ "departureStation" = "乗車駅";
+ "destinationStation" = "降車駅";
+ "search" = "検索";
+ "searchResults" = "検索結果";
+ "vacant" = "空席";
+ "remainingSlightly" = "残りわずか";
+ "occupied" = "満席";
+ "notApplicable" = "該当なし";
+ "noSmokingVehicle" = "喫煙席なし";
+ "howToUse" = "使い方";
+ "availableTime" = "06:30~22:30の間で使用が可能です。";
+ "maxLength" = "1ヶ月後までの空席案内が可能です。";
+ "infoSource" = "情報はJRのサイバーステーションより取得しています";
+ "ordinaryCar" = "普通車";
+ "greenCar" = "グリーン車";
+ "granClass" = "グランクラス";

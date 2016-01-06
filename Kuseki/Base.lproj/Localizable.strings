@@ -1,8 +1,28 @@
-/* 
-  Localizable.strings
-  Kuseki
-
-  Created by 吉原建 on 12/31/15.
-  Copyright © 2015 Takeru Yoshihara. All rights reserved.
-*/
-"testLocalization" = "Base";
+/*
+ Localizable.strings
+ Kuseki
+ 
+ Created by 吉原建 on 12/31/15.
+ Copyright © 2015 Takeru Yoshihara. All rights reserved.
+ */
+ "testLocalization" = "Base";
+ "vacancySearch" = "Vacancy search";
+ "rideDate" = "Date";
+ "rideTime" = "Time";
+ "typeOfTrain" = "Type of train";
+ "departureStation" = "Departure station";
+ "destinationStation" = "Destination station";
+ "search" = "Search";
+ "searchResults" = "Search results";
+ "vacant" = "vacant";
+ "remainingSlightly" = "Remaining Slightly";
+ "occupied" = "Occupied";
+ "notApplicable" = "Not applicable";
+ "noSmokingVehicle" = "No smoking vehicle";
+ "howToUse" = "How to use";
+ "availableTime" = "Search is available only from 6:30AM to 10:30PM in Japan time";
+ "maxLength" = "You can get to the search results after one month at the longest.";
+ "infoSource" = "This application get the search reuslut from JR CYBER STATION.";
+ "ordinaryCar" = "Ordinary car";
+ "greenCar" = "Green car";
+ "granClass" = "Gran class";
