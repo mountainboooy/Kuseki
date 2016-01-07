@@ -73,14 +73,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     //検索条件の初期化
     [self initCondition];
 
-    _trains = @[ @"のぞみ・ひかり・さくら・みずほ・つばめ", @"こだま", @"は" @"や"
-                                                                                                    @"ぶさ・はやて・やまびこ・なすの・つばさ・こまち", @"と"
-                                                                                                                                                        @"き・"
-                                                                                                                                                        @"たに"
-                                                                                                                                                        @"がわ"
-                                                                                                                                                        @"・あ"
-                                                                                                                                                        @"さ"
-                                                                                                                                                        @"ま" ];
+    _trains = @[ @"のぞみ・ひかり・さくら・みずほ・つばめ", @"こだま", @"はやぶさ・はやて・やまびこ・なすの・つばさ・こまち", @"とき・たにがわ・あさま"];
 
     // stations
     [self updateStations];
