@@ -26,3 +26,8 @@
  "ordinaryCar" = "普通車";
  "greenCar" = "グリーン車";
  "granClass" = "グランクラス";
+
+"trainType1" = "のぞみ・ひかり・さくら・みずほ・つばめ";
+"trainType2" = "こだま";
+"trainType3" = "はやぶさ・はやて・やまびこ・なすの・つばさ・こまち";
+"trainType4" = "とき・たにがわ・あさま";

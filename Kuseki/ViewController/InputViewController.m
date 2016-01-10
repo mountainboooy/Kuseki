@@ -72,9 +72,13 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     //検索条件の初期化
     [self initCondition];
-
-    _trains = @[ @"のぞみ・ひかり・さくら・みずほ・つばめ", @"こだま", @"はやぶさ・はやて・やまびこ・なすの・つばさ・こまち", @"とき・たにがわ・あさま"];
-
+    
+    _trains = [NSArray arrayWithObjects:
+               NSLocalizedString(@"trainType1", nil),
+               NSLocalizedString(@"trainType2", nil),
+               NSLocalizedString(@"trainType3", nil),
+               NSLocalizedString(@"trainType4", nil), nil];
+    
     // stations
     [self updateStations];
 
@@ -143,6 +147,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         case 0: {  //乗車日
             MITextField *tf_month = (MITextField *)[cell viewWithTag:1];
             MITextField *tf_day = (MITextField *)[cell viewWithTag:2];
+            UILabel *lb_rideDate = (UILabel *)[cell viewWithTag:3];
 
             tf_month.accessory_mode = ACCESSORY_NEXT_CLOSE;
             tf_month.delegate = self;
@@ -156,13 +161,16 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
-
+            
+            //localization
+            lb_rideDate.text = NSLocalizedString(@"rideDate", nil);
             break;
         }
 
         case 1: {  //乗車時間
             MITextField *tf_hour = (MITextField *)[cell viewWithTag:1];
             MITextField *tf_minute = (MITextField *)[cell viewWithTag:2];
+            UILabel *lb_rideTime = (UILabel *)[cell viewWithTag:3];
 
             tf_hour.accessory_mode = ACCESSORY_ALL;
             tf_hour.delegate = self;
@@ -176,26 +184,38 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
+            
+            //localization
+            lb_rideTime.text = NSLocalizedString(@"rideTime", nil);
 
             break;
         }
 
         case 2: {  //列車の種類
             UILabel *lb_train = (UILabel *)[cell viewWithTag:1];
-
+            UILabel *lb_trainType = (UILabel *)[cell viewWithTag:3];
+            
+            
             if (_condition.train.intValue == 3) {
-                lb_train.text = @"は" @"や" @"ぶさ・はやて・やまびこ・なすの・つばさ";
+                lb_train.text = NSLocalizedString(@"trainType3", nil);
             } else {
                 lb_train.text = _trains[_condition.train.intValue - 1];
             }
+            NSLog(_trains.description);
 
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
+            
+            //localization
+            lb_trainType.text = NSLocalizedString(@"trainType", nil);
 
             break;
         }
 
         case 3: {  //乗車駅・降車駅
+            UILabel *lb_departure = (UILabel *)[cell viewWithTag:6];
+            UILabel *lb_destination = (UILabel *)[cell viewWithTag:7];
+
             MITextField *tf_dep_stn = (MITextField *)[cell viewWithTag:1];
             tf_dep_stn.text = _condition.dep_stn;
             tf_dep_stn.delegate = self;
@@ -229,6 +249,10 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             } else {
                 focus_view.alpha = 0;
             }
+            
+            // localization
+            lb_departure.text = NSLocalizedString(@"departureStation", nil);
+            lb_destination.text = NSLocalizedString(@"destinationStation", nil);
 
             break;
         }
