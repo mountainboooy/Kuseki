@@ -5,7 +5,54 @@
 	<key>station_id_1</key>
 	<dict>
 		<key>en</key>
-		<array/>
+        <array>
+            <string>Tokyo</string>
+            <string>Shinagawa</string>
+            <string>Shin-Yokohama</string>
+            <string>Odawara</string>
+            <string>Atami</string>
+            <string>Mishima</string>
+            <string>Shin-Fuji</string>
+            <string>Shizuoka</string>
+            <string>Kakegawa</string>
+            <string>Hamamatsu</string>
+            <string>Yoyohashi</string>
+            <string>Mikawa-Anjo</string>
+            <string>Nagoya</string>
+            <string>Gihu-Hashima</string>
+            <string>Maibara</string>
+            <string>Kyoto</string>
+            <string>Shin-Osaka</string>
+            <string>Shin-Kobe</string>
+            <string>Nishi-Akashi</string>
+            <string>Himeji</string>
+            <string>Aioi</string>
+            <string>Okayama</string>
+            <string>Shin-Kurashiki</string>
+            <string>Fukuyama</string>
+            <string>Shin-Onomichi</string>
+            <string>Mihara</string>
+            <string>Higashi-Hiroshima</string>
+            <string>Hiroshima</string>
+            <string>Shin-Iwakuni</string>
+            <string>Tokuyama</string>
+            <string>Shin-Yamaguchi</string>
+            <string>Asa</string>
+            <string>Shin-Shimonoseki</string>
+            <string>Kokura</string>
+            <string>Hakata</string>
+            <string>Shin-Tosu</string>
+            <string>Kurume</string>
+            <string>Chikugo-Funagoya</string>
+            <string>Shin-Omuta</string>
+            <string>Shin-Tamana</string>
+            <string>Kumamoto</string>
+            <string>Shin-Yatsushiro</string>
+            <string>Shin-Minamata</string>
+            <string>Izumi</string>
+            <string>Sendai</string>
+            <string>Kagoshima-Chuo</string>
+		</array>
 		<key>ja</key>
         <array>
             <string>東京</string>
@@ -60,7 +107,43 @@
     <key>station_id_2</key>
     <dict>
         <key>en</key>
-        <array/>
+        <array>
+            <string>Tokyo</string>
+            <string>Shinagawa</string>
+            <string>Shin-Yokohama</string>
+            <string>Odawara</string>
+            <string>Atami</string>
+            <string>Mishima</string>
+            <string>Shin-Fuji</string>
+            <string>Shizuoka</string>
+            <string>Kakegawa</string>
+            <string>Hamamatsu</string>
+            <string>Toyohashi</string>
+            <string>Mikawa-Anjo</string>
+            <string>Nagoya</string>
+            <string>Gifu-Hashima</string>
+            <string>Maibara</string>
+            <string>Kyoto</string>
+            <string>Shin-Osaka</string>
+            <string>Shin-Kobe</string>
+            <string>Nishi-Akashi</string>
+            <string>Himeji</string>
+            <string>Aioi</string>
+            <string>Okayama</string>
+            <string>Shin-Kurashiki</string>
+            <string>Fukuyama</string>
+            <string>Shin-Onomichi</string>
+            <string>Mishima</string>
+            <string>Higashi-Hiroshima</string>
+            <string>Hiroshima</string>
+            <string>Shin-Iwakuni</string>
+            <string>Tokuyama</string>
+            <string>Shin-Yamaguchi</string>
+            <string>Asa</string>
+            <string>Shin-Shimonoseki</string>
+            <string>Kokura</string>
+            <string>Hakata</string>
+        </array>
         <key>ja</key>
         <array>
             <string>東京</string>
@@ -104,7 +187,46 @@
     <key>station_id_3</key>
     <dict>
         <key>en</key>
-        <array/>
+        <array>
+            <string>Tokyo</string>
+            <string>Ueno</string>
+            <string>Omiya</string>
+            <string>Oyama</string>
+            <string>Utsunomiya</string>
+            <string>Nasushiobara</string>
+            <string>Shin-Shirakawa</string>
+            <string>Koriyama</string>
+            <string>Fukushima</string>
+            <string>Shiraishi-Zao</string>
+            <string>Sendai</string>
+            <string>Furukawa</string>
+            <string>Kurikoma-Kogen</string>
+            <string>Ichinoseki</string>
+            <string>Mizusawaesashi</string>
+            <string>Kitagami</string>
+            <string>Shin-Hanamaki</string>
+            <string>Morioka</string>
+            <string>Iwate-Numakunai</string>
+            <string>Ninohe</string>
+            <string>Hachinohe</string>
+            <string>Shichinohe-Towada</string>
+            <string>Shin-Aomori</string>
+            <string>Yonezawa</string>
+            <string>Takahata</string>
+            <string>Akayu</string>
+            <string>Kaminoyama-Onsen</string>
+            <string>Yamagata</string>
+            <string>Tendo</string>
+            <string>Sakuranbohigashine</string>
+            <string>Murayama</string>
+            <string>Oishida</string>
+            <string>Shinjo</string>
+            <string>Shizukuishi</string>
+            <string>Tazawa</string>
+            <string>Kakunodate</string>
+            <string>Omagari</string>
+            <string>Akita</string>
+        </array>
         <key>ja</key>
         <array>
             <string>東京</string>
@@ -151,7 +273,26 @@
     <key>station_id_4</key>
     <dict>
         <key>en</key>
-        <array/>
+        <array>
+            <string>Tokyo</string>
+            <string>Ueno</string>
+            <string>Omiya</string>
+            <string>Kumagaya</string>
+            <string>Honjowaseda</string>
+            <string>Takasaki</string>
+            <string>Jomo-Kogen</string>
+            <string>Echigo-Yuzawa</string>
+            <string>Gala-Yuzawa</string>
+            <string>Urasa</string>
+            <string>Nagaoka</string>
+            <string>Tsubamesanjo</string>
+            <string>Nigata</string>
+            <string>Annakaharuna</string>
+            <string>Karuizawa</string>
+            <string>Sakudaira</string>
+            <string>Ueda</string>
+            <string>Nagano</string>
+        </array>
         <key>ja</key>
         <array>
             <string>東京</string>
