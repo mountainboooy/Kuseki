@@ -74,6 +74,14 @@
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 		E066172B1C342ECF0033E9B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E066172D1C342ECF0033E9B4 /* Localizable.strings */; };
+		E0E2BE401C43ED110033128D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059140061887E560009D87F9 /* InputViewController.m */; };
+		E0E2BE411C43ED500033128D /* KUDifference.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FD1F618A9E88600A7EE45 /* KUDifference.m */; };
+		E0E2BE421C43ED5D0033128D /* KUDifferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FD1F118A9E05F00A7EE45 /* KUDifferencesManager.m */; };
+		E0E2BE431C43ED900033128D /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
+		E0E2BE441C43EDA60033128D /* KUResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401C18893D88009D87F9 /* KUResponseManager.m */; };
+		E0E2BE451C43EDC70033128D /* KUSearchConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545DE63189A64CA008B55F5 /* KUSearchConditionManager.m */; };
+		E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B39DB818A67A0D0042F250 /* KUStationsManager.m */; };
+		E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589B111188403F900DBE642 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -605,6 +613,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */,
+				E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */,
+				E0E2BE451C43EDC70033128D /* KUSearchConditionManager.m in Sources */,
+				E0E2BE441C43EDA60033128D /* KUResponseManager.m in Sources */,
+				E0E2BE431C43ED900033128D /* KUNotificationTargetsManager.m in Sources */,
+				E0E2BE421C43ED5D0033128D /* KUDifferencesManager.m in Sources */,
+				E0E2BE411C43ED500033128D /* KUDifference.m in Sources */,
+				E0E2BE401C43ED110033128D /* InputViewController.m in Sources */,
 				054C262F18A6031300BC1F79 /* HTMLParser.m in Sources */,
 				054C262E18A602F800BC1F79 /* HTMLNode.m in Sources */,
 				056FD1F418A9E08900A7EE45 /* KUDifferencesManagerTests.m in Sources */,
@@ -680,6 +696,7 @@
 /* Begin XCBuildConfiguration section */
 		0589B12E188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -719,6 +736,7 @@
 		};
 		0589B12F188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -760,7 +778,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: TAKERU YOSHIHARA (3ZG8G95HMX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"/usr/include/libxml2\"";
+				HEADER_SEARCH_PATHS = (
+					"\"/usr/include/libxml2\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -784,7 +805,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: TAKERU YOSHIHARA (3ZG8G95HMX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"/usr/include/libxml2\"";
+				HEADER_SEARCH_PATHS = (
+					"\"/usr/include/libxml2\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -800,6 +824,7 @@
 		};
 		0589B134188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
@@ -817,13 +842,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
-					"\"${PODS_ROOT}/Headers\"",
 					"\"/usr/include/libxml2\"",
-					"\"${PODS_ROOT}/Headers/FMDB\"",
-					"${PODS_HEADERS_SEARCH_PATHS}",
 				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -832,6 +854,7 @@
 		};
 		0589B135188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
@@ -845,13 +868,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
-					"\"${PODS_ROOT}/Headers\"",
 					"\"/usr/include/libxml2\"",
-					"\"${PODS_ROOT}/Headers/FMDB\"",
-					"${PODS_HEADERS_SEARCH_PATHS}",
 				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
