@@ -37,7 +37,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     // other
     NSArray *_trains;
-    NSArray *_stations;
+    NSDictionary *_stations;
     NSInteger _selected_index;
 }
 
@@ -352,16 +352,17 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    NSArray *stationsJapanese = _stations[@"ja"];
     switch (pickerView.tag) {
         case 1:  // train
             return 4;
             break;
 
         case 2:  // dep_stn
-            return _stations.count;
+            return stationsJapanese.count;
 
         case 3:  // arr_stn
-            return _stations.count;
+            return stationsJapanese.count;
 
         default:
             break;
@@ -401,7 +402,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             }
         }
     } else {  // stations
-        title = _stations[row];
+        title = _stations[@"ja"][row];
     }
 
     NSAttributedString *attString;
@@ -419,9 +420,9 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
         [self updateStations];
     } else if (pickerView.tag == 2) {  // dep_stn
-        _condition.dep_stn = _stations[row];
+        _condition.dep_stn = _stations[@"ja"][row];
     } else {  // arr_stn
-        _condition.arr_stn = _stations[row];
+        _condition.arr_stn = _stations[@"ja"][row];
     }
 
     //テーブル更新

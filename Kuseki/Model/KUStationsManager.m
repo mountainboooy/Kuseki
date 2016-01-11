@@ -11,7 +11,7 @@
 @implementation KUStationsManager
 
 
-+ (NSArray*)stationsWithTrainId:(NSString*)trainId
++ (NSDictionary*)stationsWithTrainId:(NSString*)trainId
 {
     if (!trainId) {
         return nil;
