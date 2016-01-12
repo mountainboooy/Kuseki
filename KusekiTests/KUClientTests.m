@@ -38,14 +38,19 @@
 {
     NSDictionary *dic_param = @{@"firstname":@"takeru",
                                 @"lastname":@"yoshihara",
-                                @"age":@"33",
-                                @"city":@"osaka"};
+                                @"age":@"33"};
     
     KUClient *client = [KUClient new];
     NSString *str_param = [client stringParamFromDictionary:dic_param];
-    NSString *str_correct = @"age=33&firstname=takeru&lastname=yoshihara&city=osaka&";
-    XCTAssertEqualObjects(str_param, str_correct, @"パラメータの作成に失敗");
     
+    NSRange range_firstname = [str_param rangeOfString:@"firstname=takeru&"];
+    XCTAssertNotEqual(range_firstname.location, NSNotFound);
+    
+    NSRange range_lastname = [str_param rangeOfString:@"lastname=yoshihara&"];
+    XCTAssertNotEqual(range_lastname.location, NSNotFound);
+        
+    NSRange range_age = [str_param rangeOfString:@"age=33&"];
+    XCTAssertNotEqual(range_age.location, NSNotFound);
 }
 
 
