@@ -57,14 +57,23 @@
 - (void)testPost
 {
     _isFinished = NO;
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:10.0];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:date];
     
-    NSDictionary *dic_param = @{@"month":@"02",
-                                @"day":@"15",
-                                @"hour":@"15",
-                                @"minute":@"30",
+    [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|
+     NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
+                fromDate:date];
+    
+    NSDictionary *dic_param = @{
+                                @"month":[NSString stringWithFormat:@"%ld", (long)comps.month],
+                                @"day":[NSString stringWithFormat:@"%ld",(long)comps.day],
+                                @"hour":[NSString stringWithFormat:@"%ld", (long)comps.hour],
+                                @"minute":[NSString stringWithFormat:@"%ld", (long)comps.minute],
                                 @"train":@"1",
                                 @"dep_stn":@"東京",
-                                @"arr_stn":@"新大阪"};
+                                @"arr_stn":@"新大阪"
+                                };
     
     NSURL *base_url = [NSURL URLWithString:@"http://www1.jr.cyberstation.ne.jp/"];
     NSString *path = @"csws/Vacancy.do";
@@ -77,10 +86,10 @@
     
     } failure:^(NSHTTPURLResponse *res, NSError *error) {
         XCTAssertEqual(res.statusCode, 200u, @"HTMLの取得に失敗");
+        NSLog(@"error:%@",error.localizedDescription);
         _isFinished = YES;
         
     }];
-    
 }
 
 
