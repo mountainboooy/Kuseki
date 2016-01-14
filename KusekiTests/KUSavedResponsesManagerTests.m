@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "KUSearchCondition.h"
 #import "KUSavedResponsesManager.h"
+#import "KUFactory.h"
 
 @interface KUSavedResponsesManagerTests : XCTestCase
 <KUSavedResponsesManagerDelegate>
@@ -41,17 +42,9 @@
 - (void)testGetResponsesWithParamOfWestLine
 {
     _isFinished = NO;
-    
-    NSDictionary *dic1 = @{@"identifier":@"1",
-                           @"month":@"5",
-                           @"day":@"20",
-                           @"hour":@"15",
-                           @"minute":@"30",
-                           @"train":@"1",
-                           @"dep_stn":@"東京",
-                           @"arr_stn":@"新大阪"
-                           };
-    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic1];
+    KUFactory *sharedFactory = [KUFactory sharedFactory];
+    NSDictionary *sampleParam = [sharedFactory sampleParam];
+    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:sampleParam];
     
     KUSavedResponsesManager *manager =[KUSavedResponsesManager sharedManager];
     [manager getResponsesWithParam:condition completion:^{
