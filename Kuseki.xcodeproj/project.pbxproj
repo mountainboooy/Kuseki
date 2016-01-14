@@ -82,6 +82,8 @@
 		E0E2BE451C43EDC70033128D /* KUSearchConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545DE63189A64CA008B55F5 /* KUSearchConditionManager.m */; };
 		E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B39DB818A67A0D0042F250 /* KUStationsManager.m */; };
 		E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589B111188403F900DBE642 /* AppDelegate.m */; };
+		E0E874251C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
+		E0E874261C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +185,7 @@
 		E066171E1C342DEE0033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E066172C1C342ECF0033E9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E066172E1C342ED30033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0E874241C47EA5400504B33 /* Factory */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Factory; sourceTree = "<group>"; };
 		F373E19D040F121801F0602B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +269,7 @@
 		0589B107188403F900DBE642 /* Kuseki */ = {
 			isa = PBXGroup;
 			children = (
+				E0E874241C47EA5400504B33 /* Factory */,
 				05D7E245189DFE0300E9B04E /* Images */,
 				05A7787D188A30D300B1026C /* Network */,
 				0591401118893291009D87F9 /* Model */,
@@ -514,6 +518,7 @@
 				0589B10C188403F900DBE642 /* InfoPlist.strings in Resources */,
 				0589B115188403F900DBE642 /* Main.storyboard in Resources */,
 				05B39DBD18A67FFA0042F250 /* StationsList.plist in Resources */,
+				E0E874251C47EA5400504B33 /* Factory in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0E874261C47EA5400504B33 /* Factory in Resources */,
 				0589B12B188403FA00DBE642 /* InfoPlist.strings in Resources */,
 				05B39DBE18A680020042F250 /* StationsList.plist in Resources */,
 			);
@@ -781,6 +787,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"/usr/include/libxml2\"",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -808,6 +815,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"/usr/include/libxml2\"",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -843,6 +851,7 @@
 					"$(inherited)",
 					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"/usr/include/libxml2\"",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -869,6 +878,7 @@
 					"$(inherited)",
 					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"/usr/include/libxml2\"",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";

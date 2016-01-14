@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>   
 #import "KUClient.h"
+#import "KUFactory.h"
 
 @interface KUClientTests : XCTestCase
 {
@@ -57,30 +58,15 @@
 - (void)testPost
 {
     _isFinished = NO;
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:10.0];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [calendar components:NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:date];
-    
-    [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|
-     NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
-                fromDate:date];
-    
-    NSDictionary *dic_param = @{
-                                @"month":[NSString stringWithFormat:@"%ld", (long)comps.month],
-                                @"day":[NSString stringWithFormat:@"%ld",(long)comps.day],
-                                @"hour":[NSString stringWithFormat:@"%ld", (long)comps.hour],
-                                @"minute":[NSString stringWithFormat:@"%ld", (long)comps.minute],
-                                @"train":@"1",
-                                @"dep_stn":@"東京",
-                                @"arr_stn":@"新大阪"
-                                };
+    KUFactory *sharedFactory = [KUFactory sharedFactory];
+    NSDictionary *sampleParam = [sharedFactory sampleParam];
     
     NSURL *base_url = [NSURL URLWithString:@"http://www1.jr.cyberstation.ne.jp/"];
     NSString *path = @"csws/Vacancy.do";
     
     KUClient *client = [[KUClient alloc]initWithBaseUrl:base_url];
     
-    [client postPath:path param:dic_param completion:^(NSString *dataString) {
+    [client postPath:path param:sampleParam completion:^(NSString *dataString) {
         _isFinished = YES;
         
     
