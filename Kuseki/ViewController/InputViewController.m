@@ -198,7 +198,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
             
             //localization
-            lb_trainType.text = NSLocalizedString(@"trainType", nil);
+            lb_trainType.text = NSLocalizedString(@"Type of train", nil);
 
             break;
         }
@@ -250,6 +250,8 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
         case 4: {
             UIButton *bt_search = (UIButton *)[cell viewWithTag:1];
+            UIImage *buttonImage = [UIImage imageNamed:NSLocalizedString(@"searchButton", nil)];
+            [bt_search setImage:buttonImage forState:UIControlStateNormal];
             [bt_search addTarget:self action:@selector(btSearchPressed) forControlEvents:UIControlEventTouchUpInside];
             break;
         }

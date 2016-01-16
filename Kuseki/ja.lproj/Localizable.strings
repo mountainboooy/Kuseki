@@ -26,6 +26,7 @@
  "ordinaryCar" = "普通車";
  "greenCar" = "グリーン車";
  "granClass" = "グランクラス";
+ "searchButton" = "bt_search";
 
 "trainType1" = "のぞみ・ひかり・さくら・みずほ・つばめ";
 "trainType2" = "こだま";

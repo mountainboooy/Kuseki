@@ -26,6 +26,7 @@
  "ordinaryCar" = "Ordinary car";
  "greenCar" = "Green car";
  "granClass" = "Gran class";
+ "searchButton" = "bt_search_en";
 
  "trainType1" = "Nozomi, Hikari, Sakura, Mizuho, Tsubame";
  "trainType2" = "Kodama";
