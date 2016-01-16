@@ -74,6 +74,7 @@
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
+		E04C22831C4A12A500B4B98C /* KUTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04C22821C4A12A500B4B98C /* KUTabBarController.m */; };
 		E066172B1C342ECF0033E9B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E066172D1C342ECF0033E9B4 /* Localizable.strings */; };
 		E0E2BE401C43ED110033128D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059140061887E560009D87F9 /* InputViewController.m */; };
 		E0E2BE411C43ED500033128D /* KUDifference.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FD1F618A9E88600A7EE45 /* KUDifference.m */; };
@@ -183,6 +184,8 @@
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
+		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
+		E04C22821C4A12A500B4B98C /* KUTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUTabBarController.m; sourceTree = "<group>"; };
 		E066171D1C342DEE0033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E066171E1C342DEE0033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E066172C1C342ECF0033E9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -343,6 +346,8 @@
 				05D7E243189D035400E9B04E /* SavedResultViewController.m */,
 				05317B77190A7D28007A4882 /* InformationViewController.h */,
 				05317B78190A7D28007A4882 /* InformationViewController.m */,
+				E04C22811C4A12A500B4B98C /* KUTabBarController.h */,
+				E04C22821C4A12A500B4B98C /* KUTabBarController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -605,6 +610,7 @@
 				056FD1F718A9E88600A7EE45 /* KUDifference.m in Sources */,
 				05A77880188A30D300B1026C /* KUClient.m in Sources */,
 				05914014188932B7009D87F9 /* KUSearchParamManager.m in Sources */,
+				E04C22831C4A12A500B4B98C /* KUTabBarController.m in Sources */,
 				05D7E241189CE93D00E9B04E /* ConditionsViewController.m in Sources */,
 				05317B79190A7D28007A4882 /* InformationViewController.m in Sources */,
 				0591401A18893B67009D87F9 /* KUResponse.m in Sources */,
