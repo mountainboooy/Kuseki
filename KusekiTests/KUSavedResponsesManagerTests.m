@@ -43,7 +43,7 @@
 {
     _isFinished = NO;
     KUFactory *sharedFactory = [KUFactory sharedFactory];
-    NSDictionary *sampleParam = [sharedFactory sampleParam];
+    NSDictionary *sampleParam = [sharedFactory sampleParamForWestLine];
     KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:sampleParam];
     
     KUSavedResponsesManager *manager =[KUSavedResponsesManager sharedManager];
@@ -63,23 +63,15 @@
 {
     _isFinished = NO;
     
-    //東
-    NSDictionary *dic = @{@"year":@"2014",
-                          @"month":@"05",
-                          @"day":@"20",
-                          @"hour":@"15",
-                          @"minute":@"30",
-                          @"train":@"3",
-                          @"dep_stn":@"東京",
-                          @"arr_stn":@"上野"
-                          };
+    KUFactory *factory = [KUFactory sharedFactory];
+    NSDictionary *param = [factory sampleParamForEastLine];
     
-    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic];
+    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:param];
     
     KUSavedResponsesManager *manager = [KUSavedResponsesManager sharedManager];
     
     [manager getResponsesWithParam:condition completion:^{
-        NSLog(@"空席情報の数：%d",manager.responses.count);
+        NSLog(@"空席情報の数：%lu",(unsigned long)manager.responses.count);
         XCTAssertTrue(manager.responses.count > 0, @"空席情報の取得に失敗");
         _isFinished = YES;
         
@@ -98,41 +90,20 @@
 - (void)testGetResponsesWithConditions
 {
     _isFinished = NO;
-    NSDictionary *dic1 = @{@"identifier":@"1",
-                           @"month":@"5",
-                           @"day":@"20",
-                           @"hour":@"15",
-                           @"minute":@"30",
-                           @"train":@"1",
-                           @"dep_stn":@"東京",
-                           @"arr_stn":@"新大阪"
-                           };
+
+    KUFactory *factory = [KUFactory sharedFactory];
     
-    NSDictionary *dic2 = @{@"identifier":@"2",
-                           @"month":@"5",
-                           @"day":@"21",
-                           @"hour":@"15",
-                           @"minute":@"30",
-                           @"train":@"1",
-                           @"dep_stn":@"京都",
-                           @"arr_stn":@"新横浜"
-                           };
+    NSDictionary *param1 = [factory sampleParamWithIdentifier:@"1" train:@"1" dep:@"東京" arr:@"新大阪"];
     
-    NSDictionary *dic3 = @{@"identifier":@"3",
-                           @"month":@"5",
-                           @"day":@"22",
-                           @"hour":@"16",
-                           @"minute":@"30",
-                           @"train":@"1",
-                           @"dep_stn":@"名古屋",
-                           @"arr_stn":@"東京"
-                           };
+    NSDictionary *param2 = [factory sampleParamWithIdentifier:@"2" train:@"1" dep:@"京都" arr:@"新横浜"];
     
-    KUSearchCondition *condition1 = [[KUSearchCondition alloc]initWithDictionary:dic1];
+    NSDictionary *param3 = [factory sampleParamWithIdentifier:@"3" train:@"1" dep:@"名古屋" arr:@"東京"];
     
-    KUSearchCondition *condition2 = [[KUSearchCondition alloc]initWithDictionary:dic2];
+    KUSearchCondition *condition1 = [[KUSearchCondition alloc]initWithDictionary:param1];
     
-    KUSearchCondition *condition3 = [[KUSearchCondition alloc]initWithDictionary:dic3];
+    KUSearchCondition *condition2 = [[KUSearchCondition alloc]initWithDictionary:param2];
+    
+    KUSearchCondition *condition3 = [[KUSearchCondition alloc]initWithDictionary:param3];
     
     NSArray *conditions = @[condition1, condition2, condition3];
     
@@ -141,15 +112,13 @@
     manager.delegate  = self;
     
     [manager getResponsesWithConditions:conditions];
-    
-    
 }
 
 
 - (void)savedResponseManager:(id)manager DidFinishLoadingResponses:(NSArray *)responses
 {
     XCTAssertTrue(responses.count > 0, @"複数の検索条件からの空席情報取得に失敗");
-    NSLog(@"responses.count:%d",responses.count);
+    NSLog(@"responses.count:%lu",(unsigned long)responses.count);
     _isFinished = YES;
 }
 

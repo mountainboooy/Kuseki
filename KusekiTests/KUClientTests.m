@@ -59,7 +59,7 @@
 {
     _isFinished = NO;
     KUFactory *sharedFactory = [KUFactory sharedFactory];
-    NSDictionary *sampleParam = [sharedFactory sampleParam];
+    NSDictionary *sampleParam = [sharedFactory sampleParamForWestLine];
     
     NSURL *base_url = [NSURL URLWithString:@"http://www1.jr.cyberstation.ne.jp/"];
     NSString *path = @"csws/Vacancy.do";

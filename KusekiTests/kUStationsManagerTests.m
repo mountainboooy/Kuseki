@@ -31,22 +31,26 @@
 - (void)testStationsWithTrainId
 {
     //のぞみ・さくら・みずほ・つばめ
-    NSArray *stations = [KUStationsManager stationsWithTrainId:@"1"];
-    XCTAssertEqualObjects(stations[stations.count-1], @"鹿児島中央", @"駅名の取得に失敗");
+    NSDictionary *stations = [KUStationsManager stationsWithTrainId:@"1"];
+    XCTAssertEqualObjects(stations[@"ja"][[stations[@"ja"] count] - 1], @"鹿児島中央", @"駅名の取得に失敗");
+    XCTAssertEqualObjects(stations[@"en"][[stations[@"en"] count] - 1], @"Kagoshima-Chuo", @"駅名の取得に失敗");
     
     //こだま
     stations = [KUStationsManager stationsWithTrainId:@"2"];
-    XCTAssertEqualObjects(stations[stations.count-1], @"博多", @"駅名の取得に失敗");
+    XCTAssertEqualObjects(stations[@"ja"][[stations[@"ja"] count] - 1], @"博多", @"駅名の取得に失敗");
+    XCTAssertEqualObjects(stations[@"en"][[stations[@"en"] count] - 1], @"Hakata", @"駅名の取得に失敗");
     
     //はやぶさ・はやて・やまびこ・なすの・つばさ・こまち
     stations = [KUStationsManager stationsWithTrainId:@"3"];
-    XCTAssertEqualObjects(stations[stations.count-1], @"秋田", @"駅名の取得に失敗");
+    XCTAssertEqualObjects(stations[@"ja"][[stations[@"ja"]count] - 1], @"秋田", @"駅名の取得に失敗");
+    XCTAssertEqualObjects(stations[@"en"][[stations[@"en"] count] - 1], @"Akita", @"駅名の取得に失敗");
     
     //とき・たにがわ・あさま
     stations = [KUStationsManager stationsWithTrainId:@"4"];
-    XCTAssertEqualObjects(stations[stations.count-1], @"長野", @"駅名の取得に失敗");
+    XCTAssertEqualObjects(stations[@"ja"][[stations[@"ja"] count] - 1], @"長野", @"駅名の取得に失敗");
+    XCTAssertEqualObjects(stations[@"en"][[stations[@"en"] count] - 1], @"Nagano", @"駅名の取得に失敗");
     
-    //在来線
+    //TODO在来線
     
 }
 

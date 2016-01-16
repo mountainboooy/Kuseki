@@ -11,7 +11,10 @@
 
 @interface KUFactory : NSObject
 
-+ (KUFactory*)sharedFactory;
-- (NSDictionary*)sampleParam;
++ (KUFactory *)sharedFactory;
+- (NSDateComponents *)sampleDateComponents;
+- (NSDictionary *)sampleParamForWestLine;
+- (NSDictionary *)sampleParamForEastLine;
+- (NSDictionary*)sampleParamWithIdentifier:(NSString *)identifier train:(NSString *)train dep:(NSString *)dep arr:(NSString *)arr;
 
 @end

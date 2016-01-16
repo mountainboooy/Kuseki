@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "KUResponseManager.h"
 #import "KUClient.h"
+#import "KUFactory.h"
 
 @interface KUResponseManagerTests : XCTestCase
 {
@@ -40,22 +41,15 @@
     _isFinished = NO;
     
     //西側
-    NSDictionary *dic = @{@"year":@"2014",
-                          @"month":@"05",
-                          @"day":@"20",
-                          @"hour":@"15",
-                          @"minute":@"30",
-                          @"train":@"1",
-                          @"dep_stn":@"東京",
-                          @"arr_stn":@"新大阪"
-                          };
+    KUFactory *factory = [KUFactory sharedFactory];
+    NSDictionary *param = [factory sampleParamForWestLine];
     
-    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic];
+    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:param];
     
     KUResponseManager *manager = [KUResponseManager sharedManager];
     
     [manager getResponsesWithParam:condition completion:^{
-        NSLog(@"空席情報の数：%d",manager.responses.count);
+        NSLog(@"空席情報の数：%lu",(unsigned long)manager.responses.count);
         XCTAssertTrue(manager.responses.count > 0, @"空席情報の取得に失敗");
         _isFinished = YES;
         
@@ -77,17 +71,11 @@
     _isFinished = NO;
     
     //東
-    NSDictionary *dic = @{@"year":@"2014",
-                          @"month":@"05",
-                          @"day":@"20",
-                          @"hour":@"15",
-                          @"minute":@"30",
-                          @"train":@"3",
-                          @"dep_stn":@"東京",
-                          @"arr_stn":@"上野"
-                          };
+    KUFactory *factory = [KUFactory sharedFactory];
     
-    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic];
+    NSDictionary *param = [factory sampleParamForEastLine];
+    
+    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:param];
     
     KUResponseManager *manager = [KUResponseManager sharedManager];
     
