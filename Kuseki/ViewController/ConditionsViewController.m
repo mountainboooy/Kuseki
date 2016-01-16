@@ -52,7 +52,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSString *num = [NSString stringWithFormat:@"%d",_conditionManager.conditions.count];
+    NSString *num = [NSString stringWithFormat:@"%ld",_conditionManager.conditions.count];
     NSDictionary *param = @{@"number_of_conditions":num};
     
     [Flurry logEvent:@"ConditionsViewDidAppear" withParameters:param];
@@ -110,14 +110,6 @@
     //arr_stn
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:4];
     lb_arr_stn.text= condition.arr_stn;
-    
-    //削除ボタン
-    KUButton *bt_delete = (KUButton*)[cell viewWithTag:5];
-    bt_delete.indexPath = indexPath;
-    [bt_delete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
 }
 
 

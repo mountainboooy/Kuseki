@@ -100,14 +100,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [self setTitle];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-    MITextField *tf = (MITextField *)[cell viewWithTag:1];
-    //[tf becomeFirstResponder];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -130,7 +122,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    NSString *identifier = [NSString stringWithFormat:@"cell%d", indexPath.row];
+    NSString *identifier = [NSString stringWithFormat:@"cell%ld", (long)indexPath.row];
     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 
     [self updateCell:cell atIndexPath:indexPath];
@@ -201,7 +193,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             } else {
                 lb_train.text = _trains[_condition.train.intValue - 1];
             }
-            NSLog(_trains.description);
 
             //選択色
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;

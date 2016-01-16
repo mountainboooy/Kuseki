@@ -80,7 +80,7 @@
     KUResponseManager *manager = [KUResponseManager sharedManager];
     
     [manager getResponsesWithParam:condition completion:^{
-        NSLog(@"空席情報の数：%d",manager.responses.count);
+        NSLog(@"空席情報の数：%ld",manager.responses.count);
         XCTAssertTrue(manager.responses.count > 0, @"空席情報の取得に失敗");
         _isFinished = YES;
         

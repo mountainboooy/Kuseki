@@ -15,5 +15,4 @@
 - (void)getConditionsFromDB;
 - (void)deleteOldConditions;
 - (void)deleteAllConditions;
-- (void)deleteAllConditions;
 @end

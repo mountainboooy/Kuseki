@@ -129,7 +129,6 @@ static KUResponseManager *_sharedManager = nil;
     for (HTMLNode *tableNode in tableNodes) {//テーブルの中の<tr>の要素を抽出
         if ([[tableNode getAttributeNamed:@"border"]isEqualToString:@"3"]) {
             trNodes = [tableNode findChildTags:@"tr"];
-            NSLog(@"trNodes.count:%d",trNodes.count);
         }
     }
     
@@ -138,14 +137,10 @@ static KUResponseManager *_sharedManager = nil;
     for (HTMLNode *trNode in trNodes) {
      
         if ([trNodes indexOfObject:trNode] > 1 ) {
-            
             NSArray *tdNodes = [trNode findChildTags:@"td"];
-            NSLog(@"tdNodes.count:%d", tdNodes.count);
-            
             NSDictionary *response;
             
             if (tdNodes.count == 7) {//西側の新幹線
-                
                 //モデルクラス作成
                 response = @{@"name":[tdNodes[0] contents],
                                            @"dep_time":[tdNodes[1] contents],
@@ -159,15 +154,13 @@ static KUResponseManager *_sharedManager = nil;
                              };
                 KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
                 [array addObject:new_response];
-                
             
             }else if (tdNodes.count == 6){//東側の新幹線
                 //中身をチェック
                 for (HTMLNode *node in tdNodes){
                     NSLog(@"content:%@",[node contents]);
-                          
-                    
                 }
+                
                 response = @{@"name":[tdNodes[0] contents],
                              @"dep_time":[tdNodes[1] contents],
                              @"arr_time":[tdNodes[2] contents],
@@ -180,16 +173,11 @@ static KUResponseManager *_sharedManager = nil;
                 
                 KUResponse *new_response = [[KUResponse alloc]initWithDictionary:response];
                 [array addObject:new_response];
-                
             }
-            
-
-            
         }
     }
 
     return array;
-    
 }
 
 

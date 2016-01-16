@@ -46,7 +46,7 @@
         failure:^(NSHTTPURLResponse *res, NSError *err) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
             if (res || err) {  //通信問題、サーバーエラーなど
-                NSString *title = [NSString stringWithFormat:@"statusCode:%d", res.statusCode];
+                NSString *title = [NSString stringWithFormat:@"statusCode:%ld", res.statusCode];
                 NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
                 [AppDelegate showAlertWithTitle:title message:message completion:nil];
 

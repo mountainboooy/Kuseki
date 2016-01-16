@@ -63,9 +63,6 @@
 {
     KUDBClient *client = [KUDBClient sharedClient];
     [client deleteCondition:self];
-    
-    //この検索条件に関わる通知対象も削除
-    [KUNotificationTarget removeWithCondition:self];
 }
 
 
