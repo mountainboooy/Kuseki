@@ -6,7 +6,7 @@
  Copyright © 2015 Takeru Yoshihara. All rights reserved.
  */
  "testLocalization" = "Base";
- "vacancySearch" = "Vacancy search";
+ "vacancySearch" = "Vacancy Search";
  "rideDate" = "Date";
  "rideTime" = "Time";
  "typeOfTrain" = "Type of train";
