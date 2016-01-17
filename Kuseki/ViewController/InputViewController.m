@@ -208,14 +208,14 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             UILabel *lb_destination = (UILabel *)[cell viewWithTag:7];
 
             MITextField *tf_dep_stn = (MITextField *)[cell viewWithTag:1];
-            tf_dep_stn.text = _condition.dep_stn;
             tf_dep_stn.delegate = self;
             tf_dep_stn.indexPath = indexPath;
+            tf_dep_stn.text = [KUStationsManager localizedStation:_condition.dep_stn];
 
             MITextField *tf_arr_stn = (MITextField *)[cell viewWithTag:2];
-            tf_arr_stn.text = _condition.arr_stn;
             tf_arr_stn.delegate = self;
             tf_arr_stn.indexPath = indexPath;
+            tf_arr_stn.text = [KUStationsManager localizedStation:_condition.arr_stn];
 
             //駅の反転ボタン
             UIButton *bt_reverse = (UIButton *)[cell viewWithTag:5];

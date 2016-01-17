@@ -24,10 +24,13 @@
     return dicStations[key];
 }
 
-+ (NSString *)englishNameOfStation:(NSString *)station {
++ (NSString *)localizedStation:(NSString *)station {
     
     if (!station) {
         return nil;
+    }
+    if ([self preferredJapanese]) {
+        return station;
     }
     
     NSString *englishName;
@@ -47,6 +50,12 @@
     }
     
     return englishName;
+}
+
++ (BOOL)preferredJapanese {
+    NSString *preferredlanguage = [NSLocale preferredLanguages][0];
+    NSRange range = [preferredlanguage rangeOfString:@"ja"];
+    return (range.location != NSNotFound);
 }
 
 @end

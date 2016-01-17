@@ -54,22 +54,22 @@
     
 }
 
-- (void)testEnglishNameOfStation {
+- (void)testLocalizedStation {
     
     //のぞみ・さくら・みずほ・つばめ
-    NSString *englishName = [KUStationsManager englishNameOfStation:@"鹿児島中央"];
+    NSString *englishName = [KUStationsManager localizedStation:@"鹿児島中央"];
     XCTAssertEqualObjects(englishName, @"Kagoshima-Chuo", @"駅名の英訳に失敗");
     
     //こだま
-    englishName = [KUStationsManager englishNameOfStation:@"博多"];
+    englishName = [KUStationsManager localizedStation:@"博多"];
     XCTAssertEqualObjects(englishName, @"Hakata", @"駅名の英訳に失敗");
     
     //はやぶさ・はやて・やまびこ・なすの・つばさ・こまち
-    englishName = [KUStationsManager englishNameOfStation:@"秋田"];
+    englishName = [KUStationsManager localizedStation:@"秋田"];
     XCTAssertEqualObjects(englishName, @"Akita", @"駅名の英訳に失敗");
     
     //とき・たにがわ・あさま
-    englishName = [KUStationsManager englishNameOfStation:@"長野"];
+    englishName = [KUStationsManager localizedStation:@"長野"];
     XCTAssertEqualObjects(englishName, @"Nagano", @"駅名の英訳に失敗");
 }
 
