@@ -316,7 +316,8 @@
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
-    label.text = @"検索結果";     self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(@"searchResults", nil);
+    self.navigationItem.titleView = label;
 }
 
 - (void)trackSaveEventWithFlurry
