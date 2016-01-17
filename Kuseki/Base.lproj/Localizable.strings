@@ -28,6 +28,7 @@
  "granClass" = "Gran class";
  "searchButton" = "bt_search_en";
  "history" = "History";
+ "language" = "en";
 
  "trainType1" = "Nozomi, Hikari, Sakura, Mizuho, Tsubame";
  "trainType2" = "Kodama";

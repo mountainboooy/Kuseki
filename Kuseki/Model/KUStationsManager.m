@@ -18,10 +18,35 @@
     }
     
     NSString *path = [[NSBundle mainBundle]pathForResource:@"StationsList" ofType:@"plist"];
-    NSDictionary *dic_stations = [[NSDictionary alloc]initWithContentsOfFile:path];
+    NSDictionary *dicStations = [[NSDictionary alloc]initWithContentsOfFile:path];
     NSString *key = [NSString stringWithFormat:@"station_id_%@",trainId];
     
-    return dic_stations[key];
+    return dicStations[key];
+}
+
++ (NSString *)englishNameOfStation:(NSString *)station {
+    
+    if (!station) {
+        return nil;
+    }
+    
+    NSString *englishName;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"StationsList" ofType:@"plist"];
+    NSDictionary *dicStations = [[NSDictionary alloc]initWithContentsOfFile:path];
+    
+    NSArray *stationIds = dicStations.allKeys;
+    for(NSString *stationId in stationIds) {
+        NSDictionary *stations = dicStations[stationId];
+        for(NSString *japaneseName in stations[@"ja"]) {
+            if ([japaneseName isEqualToString:station]) {
+                NSInteger index = [stations[@"ja"] indexOfObject:station];
+                englishName = stations[@"en"][index];
+            }
+        }
+    }
+    
+    return englishName;
 }
 
 @end

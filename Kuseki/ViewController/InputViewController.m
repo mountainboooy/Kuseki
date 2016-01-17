@@ -247,6 +247,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
             break;
         }
+            
 
         case 4: {
             UIButton *bt_search = (UIButton *)[cell viewWithTag:1];

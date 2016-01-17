@@ -12,4 +12,6 @@
 
 + (NSDictionary*)stationsWithTrainId:(NSString*)trianId;
 
++ (NSString *)englishNameOfStation:(NSString *)station;
+
 @end
