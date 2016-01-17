@@ -15,6 +15,7 @@
 #import "KUSearchConditionManager.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
+#import "KUStationsManager.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -141,8 +142,8 @@
     
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
-    lb_dep_stn.text = _condition.dep_stn;
-    lb_arr_stn.text = _condition.arr_stn;
+    lb_dep_stn.text = [KUStationsManager localizedStation:_condition.dep_stn];
+    lb_arr_stn.text = [KUStationsManager localizedStation:_condition.arr_stn];
     
     return cell;
 }
