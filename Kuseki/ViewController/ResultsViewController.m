@@ -145,6 +145,13 @@
     lb_dep_stn.text = [KUStationsManager localizedStation:_condition.dep_stn];
     lb_arr_stn.text = [KUStationsManager localizedStation:_condition.arr_stn];
     
+    UILabel *labelOrdinaryCar = (UILabel *)[cell viewWithTag:6];
+    UILabel *labelGreenCar = (UILabel *)[cell viewWithTag:7];
+    UILabel *labelGlanClass = (UILabel *)[cell viewWithTag:8];
+    labelOrdinaryCar.text = NSLocalizedString(@"ordinaryCar", nil);
+    labelGreenCar.text = NSLocalizedString(@"greenCar", nil);
+    labelGlanClass.text = NSLocalizedString(@"glanClass", nil);
+    
     return cell;
 }
 
