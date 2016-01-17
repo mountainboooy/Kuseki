@@ -22,7 +22,7 @@
 {
     //outlet
     __weak IBOutlet UITableView *_tableView;
-    
+    __weak IBOutlet UIButton *_btSave;
     
     //model
     KUSearchCondition    *_condition;
@@ -44,6 +44,8 @@
     //tableView
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    NSString *imageName = NSLocalizedString(@"saveButton", nil);
+    [_btSave setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     
     //model
     _responseManager = [KUResponseManager sharedManager];

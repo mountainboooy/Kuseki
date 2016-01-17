@@ -22,13 +22,17 @@
  "howToUse" = "How to use";
  "availableTime" = "Search is available only from 6:30AM to 10:30PM in Japan time";
  "maxLength" = "You can get to the search results after one month at the longest.";
- "infoSource" = "This application get the search reuslut from JR CYBER STATION.";
+ "infoSource" = "This application get the search reuslut from JR CYtER STATION.";
  "ordinaryCar" = "Ordinary car";
  "greenCar" = "Green car";
  "granClass" = "Gran class";
- "searchButton" = "bt_search_en";
  "history" = "History";
  "language" = "en";
+
+"searchButton" = "bt_search_en";
+"saveButton" = "bt_save_en";
+
+ 
 
  "trainType1" = "Nozomi, Hikari, Sakura, Mizuho, Tsubame";
  "trainType2" = "Kodama";
