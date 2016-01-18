@@ -73,6 +73,8 @@
 		05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
+		E02970F21C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
+		E02970F31C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
 		E04C22831C4A12A500B4B98C /* KUTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04C22821C4A12A500B4B98C /* KUTabBarController.m */; };
 		E066172B1C342ECF0033E9B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E066172D1C342ECF0033E9B4 /* Localizable.strings */; };
@@ -183,6 +185,7 @@
 		05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTargetsManager.m; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E02970F11C4BD589000C24CA /* TrainType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainType.plist; sourceTree = "<group>"; };
 		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
 		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
 		E04C22821C4A12A500B4B98C /* KUTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUTabBarController.m; sourceTree = "<group>"; };
@@ -299,6 +302,7 @@
 				0589B10F188403F900DBE642 /* Kuseki-Prefix.pch */,
 				05B39DBC18A67FFA0042F250 /* StationsList.plist */,
 				E066172D1C342ECF0033E9B4 /* Localizable.strings */,
+				E02970F11C4BD589000C24CA /* TrainType.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -523,6 +527,7 @@
 				05BB14B01945FE9B00A4480D /* btn_change_station.png in Resources */,
 				0589B11A188403F900DBE642 /* Images.xcassets in Resources */,
 				E066172B1C342ECF0033E9B4 /* Localizable.strings in Resources */,
+				E02970F21C4BD589000C24CA /* TrainType.plist in Resources */,
 				0589B10C188403F900DBE642 /* InfoPlist.strings in Resources */,
 				0589B115188403F900DBE642 /* Main.storyboard in Resources */,
 				05B39DBD18A67FFA0042F250 /* StationsList.plist in Resources */,
@@ -535,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0E874261C47EA5400504B33 /* Factory in Resources */,
+				E02970F31C4BD589000C24CA /* TrainType.plist in Resources */,
 				0589B12B188403FA00DBE642 /* InfoPlist.strings in Resources */,
 				05B39DBE18A680020042F250 /* StationsList.plist in Resources */,
 			);

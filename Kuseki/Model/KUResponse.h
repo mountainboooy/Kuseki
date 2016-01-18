@@ -13,6 +13,7 @@ enum KUSheetValue {SEAT_VACANT, SEAT_BIT, SEAT_FULL, SEAT_INVALID, SEAT_NOT_EXIS
 
 @property (nonatomic,strong) NSString *identifier;
 @property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *localizedName;
 @property (nonatomic,strong) NSString *dep_time;
 @property (nonatomic,strong) NSString *arr_time;
 @property (nonatomic,strong) NSString *month;
