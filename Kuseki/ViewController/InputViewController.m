@@ -132,14 +132,13 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    //選択色用のビュー
-    UIView *focus_view = (UIView *)[cell viewWithTag:9];
 
     switch (indexPath.row) {
         case 0: {  //乗車日
             MITextField *tf_month = (MITextField *)[cell viewWithTag:1];
             MITextField *tf_day = (MITextField *)[cell viewWithTag:2];
             UILabel *lb_rideDate = (UILabel *)[cell viewWithTag:3];
+            UIView *focus_view = (UIView *)[cell viewWithTag:9];
 
             tf_month.accessory_mode = ACCESSORY_NEXT_CLOSE;
             tf_month.delegate = self;
@@ -163,6 +162,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             MITextField *tf_hour = (MITextField *)[cell viewWithTag:1];
             MITextField *tf_minute = (MITextField *)[cell viewWithTag:2];
             UILabel *lb_rideTime = (UILabel *)[cell viewWithTag:3];
+            UIView *focus_view = (UIView *)[cell viewWithTag:9];
 
             tf_hour.accessory_mode = ACCESSORY_ALL;
             tf_hour.delegate = self;
@@ -186,7 +186,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         case 2: {  //列車の種類
             UILabel *lb_train = (UILabel *)[cell viewWithTag:1];
             UILabel *lb_trainType = (UILabel *)[cell viewWithTag:3];
-            
+            UIView *focus_view = (UIView *)[cell viewWithTag:9];
             
             if (_condition.train.intValue == 3) {
                 lb_train.text = NSLocalizedString(@"trainType3", nil);
@@ -204,8 +204,10 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         }
 
         case 3: {  //乗車駅・降車駅
-            UILabel *lb_departure = (UILabel *)[cell viewWithTag:6];
-            UILabel *lb_destination = (UILabel *)[cell viewWithTag:7];
+            UILabel *lb_departure = (UILabel *)[cell viewWithTag:7];
+            UILabel *lb_destination = (UILabel *)[cell viewWithTag:8];
+            UIView *focus_view_dep = (UIView *)[cell viewWithTag:9];
+            UIView *focus_view_arr = (UIView *)[cell viewWithTag:10];
 
             MITextField *tf_dep_stn = (MITextField *)[cell viewWithTag:1];
             tf_dep_stn.delegate = self;
@@ -230,15 +232,16 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             //選択色
             //乗車駅・降車駅のそれぞれで位置をずらして表示
             if (_selected_index == 3) {  //乗車駅
-                focus_view.alpha = 0.2;
-                focus_view.frame = CGRectMake(0, 0, cell.bounds.size.width, cell.bounds.size.height / 2);
+                focus_view_dep.alpha = 0.2;
+                focus_view_arr.alpha = 0;
 
             } else if (_selected_index == 4) {  //降車駅
-                focus_view.alpha = 0.2;
-                focus_view.frame = CGRectMake(0, cell.bounds.size.height / 2, cell.bounds.size.width, cell.bounds.size.height / 2);
+                focus_view_dep.alpha = 0;
+                focus_view_arr.alpha = 0.2;
 
             } else {
-                focus_view.alpha = 0;
+                focus_view_dep.alpha = 0;
+                focus_view_arr.alpha = 0;
             }
             
             // localization

@@ -10,6 +10,12 @@
 	</dict>
     <dict>
         <key>ja</key>
+        <string>ひかり</string>
+        <key>en</key>
+        <string>HIKARI</string>
+    </dict>
+    <dict>
+        <key>ja</key>
         <string>さくら</string>
         <key>en</key>
         <string>SAKURA</string>
