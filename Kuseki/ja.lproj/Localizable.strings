@@ -28,6 +28,8 @@
  "granClass" = "グランクラス";
  "history" = "履歴";
  "language" = "ja";
+ "savedHistory" = "Saved history";
+
  "searchButton" = "bt_search";
  "saveButton" = "bt_save";
 

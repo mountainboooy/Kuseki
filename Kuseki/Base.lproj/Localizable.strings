@@ -28,6 +28,8 @@
  "granClass" = "Gran class";
  "history" = "History";
  "language" = "en";
+ "savedHistory" = "Saved history";
+
 
 "searchButton" = "bt_search_en";
 "saveButton" = "bt_save_en";
