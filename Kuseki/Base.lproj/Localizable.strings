@@ -19,7 +19,7 @@
  "occupied" = "Occupied";
  "notApplicable" = "Not applicable";
  "noSmokingVehicle" = "No smoking vehicle";
- "howToUse" = "How to use";
+ "useage" = "Useage";
  "availableTime" = "Search is available only from 6:30AM to 10:30PM in Japan time";
  "maxLength" = "You can get to the search results after one month at the longest.";
  "infoSource" = "This application get the search reuslut from JR CYtER STATION.";
