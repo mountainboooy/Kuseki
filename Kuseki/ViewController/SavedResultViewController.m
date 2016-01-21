@@ -199,7 +199,7 @@
 
     // name
     UILabel *lb_name = (UILabel *)[cell viewWithTag:1];
-    lb_name.text = response.name;
+    lb_name.text = response.localizedName;
 
     //通知マーク
     UIImageView *ic_notification = (UIImageView *)[cell viewWithTag:8];
