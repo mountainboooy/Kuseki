@@ -29,6 +29,10 @@
  "history" = "History";
  "language" = "en";
  "savedHistory" = "Saved history";
+ "notification" = "Receive notification when the state changed.";
+ "meaningOfIcons" = "Meaning of the icons";
+ "notificationFeature" = "Notification feature";
+ "descriptionForNotification" = "Turn on the notification feature for the train you focused. When the vacancy situation was changed, this app notify will notify you.";
 
 
 "searchButton" = "bt_search_en";

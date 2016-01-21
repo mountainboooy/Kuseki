@@ -54,7 +54,31 @@
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"cell0"];
     
+    [self updateCell:cell atIndexPath:indexPath];
+    
     return cell;
+}
+
+- (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    UILabel *lb_icons = (UILabel *)[cell viewWithTag:1];
+    lb_icons.text = NSLocalizedString(@"meaningOfIcons", nil);
+    
+    UILabel *lb_vacant = (UILabel *)[cell viewWithTag:2];
+    lb_vacant.text = NSLocalizedString(@"vacant", nil);
+    
+    UILabel *lb_slightly = (UILabel *)[cell viewWithTag:3];
+    lb_slightly.text = NSLocalizedString(@"remainingSlightly", nil);
+    
+    UILabel *lb_occupied = (UILabel *)[cell viewWithTag:4];
+    lb_occupied.text = NSLocalizedString(@"occupied", nil);
+    
+    UILabel *lb_not_applicable = (UILabel *)[cell viewWithTag:5];
+    lb_not_applicable.text = NSLocalizedString(@"notApplicable", nil);
+    
+    UILabel *lb_nosmoking = (UILabel *)[cell viewWithTag:6];
+    lb_nosmoking.text = NSLocalizedString(@"noSmokingVehicle", nil);
+    
 }
 
 

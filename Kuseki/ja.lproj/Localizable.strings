@@ -29,9 +29,13 @@
  "history" = "履歴";
  "language" = "ja";
  "savedHistory" = "Saved history";
+ "notification" = "空席状況が変わった時に通知を受け取る";
+ "meaningOfIcons" = "アイコンの意味";
+ "notificationFeature" = "通知機能";
 
  "searchButton" = "bt_search";
  "saveButton" = "bt_save";
+ "descriptionForNotification" = "気になる列車の通知設置絵をONにしておけば、空席状況が変化した時にお知らせしてくれます。";
 
 
 "trainType1" = "のぞみ・ひかり・さくら・みずほ・つばめ";
