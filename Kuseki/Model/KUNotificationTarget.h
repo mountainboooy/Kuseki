@@ -30,14 +30,13 @@
 
 + (void)saveWithResponse:(KUResponse*)response condition:(KUSearchCondition*)condition;
 
-+ (void)removeWithCondition:(KUSearchCondition*)condition;
-
 + (void)removeWithResonse:(KUResponse*)response condition:(KUSearchCondition*)condition;
+
++ (void)removeWithCondition:(KUSearchCondition*)condition;
 
 - (void)updateTarget;
 
 - (BOOL)isSameTrainWithResponse:(KUResponse*)response;
-- (NSArray*)differencesWithResponse:(KUResponse*)response;
 - (id)initWithResponse:(KUResponse*)response dep_stn:(NSString*)dep_stn arr_stn:(NSString*)arr_stn;
 - (void)removeWithCondition:(KUSearchCondition*)condition;
 

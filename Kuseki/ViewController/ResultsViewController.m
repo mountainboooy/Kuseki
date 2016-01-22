@@ -15,6 +15,7 @@
 #import "KUSearchConditionManager.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
+#import "KUStationsManager.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -22,7 +23,7 @@
 {
     //outlet
     __weak IBOutlet UITableView *_tableView;
-    
+    __weak IBOutlet UIButton *_btSave;
     
     //model
     KUSearchCondition    *_condition;
@@ -44,6 +45,8 @@
     //tableView
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    NSString *imageName = NSLocalizedString(@"saveButton", nil);
+    [_btSave setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     
     //model
     _responseManager = [KUResponseManager sharedManager];
@@ -58,7 +61,7 @@
     } failure:^(NSHTTPURLResponse *res, NSError *err) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
         if (res || err) {//通信問題、サーバーエラーなど
-            NSString* title = [NSString stringWithFormat:@"statusCode:%d",res.statusCode];
+            NSString* title = [NSString stringWithFormat:@"statusCode:%ld",res.statusCode];
             NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
             [AppDelegate showAlertWithTitle:title message:message completion:nil];
             
@@ -139,8 +142,15 @@
     
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
-    lb_dep_stn.text = _condition.dep_stn;
-    lb_arr_stn.text = _condition.arr_stn;
+    lb_dep_stn.text = [KUStationsManager localizedStation:_condition.dep_stn];
+    lb_arr_stn.text = [KUStationsManager localizedStation:_condition.arr_stn];
+    
+    UILabel *labelOrdinaryCar = (UILabel *)[cell viewWithTag:6];
+    UILabel *labelGreenCar = (UILabel *)[cell viewWithTag:7];
+    UILabel *labelGlanClass = (UILabel *)[cell viewWithTag:8];
+    labelOrdinaryCar.text = NSLocalizedString(@"ordinaryCar", nil);
+    labelGreenCar.text = NSLocalizedString(@"greenCar", nil);
+    labelGlanClass.text = NSLocalizedString(@"glanClass", nil);
     
     return cell;
 }
@@ -198,7 +208,7 @@
     
     //name
     UILabel *lb_name = (UILabel*)[cell viewWithTag:1];
-    lb_name.text = response.name;
+    lb_name.text = response.localizedName;
 }
 
 
@@ -316,7 +326,8 @@
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
-    label.text = @"検索結果";     self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(@"searchResults", nil);
+    self.navigationItem.titleView = label;
 }
 
 - (void)trackSaveEventWithFlurry

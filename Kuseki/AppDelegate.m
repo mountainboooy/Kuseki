@@ -23,6 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"%@", NSLocalizedString(@"testLocalization", nil));
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 
     // Flurry
@@ -50,7 +51,6 @@
 
     [conditionManager deleteOldConditions];  //古い検索条件は捨てる
     [conditionManager getConditionsFromDB];
-    NSLog(@"conditionManager.conditions:%ld", conditionManager.conditions.count);
 
     //保存中の検索条件から新たに空席情報を取得
     KUSavedResponsesManager *savedResponseManager;

@@ -1,0 +1,46 @@
+/*
+ Localizable.strings
+ Kuseki
+ 
+ Created by 吉原建 on 12/31/15.
+ Copyright © 2015 Takeru Yoshihara. All rights reserved.
+ */
+ "testLocalization" = "Base";
+ "vacancySearch" = "Vacancy Search";
+ "rideDate" = "Date";
+ "rideTime" = "Time";
+ "typeOfTrain" = "Type of train";
+ "departureStation" = "Departure station";
+ "destinationStation" = "Destination station";
+ "search" = "Search";
+ "searchResults" = "Search Results";
+ "vacant" = "vacant";
+ "remainingSlightly" = "Remaining Slightly";
+ "occupied" = "Occupied";
+ "notApplicable" = "Not applicable";
+ "noSmokingVehicle" = "No smoking vehicle";
+ "useage" = "Useage";
+ "availableTime" = "Search is available only from 6:30AM to 10:30PM in Japan time";
+ "maxLength" = "You can get to the search results after one month at the longest.";
+ "infoSource" = "This application get the search reuslut from JR CYtER STATION.";
+ "ordinaryCar" = "Ordinary car";
+ "greenCar" = "Green car";
+ "granClass" = "Gran class";
+ "history" = "History";
+ "language" = "en";
+ "savedHistory" = "Saved history";
+ "notification" = "Receive notification when the state changed.";
+ "meaningOfIcons" = "Meaning of the icons";
+ "notificationFeature" = "Notification feature";
+ "descriptionForNotification" = "Turn on the notification feature for the train you focused. When the vacancy situation was changed, this app notify will notify you.";
+
+
+"searchButton" = "bt_search_en";
+"saveButton" = "bt_save_en";
+
+ 
+
+ "trainType1" = "Nozomi, Hikari, Sakura, Mizuho, Tsubame";
+ "trainType2" = "Kodama";
+ "trainType3" = "Hayabusa, Hayate, Yamabiko, Nasuno, Tsubasa, Komachi";
+ "trainType4" = "Toki, Tanigawa, Asama";

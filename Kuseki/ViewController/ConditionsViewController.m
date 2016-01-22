@@ -13,6 +13,7 @@
 #import "KUButton.h"
 #import "KUNotificationTarget.h"
 #import "Flurry.h"
+#import "KUStationsManager.h"
 
 @interface ConditionsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -52,7 +53,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSString *num = [NSString stringWithFormat:@"%d",_conditionManager.conditions.count];
+    NSString *num = [NSString stringWithFormat:@"%ld",_conditionManager.conditions.count];
     NSDictionary *param = @{@"number_of_conditions":num};
     
     [Flurry logEvent:@"ConditionsViewDidAppear" withParameters:param];
@@ -105,25 +106,27 @@
     
     //dep_stn
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:3];
-    lb_dep_stn.text = condition.dep_stn;
+    lb_dep_stn.text = [KUStationsManager localizedStation:condition.dep_stn];
     
     //arr_stn
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:4];
-    lb_arr_stn.text= condition.arr_stn;
-    
-    //削除ボタン
-    KUButton *bt_delete = (KUButton*)[cell viewWithTag:5];
-    bt_delete.indexPath = indexPath;
-    [bt_delete addTarget:self action:@selector(btDeletePressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
+    lb_arr_stn.text= [KUStationsManager localizedStation:condition.arr_stn];
 }
 
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header0"];
+    UILabel *lb_date = (UILabel *)[cell viewWithTag:1];
+    UILabel *lb_time = (UILabel *)[cell viewWithTag:2];
+    UILabel *lb_departure = (UILabel *)[cell viewWithTag:3];
+    UILabel *lb_destination = (UILabel *)[cell viewWithTag:4];
+    lb_date.text = NSLocalizedString(@"rideDate", nil);
+    lb_time.text = NSLocalizedString(@"rideTime", nil);
+    lb_departure.text = NSLocalizedString(@"departureStation", nil);
+    lb_destination.text = NSLocalizedString(@"destinationStation", nil);
+    
+    
     return cell;
 }
 
@@ -213,7 +216,8 @@
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
-    label.text = @"保存した条件";     self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(@"savedHistory", nil);
+    self.navigationItem.titleView = label;
     
 }
 

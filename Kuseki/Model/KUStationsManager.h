@@ -10,6 +10,8 @@
 
 @interface KUStationsManager : NSObject
 
-+ (NSArray*)stationsWithTrainId:(NSString*)trianId;
++ (NSDictionary*)stationsWithTrainId:(NSString*)trianId;
+
++ (NSString *)localizedStation:(NSString *)station;
 
 @end

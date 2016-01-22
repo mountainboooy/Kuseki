@@ -73,6 +73,21 @@
 		05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
+		E02970F21C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
+		E02970F31C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
+		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
+		E04C22831C4A12A500B4B98C /* KUTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04C22821C4A12A500B4B98C /* KUTabBarController.m */; };
+		E066172B1C342ECF0033E9B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E066172D1C342ECF0033E9B4 /* Localizable.strings */; };
+		E0E2BE401C43ED110033128D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059140061887E560009D87F9 /* InputViewController.m */; };
+		E0E2BE411C43ED500033128D /* KUDifference.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FD1F618A9E88600A7EE45 /* KUDifference.m */; };
+		E0E2BE421C43ED5D0033128D /* KUDifferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FD1F118A9E05F00A7EE45 /* KUDifferencesManager.m */; };
+		E0E2BE431C43ED900033128D /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
+		E0E2BE441C43EDA60033128D /* KUResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0591401C18893D88009D87F9 /* KUResponseManager.m */; };
+		E0E2BE451C43EDC70033128D /* KUSearchConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545DE63189A64CA008B55F5 /* KUSearchConditionManager.m */; };
+		E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B39DB818A67A0D0042F250 /* KUStationsManager.m */; };
+		E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589B111188403F900DBE642 /* AppDelegate.m */; };
+		E0E874251C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
+		E0E874261C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,8 +183,18 @@
 		05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTarget.m; sourceTree = "<group>"; };
 		05FC27F918A1044900C2A0F7 /* KUNotificationTargetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNotificationTargetsManager.h; sourceTree = "<group>"; };
 		05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTargetsManager.m; sourceTree = "<group>"; };
-		0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E02970F11C4BD589000C24CA /* TrainType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainType.plist; sourceTree = "<group>"; };
+		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
+		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
+		E04C22821C4A12A500B4B98C /* KUTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUTabBarController.m; sourceTree = "<group>"; };
+		E066171D1C342DEE0033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E066171E1C342DEE0033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E066172C1C342ECF0033E9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E066172E1C342ED30033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0E874241C47EA5400504B33 /* Factory */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Factory; sourceTree = "<group>"; };
+		F373E19D040F121801F0602B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,12 +242,13 @@
 		0589B0F5188403F900DBE642 = {
 			isa = PBXGroup;
 			children = (
+				E04BE20E1C49277400F5EA50 /* KUFactory.m */,
 				057E008F188E8E5D00070F7D /* Library */,
 				0589B107188403F900DBE642 /* Kuseki */,
 				0589B126188403FA00DBE642 /* KusekiTests */,
 				0589B100188403F900DBE642 /* Frameworks */,
 				0589B0FF188403F900DBE642 /* Products */,
-				0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */,
+				EDA7573458D774CDDB9CFFC8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,6 +278,7 @@
 		0589B107188403F900DBE642 /* Kuseki */ = {
 			isa = PBXGroup;
 			children = (
+				E0E874241C47EA5400504B33 /* Factory */,
 				05D7E245189DFE0300E9B04E /* Images */,
 				05A7787D188A30D300B1026C /* Network */,
 				0591401118893291009D87F9 /* Model */,
@@ -274,6 +301,8 @@
 				0589B10D188403F900DBE642 /* main.m */,
 				0589B10F188403F900DBE642 /* Kuseki-Prefix.pch */,
 				05B39DBC18A67FFA0042F250 /* StationsList.plist */,
+				E066172D1C342ECF0033E9B4 /* Localizable.strings */,
+				E02970F11C4BD589000C24CA /* TrainType.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -321,6 +350,8 @@
 				05D7E243189D035400E9B04E /* SavedResultViewController.m */,
 				05317B77190A7D28007A4882 /* InformationViewController.h */,
 				05317B78190A7D28007A4882 /* InformationViewController.m */,
+				E04C22811C4A12A500B4B98C /* KUTabBarController.h */,
+				E04C22821C4A12A500B4B98C /* KUTabBarController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -396,6 +427,15 @@
 			path = Flurry;
 			sourceTree = "<group>";
 		};
+		EDA7573458D774CDDB9CFFC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F373E19D040F121801F0602B /* Pods.debug.xcconfig */,
+				C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,6 +448,7 @@
 				0589B0FB188403F900DBE642 /* Frameworks */,
 				0589B0FC188403F900DBE642 /* Resources */,
 				7B16045DC7CF47C88E31A789 /* Copy Pods Resources */,
+				884F0FB3C3461498119F5340 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -442,7 +483,7 @@
 		0589B0F6188403F900DBE642 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Takeru Yoshihara";
 				TargetAttributes = {
 					0589B0FD188403F900DBE642 = {
@@ -464,6 +505,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 0589B0F5188403F900DBE642;
 			productRefGroup = 0589B0FF188403F900DBE642 /* Products */;
@@ -484,9 +526,12 @@
 				053EED8518E047C10060822B /* btn_change_station@2x.png in Resources */,
 				05BB14B01945FE9B00A4480D /* btn_change_station.png in Resources */,
 				0589B11A188403F900DBE642 /* Images.xcassets in Resources */,
+				E066172B1C342ECF0033E9B4 /* Localizable.strings in Resources */,
+				E02970F21C4BD589000C24CA /* TrainType.plist in Resources */,
 				0589B10C188403F900DBE642 /* InfoPlist.strings in Resources */,
 				0589B115188403F900DBE642 /* Main.storyboard in Resources */,
 				05B39DBD18A67FFA0042F250 /* StationsList.plist in Resources */,
+				E0E874251C47EA5400504B33 /* Factory in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +539,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0E874261C47EA5400504B33 /* Factory in Resources */,
+				E02970F31C4BD589000C24CA /* TrainType.plist in Resources */,
 				0589B12B188403FA00DBE642 /* InfoPlist.strings in Resources */,
 				05B39DBE18A680020042F250 /* StationsList.plist in Resources */,
 			);
@@ -514,7 +561,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		884F0FB3C3461498119F5340 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B6DD254BC4514A33858A797A /* Check Pods Manifest.lock */ = {
@@ -554,6 +616,7 @@
 				056FD1F718A9E88600A7EE45 /* KUDifference.m in Sources */,
 				05A77880188A30D300B1026C /* KUClient.m in Sources */,
 				05914014188932B7009D87F9 /* KUSearchParamManager.m in Sources */,
+				E04C22831C4A12A500B4B98C /* KUTabBarController.m in Sources */,
 				05D7E241189CE93D00E9B04E /* ConditionsViewController.m in Sources */,
 				05317B79190A7D28007A4882 /* InformationViewController.m in Sources */,
 				0591401A18893B67009D87F9 /* KUResponse.m in Sources */,
@@ -571,6 +634,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */,
+				E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */,
+				E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */,
+				E0E2BE451C43EDC70033128D /* KUSearchConditionManager.m in Sources */,
+				E0E2BE441C43EDA60033128D /* KUResponseManager.m in Sources */,
+				E0E2BE431C43ED900033128D /* KUNotificationTargetsManager.m in Sources */,
+				E0E2BE421C43ED5D0033128D /* KUDifferencesManager.m in Sources */,
+				E0E2BE411C43ED500033128D /* KUDifference.m in Sources */,
+				E0E2BE401C43ED110033128D /* InputViewController.m in Sources */,
 				054C262F18A6031300BC1F79 /* HTMLParser.m in Sources */,
 				054C262E18A602F800BC1F79 /* HTMLNode.m in Sources */,
 				056FD1F418A9E08900A7EE45 /* KUDifferencesManagerTests.m in Sources */,
@@ -610,6 +682,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0589B10B188403F900DBE642 /* en */,
+				E066171D1C342DEE0033E9B4 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -626,8 +699,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				0589B12A188403FA00DBE642 /* en */,
+				E066171E1C342DEE0033E9B4 /* ja */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E066172D1C342ECF0033E9B4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E066172C1C342ECF0033E9B4 /* Base */,
+				E066172E1C342ED30033E9B4 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -635,9 +718,9 @@
 /* Begin XCBuildConfiguration section */
 		0589B12E188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -652,6 +735,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -666,7 +750,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -674,9 +758,9 @@
 		};
 		0589B12F188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -699,7 +783,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -707,19 +791,17 @@
 		};
 		0589B131188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
+			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: TAKERU YOSHIHARA (3ZG8G95HMX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
 					"\"/usr/include/libxml2\"",
-					"\"${PODS_ROOT}/Headers/FMDB\"",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -727,6 +809,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Flurry",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.mountainboy.Kuseki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3BCF2ED5-08AA-4E81-BA3A-7554CFCC4CCD";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -736,19 +819,17 @@
 		};
 		0589B132188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
+			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: TAKERU YOSHIHARA (3ZG8G95HMX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
 					"\"/usr/include/libxml2\"",
-					"\"${PODS_ROOT}/Headers/FMDB\"",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -756,6 +837,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Flurry",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.mountainboy.Kuseki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "AC4B26BF-3E4C-4E5F-92EB-7EAA574FAFDC";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -765,9 +847,8 @@
 		};
 		0589B134188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
+			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -783,13 +864,12 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
-					"\"${PODS_ROOT}/Headers\"",
 					"\"/usr/include/libxml2\"",
-					"\"${PODS_ROOT}/Headers/FMDB\"",
-					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mountainboy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -798,9 +878,8 @@
 		};
 		0589B135188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C4F5DFED63A491B8BE90D73 /* Pods.xcconfig */;
+			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -812,13 +891,12 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode51-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"\"${PODS_ROOT}/Headers/AFNetworking\"",
-					"\"${PODS_ROOT}/Headers\"",
 					"\"/usr/include/libxml2\"",
-					"\"${PODS_ROOT}/Headers/FMDB\"",
-					"${PODS_HEADERS_SEARCH_PATHS}",
+					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "KusekiTests/KusekiTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mountainboy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

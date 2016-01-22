@@ -15,6 +15,7 @@
 @end
 
 @implementation MITextField
+@dynamic delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -100,7 +101,7 @@
 
 - (UIView*)inputAccessoryView
 {
-    if (!_accessory_mode == ACCESSORY_NONE) {
+    if (_accessory_mode == ACCESSORY_NONE) {
         return nil;
     }
     

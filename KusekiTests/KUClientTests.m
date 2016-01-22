@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>   
 #import "KUClient.h"
+#import "KUFactory.h"
 
 @interface KUClientTests : XCTestCase
 {
@@ -38,44 +39,43 @@
 {
     NSDictionary *dic_param = @{@"firstname":@"takeru",
                                 @"lastname":@"yoshihara",
-                                @"age":@"33",
-                                @"city":@"osaka"};
+                                @"age":@"33"};
     
     KUClient *client = [KUClient new];
     NSString *str_param = [client stringParamFromDictionary:dic_param];
-    NSString *str_correct = @"age=33&firstname=takeru&lastname=yoshihara&city=osaka&";
-    XCTAssertEqualObjects(str_param, str_correct, @"パラメータの作成に失敗");
     
+    NSRange range_firstname = [str_param rangeOfString:@"firstname=takeru&"];
+    XCTAssertNotEqual(range_firstname.location, NSNotFound);
+    
+    NSRange range_lastname = [str_param rangeOfString:@"lastname=yoshihara&"];
+    XCTAssertNotEqual(range_lastname.location, NSNotFound);
+        
+    NSRange range_age = [str_param rangeOfString:@"age=33&"];
+    XCTAssertNotEqual(range_age.location, NSNotFound);
 }
 
 
 - (void)testPost
 {
     _isFinished = NO;
-    
-    NSDictionary *dic_param = @{@"month":@"02",
-                                @"day":@"15",
-                                @"hour":@"15",
-                                @"minute":@"30",
-                                @"train":@"1",
-                                @"dep_stn":@"東京",
-                                @"arr_stn":@"新大阪"};
+    KUFactory *sharedFactory = [KUFactory sharedFactory];
+    NSDictionary *sampleParam = [sharedFactory sampleParamForWestLine];
     
     NSURL *base_url = [NSURL URLWithString:@"http://www1.jr.cyberstation.ne.jp/"];
     NSString *path = @"csws/Vacancy.do";
     
     KUClient *client = [[KUClient alloc]initWithBaseUrl:base_url];
     
-    [client postPath:path param:dic_param completion:^(NSString *dataString) {
+    [client postPath:path param:sampleParam completion:^(NSString *dataString) {
         _isFinished = YES;
         
     
     } failure:^(NSHTTPURLResponse *res, NSError *error) {
         XCTAssertEqual(res.statusCode, 200u, @"HTMLの取得に失敗");
+        NSLog(@"error:%@",error.localizedDescription);
         _isFinished = YES;
         
     }];
-    
 }
 
 

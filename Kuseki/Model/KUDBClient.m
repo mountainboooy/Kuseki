@@ -48,9 +48,7 @@ static KUDBClient *_sharedClient = nil;
 
 //db作成
 - (void)createDBFile{
-    
     FMDatabase *db = [FMDatabase databaseWithPath:_dbPath];
-    
 }
 
 

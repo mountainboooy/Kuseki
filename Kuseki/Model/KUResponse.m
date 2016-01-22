@@ -108,6 +108,30 @@
     return NO;
 }
 
+- (NSString *)localizedName {
+    
+    //if japanese language is preffered, return with no translation
+    NSString *preferredlanguage = [NSLocale preferredLanguages][0];
+    NSRange range = [preferredlanguage rangeOfString:@"ja"];
+    if (range.location != NSNotFound) {
+        return self.name;
+    }
+    
+    NSString *localizedName = [NSString stringWithString:self.name];
+    
+    // translation of train name
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"TrainType" ofType:@"plist"];
+    NSArray *trainTypes = [[NSArray alloc]initWithContentsOfFile:path];
+    for (NSDictionary *trainType in trainTypes) {
+        localizedName = [localizedName stringByReplacingOccurrencesOfString:trainType[@"ja"] withString:trainType[@"en"]];
+    }
+    
+    // translation of unit
+    localizedName = [localizedName stringByReplacingOccurrencesOfString:@"号" withString:@""];
+    
+    return localizedName;
+}
+
 
 
 @end

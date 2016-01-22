@@ -14,6 +14,7 @@
 #import "KUNotificationTarget.h"
 #import "MBProgressHUD.h"
 #import "Flurry.h"
+#import "KUStationsManager.h"
 
 @interface SavedResultViewController () <UITableViewDelegate, UITableViewDataSource> {
 
@@ -46,7 +47,7 @@
         failure:^(NSHTTPURLResponse *res, NSError *err) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
             if (res || err) {  //通信問題、サーバーエラーなど
-                NSString *title = [NSString stringWithFormat:@"statusCode:%d", res.statusCode];
+                NSString *title = [NSString stringWithFormat:@"statusCode:%ld", res.statusCode];
                 NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
                 [AppDelegate showAlertWithTitle:title message:message completion:nil];
 
@@ -105,12 +106,13 @@
     NSString *cellIdentifier;
 
     if ([_condition.train isEqualToString:@"1"] || [_condition.train isEqualToString:@"2"]) {
-        cellIdentifier = @"header0";  //西
+        cellIdentifier = @"header0";  // 西
     } else {
-        cellIdentifier = @"header1";
-    }  //東
+        cellIdentifier = @"header1"; // 東
+    }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     UILabel *lb_month = (UILabel *)[cell viewWithTag:4];
     lb_month.text = _condition.month;
 
@@ -118,9 +120,20 @@
     lb_day.text = _condition.day;
 
     UILabel *lb_dep_stn = (UILabel *)[cell viewWithTag:2];
+    
     UILabel *lb_arr_stn = (UILabel *)[cell viewWithTag:3];
-    lb_dep_stn.text = _condition.dep_stn;
-    lb_arr_stn.text = _condition.arr_stn;
+    lb_dep_stn.text = [KUStationsManager localizedStation:_condition.dep_stn];
+    lb_arr_stn.text = [KUStationsManager localizedStation:_condition.arr_stn];
+    
+    UILabel *lb_ordinary_car = (UILabel *)[cell viewWithTag:6];
+    lb_ordinary_car.text = NSLocalizedString(@"ordinaryCar", nil);
+    
+    UILabel *lb_green_car = (UILabel *)[cell viewWithTag:7];
+    lb_green_car.text = NSLocalizedString(@"greenCar", nil);
+    
+    UILabel *lb_glan_class = (UILabel *)[cell viewWithTag:8];
+    lb_glan_class.text = NSLocalizedString(@"glanClass", nil);
+    
 
     return cell;
 }
@@ -186,7 +199,7 @@
 
     // name
     UILabel *lb_name = (UILabel *)[cell viewWithTag:1];
-    lb_name.text = response.name;
+    lb_name.text = response.localizedName;
 
     //通知マーク
     UIImageView *ic_notification = (UIImageView *)[cell viewWithTag:8];
