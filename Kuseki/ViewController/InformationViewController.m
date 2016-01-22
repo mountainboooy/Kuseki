@@ -95,7 +95,7 @@
     notificationFeature.text = NSLocalizedString(@"notificationFeature", nil);
     
     UILabel *description_notification = (UILabel *)[cell viewWithTag:13];
-    description_notification.text = NSLocalizedString(@"descriptionNotification", nil);
+    description_notification.text = NSLocalizedString(@"descriptionForNotification", nil);
 }
 
 
