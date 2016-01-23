@@ -16,4 +16,10 @@
 
 - (int)integerDay;
 
+- (int)integerHour;
+
+- (int)integerMinute;
+
+- (int)integerSecond;
+
 @end

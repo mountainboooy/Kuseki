@@ -22,6 +22,18 @@
     return (int)[[self components] day];
 }
 
+- (int)integerHour {
+    return (int)[[self components] hour];
+}
+
+- (int)integerMinute {
+    return (int)[[self components] minute];
+}
+
+- (int)integerSecond {
+    return (int)[[self components] second];
+}
+
 - (NSDateComponents *)components {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps = [calendar components:
