@@ -73,6 +73,8 @@
 		05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
+		E00942DD1C52819F00926DF1 /* KUDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */; };
+		E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */; };
 		E02970F21C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E02970F31C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
@@ -185,6 +187,10 @@
 		05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTargetsManager.m; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E00942DB1C52819F00926DF1 /* KUDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDatePickerViewController.h; sourceTree = "<group>"; };
+		E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDatePickerViewController.m; sourceTree = "<group>"; };
+		E00942E21C5310E400926DF1 /* NSDate+IntegerDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IntegerDate.h"; sourceTree = "<group>"; };
+		E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IntegerDate.m"; sourceTree = "<group>"; };
 		E02970F11C4BD589000C24CA /* TrainType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainType.plist; sourceTree = "<group>"; };
 		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
 		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 		0589B107188403F900DBE642 /* Kuseki */ = {
 			isa = PBXGroup;
 			children = (
+				E00942DE1C530D2700926DF1 /* Category */,
 				E0E874241C47EA5400504B33 /* Factory */,
 				05D7E245189DFE0300E9B04E /* Images */,
 				05A7787D188A30D300B1026C /* Network */,
@@ -365,6 +372,8 @@
 				05D7E26B189F971B00E9B04E /* KUButton.m */,
 				05D7E26D189F974A00E9B04E /* KUSwitch.h */,
 				05D7E26E189F974A00E9B04E /* KUSwitch.m */,
+				E00942DB1C52819F00926DF1 /* KUDatePickerViewController.h */,
+				E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */,
 			);
 			path = UIParts;
 			sourceTree = "<group>";
@@ -425,6 +434,15 @@
 				05DFAAA919642A01006D5AF2 /* libFlurry_5.1.0.a */,
 			);
 			path = Flurry;
+			sourceTree = "<group>";
+		};
+		E00942DE1C530D2700926DF1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E00942E21C5310E400926DF1 /* NSDate+IntegerDate.h */,
+				E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		EDA7573458D774CDDB9CFFC8 /* Pods */ = {
@@ -621,6 +639,8 @@
 				05317B79190A7D28007A4882 /* InformationViewController.m in Sources */,
 				0591401A18893B67009D87F9 /* KUResponse.m in Sources */,
 				05914017188939B8009D87F9 /* ResultsViewController.m in Sources */,
+				E00942DD1C52819F00926DF1 /* KUDatePickerViewController.m in Sources */,
+				E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */,
 				05B39DB918A67A0D0042F250 /* KUStationsManager.m in Sources */,
 				0589B10E188403F900DBE642 /* main.m in Sources */,
 				0591400D1887EA63009D87F9 /* MITextField.m in Sources */,
