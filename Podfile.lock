@@ -22,16 +22,22 @@ PODS:
   - FMDB/common (2.2)
   - FMDB/standard (2.2):
     - FMDB/common
+  - KNSemiModalViewController_hons82 (0.4.4)
   - MBProgressHUD (0.8)
+  - THCalendarDatePicker (1.2.5):
+    - KNSemiModalViewController_hons82 (~> 0.4.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FMDB
   - MBProgressHUD (~> 0.8)
+  - THCalendarDatePicker (~> 1.2.5)
 
 SPEC CHECKSUMS:
   AFNetworking: d397c9a76a60c670cbcd33f3ff2c5f961f724cbc
   FMDB: f6a547829057704797331105a19985f977c1fb62
+  KNSemiModalViewController_hons82: 22aead5ef5d8ca749bc1babb43fa7d6f14b030a3
   MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
+  THCalendarDatePicker: 65c63c1814d1a27defc89f4b72ec7a1d01d5503d
 
 COCOAPODS: 0.39.0

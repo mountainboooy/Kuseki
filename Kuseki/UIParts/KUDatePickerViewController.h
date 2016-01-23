@@ -6,8 +6,10 @@
 //  Copyright © 2016 Takeru Yoshihara. All rights reserved.
 //
 
-#import <THCalendarDatePicker/THCalendarDatePicker.h>
+#import "THDatePickerViewController.h"
 
 @interface KUDatePickerViewController : THDatePickerViewController
+
++ (KUDatePickerViewController *)datePickerController;
 
 @end

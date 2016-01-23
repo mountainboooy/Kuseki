@@ -1,5 +1,6 @@
 platform :ios, '7.0'
 pod "AFNetworking", "~> 2.0"
 pod 'FMDB'
-pod 'MBProgressHUD', '~> 0.8' 
+pod 'MBProgressHUD', '~> 0.8'
+pod 'THCalendarDatePicker', '~> 1.2.5'
 # pod # pod 'FMDB/SQLCipher'   # If using FMDB with SQLCipher

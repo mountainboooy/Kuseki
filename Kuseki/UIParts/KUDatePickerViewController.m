@@ -24,6 +24,14 @@
     // Dispose of any resources that can be recreated.
 }
 
++ (KUDatePickerViewController *)datePickerController {
+    THDatePickerViewController *datePicker = [THDatePickerViewController datePicker];
+    datePicker.date = [NSDate date];
+    [datePicker setDisableHistorySelection:YES];
+    [datePicker setAutoCloseOnSelectDate:YES];
+    return (KUDatePickerViewController *)datePicker;
+}
+
 /*
 #pragma mark - Navigation
 

@@ -13,6 +13,8 @@
 #import "KUStationsManager.h"
 #import "InformationViewController.h"
 #import "Flurry.h"
+#import "KUDatePickerViewController.h"
+#import "NSDate+IntegerDate.h"
 
 @interface
 InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MITextFieldDelegate> {
@@ -39,6 +41,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     NSArray *_trains;
     NSDictionary *_stations;
     NSInteger _selected_index;
+    KUDatePickerViewController *_datePicker;
 }
 
 @end
@@ -90,6 +93,12 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     // button_next
     [_btNext_dep addTarget:self action:@selector(btNextDepPressed) forControlEvents:UIControlEventTouchUpInside];
     [_btSearch_arr addTarget:self action:@selector(btSearchArrPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    //datePicker
+    if (!_datePicker) {
+        _datePicker = [KUDatePickerViewController datePickerController];
+        _datePicker.delegate = self;
+    }
 
     _selected_index = 99;
 }
@@ -300,12 +309,14 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     switch (indexPath.row) {
         case 0: {  //乗車日
-            [self hidePickerArr];
-            [self hidePickerTrain];
+            [self presentSemiViewController:_datePicker];
+            
+            //[self hidePickerArr];
+            //[self hidePickerTrain];
 
             // text field
-            UITextField *tf_month = (UITextField *)[cell viewWithTag:1];
-            [tf_month becomeFirstResponder];
+            //UITextField *tf_month = (UITextField *)[cell viewWithTag:1];
+            //[tf_month becomeFirstResponder];
 
             break;
         }
@@ -424,6 +435,30 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     //テーブル更新
     [_tableView reloadData];
+}
+
+#pragma mark - datePicker
+
+- (void)datePickerCancelPressed:(THDatePickerViewController *)datePicker {
+    [self dismissSemiModalView];
+}
+
+- (void)datePickerDonePressed:(THDatePickerViewController *)datePicker {
+    [self dismissSemiModalView];
+}
+
+- (void)datePicker:(THDatePickerViewController *)datePicker selectedDate:(NSDate *)selectedDate {
+    NSLog(@"year:%d", [selectedDate integerYear]);
+    NSLog(@"month:%d", [selectedDate integerMonth]);
+    NSLog(@"day:%d", [selectedDate integerDay]);
+    _condition.year = [NSString stringWithFormat:@"%d", [selectedDate integerYear]];
+    _condition.month = [NSString stringWithFormat:@"%d",[selectedDate integerMonth]];
+    _condition.day = [NSString stringWithFormat:@"%d", [selectedDate integerDay]];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+    [self updateCell:cell atIndexPath:indexPath];
+    
 }
 
 #pragma mark -
