@@ -118,29 +118,6 @@
         [bt_close addTarget:self action:@selector(btClosePressed) forControlEvents:UIControlEventTouchUpInside];
         
         [_inputAccessoryView addSubview:bt_close];
-        
-        
-        /*
-        //button_next
-        UIButton *bt_next = [UIButton buttonWithType:UIButtonTypeCustom];
-        bt_next.frame = CGRectMake(240, 0, 80, 44);
-        [bt_next setImage:[UIImage imageNamed:@"bt_next_picker"] forState:UIControlStateNormal];
-        [bt_next addTarget:self action:@selector(btNextPressed) forControlEvents:UIControlEventTouchUpInside];
-        
-        [_inputAccessoryView addSubview:bt_next];
-        
-        
-        if (_accessory_mode == ACCESSORY_ALL) {
-            
-            //button_back
-            UIButton *bt_back = [UIButton buttonWithType:UIButtonTypeCustom];
-            bt_back.frame = CGRectMake(0, 0, 80, 44);
-            [bt_back setImage:[UIImage imageNamed:@"bt_back_picker"] forState:UIControlStateNormal];
-            [bt_back addTarget:self action:@selector(btBackPressed) forControlEvents:UIControlEventTouchUpInside];
-            
-            [_inputAccessoryView addSubview:bt_back];
-        }
-         */
     }
     return _inputAccessoryView;
 }
