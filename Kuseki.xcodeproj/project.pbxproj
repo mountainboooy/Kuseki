@@ -90,6 +90,7 @@
 		E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0589B111188403F900DBE642 /* AppDelegate.m */; };
 		E0E874251C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
 		E0E874261C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
+		E0E966EF1C54EBF900EE4FC5 /* KUDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -654,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0E966EF1C54EBF900EE4FC5 /* KUDatePickerViewController.m in Sources */,
 				E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */,
 				E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */,
 				E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */,
