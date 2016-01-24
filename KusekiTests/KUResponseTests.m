@@ -28,6 +28,14 @@
 }
 
 - (void)testLocalizedName {
+    
+    NSString *preferredlanguage = [NSLocale preferredLanguages][0];
+    NSRange range = [preferredlanguage rangeOfString:@"ja"];
+    if (range.location != NSNotFound) {
+        XCTFail(@"英訳のテストを実行するために、シミュレータの言語を英語に設定してください");
+        return;
+    }
+    
     KUResponse *response = [[KUResponse alloc]initWithDictionary:@{@"name":@"のぞみ195号"}];
     XCTAssertEqualObjects(response.localizedName, @"NOZOMI195", @"列車名のローカライズに失敗");
 }

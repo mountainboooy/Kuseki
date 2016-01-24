@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-enum AccessoryMode {ACCESSORY_ALL, ACCESSORY_NEXT_CLOSE, ACCESSORY_NONE};
+enum AccessoryMode {ACCESSORY_ALL, ACCESSORY_NONE};
 
 @protocol MITextFieldDelegate;
 @interface MITextField : UITextField

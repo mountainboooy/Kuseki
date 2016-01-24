@@ -13,6 +13,8 @@
 #import "KUStationsManager.h"
 #import "InformationViewController.h"
 #import "Flurry.h"
+#import "KUDatePickerViewController.h"
+#import "NSDate+IntegerDate.h"
 
 @interface
 InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MITextFieldDelegate> {
@@ -24,8 +26,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     __weak IBOutlet UIButton *_btClose_train;
     __weak IBOutlet UIButton *_btClose_dep;
     __weak IBOutlet UIButton *_btClose_arr;
-    __weak IBOutlet UIButton *_btNext_dep;
-    __weak IBOutlet UIButton *_btSearch_arr;
 
     // constraint
     __weak IBOutlet NSLayoutConstraint *_bottomSpace_picker_train;
@@ -39,6 +39,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     NSArray *_trains;
     NSDictionary *_stations;
     NSInteger _selected_index;
+    KUDatePickerViewController *_datePicker;
 }
 
 @end
@@ -86,10 +87,12 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [_btClose_train addTarget:self action:@selector(btCloseTrainPressed) forControlEvents:UIControlEventTouchUpInside];
     [_btClose_dep addTarget:self action:@selector(btCloseDepPressed) forControlEvents:UIControlEventTouchUpInside];
     [_btClose_arr addTarget:self action:@selector(btCloseArrPressed) forControlEvents:UIControlEventTouchUpInside];
-
-    // button_next
-    [_btNext_dep addTarget:self action:@selector(btNextDepPressed) forControlEvents:UIControlEventTouchUpInside];
-    [_btSearch_arr addTarget:self action:@selector(btSearchArrPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    //datePicker
+    if (!_datePicker) {
+        _datePicker = [KUDatePickerViewController datePickerController];
+        _datePicker.delegate = self;
+    }
 
     _selected_index = 99;
 }
@@ -134,23 +137,16 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 {
 
     switch (indexPath.row) {
-        case 0: {  //乗車日
+        case 0: {
+            // ride date
             MITextField *tf_month = (MITextField *)[cell viewWithTag:1];
             MITextField *tf_day = (MITextField *)[cell viewWithTag:2];
+            tf_month.text = _condition.month;
+            tf_day.text = _condition.day;
             UILabel *lb_rideDate = (UILabel *)[cell viewWithTag:3];
             UIView *focus_view = (UIView *)[cell viewWithTag:9];
 
-            tf_month.accessory_mode = ACCESSORY_NEXT_CLOSE;
-            tf_month.delegate = self;
-            tf_month.indexPath = indexPath;
-            tf_month.text = _condition.month;
-
-            tf_day.accessory_mode = ACCESSORY_ALL;
-            tf_day.delegate = self;
-            tf_day.indexPath = indexPath;
-            tf_day.text = _condition.day;
-
-            //選択色
+            // selection color
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
             
             //localization
@@ -158,7 +154,8 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             break;
         }
 
-        case 1: {  //乗車時間
+        case 1: {
+            //ride time
             MITextField *tf_hour = (MITextField *)[cell viewWithTag:1];
             MITextField *tf_minute = (MITextField *)[cell viewWithTag:2];
             UILabel *lb_rideTime = (UILabel *)[cell viewWithTag:3];
@@ -174,7 +171,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             tf_minute.indexPath = indexPath;
             tf_minute.text = _condition.minute;
 
-            //選択色
+            //selection color
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
             
             //localization
@@ -183,7 +180,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             break;
         }
 
-        case 2: {  //列車の種類
+        case 2: {  //train types
             UILabel *lb_train = (UILabel *)[cell viewWithTag:1];
             UILabel *lb_trainType = (UILabel *)[cell viewWithTag:3];
             UIView *focus_view = (UIView *)[cell viewWithTag:9];
@@ -194,7 +191,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
                 lb_train.text = _trains[_condition.train.intValue - 1];
             }
 
-            //選択色
+            //selection color
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
             
             //localization
@@ -203,7 +200,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             break;
         }
 
-        case 3: {  //乗車駅・降車駅
+        case 3: {  //departure, destination
             UILabel *lb_departure = (UILabel *)[cell viewWithTag:7];
             UILabel *lb_destination = (UILabel *)[cell viewWithTag:8];
             UIView *focus_view_dep = (UIView *)[cell viewWithTag:9];
@@ -219,23 +216,23 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             tf_arr_stn.indexPath = indexPath;
             tf_arr_stn.text = [KUStationsManager localizedStation:_condition.arr_stn];
 
-            //駅の反転ボタン
+            // reverse stations
             UIButton *bt_reverse = (UIButton *)[cell viewWithTag:5];
             [bt_reverse addTarget:self action:@selector(btReversePressed) forControlEvents:UIControlEventTouchUpInside];
 
-            //セル選択用のボタン
+            // button for selecting cells
             UIButton *bt_dep = (UIButton *)[cell viewWithTag:3];
             UIButton *bt_arr = (UIButton *)[cell viewWithTag:4];
             [bt_dep addTarget:self action:@selector(btDepPressed) forControlEvents:UIControlEventTouchUpInside];
             [bt_arr addTarget:self action:@selector(btArrPressed) forControlEvents:UIControlEventTouchUpInside];
 
-            //選択色
+            // selection color
             //乗車駅・降車駅のそれぞれで位置をずらして表示
-            if (_selected_index == 3) {  //乗車駅
+            if (_selected_index == 3) {  // departure
                 focus_view_dep.alpha = 0.2;
                 focus_view_arr.alpha = 0;
 
-            } else if (_selected_index == 4) {  //降車駅
+            } else if (_selected_index == 4) {  // destination
                 focus_view_dep.alpha = 0;
                 focus_view_arr.alpha = 0.2;
 
@@ -295,39 +292,30 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 {
     [self.view endEditing:YES];
 
-    // cell取得
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
     switch (indexPath.row) {
-        case 0: {  //乗車日
-            [self hidePickerArr];
-            [self hidePickerTrain];
-
-            // text field
-            UITextField *tf_month = (UITextField *)[cell viewWithTag:1];
-            [tf_month becomeFirstResponder];
-
+        case 0: {  // ride date
+            [self presentSemiViewController:_datePicker];
             break;
         }
 
-        case 1: {  //乗車時間
+        case 1: {  // ride time
             [self hidePickerArr];
             [self hidePickerTrain];
-
-            // text field
             UITextField *tf_hour = (UITextField *)[cell viewWithTag:1];
             [tf_hour becomeFirstResponder];
             break;
         }
 
-        case 2: {  //列車の種類
+        case 2: {  // train types
             [self hidePickerArr];
             [self hidePickerDep];
             [self showPickerTrain];
             break;
         }
 
-        case 3: {  //乗車駅・降車駅
+        case 3: {  // departure, destination
             //タップする場所によって分ける必要があるため、ボタンで処理
             break;
         }
@@ -422,16 +410,42 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         _condition.arr_stn = _stations[@"ja"][row];
     }
 
-    //テーブル更新
     [_tableView reloadData];
+}
+
+#pragma mark - datePicker
+
+- (void)datePickerCancelPressed:(THDatePickerViewController *)datePicker {
+    [self dismissSemiModalView];
+}
+
+- (void)datePickerDonePressed:(THDatePickerViewController *)datePicker {
+    [self dismissSemiModalView];
+}
+
+- (void)datePicker:(THDatePickerViewController *)datePicker selectedDate:(NSDate *)selectedDate {
+    NSLog(@"year:%d", [selectedDate integerYear]);
+    NSLog(@"month:%d", [selectedDate integerMonth]);
+    NSLog(@"day:%d", [selectedDate integerDay]);
+    _condition.year = [NSString stringWithFormat:@"%d", [selectedDate integerYear]];
+    _condition.month = [NSString stringWithFormat:@"%d",[selectedDate integerMonth]];
+    _condition.day = [NSString stringWithFormat:@"%d", [selectedDate integerDay]];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+    [self updateCell:cell atIndexPath:indexPath];
 }
 
 #pragma mark -
 #pragma mark textField
 
+- (void)endEditingTextField {
+    [self.view endEditing:YES];
+}
+
 - (void)textFieldDidBeginEditing:(MITextField *)textField
 {
-    //選択色表示
+    // display selection color
     [self setFocusColorWithSelectedIndex:textField.indexPath.row];
 
     [self hidePickerTrain];
@@ -440,13 +454,12 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     textField.placeholder = textField.text;
     textField.text = @"";
 
-    //テーブルをスクロール
+    // table scroll
     [_tableView scrollToRowAtIndexPath:textField.indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
 {
-
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath:textField.indexPath];
 
     // textFieldが空の場合は元の値に戻す
@@ -455,21 +468,9 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         return;
     }
 
-    NSLog(@"indexPath.row:%d", (int)textField.indexPath.row);
     switch (textField.indexPath.row) {
 
-        case 0: {                      //乗車年月日
-            if (textField.tag == 1) {  // month
-                _condition.month = textField.text;
-
-            } else {  // date
-                _condition.day = textField.text;
-            }
-
-            break;
-        }
-
-        case 1: {                      //時間
+        case 1: {                      // rite time
             if (textField.tag == 1) {  // hour
                 _condition.hour = textField.text;
 
@@ -496,184 +497,54 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
 - (BOOL)textField:(MITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-
+    
     NSMutableString *text = [textField.text mutableCopy];
     [text replaceCharactersInRange:range withString:string];
     NSIndexPath *nextPath;
     UITableViewCell *nextCell;
     MITextField *nextField;
-
-    /*
-    //バリデーション
-    if ([self textIsInvalid:]) {
-        NSString *message = @"入力内容が正しくありません";
-        UIAlertView *al = [[UIAlertView alloc]initWithTitle:nil message:message
-    delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [al show];
-        return NO;
-    }*/
-
+    
     switch (textField.indexPath.row) {
-        case 0: {                      //乗車月日
-            if (textField.tag == 1) {  //月
-
-                if (text.length == 1 && text.intValue > 1) {
-                    // 2以上の場合は02などに変換して日の設定に移動
+        case 1: {                      //時間
+            if (textField.tag == 1) {  //時
+                if (text.length == 1 && text.intValue > 2) {
+                    // 3以上の場合は03などに変換して次に移動
                     textField.text = @"0";
-                    nextPath = [NSIndexPath indexPathForItem:0 inSection:0];
+                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
                     nextField = (MITextField *)[nextCell viewWithTag:2];
                     [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
                     return YES;
                 }
-
-                if (text.length == 2) {  //日に移動
-                    nextPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                
+                if (text.length == 2) {  //分に移動
+                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
                     nextCell = [_tableView cellForRowAtIndexPath:nextPath];
                     nextField = (MITextField *)[nextCell viewWithTag:2];
                     [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
                     return YES;
                 }
-
-            } else {  //日
-
-                if (text.length == 1 && text.intValue > 3) {
-                    // 4以上の場合は04などに変換して次に移動
+                
+            } else {  //分
+                if (text.length == 1 && text.intValue > 5) {
+                    // 6以上の場合は06などに変換して次に移動
                     textField.text = @"0";
-                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
-                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
-                    nextField = (MITextField *)[nextCell viewWithTag:1];
-                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                    [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
                     return YES;
                 }
-
-                if (text.length == 2) {  //時に移動
-                    nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
-                    nextCell = [_tableView cellForRowAtIndexPath:nextPath];
-                    nextField = (MITextField *)[nextCell viewWithTag:1];
-                    [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
+                if (text.length == 2) {  //編集を完了
+                    [self performSelector:@selector(endEditingTextField) withObject:nil afterDelay:.1];
                     return YES;
                 }
-
-                break;
             }
-
-            case 1: {                      //時間
-                if (textField.tag == 1) {  //時
-                    if (text.length == 1 && text.intValue > 2) {
-                        // 3以上の場合は03などに変換して次に移動
-                        textField.text = @"0";
-                        nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
-                        nextCell = [_tableView cellForRowAtIndexPath:nextPath];
-                        nextField = (MITextField *)[nextCell viewWithTag:2];
-                        [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
-                        return YES;
-                    }
-
-                    if (text.length == 2) {  //分に移動
-                        nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
-                        nextCell = [_tableView cellForRowAtIndexPath:nextPath];
-                        nextField = (MITextField *)[nextCell viewWithTag:2];
-                        [self performSelector:@selector(focusNextField:) withObject:nextField afterDelay:0.1];
-                        return YES;
-                    }
-
-                } else {  //分
-                    if (text.length == 1 && text.intValue > 5) {
-                        // 6以上の場合は06などに変換して次に移動
-                        textField.text = @"0";
-                        [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
-                        return YES;
-                    }
-
-                    if (text.length == 2) {  //お乗りになる列車を表示
-                        [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
-                        return YES;
-                    }
-                }
-                break;
-
-                default:
-                    break;
-            }
-                return YES;
+            break;
+        }
+            
+        default:{
+            break;
         }
     }
     return YES;
-}
-
-- (void)textFieldDidPressNextBt:(MITextField *)textField
-{
-    NSIndexPath *nextPath;
-    UITableViewCell *nextCell;
-    MITextField *nextField;
-
-    switch (textField.indexPath.row) {
-        case 0: {                      //月日
-            if (textField.tag == 1) {  //月
-                nextPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                nextCell = [_tableView cellForRowAtIndexPath:nextPath];
-                nextField = (MITextField *)[nextCell viewWithTag:2];
-                [nextField becomeFirstResponder];
-
-            } else {  //日
-                nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
-                nextCell = [_tableView cellForRowAtIndexPath:nextPath];
-                nextField = (MITextField *)[nextCell viewWithTag:1];
-                [nextField becomeFirstResponder];
-            }
-            break;
-        }
-        case 1: {                      //時間
-            if (textField.tag == 1) {  //時
-                nextPath = [NSIndexPath indexPathForRow:1 inSection:0];
-                nextCell = [_tableView cellForRowAtIndexPath:nextPath];
-                nextField = (MITextField *)[nextCell viewWithTag:2];
-                [nextField becomeFirstResponder];
-
-            } else {  //分
-                [self.view endEditing:YES];
-                [self showPickerTrain];
-            }
-
-            break;
-        }
-        default:
-            break;
-    }
-}
-
-- (void)textFieldDidPressBackBt:(MITextField *)textField
-{
-    UITableViewCell *previousCell;
-    MITextField *previousField;
-
-    switch (textField.indexPath.row) {
-        case 0: {  //日
-            previousCell = [_tableView cellForRowAtIndexPath:textField.indexPath];
-            previousField = (MITextField *)[previousCell viewWithTag:1];
-            [previousField becomeFirstResponder];
-            break;
-        }
-        case 1: {
-            if (textField.tag == 1) {  //時
-                NSIndexPath *previousPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                previousCell = [_tableView cellForRowAtIndexPath:previousPath];
-                previousField = (MITextField *)[previousCell viewWithTag:2];
-                [previousField becomeFirstResponder];
-
-            } else {  //分
-                previousCell = [_tableView cellForRowAtIndexPath:textField.indexPath];
-                previousField = (MITextField *)[previousCell viewWithTag:1];
-                [previousField becomeFirstResponder];
-            }
-
-            break;
-        }
-
-        default:
-            break;
-    }
 }
 
 - (void)focusNextField:(MITextField *)nextField
@@ -692,17 +563,13 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (void)initCondition
 {
     //現在の日時を取得
-    NSDate *date = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComps =
-        [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:date];
-
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:600];
     NSDictionary *dic = @{
-        @"year" : [NSString stringWithFormat:@"%ld", (long)dateComps.year],
-        @"month" : [NSString stringWithFormat:@"%02ld", (long)dateComps.month],
-        @"day" : [NSString stringWithFormat:@"%02ld", (long)dateComps.day],
-        @"hour" : [NSString stringWithFormat:@"%02ld", (long)dateComps.hour],
-        @"minute" : [NSString stringWithFormat:@"%02ld", (long)dateComps.minute],
+        @"year" : [NSString stringWithFormat:@"%d", [date integerYear]],
+        @"month" : [NSString stringWithFormat:@"%d", [date integerMonth]],
+        @"day" : [NSString stringWithFormat:@"%d", [date integerDay]],
+        @"hour" : [NSString stringWithFormat:@"%d", [date integerHour]],
+        @"minute" : [NSString stringWithFormat:@"%d", [date integerMinute]],
         @"train" : @"1",
         @"dep_stn" : @"東京",
         @"arr_stn" : @"新大阪"
@@ -868,8 +735,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [Flurry logEvent:@"btnSearchPressed" withParameters:condition];
 }
 
-#pragma mark -
-#pragma mark button action
+#pragma mark - button action
 
 - (void)btReversePressed
 {
@@ -897,22 +763,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         }];
 }
 
-- (IBAction)btNextTarinPressed:(id)sender
-{
-    [self hidePickerTrain];
-    [self showPickerDep];
-}
-
-- (IBAction)btBackTrainPressed:(id)sender
-{
-
-    [self hidePickerTrain];
-    NSIndexPath *previousPath = [NSIndexPath indexPathForRow:1 inSection:0];
-    UITableViewCell *previousCell = [_tableView cellForRowAtIndexPath:previousPath];
-    MITextField *previoustField = (MITextField *)[previousCell viewWithTag:2];
-    [previoustField becomeFirstResponder];
-}
-
 - (void)btCloseTrainPressed
 {
     [self hidePickerTrain];
@@ -933,12 +783,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [self showPickerArr];
 }
 
-- (IBAction)btBackDepPressed:(id)sender
-{
-    [self hidePickerDep];
-    [self showPickerTrain];
-}
-
 - (void)btCloseDepPressed
 {
     [self hidePickerDep];
@@ -951,19 +795,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [self hidePickerTrain];
     [self hidePickerDep];
     [self showPickerArr];
-}
-
-- (void)btSearchArrPressed
-{
-    [self.view endEditing:YES];
-    [self hidePickerArr];
-    [self btSearchPressed];
-}
-
-- (IBAction)btBackArrPressed:(id)sender
-{
-    [self hidePickerArr];
-    [self showPickerDep];
 }
 
 - (void)btCloseArrPressed
@@ -1023,7 +854,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
 - (IBAction)btInfomationPressed:(id)sender
 {
-
     InformationViewController *infoCon = [self.storyboard instantiateViewControllerWithIdentifier:@"InformationViewController"];
     infoCon.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:infoCon animated:YES];

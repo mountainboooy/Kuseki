@@ -56,6 +56,13 @@
 
 - (void)testLocalizedStation {
     
+    NSString *preferredlanguage = [NSLocale preferredLanguages][0];
+    NSRange range = [preferredlanguage rangeOfString:@"ja"];
+    if (range.location != NSNotFound) {
+        XCTFail(@"英訳のテストを実行するために、シミュレータの言語を英語に設定してください");
+        return;
+    }
+    
     //のぞみ・さくら・みずほ・つばめ
     NSString *englishName = [KUStationsManager localizedStation:@"鹿児島中央"];
     XCTAssertEqualObjects(englishName, @"Kagoshima-Chuo", @"駅名の英訳に失敗");
