@@ -75,6 +75,7 @@
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 		E00942DD1C52819F00926DF1 /* KUDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */; };
 		E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */; };
+		E02464EC1C5516770037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
 		E02970F21C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E02970F31C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
@@ -192,6 +193,8 @@
 		E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDatePickerViewController.m; sourceTree = "<group>"; };
 		E00942E21C5310E400926DF1 /* NSDate+IntegerDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IntegerDate.h"; sourceTree = "<group>"; };
 		E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IntegerDate.m"; sourceTree = "<group>"; };
+		E02464EA1C5516770037A44C /* KUReviewMusterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUReviewMusterController.h; sourceTree = "<group>"; };
+		E02464EB1C5516770037A44C /* KUReviewMusterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUReviewMusterController.m; sourceTree = "<group>"; };
 		E02970F11C4BD589000C24CA /* TrainType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainType.plist; sourceTree = "<group>"; };
 		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
 		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
@@ -375,6 +378,8 @@
 				05D7E26E189F974A00E9B04E /* KUSwitch.m */,
 				E00942DB1C52819F00926DF1 /* KUDatePickerViewController.h */,
 				E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */,
+				E02464EA1C5516770037A44C /* KUReviewMusterController.h */,
+				E02464EB1C5516770037A44C /* KUReviewMusterController.m */,
 			);
 			path = UIParts;
 			sourceTree = "<group>";
@@ -628,6 +633,7 @@
 				057E0095188E8E5D00070F7D /* HTMLParser.m in Sources */,
 				0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */,
 				0545DE64189A64CA008B55F5 /* KUSearchConditionManager.m in Sources */,
+				E02464EC1C5516770037A44C /* KUReviewMusterController.m in Sources */,
 				0589B112188403F900DBE642 /* AppDelegate.m in Sources */,
 				05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */,
 				059140071887E560009D87F9 /* InputViewController.m in Sources */,
