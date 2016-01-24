@@ -23,15 +23,25 @@ static NSString *const APP_ID_KEY = @"KU_REVIEW_MUSTER_APP_ID";
 
 + (void)waitForEventWithKey:(NSString *)eventKey withTimes:(int)times {
     
-    NSDictionary *event = @{ @"eventKey":eventKey, @"times":[NSNumber numberWithInteger:times] };
+    NSDictionary *event = @{
+                            @"eventKey":eventKey,
+                            @"times":[NSNumber numberWithInteger:times],
+                            @"currentTimes":[NSNumber numberWithInt:0]
+                            };
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSMutableArray *events = (NSMutableArray *)[ud arrayForKey:EVENTS_KEY];
     if (events) {
         // there are some events already.
+        for (NSDictionary *existingEvent in events) {
+            if ([existingEvent[@"eventKey"] isEqualToString:eventKey]) {
+                return;
+            }
+        }
         [events addObject:event];
         [ud setObject:events forKey:EVENTS_KEY];
         [ud synchronize];
+    
     }else {
         // it is the first time to add events.
         NSArray *defaultEvents = @[event];
