@@ -25,10 +25,14 @@
 }
 
 + (KUDatePickerViewController *)datePickerController {
-    THDatePickerViewController *datePicker = [THDatePickerViewController datePicker];
+    THDatePickerViewController *datePicker = [self datePicker];
     datePicker.date = [NSDate date];
     [datePicker setDisableHistorySelection:YES];
     [datePicker setAutoCloseOnSelectDate:YES];
+    datePicker.slideAnimationDuration = .2;
+    [datePicker setAllowSelectionOfSelectedDate:NO];
+    
+    
     return (KUDatePickerViewController *)datePicker;
 }
 
