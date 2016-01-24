@@ -439,6 +439,10 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 #pragma mark -
 #pragma mark textField
 
+- (void)endEditingTextField {
+    [self.view endEditing:YES];
+}
+
 - (void)textFieldDidBeginEditing:(MITextField *)textField
 {
     // display selection color
@@ -464,7 +468,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         return;
     }
 
-    NSLog(@"indexPath.row:%d", (int)textField.indexPath.row);
     switch (textField.indexPath.row) {
 
         case 1: {                      // rite time
@@ -529,8 +532,8 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
                     [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
                     return YES;
                 }
-                if (text.length == 2) {  //お乗りになる列車を表示
-                    [self performSelector:@selector(showPickerTrain) withObject:nil afterDelay:0.1];
+                if (text.length == 2) {  //編集を完了
+                    [self performSelector:@selector(endEditingTextField) withObject:nil afterDelay:.1];
                     return YES;
                 }
             }
