@@ -76,6 +76,8 @@
 		E00942DD1C52819F00926DF1 /* KUDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */; };
 		E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */; };
 		E02464EC1C5516770037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
+		E02464EE1C559EB70037A44C /* KUReviewMusterControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */; };
+		E02464EF1C55A1410037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
 		E02970F21C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E02970F31C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
@@ -195,6 +197,7 @@
 		E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IntegerDate.m"; sourceTree = "<group>"; };
 		E02464EA1C5516770037A44C /* KUReviewMusterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUReviewMusterController.h; sourceTree = "<group>"; };
 		E02464EB1C5516770037A44C /* KUReviewMusterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUReviewMusterController.m; sourceTree = "<group>"; };
+		E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUReviewMusterControllerTests.m; sourceTree = "<group>"; };
 		E02970F11C4BD589000C24CA /* TrainType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainType.plist; sourceTree = "<group>"; };
 		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
 		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
@@ -335,6 +338,7 @@
 				056F38D718AF078000D4C264 /* InputViewControllerTests.m */,
 				056D5A5118AF543B00BF2703 /* KUResponseTests.m */,
 				059AAEF618F2C40000E10A62 /* KUSearchConditionManagerTests.m */,
+				E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -661,9 +665,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02464EF1C55A1410037A44C /* KUReviewMusterController.m in Sources */,
 				E0E966EF1C54EBF900EE4FC5 /* KUDatePickerViewController.m in Sources */,
 				E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */,
 				E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */,
+				E02464EE1C559EB70037A44C /* KUReviewMusterControllerTests.m in Sources */,
 				E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */,
 				E0E2BE451C43EDC70033128D /* KUSearchConditionManager.m in Sources */,
 				E0E2BE441C43EDA60033128D /* KUResponseManager.m in Sources */,
