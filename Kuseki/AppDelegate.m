@@ -15,6 +15,8 @@
 #import "KUDifferencesManager.h"
 #import "KUDifference.h"
 #import "Flurry.h"
+#import "KUReviewMusterController.h"
+#import "NSUserDefaults+ClearAllData.h"
 
 @interface AppDelegate () <KUSavedResponsesManagerDelegate, UIAlertViewDelegate>
 @end
@@ -29,6 +31,9 @@
     // Flurry
     [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"922D54Y2HGKPS8DBTVZT"];
+    
+    //ReviewMusterController
+    [self setUpReviewMusterController];
 
     return YES;
 }
@@ -161,6 +166,14 @@
 
     //差異情報はクリアする
     [diffManager clearDifferences];
+}
+
+- (void)setUpReviewMusterController {
+#ifdef DEBUG
+    [NSUserDefaults clearAllData];
+#endif
+    [KUReviewMusterController setupWithAppId:@"869851973"];
+    [KUReviewMusterController waitForEventWithKey:@"SEARCH_SUCCESS" withTimes:2];
 }
 
 @end

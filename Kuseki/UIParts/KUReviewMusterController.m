@@ -73,14 +73,32 @@ static NSString *const APP_ID_KEY = @"KU_REVIEW_MUSTER_APP_ID";
             [ud synchronize];
             
             if (currentTimes.intValue == times.intValue) {
-                [self showMusterAlert];
+                [self showMusterAlert:viewController];
             }
         }
     }
 }
 
-+ (void)showMusterAlert {
-    return;
++ (void)showMusterAlert:(UIViewController *)viewController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reivewMusterTitle", nil) message:NSLocalizedString(@"reviewMusterBody", nil)   preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"reviewMusterAccept", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self moveToReviewPage];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"reviewMusterDecline", nil) style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertController addAction:action];
+    [alertController addAction:cancelAction];
+    [viewController presentViewController:alertController animated:YES completion:nil];
+}
+
++ (void)moveToReviewPage {
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *appId = [ud stringForKey:APP_ID_KEY];
+    NSString *urlString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appId];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end

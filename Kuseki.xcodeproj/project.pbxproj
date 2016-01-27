@@ -78,6 +78,7 @@
 		E02464EC1C5516770037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
 		E02464EE1C559EB70037A44C /* KUReviewMusterControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */; };
 		E02464EF1C55A1410037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
+		E02464F21C5841950037A44C /* NSUserDefaults+ClearAllData.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464F11C5841950037A44C /* NSUserDefaults+ClearAllData.m */; };
 		E02970F21C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E02970F31C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
@@ -198,6 +199,8 @@
 		E02464EA1C5516770037A44C /* KUReviewMusterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUReviewMusterController.h; sourceTree = "<group>"; };
 		E02464EB1C5516770037A44C /* KUReviewMusterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUReviewMusterController.m; sourceTree = "<group>"; };
 		E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUReviewMusterControllerTests.m; sourceTree = "<group>"; };
+		E02464F01C5841950037A44C /* NSUserDefaults+ClearAllData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+ClearAllData.h"; sourceTree = "<group>"; };
+		E02464F11C5841950037A44C /* NSUserDefaults+ClearAllData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+ClearAllData.m"; sourceTree = "<group>"; };
 		E02970F11C4BD589000C24CA /* TrainType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainType.plist; sourceTree = "<group>"; };
 		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
 		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
@@ -451,6 +454,8 @@
 			children = (
 				E00942E21C5310E400926DF1 /* NSDate+IntegerDate.h */,
 				E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */,
+				E02464F01C5841950037A44C /* NSUserDefaults+ClearAllData.h */,
+				E02464F11C5841950037A44C /* NSUserDefaults+ClearAllData.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -654,6 +659,7 @@
 				E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */,
 				05B39DB918A67A0D0042F250 /* KUStationsManager.m in Sources */,
 				0589B10E188403F900DBE642 /* main.m in Sources */,
+				E02464F21C5841950037A44C /* NSUserDefaults+ClearAllData.m in Sources */,
 				0591400D1887EA63009D87F9 /* MITextField.m in Sources */,
 				05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */,
 				05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */,

@@ -16,6 +16,7 @@
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 #import "KUStationsManager.h"
+#import "KUReviewMusterController.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -54,9 +55,8 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     [_responseManager getResponsesWithParam:_condition completion:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-        NSLog(@"completion:");
-        NSLog(@"num:%lu",(unsigned long)_responseManager.responses.count);
         [_tableView reloadData];
+        [self showReviewMuster];
         
     } failure:^(NSHTTPURLResponse *res, NSError *err) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
@@ -73,10 +73,8 @@
             [AppDelegate showAlertWithTitle:nil message:message completion:nil];
             return;
         }
-        
     }];
 }
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -316,8 +314,7 @@
 }
 
 
-#pragma mark -
-#pragma mark private methods
+#pragma mark - private methods
 
 - (void)setTitle
 {
@@ -352,6 +349,10 @@
                                 };
     
     [Flurry logEvent:@"btnSavePressed" withParameters:condition];
+}
+
+- (void)showReviewMuster {
+    [KUReviewMusterController fireEventWithKey:@"SEARCH_SUCCESS" viewController:self];
 }
 
 

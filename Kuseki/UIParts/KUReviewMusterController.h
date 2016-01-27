@@ -13,7 +13,7 @@
 + (void)setupWithAppId:(NSString *)appId;
 + (void)waitForEventWithKey:(NSString *)eventKey withTimes:(int)times;
 + (void)fireEventWithKey:(NSString *)eventKey viewController:(UIViewController *)viewController;
-+ (void)showMusterAlert;
++ (void)showMusterAlert:(UIViewController *)viewController;
 
 
 @end
