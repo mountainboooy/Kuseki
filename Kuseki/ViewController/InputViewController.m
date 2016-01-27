@@ -65,12 +65,16 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     _picker_dep.dataSource = self;
     _picker_arr.dataSource = self;
 
-    // notification
+    // notification keyboard
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 
     [nc addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
 
     [nc addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+    
+    // notification reviewMuster
+    [nc addObserver:self selector:@selector(fireReviewTrigger) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
 
     //検索条件の初期化
     [self initCondition];
@@ -102,10 +106,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 {
     [super viewWillAppear:animated];
     [self setTitle];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [KUReviewMusterController fireEventWithKey:@"DID_APPEAR_INPUTVIEW" viewController:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -738,6 +738,10 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     };
 
     [Flurry logEvent:@"btnSearchPressed" withParameters:condition];
+}
+
+- (void)fireReviewTrigger {
+    [KUReviewMusterController fireEventWithKey:@"DID_BECOME_ACTIVE" viewController:self];
 }
 
 #pragma mark - button action

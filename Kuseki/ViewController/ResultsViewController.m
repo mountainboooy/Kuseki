@@ -16,6 +16,7 @@
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 #import "KUStationsManager.h"
+#import "KUReviewMusterController.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -47,6 +48,9 @@
     _tableView.delegate = self;
     NSString *imageName = NSLocalizedString(@"saveButton", nil);
     [_btSave setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    
+    //notification reviewMuster
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireReviewTrigger) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     //model
     _responseManager = [KUResponseManager sharedManager];
@@ -347,6 +351,10 @@
                                 };
     
     [Flurry logEvent:@"btnSavePressed" withParameters:condition];
+}
+
+- (void)fireReviewTrigger {
+    [KUReviewMusterController fireEventWithKey:@"DID_BECOME_ACTIVE" viewController:self];
 }
 
 @end

@@ -105,13 +105,6 @@
     // here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the
-    // application was inactive. If the application was previously in the
-    // background, optionally refresh the user interface.
-}
-
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if
@@ -173,7 +166,7 @@
     [NSUserDefaults clearAllData];
 #endif
     [KUReviewMusterController setupWithAppId:@"869851973"];
-    [KUReviewMusterController waitForEventWithKey:@"DID_APPEAR_INPUTVIEW" withTimes:5];
+    [KUReviewMusterController waitForEventWithKey:@"DID_BECOME_ACTIVE" withTimes:4];
 }
 
 @end
