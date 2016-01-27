@@ -173,7 +173,7 @@
     [NSUserDefaults clearAllData];
 #endif
     [KUReviewMusterController setupWithAppId:@"869851973"];
-    [KUReviewMusterController waitForEventWithKey:@"SEARCH_SUCCESS" withTimes:2];
+    [KUReviewMusterController waitForEventWithKey:@"DID_APPEAR_INPUTVIEW" withTimes:5];
 }
 
 @end

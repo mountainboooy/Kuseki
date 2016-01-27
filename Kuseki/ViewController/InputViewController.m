@@ -15,6 +15,7 @@
 #import "Flurry.h"
 #import "KUDatePickerViewController.h"
 #import "NSDate+IntegerDate.h"
+#import "KUReviewMusterController.h"
 
 @interface
 InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MITextFieldDelegate> {
@@ -101,6 +102,10 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 {
     [super viewWillAppear:animated];
     [self setTitle];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [KUReviewMusterController fireEventWithKey:@"DID_APPEAR_INPUTVIEW" viewController:self];
 }
 
 - (void)didReceiveMemoryWarning

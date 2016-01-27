@@ -16,7 +16,6 @@
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 #import "KUStationsManager.h"
-#import "KUReviewMusterController.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -56,7 +55,6 @@
     [_responseManager getResponsesWithParam:_condition completion:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
         [_tableView reloadData];
-        [self showReviewMuster];
         
     } failure:^(NSHTTPURLResponse *res, NSError *err) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
@@ -350,10 +348,5 @@
     
     [Flurry logEvent:@"btnSavePressed" withParameters:condition];
 }
-
-- (void)showReviewMuster {
-    [KUReviewMusterController fireEventWithKey:@"SEARCH_SUCCESS" viewController:self];
-}
-
 
 @end
