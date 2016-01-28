@@ -1,43 +1,44 @@
 PODS:
-  - AFNetworking (2.1.0):
-    - AFNetworking/NSURLConnection (= 2.1.0)
-    - AFNetworking/NSURLSession (= 2.1.0)
-    - AFNetworking/Reachability (= 2.1.0)
-    - AFNetworking/Security (= 2.1.0)
-    - AFNetworking/Serialization (= 2.1.0)
-    - AFNetworking/UIKit (= 2.1.0)
-  - AFNetworking/NSURLConnection (2.1.0):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.1.0):
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.1.0)
-  - AFNetworking/Security (2.1.0)
-  - AFNetworking/Serialization (2.1.0)
-  - AFNetworking/UIKit (2.1.0):
-    - AFNetworking/NSURLConnection
-  - FMDB (2.2):
-    - FMDB/standard (= 2.2)
-  - FMDB/common (2.2)
-  - FMDB/standard (2.2):
-    - FMDB/common
+    - AFNetworking/NSURLSession
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
   - KNSemiModalViewController_hons82 (0.4.4)
-  - MBProgressHUD (0.8)
+  - MBProgressHUD (0.9.2)
   - THCalendarDatePicker (1.2.5):
     - KNSemiModalViewController_hons82 (~> 0.4.3)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0)
+  - AFNetworking (~> 2.6)
   - FMDB
   - MBProgressHUD (~> 0.8)
   - THCalendarDatePicker (~> 1.2.5)
 
 SPEC CHECKSUMS:
-  AFNetworking: d397c9a76a60c670cbcd33f3ff2c5f961f724cbc
-  FMDB: f6a547829057704797331105a19985f977c1fb62
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
   KNSemiModalViewController_hons82: 22aead5ef5d8ca749bc1babb43fa7d6f14b030a3
-  MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   THCalendarDatePicker: 65c63c1814d1a27defc89f4b72ec7a1d01d5503d
 
 COCOAPODS: 0.39.0
