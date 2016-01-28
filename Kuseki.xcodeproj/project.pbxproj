@@ -75,6 +75,10 @@
 		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
 		E00942DD1C52819F00926DF1 /* KUDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */; };
 		E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */; };
+		E02464EC1C5516770037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
+		E02464EE1C559EB70037A44C /* KUReviewMusterControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */; };
+		E02464EF1C55A1410037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
+		E02464F21C5841950037A44C /* NSUserDefaults+ClearAllData.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464F11C5841950037A44C /* NSUserDefaults+ClearAllData.m */; };
 		E02970F21C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E02970F31C4BD589000C24CA /* TrainType.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02970F11C4BD589000C24CA /* TrainType.plist */; };
 		E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E04BE20E1C49277400F5EA50 /* KUFactory.m */; };
@@ -192,6 +196,11 @@
 		E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDatePickerViewController.m; sourceTree = "<group>"; };
 		E00942E21C5310E400926DF1 /* NSDate+IntegerDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IntegerDate.h"; sourceTree = "<group>"; };
 		E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+IntegerDate.m"; sourceTree = "<group>"; };
+		E02464EA1C5516770037A44C /* KUReviewMusterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUReviewMusterController.h; sourceTree = "<group>"; };
+		E02464EB1C5516770037A44C /* KUReviewMusterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUReviewMusterController.m; sourceTree = "<group>"; };
+		E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUReviewMusterControllerTests.m; sourceTree = "<group>"; };
+		E02464F01C5841950037A44C /* NSUserDefaults+ClearAllData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+ClearAllData.h"; sourceTree = "<group>"; };
+		E02464F11C5841950037A44C /* NSUserDefaults+ClearAllData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+ClearAllData.m"; sourceTree = "<group>"; };
 		E02970F11C4BD589000C24CA /* TrainType.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainType.plist; sourceTree = "<group>"; };
 		E04BE20E1C49277400F5EA50 /* KUFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KUFactory.m; path = Kuseki/Factory/KUFactory.m; sourceTree = "<group>"; };
 		E04C22811C4A12A500B4B98C /* KUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUTabBarController.h; sourceTree = "<group>"; };
@@ -332,6 +341,7 @@
 				056F38D718AF078000D4C264 /* InputViewControllerTests.m */,
 				056D5A5118AF543B00BF2703 /* KUResponseTests.m */,
 				059AAEF618F2C40000E10A62 /* KUSearchConditionManagerTests.m */,
+				E02464ED1C559EB70037A44C /* KUReviewMusterControllerTests.m */,
 			);
 			path = KusekiTests;
 			sourceTree = "<group>";
@@ -375,6 +385,8 @@
 				05D7E26E189F974A00E9B04E /* KUSwitch.m */,
 				E00942DB1C52819F00926DF1 /* KUDatePickerViewController.h */,
 				E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */,
+				E02464EA1C5516770037A44C /* KUReviewMusterController.h */,
+				E02464EB1C5516770037A44C /* KUReviewMusterController.m */,
 			);
 			path = UIParts;
 			sourceTree = "<group>";
@@ -442,6 +454,8 @@
 			children = (
 				E00942E21C5310E400926DF1 /* NSDate+IntegerDate.h */,
 				E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */,
+				E02464F01C5841950037A44C /* NSUserDefaults+ClearAllData.h */,
+				E02464F11C5841950037A44C /* NSUserDefaults+ClearAllData.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -506,6 +520,7 @@
 				ORGANIZATIONNAME = "Takeru Yoshihara";
 				TargetAttributes = {
 					0589B0FD188403F900DBE642 = {
+						DevelopmentTeam = 3VC3BGY2DF;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -628,6 +643,7 @@
 				057E0095188E8E5D00070F7D /* HTMLParser.m in Sources */,
 				0591401D18893D88009D87F9 /* KUResponseManager.m in Sources */,
 				0545DE64189A64CA008B55F5 /* KUSearchConditionManager.m in Sources */,
+				E02464EC1C5516770037A44C /* KUReviewMusterController.m in Sources */,
 				0589B112188403F900DBE642 /* AppDelegate.m in Sources */,
 				05D7E244189D035400E9B04E /* SavedResultViewController.m in Sources */,
 				059140071887E560009D87F9 /* InputViewController.m in Sources */,
@@ -644,6 +660,7 @@
 				E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */,
 				05B39DB918A67A0D0042F250 /* KUStationsManager.m in Sources */,
 				0589B10E188403F900DBE642 /* main.m in Sources */,
+				E02464F21C5841950037A44C /* NSUserDefaults+ClearAllData.m in Sources */,
 				0591400D1887EA63009D87F9 /* MITextField.m in Sources */,
 				05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */,
 				05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */,
@@ -655,9 +672,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02464EF1C55A1410037A44C /* KUReviewMusterController.m in Sources */,
 				E0E966EF1C54EBF900EE4FC5 /* KUDatePickerViewController.m in Sources */,
 				E04BE20F1C49277400F5EA50 /* KUFactory.m in Sources */,
 				E0E2BE471C43EE040033128D /* AppDelegate.m in Sources */,
+				E02464EE1C559EB70037A44C /* KUReviewMusterControllerTests.m in Sources */,
 				E0E2BE461C43EDDF0033128D /* KUStationsManager.m in Sources */,
 				E0E2BE451C43EDC70033128D /* KUSearchConditionManager.m in Sources */,
 				E0E2BE441C43EDA60033128D /* KUResponseManager.m in Sources */,
@@ -817,7 +836,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: TAKERU YOSHIHARA (3ZG8G95HMX)";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -833,7 +854,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.mountainboy.Kuseki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3BCF2ED5-08AA-4E81-BA3A-7554CFCC4CCD";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -845,7 +866,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: TAKERU YOSHIHARA (3ZG8G95HMX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kuseki/Kuseki-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -861,7 +884,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.mountainboy.Kuseki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "AC4B26BF-3E4C-4E5F-92EB-7EAA574FAFDC";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

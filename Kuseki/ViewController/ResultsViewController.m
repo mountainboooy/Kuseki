@@ -16,6 +16,7 @@
 #import "MBProgressHUD.h"
 #import "Flurry.h"
 #import "KUStationsManager.h"
+#import "KUReviewMusterController.h"
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -48,14 +49,15 @@
     NSString *imageName = NSLocalizedString(@"saveButton", nil);
     [_btSave setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     
+    //notification reviewMuster
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireReviewTrigger) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
     //model
     _responseManager = [KUResponseManager sharedManager];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     [_responseManager getResponsesWithParam:_condition completion:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-        NSLog(@"completion:");
-        NSLog(@"num:%lu",(unsigned long)_responseManager.responses.count);
         [_tableView reloadData];
         
     } failure:^(NSHTTPURLResponse *res, NSError *err) {
@@ -73,10 +75,8 @@
             [AppDelegate showAlertWithTitle:nil message:message completion:nil];
             return;
         }
-        
     }];
 }
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -316,8 +316,7 @@
 }
 
 
-#pragma mark -
-#pragma mark private methods
+#pragma mark - private methods
 
 - (void)setTitle
 {
@@ -354,5 +353,8 @@
     [Flurry logEvent:@"btnSavePressed" withParameters:condition];
 }
 
+- (void)fireReviewTrigger {
+    [KUReviewMusterController fireEventWithKey:@"DID_BECOME_ACTIVE" viewController:self];
+}
 
 @end

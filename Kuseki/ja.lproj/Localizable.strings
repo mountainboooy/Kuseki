@@ -36,6 +36,10 @@
  "searchButton" = "bt_search";
  "saveButton" = "bt_save";
  "descriptionForNotification" = "気になる列車の通知設置絵をONにしておけば、空席状況が変化した時にお知らせしてくれます。";
+ "reivewMusterTitle" = "使い心地はいかがですか？";
+ "reviewMusterBody" = "皆さんのフィードバックが開発のモチベーションです。要望があれば、ぜひレビューにてご記入ください。しっかり反映いたします。";
+ "reviewMusterAccept" = "レビューする";
+ "reviewMusterDecline" = "レビューしない";
 
 
 "trainType1" = "のぞみ・ひかり・さくら・みずほ・つばめ";

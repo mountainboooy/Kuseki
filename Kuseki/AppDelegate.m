@@ -15,6 +15,8 @@
 #import "KUDifferencesManager.h"
 #import "KUDifference.h"
 #import "Flurry.h"
+#import "KUReviewMusterController.h"
+#import "NSUserDefaults+ClearAllData.h"
 
 @interface AppDelegate () <KUSavedResponsesManagerDelegate, UIAlertViewDelegate>
 @end
@@ -29,6 +31,9 @@
     // Flurry
     [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"922D54Y2HGKPS8DBTVZT"];
+    
+    //ReviewMusterController
+    [self setUpReviewMusterController];
 
     return YES;
 }
@@ -100,13 +105,6 @@
     // here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the
-    // application was inactive. If the application was previously in the
-    // background, optionally refresh the user interface.
-}
-
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if
@@ -161,6 +159,14 @@
 
     //差異情報はクリアする
     [diffManager clearDifferences];
+}
+
+- (void)setUpReviewMusterController {
+#ifdef DEBUG
+    [NSUserDefaults clearAllData];
+#endif
+    [KUReviewMusterController setupWithAppId:@"869851973"];
+    [KUReviewMusterController waitForEventWithKey:@"DID_BECOME_ACTIVE" withTimes:4];
 }
 
 @end
