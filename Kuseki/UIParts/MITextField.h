@@ -26,8 +26,6 @@ enum AccessoryMode {ACCESSORY_ALL, ACCESSORY_NONE};
 
 @protocol MITextFieldDelegate <NSObject>
 
-- (void)textFieldDidPressNextBt:(MITextField*)textField;
-- (void)textFieldDidPressBackBt:(MITextField*)textField;
 - (void)textFieldDidPressCloseBt:(MITextField*)textField;
 
 @end

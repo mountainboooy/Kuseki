@@ -128,16 +128,4 @@
     [self resignFirstResponder];
     [self.delegate textFieldDidPressCloseBt:self];
 }
-
-
--(void)btNextPressed
-{
-    [self.delegate textFieldDidPressNextBt:self];
-}
-
-
-- (void)btBackPressed
-{
-    [self.delegate textFieldDidPressBackBt:self];
-}
 @end
