@@ -37,7 +37,7 @@ static KUFactory *_sharedFactory = nil;
 - (NSDateComponents *)sampleDateComponents {
     NSDate *date = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:date];
+    NSDateComponents *comps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:date];
     [comps setDay:(comps.day + 1)];
     [comps setHour:15];
     [comps setMinute:0];
