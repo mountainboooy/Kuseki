@@ -37,11 +37,11 @@
 - (NSDateComponents *)components {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps = [calendar components:
-                               NSYearCalendarUnit |
-                               NSMonthCalendarUnit |
-                               NSDayCalendarUnit |
-                               NSHourCalendarUnit |
-                               NSMinuteCalendarUnit fromDate:self];
+                               NSCalendarUnitYear |
+                               NSCalendarUnitMonth |
+                               NSCalendarUnitDay |
+                               NSCalendarUnitHour |
+                               NSCalendarUnitMinute fromDate:self];
     return comps;
 }
 
