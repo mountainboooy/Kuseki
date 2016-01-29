@@ -7,6 +7,8 @@
 //
 
 #import "KUReviewMusterController.h"
+#import "Flurry.h"
+
 static NSString *const EVENTS_KEY = @"KU_REVIEW_MUSTER_EVENTS";
 static NSString *const APP_ID_KEY = @"KU_REVIEW_MUSTER_APP_ID";
 
@@ -90,6 +92,7 @@ static NSString *const APP_ID_KEY = @"KU_REVIEW_MUSTER_APP_ID";
     [alertController addAction:action];
     [alertController addAction:cancelAction];
     [viewController presentViewController:alertController animated:YES completion:nil];
+    [Flurry logEvent:@"didShowMusterAlert"];
 }
 
 + (void)moveToReviewPage {
