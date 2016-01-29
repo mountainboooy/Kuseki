@@ -18,7 +18,7 @@
 #import "KUReviewMusterController.h"
 
 @interface
-InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MITextFieldDelegate> {
+InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MITextFieldDelegate, THDatePickerDelegate> {
     // outlet
     __weak IBOutlet UITableView *_tableView;
     __weak IBOutlet UIPickerView *_picker_train;
@@ -721,7 +721,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     NSDateFormatter *formatter = [NSDateFormatter new];
     [formatter setTimeZone:[NSTimeZone systemTimeZone]];
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    formatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    formatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"JST"];
     [formatter setDateFormat:@"yyyy-MM HH:mm:ss"];
     NSString *timestamp = [formatter stringFromDate:[NSDate date]];
