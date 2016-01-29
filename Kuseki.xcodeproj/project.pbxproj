@@ -847,7 +847,7 @@
 					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Flurry",
@@ -877,7 +877,7 @@
 					"$(PROJECT_DIR)/Kuseki/Factory",
 				);
 				INFOPLIST_FILE = "Kuseki/Kuseki-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Flurry",

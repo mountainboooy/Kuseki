@@ -45,7 +45,7 @@
     // 23::00~06:00の間はアクションしない
     NSDate *date = [NSDate date];
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [cal components:NSHourCalendarUnit fromDate:date];
+    NSDateComponents *comps = [cal components:NSCalendarUnitHour fromDate:date];
 
     if (comps.hour < 06 || comps.hour > 22) {
         return;

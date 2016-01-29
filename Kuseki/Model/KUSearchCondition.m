@@ -144,8 +144,8 @@
 {
     //現在の月より乗車付きの方が小さい場合は翌年と判断する
     NSDateComponents *comps = [[NSCalendar currentCalendar] components:
-                               NSYearCalendarUnit|
-                               NSMonthCalendarUnit fromDate:[NSDate date]];
+                               NSCalendarUnitYear|
+                               NSCalendarUnitMonth fromDate:[NSDate date]];
     
     if(dep_month.intValue - comps.month < 0){//翌年と判断
         return [NSString stringWithFormat:@"%ld",comps.year+1];

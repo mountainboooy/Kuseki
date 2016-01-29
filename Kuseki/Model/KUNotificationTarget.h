@@ -38,7 +38,5 @@
 
 - (BOOL)isSameTrainWithResponse:(KUResponse*)response;
 - (id)initWithResponse:(KUResponse*)response dep_stn:(NSString*)dep_stn arr_stn:(NSString*)arr_stn;
-- (void)removeWithCondition:(KUSearchCondition*)condition;
-
 
 @end
