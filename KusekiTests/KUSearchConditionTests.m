@@ -61,8 +61,8 @@
     //現在の西暦年
     NSDateComponents *comps;
     comps = [[NSCalendar currentCalendar]components:
-             NSYearCalendarUnit|
-             NSMonthCalendarUnit fromDate:[NSDate date]];
+             NSCalendarUnitYear|
+             NSCalendarUnitMonth fromDate:[NSDate date]];
     NSString *current_year = [NSString stringWithFormat:@"%ld",(long)comps.year];
     
     //翌年の西暦年
@@ -100,12 +100,12 @@
     NSDateComponents *comp;
     comp = [NSDateComponents new];
     comp = [[NSCalendar currentCalendar]components:
-            NSYearCalendarUnit|
-            NSMonthCalendarUnit|
-            NSDayCalendarUnit|
-            NSHourCalendarUnit|
-            NSMinuteCalendarUnit|
-            NSSecondCalendarUnit fromDate:oneYearBefore];
+            NSCalendarUnitYear|
+            NSCalendarUnitMonth|
+            NSCalendarUnitDay|
+            NSCalendarUnitHour|
+            NSCalendarUnitMinute|
+            NSCalendarUnitSecond fromDate:oneYearBefore];
     
     NSDictionary *dic = @{@"identifier" : @"111",
                           @"year"   : [NSString stringWithFormat:@"%ld",(long)comp.year],

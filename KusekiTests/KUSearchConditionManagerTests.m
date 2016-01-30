@@ -53,7 +53,7 @@
     NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comps_plus toDate:[NSDate date] options:0];
     
     NSDateComponents *comps = [NSDateComponents new];
-    comps = [[NSCalendar currentCalendar]components:NSYearCalendarUnit fromDate:date];
+    comps = [[NSCalendar currentCalendar]components:NSCalendarUnitYear fromDate:date];
     
     dic[@"year"] = [NSString stringWithFormat:@"%ld",(long)comps.year];
     KUSearchCondition *condition_new = [[KUSearchCondition alloc]initWithDictionary:dic];
