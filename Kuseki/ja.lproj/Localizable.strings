@@ -28,7 +28,7 @@
  "granClass" = "グランクラス";
  "history" = "履歴";
  "language" = "ja";
- "savedHistory" = "Saved history";
+ "savedHistory" = "保存した検索条件";
  "notification" = "空席状況が変わった時に通知を受け取る";
  "meaningOfIcons" = "アイコンの意味";
  "notificationFeature" = "通知機能";
