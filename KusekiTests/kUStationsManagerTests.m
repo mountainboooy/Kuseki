@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "KUStationsManager.h"
+#import "NSUserDefaults+ClearAllData.h"
 
 @interface kUStationsManagerTests : XCTestCase
 
@@ -78,6 +79,32 @@
     //とき・たにがわ・あさま
     englishName = [KUStationsManager localizedStation:@"長野"];
     XCTAssertEqualObjects(englishName, @"Nagano", @"駅名の英訳に失敗");
+}
+
+- (void)testSavePreviousDepartureStation {
+    [NSUserDefaults clearAllData];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [KUStationsManager savePreviousDepartureStation:@"東京"];
+    XCTAssertEqualObjects([ud stringForKey:@"PREVIOUS_DEPARTURE_STATION"], @"東京", @"前回検索に使った出発駅の保存に失敗");
+}
+
+- (void)testSavePreviousDestinationStation {
+    [NSUserDefaults clearAllData];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [KUStationsManager savePreviousDestinationStation:@"大阪"];
+    XCTAssertEqualObjects([ud stringForKey:@"PREVIOUS_DESTINATION_STATION"], @"大阪", @"前回検索に使った到着駅の保存に失敗");
+}
+
+- (void)testPreviousDepartureStation {
+    [NSUserDefaults clearAllData];
+    [KUStationsManager savePreviousDepartureStation:@"東京"];
+    XCTAssertEqualObjects([KUStationsManager previousDepartureStation], @"東京", @"前回検索に使った出発駅の取得に失敗");
+}
+
+- (void)testPreviousDestinationStation {
+    [NSUserDefaults clearAllData];
+    [KUStationsManager savePreviousDestinationStation:@"大阪"];
+    XCTAssertEqualObjects([KUStationsManager previousDestinationStation], @"大阪", @"前回検索に使った出発駅の取得に失敗");
 }
 
 
