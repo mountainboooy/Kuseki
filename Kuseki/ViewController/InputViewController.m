@@ -576,8 +576,8 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         @"hour" : [NSString stringWithFormat:@"%d", [date integerHour]],
         @"minute" : [NSString stringWithFormat:@"%d", [date integerMinute]],
         @"train" : @"1",
-        @"dep_stn" : @"東京",
-        @"arr_stn" : @"新大阪"
+        @"dep_stn" : [KUStationsManager previousDepartureStation],
+        @"arr_stn" : [KUStationsManager previousDestinationStation]
     };
     _condition = [[KUSearchCondition alloc] initWithDictionary:dic];
 }
@@ -823,6 +823,9 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     resultCon.condition = _condition;
     resultCon.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:resultCon animated:YES];
+    
+    [KUStationsManager savePreviousDepartureStation:_condition.dep_stn];
+    [KUStationsManager savePreviousDestinationStation:_condition.arr_stn];
 
     [self trackEventWithFlurry];
 }

@@ -97,14 +97,20 @@
 
 - (void)testPreviousDepartureStation {
     [NSUserDefaults clearAllData];
-    [KUStationsManager savePreviousDepartureStation:@"東京"];
+    // return Tokyo if previous station does not exist
     XCTAssertEqualObjects([KUStationsManager previousDepartureStation], @"東京", @"前回検索に使った出発駅の取得に失敗");
+    
+    [KUStationsManager savePreviousDepartureStation:@"博多"];
+    XCTAssertEqualObjects([KUStationsManager previousDepartureStation], @"博多", @"前回検索に使った出発駅の取得に失敗");
 }
 
 - (void)testPreviousDestinationStation {
     [NSUserDefaults clearAllData];
-    [KUStationsManager savePreviousDestinationStation:@"大阪"];
-    XCTAssertEqualObjects([KUStationsManager previousDestinationStation], @"大阪", @"前回検索に使った出発駅の取得に失敗");
+    // return Shin-Osaka if previous station does not exist
+    XCTAssertEqualObjects([KUStationsManager previousDestinationStation], @"新大阪", @"前回検索に使った到着駅の取得に失敗");
+    
+    [KUStationsManager savePreviousDestinationStation:@"秋田"];
+    XCTAssertEqualObjects([KUStationsManager previousDestinationStation], @"秋田", @"前回検索に使った出発駅の取得に失敗");
 }
 
 

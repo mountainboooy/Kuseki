@@ -74,12 +74,14 @@ static NSString *const PREVIOUS_DESTINATION_STATION = @"PREVIOUS_DESTINATION_STA
 
 + (NSString *)previousDepartureStation {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    return [ud stringForKey:PREVIOUS_DEPARTURE_STATION];
+    NSString *previousDepartuerStation = [ud stringForKey:PREVIOUS_DEPARTURE_STATION];
+    return previousDepartuerStation ? previousDepartuerStation : @"東京";
 }
 
 + (NSString *)previousDestinationStation {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    return [ud stringForKey:PREVIOUS_DESTINATION_STATION];
+    NSString *previousDestinationStation = [ud stringForKey:PREVIOUS_DESTINATION_STATION];
+    return previousDestinationStation ? previousDestinationStation : @"新大阪";
 }
 
 @end
