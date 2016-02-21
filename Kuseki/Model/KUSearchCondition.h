@@ -27,6 +27,8 @@ typedef void (^KUSearchConditionFailure)();
 - (id)initWithDictionary:(NSDictionary*)dic;
 - (void)postConditionWithCompletion:(KUSearchConditionCompetion)completion failure:(KUSearchConditionFailure)failure;
 - (void)deleteCondition;
+- (void)saveAsPreviousCondition;
++ (KUSearchCondition *)previousCondition;
 - (BOOL)isTooOld;
 - (NSString*)yearFromMonth:(NSString*)month;
 

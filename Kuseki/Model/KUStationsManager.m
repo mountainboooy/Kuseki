@@ -7,9 +7,11 @@
 //
 
 #import "KUStationsManager.h"
+static NSString *const PREVIOUS_DEPARTURE_STATION = @"PREVIOUS_DEPARTURE_STATION";
+static NSString *const PREVIOUS_DESTINATION_STATION = @"PREVIOUS_DESTINATION_STATION";
+
 
 @implementation KUStationsManager
-
 
 + (NSDictionary*)stationsWithTrainId:(NSString*)trainId
 {

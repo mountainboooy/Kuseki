@@ -162,9 +162,6 @@
 }
 
 - (void)setUpReviewMusterController {
-#ifdef DEBUG
-    [NSUserDefaults clearAllData];
-#endif
     [KUReviewMusterController setupWithAppId:@"869851973"];
     [KUReviewMusterController waitForEventWithKey:@"DID_BECOME_ACTIVE" withTimes:4];
 }
