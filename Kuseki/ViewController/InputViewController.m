@@ -576,7 +576,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         @"day" : [NSString stringWithFormat:@"%d", [date integerDay]],
         @"hour" : [NSString stringWithFormat:@"%d", [date integerHour]],
         @"minute" : [NSString stringWithFormat:@"%d", [date integerMinute]],
-        @"train" : @"1",
+        @"train" : [[KUSearchCondition previousCondition] train],
         @"dep_stn" : [[KUSearchCondition previousCondition] dep_stn],
         @"arr_stn" : [[KUSearchCondition previousCondition] arr_stn]
     };
