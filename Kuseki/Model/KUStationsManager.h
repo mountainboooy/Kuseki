@@ -14,12 +14,4 @@
 
 + (NSString *)localizedStation:(NSString *)station;
 
-+ (void)savePreviousDepartureStation:(NSString *)station;
-
-+ (void)savePreviousDestinationStation:(NSString *)station;
-
-+ (NSString *)previousDepartureStation;
-
-+ (NSString *)previousDestinationStation;
-
 @end

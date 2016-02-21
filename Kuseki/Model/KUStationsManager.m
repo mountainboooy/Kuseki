@@ -60,28 +60,4 @@ static NSString *const PREVIOUS_DESTINATION_STATION = @"PREVIOUS_DESTINATION_STA
     return (range.location != NSNotFound);
 }
 
-+ (void)savePreviousDepartureStation:(NSString *)station {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:station forKey:PREVIOUS_DEPARTURE_STATION];
-    [ud synchronize];
-}
-
-+ (void)savePreviousDestinationStation:(NSString *)station {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:station forKey:PREVIOUS_DESTINATION_STATION];
-    [ud synchronize];
-}
-
-+ (NSString *)previousDepartureStation {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString *previousDepartuerStation = [ud stringForKey:PREVIOUS_DEPARTURE_STATION];
-    return previousDepartuerStation ? previousDepartuerStation : @"東京";
-}
-
-+ (NSString *)previousDestinationStation {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString *previousDestinationStation = [ud stringForKey:PREVIOUS_DESTINATION_STATION];
-    return previousDestinationStation ? previousDestinationStation : @"新大阪";
-}
-
 @end
