@@ -126,6 +126,8 @@
 
 - (void)testPreviousCondition {
     [NSUserDefaults clearAllData];
+    XCTAssertEqual([KUSearchCondition previousCondition].dep_stn, @"東京", @"前回の検索結果の保存に失敗");
+    
     KUSearchCondition *condition = [KUSearchCondition new];
     condition.dep_stn = @"品川";
     [condition saveAsPreviousCondition];

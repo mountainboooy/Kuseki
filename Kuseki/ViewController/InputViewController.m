@@ -570,14 +570,15 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     //現在の日時を取得
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:600];
     NSDictionary *dic = @{
+                          @"identifier" : @"",
         @"year" : [NSString stringWithFormat:@"%d", [date integerYear]],
         @"month" : [NSString stringWithFormat:@"%d", [date integerMonth]],
         @"day" : [NSString stringWithFormat:@"%d", [date integerDay]],
         @"hour" : [NSString stringWithFormat:@"%d", [date integerHour]],
         @"minute" : [NSString stringWithFormat:@"%d", [date integerMinute]],
         @"train" : @"1",
-        @"dep_stn" : [KUStationsManager previousDepartureStation],
-        @"arr_stn" : [KUStationsManager previousDestinationStation]
+        @"dep_stn" : [[KUSearchCondition previousCondition] dep_stn],
+        @"arr_stn" : [[KUSearchCondition previousCondition] arr_stn]
     };
     _condition = [[KUSearchCondition alloc] initWithDictionary:dic];
 }
@@ -823,9 +824,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     resultCon.condition = _condition;
     resultCon.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:resultCon animated:YES];
-    
-    [KUStationsManager savePreviousDepartureStation:_condition.dep_stn];
-    [KUStationsManager savePreviousDestinationStation:_condition.arr_stn];
+    [_condition saveAsPreviousCondition];
 
     [self trackEventWithFlurry];
 }

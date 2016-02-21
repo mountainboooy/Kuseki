@@ -80,6 +80,9 @@ static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
 + (KUSearchCondition *)previousCondition {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *previousCondition = [ud dictionaryForKey:PREVIOUS_CONDITION];
+    if (!previousCondition) {
+        return [KUSearchCondition new];
+    }
     return [[KUSearchCondition alloc]initWithDictionary:previousCondition];
 }
 
