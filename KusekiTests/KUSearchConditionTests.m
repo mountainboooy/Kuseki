@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "KUSearchCondition.h"
+#import "NSUserDefaults+ClearAllData.h"
 
 @interface KUSearchConditionTests : XCTestCase
 
@@ -121,6 +122,18 @@
     KUSearchCondition *condition_dayBefore = [[KUSearchCondition alloc]initWithDictionary:dic];
     XCTAssertTrue([condition_dayBefore isTooOld], @"条件日の新旧の比較に失敗しました");
 
+}
+
+- (void)testPreviousCondition {
+    [NSUserDefaults clearAllData];
+    XCTAssertEqual([KUSearchCondition previousCondition].dep_stn, @"東京", @"前回の検索結果の保存に失敗");
+    
+    KUSearchCondition *condition = [KUSearchCondition new];
+    condition.dep_stn = @"品川";
+    [condition saveAsPreviousCondition];
+    
+    KUSearchCondition * previousCondition = [KUSearchCondition previousCondition];
+    XCTAssertEqualObjects(previousCondition.dep_stn, @"品川", @"前回の検索結果の保存に失敗");
 }
 
 

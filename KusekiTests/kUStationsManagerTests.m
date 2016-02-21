@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "KUStationsManager.h"
+#import "NSUserDefaults+ClearAllData.h"
 
 @interface kUStationsManagerTests : XCTestCase
 
@@ -79,7 +80,5 @@
     englishName = [KUStationsManager localizedStation:@"長野"];
     XCTAssertEqualObjects(englishName, @"Nagano", @"駅名の英訳に失敗");
 }
-
-
 
 @end

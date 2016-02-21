@@ -86,13 +86,15 @@ static NSString *const APP_ID_KEY = @"KU_REVIEW_MUSTER_APP_ID";
     
     UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"reviewMusterAccept", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self moveToReviewPage];
+        [Flurry logEvent:@"didShowMusterAlert" withParameters:@{@"didMoveToReviewPage":@"YES"}];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"reviewMusterDecline", nil) style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"reviewMusterDecline", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [Flurry logEvent:@"didShowMusterAlert" withParameters:@{@"didMoveToReviewPage":@"NO"}];
+    }];
     
     [alertController addAction:action];
     [alertController addAction:cancelAction];
     [viewController presentViewController:alertController animated:YES completion:nil];
-    [Flurry logEvent:@"didShowMusterAlert"];
 }
 
 + (void)moveToReviewPage {
