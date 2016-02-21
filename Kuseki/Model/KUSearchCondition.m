@@ -8,6 +8,7 @@
 
 #import "KUSearchCondition.h"
 #import "KUDBClient.h"
+static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
 
 @implementation KUSearchCondition
 
@@ -59,6 +60,29 @@
     }
 }
 
+- (void)saveAsPreviousCondition {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *condition = @{
+                                @"identifier":self.identifier,
+                                @"month":self.month,
+                                @"day":self.day,
+                                @"hour":self.hour,
+                                @"minute":self.minute,
+                                @"train":self.train,
+                                @"dep_stn":self.dep_stn,
+                                @"arr_stn":self.arr_stn,
+                                @"year":self.year
+                                };
+    [ud setObject:condition forKey:PREVIOUS_CONDITION];
+    [ud synchronize];
+}
+
++ (KUSearchCondition *)previousCondition {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *previousCondition = [ud dictionaryForKey:PREVIOUS_CONDITION];
+    return [[KUSearchCondition alloc]initWithDictionary:previousCondition];
+}
+
 - (void)deleteCondition
 {
     KUDBClient *client = [KUDBClient sharedClient];
@@ -68,6 +92,7 @@
 
 - (void)initializeCondition
 {
+    _identifier = @"identifier";
     _month = @"01";
     _day = @"01";
     _hour  = @"01";
@@ -75,6 +100,7 @@
     _train = @"1";
     _dep_stn = @"東京";
     _arr_stn = @"新大阪";
+    _year = @"0";
 }
 
 
