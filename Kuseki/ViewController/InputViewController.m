@@ -604,7 +604,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
+    label.textColor = [UIColor whiteColor];
     label.text = NSLocalizedString(@"vacancySearch", nil);
     self.navigationItem.titleView = label;
 }
