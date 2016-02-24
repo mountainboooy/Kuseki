@@ -27,12 +27,16 @@
         <!--検索-->
         <scene sceneID="FxM-qH-hBy">
             <objects>
-                <navigationController definesPresentationContext="YES" id="J5Q-kv-Z6y" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="J5Q-kv-Z6y" customClass="KUNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="検索" image="ic_tab_search" id="emn-Xl-5Lb">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t6l-Zx-bWb">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="navbar" id="t6l-Zx-bWb">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.1647058824" green="0.21176470589999999" blue="0.30196078430000001" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.16470588235294117" green="0.21176470588235294" blue="0.30196078431372547" alpha="0.82000000000000006" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="rIa-Ei-UiY" kind="relationship" relationship="rootViewController" id="Zx8-JJ-nNV"/>
@@ -51,15 +55,15 @@
                         <viewControllerLayoutGuide type="bottom" id="bSI-ey-xXf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b4s-3g-Fkz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="R40-gM-eIK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell0" rowHeight="72" id="Wez-Eu-iyv">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="72"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wez-Eu-iyv" id="fux-7I-ZYO">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
@@ -89,7 +93,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="72" id="r9f-nz-kCT">
-                                        <rect key="frame" x="0.0" y="158" width="320" height="72"/>
+                                        <rect key="frame" x="0.0" y="94" width="320" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r9f-nz-kCT" id="47H-qr-BhM">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
@@ -137,7 +141,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" rowHeight="72" id="DsW-Ry-84D">
-                                        <rect key="frame" x="0.0" y="230" width="320" height="72"/>
+                                        <rect key="frame" x="0.0" y="166" width="320" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DsW-Ry-84D" id="Wdh-Ww-VHh">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
@@ -167,7 +171,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" rowHeight="144" id="f7Y-Nm-shk">
-                                        <rect key="frame" x="0.0" y="302" width="320" height="144"/>
+                                        <rect key="frame" x="0.0" y="238" width="320" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f7Y-Nm-shk" id="R4W-Dy-BzN">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
@@ -238,7 +242,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" rowHeight="144" id="EBs-z1-MyD">
-                                        <rect key="frame" x="0.0" y="446" width="320" height="144"/>
+                                        <rect key="frame" x="0.0" y="382" width="320" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EBs-z1-MyD" id="j3U-T6-120">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
@@ -256,7 +260,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYe-Gj-rzD" customClass="UIToolbar">
-                                <rect key="frame" x="0.0" y="584" width="320" height="240"/>
+                                <rect key="frame" x="0.0" y="520" width="320" height="240"/>
                                 <subviews>
                                     <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKI-pL-O2q">
                                         <rect key="frame" x="0.0" y="24" width="320" height="216"/>
@@ -280,7 +284,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d93-aE-Lq2" customClass="UIToolbar">
-                                <rect key="frame" x="0.0" y="584" width="320" height="240"/>
+                                <rect key="frame" x="0.0" y="520" width="320" height="240"/>
                                 <subviews>
                                     <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYy-2C-ufd">
                                         <rect key="frame" x="0.0" y="24" width="320" height="216"/>
@@ -304,7 +308,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjN-wB-bWG" customClass="UIToolbar">
-                                <rect key="frame" x="0.0" y="584" width="320" height="240"/>
+                                <rect key="frame" x="0.0" y="520" width="320" height="240"/>
                                 <subviews>
                                     <pickerView tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-TP-r5t">
                                         <rect key="frame" x="0.0" y="24" width="320" height="216"/>
@@ -348,11 +352,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="空席検索" id="qDr-3Y-zov">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Xe8-zh-Qaz">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="EuP-i4-f1G">
-                                <rect key="frame" x="282" y="11" width="22" height="22"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EuP-i4-f1G">
+                                <rect key="frame" x="284" y="11" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.38370122350000002" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
+                                <state key="normal" image="bt_info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1309,7 +1313,7 @@
         <!--保存リスト-->
         <scene sceneID="e11-dJ-Ona">
             <objects>
-                <navigationController definesPresentationContext="YES" id="lgf-KT-zB2" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="lgf-KT-zB2" customClass="KUNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="保存リスト" image="ic_tab_list" id="9No-iU-lwt">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
@@ -1468,6 +1472,7 @@
     <resources>
         <image name="bt_back" width="80" height="44"/>
         <image name="bt_close_picker" width="82" height="45"/>
+        <image name="bt_info" width="20" height="20"/>
         <image name="bt_save" width="80" height="44"/>
         <image name="bt_search" width="189" height="57"/>
         <image name="btn_change_station.png" width="51" height="51"/>
@@ -1480,6 +1485,7 @@
         <image name="ic_tab_list" width="30" height="30"/>
         <image name="ic_tab_search" width="30" height="30"/>
         <image name="ic_vacant" width="16" height="16"/>
+        <image name="navbar" width="320" height="64"/>
         <image name="notification_off" width="19" height="20"/>
     </resources>
 </document>
