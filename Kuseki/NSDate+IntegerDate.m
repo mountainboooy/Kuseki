@@ -34,6 +34,19 @@
     return (int)[[self components] second];
 }
 
++ (NSString *)stringDateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
+    NSDateComponents *components = [NSDateComponents new];
+    components.year = year;
+    components.month = month;
+    components.day = day;
+    NSDate *date = [[NSCalendar currentCalendar]dateFromComponents:components];
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    return [dateFormatter stringFromDate:date];
+}
+
 - (NSDateComponents *)components {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps = [calendar components:

@@ -8,6 +8,7 @@
 
 #import "KUSearchCondition.h"
 #import "KUDBClient.h"
+#import "NSDate+IntegerDate.h"
 static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
 
 @implementation KUSearchCondition
@@ -104,6 +105,10 @@ static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
     _dep_stn = @"東京";
     _arr_stn = @"新大阪";
     _year = @"0";
+}
+
+- (NSString *)stringDate {
+    return [NSDate stringDateWithYear:self.year.integerValue month:self.month.integerValue day:self.day.integerValue];
 }
 
 

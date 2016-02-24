@@ -144,10 +144,9 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     switch (indexPath.row) {
         case 0: {
             // ride date
-            MITextField *tf_month = (MITextField *)[cell viewWithTag:1];
-            MITextField *tf_day = (MITextField *)[cell viewWithTag:2];
-            tf_month.text = _condition.month;
-            tf_day.text = _condition.day;
+            UILabel *lbSelectedDate = (UILabel *)[cell viewWithTag:1];
+            lbSelectedDate.text = _condition.stringDate;
+
             UILabel *lb_rideDate = (UILabel *)[cell viewWithTag:3];
             UIView *focus_view = (UIView *)[cell viewWithTag:9];
 

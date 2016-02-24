@@ -22,4 +22,6 @@
 
 - (int)integerSecond;
 
++ (NSString *)stringDateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+
 @end

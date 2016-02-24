@@ -31,6 +31,7 @@ typedef void (^KUSearchConditionFailure)();
 + (KUSearchCondition *)previousCondition;
 - (BOOL)isTooOld;
 - (NSString*)yearFromMonth:(NSString*)month;
+- (NSString *)stringDate;
 
 
 @end
