@@ -271,7 +271,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         case 0:
         case 1:
         case 2:
-            height = 72;
+            height = 83;
             break;
 
         case 3:
