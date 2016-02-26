@@ -30,7 +30,7 @@
         <scene sceneID="FxM-qH-hBy">
             <objects>
                 <navigationController definesPresentationContext="YES" id="J5Q-kv-Z6y" customClass="KUNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="検索" image="ic_tab_search" id="emn-Xl-5Lb">
+                    <tabBarItem key="tabBarItem" title="検索" image="shape" selectedImage="shape_selected" id="emn-Xl-5Lb">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -1443,7 +1443,7 @@
         <scene sceneID="e11-dJ-Ona">
             <objects>
                 <navigationController definesPresentationContext="YES" id="lgf-KT-zB2" customClass="KUNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="保存リスト" image="ic_tab_list" id="9No-iU-lwt">
+                    <tabBarItem key="tabBarItem" title="保存リスト" image="bookmark" selectedImage="bookmark_selected" id="9No-iU-lwt">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W1x-s3-Na0">
@@ -1599,6 +1599,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" width="22" height="25"/>
+        <image name="bookmark_selected" width="22" height="25"/>
         <image name="bt_back" width="80" height="44"/>
         <image name="bt_close_picker" width="82" height="45"/>
         <image name="bt_info" width="20" height="20"/>
@@ -1610,10 +1612,10 @@
         <image name="ic_no_smoking" width="25" height="25"/>
         <image name="ic_not_exist" width="16" height="16"/>
         <image name="ic_smoking" width="25" height="25"/>
-        <image name="ic_tab_list" width="30" height="30"/>
-        <image name="ic_tab_search" width="30" height="30"/>
         <image name="ic_vacant" width="16" height="16"/>
         <image name="navbar" width="320" height="64"/>
         <image name="notification_off" width="19" height="20"/>
+        <image name="shape" width="25" height="25"/>
+        <image name="shape_selected" width="25" height="25"/>
     </resources>
 </document>
