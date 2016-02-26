@@ -255,8 +255,6 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
         case 4: {
             UIButton *bt_search = (UIButton *)[cell viewWithTag:1];
-            UIImage *buttonImage = [UIImage imageNamed:NSLocalizedString(@"searchButton", nil)];
-            [bt_search setImage:buttonImage forState:UIControlStateNormal];
             [bt_search addTarget:self action:@selector(btSearchPressed) forControlEvents:UIControlEventTouchUpInside];
             break;
         }
@@ -275,7 +273,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             break;
 
         case 3:
-            height = 144;
+            height = 166;
             break;
 
         case 4: {
@@ -284,7 +282,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
                 height = 140;
 
             } else {
-                height = 83;
+                height = 130;
             }
             break;
         }
