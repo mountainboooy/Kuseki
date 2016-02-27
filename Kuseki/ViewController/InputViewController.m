@@ -17,6 +17,8 @@
 #import "NSDate+IntegerDate.h"
 #import "KUReviewMusterController.h"
 
+#define NO_SELECTED_INDEX 99
+
 @interface
 InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MITextFieldDelegate, THDatePickerDelegate> {
     // outlet
@@ -99,7 +101,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         _datePicker.delegate = self;
     }
 
-    _selected_index = 99;
+    _selected_index = NO_SELECTED_INDEX;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -298,6 +300,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     switch (indexPath.row) {
         case 0: {  // ride date
+            [self setFocusColorWithSelectedIndex:indexPath.row];
             [self presentSemiViewController:_datePicker];
             break;
         }
@@ -432,10 +435,10 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     _condition.year = [NSString stringWithFormat:@"%d", [selectedDate integerYear]];
     _condition.month = [NSString stringWithFormat:@"%d",[selectedDate integerMonth]];
     _condition.day = [NSString stringWithFormat:@"%d", [selectedDate integerDay]];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
-    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-    [self updateCell:cell atIndexPath:indexPath];
+}
+
+- (void)datePickerDidHide:(THDatePickerViewController *)datePicker {
+    [self setFocusColorWithSelectedIndex:NO_SELECTED_INDEX];
 }
 
 #pragma mark -
@@ -556,7 +559,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
 - (void)textFieldDidPressCloseBt:(MITextField *)textField
 {
-    [self setFocusColorWithSelectedIndex:99];
+    [self setFocusColorWithSelectedIndex:NO_SELECTED_INDEX];
 }
 
 #pragma mark -
@@ -582,7 +585,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
 - (void)setFocusColorWithSelectedIndex:(NSInteger)selected_index
 {
-    if (selected_index > 4 && selected_index != 99) {
+    if (selected_index > 4 && selected_index != NO_SELECTED_INDEX) {
         return;
     }
 
@@ -773,7 +776,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (void)btCloseTrainPressed
 {
     [self hidePickerTrain];
-    [self setFocusColorWithSelectedIndex:99];
+    [self setFocusColorWithSelectedIndex:NO_SELECTED_INDEX];
 }
 
 - (void)btDepPressed
@@ -793,7 +796,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (void)btCloseDepPressed
 {
     [self hidePickerDep];
-    [self setFocusColorWithSelectedIndex:99];
+    [self setFocusColorWithSelectedIndex:NO_SELECTED_INDEX];
 }
 
 - (void)btArrPressed
@@ -807,7 +810,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (void)btCloseArrPressed
 {
     [self hidePickerArr];
-    [self setFocusColorWithSelectedIndex:99];
+    [self setFocusColorWithSelectedIndex:NO_SELECTED_INDEX];
 }
 
 - (void)btSearchPressed
