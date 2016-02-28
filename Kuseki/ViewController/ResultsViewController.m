@@ -25,6 +25,8 @@
     //outlet
     __weak IBOutlet UITableView *_tableView;
     __weak IBOutlet UIButton *_btSave;
+    __weak IBOutlet UIBarButtonItem *_btBack;
+    
     
     //model
     KUSearchCondition    *_condition;
@@ -42,12 +44,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //tableView
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    NSString *imageName = NSLocalizedString(@"saveButton", nil);
-    [_btSave setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     
     //notification reviewMuster
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireReviewTrigger) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -82,6 +82,7 @@
 {
     [super viewWillAppear:animated];
     [self setTitle];
+    [self setBackButton];
 }
 
 
@@ -238,6 +239,10 @@
 #pragma mark -
 #pragma mark button action
 
+- (IBAction)btBackPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)btSavePressed:(id)sender {
 
     KUSearchConditionManager *conditionManager = [KUSearchConditionManager sharedManager];
@@ -263,12 +268,6 @@
     [manager getConditionsFromDB];
     
 }
-
-
-- (IBAction)btBackPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 - (UIImage*)imgForSeatValue:(enum KUSheetValue)seatValue
 {
@@ -324,9 +323,14 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
+    label.textColor = [UIColor whiteColor];
     label.text = NSLocalizedString(@"searchResults", nil);
     self.navigationItem.titleView = label;
+}
+
+- (void)setBackButton {
+    NSString *imgName = NSLocalizedString(@"backButton", nil);
+    [_btBack setImage:[UIImage imageNamed:imgName]];
 }
 
 - (void)trackSaveEventWithFlurry

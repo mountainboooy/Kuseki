@@ -33,6 +33,7 @@
  "meaningOfIcons" = "アイコンの意味";
  "notificationFeature" = "通知機能";
 
+ "backButton" = "bt_back_jp";
  "searchButton" = "bt_search";
  "saveButton" = "bt_save";
  "descriptionForNotification" = "気になる列車の通知設置絵をONにしておけば、空席状況が変化した時にお知らせしてくれます。";

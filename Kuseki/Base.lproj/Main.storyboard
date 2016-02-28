@@ -29,7 +29,7 @@
         <!--検索-->
         <scene sceneID="FxM-qH-hBy">
             <objects>
-                <navigationController definesPresentationContext="YES" id="J5Q-kv-Z6y" customClass="KUNavigationController" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="J5Q-kv-Z6y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="検索" image="shape" selectedImage="shape_selected" id="emn-Xl-5Lb">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
@@ -39,6 +39,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1647058824" green="0.21176470589999999" blue="0.30196078430000001" alpha="0.0" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.16470588235294117" green="0.21176470588235294" blue="0.30196078431372547" alpha="0.82000000000000006" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="rIa-Ei-UiY" kind="relationship" relationship="rootViewController" id="Zx8-JJ-nNV"/>
@@ -523,18 +526,18 @@
                         <viewControllerLayoutGuide type="bottom" id="4uq-rE-sfY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1XA-uZ-09H">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-f6-Rc8">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header0" rowHeight="68" id="abH-E5-9KJ">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="68"/>
+                                        <rect key="frame" x="0.0" y="86" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="abH-E5-9KJ" id="8mp-Zg-DCa">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reM-SN-qtE">
@@ -614,10 +617,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header1" rowHeight="68" id="GBA-ra-X8h">
-                                        <rect key="frame" x="0.0" y="154" width="320" height="68"/>
+                                        <rect key="frame" x="0.0" y="154" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GBA-ra-X8h" id="mVY-E9-pcB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThS-vr-n8R">
@@ -704,10 +707,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell0" rowHeight="44" id="zCA-yK-tPy">
-                                        <rect key="frame" x="0.0" y="222" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="222" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zCA-yK-tPy" id="8QB-nM-8Pb">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSi-uu-bWq">
@@ -762,10 +765,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="44" id="Rb6-CW-E8K">
-                                        <rect key="frame" x="0.0" y="266" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="266" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rb6-CW-E8K" id="pgO-Sv-VuA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr1-yF-o8N">
@@ -832,26 +835,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="検索結果" id="f5O-tB-jy6">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="C5A-Wc-LtU">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sML-6P-dsI">
-                                <rect key="frame" x="16" y="0.0" width="80" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="bt_back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btBackPressed:" destination="00Y-iY-hoK" eventType="touchUpInside" id="XJh-fs-Iu4"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="C5A-Wc-LtU">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="btBackPressed:" destination="00Y-iY-hoK" id="bk2-5h-5NN"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="tgu-Uk-Mk1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jvk-rU-ww1">
-                                <rect key="frame" x="224" y="0.0" width="80" height="44"/>
+                                <rect key="frame" x="334" y="0.0" width="25" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="bt_save">
+                                <state key="normal" image="bookmark">
                                     <color key="titleColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="focused" image="bookmark_selected_white"/>
                                 <connections>
                                     <action selector="btSavePressed:" destination="00Y-iY-hoK" eventType="touchUpInside" id="xGb-yZ-i7O"/>
                                 </connections>
@@ -860,7 +858,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="_btBack" destination="C5A-Wc-LtU" id="I2g-2g-0WF"/>
                         <outlet property="_btSave" destination="Jvk-rU-ww1" id="cir-lS-KOw"/>
                         <outlet property="_tableView" destination="BzC-f6-Rc8" id="hbU-SG-mhB"/>
                     </connections>
@@ -1444,7 +1444,7 @@
         <!--保存リスト-->
         <scene sceneID="e11-dJ-Ona">
             <objects>
-                <navigationController definesPresentationContext="YES" id="lgf-KT-zB2" customClass="KUNavigationController" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="lgf-KT-zB2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="保存リスト" image="bookmark" selectedImage="bookmark_selected" id="9No-iU-lwt">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
@@ -1601,13 +1601,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark" width="22" height="25"/>
+        <image name="bookmark" width="20" height="22"/>
         <image name="bookmark_selected" width="22" height="25"/>
-        <image name="bt_back" width="80" height="44"/>
+        <image name="bookmark_selected_white" width="22" height="25"/>
+        <image name="bt_back" width="60" height="17"/>
         <image name="bt_close_picker" width="82" height="45"/>
         <image name="bt_info" width="20" height="20"/>
         <image name="bt_reverse" width="69" height="69"/>
-        <image name="bt_save" width="80" height="44"/>
         <image name="ic_bit" width="16" height="16"/>
         <image name="ic_full" width="15" height="15"/>
         <image name="ic_invalid" width="15" height="15"/>

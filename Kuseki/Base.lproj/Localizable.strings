@@ -34,7 +34,7 @@
  "notificationFeature" = "Notification feature";
  "descriptionForNotification" = "Turn on the notification feature for the train you focused. When the vacancy situation was changed, this app notify will notify you.";
 
-
+"backButton" = "bt_back_en";
 "searchButton" = "bt_search_en";
 "saveButton" = "bt_save_en";
 
