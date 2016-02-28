@@ -10,8 +10,8 @@
  "rideDate" = "Date";
  "rideTime" = "Time";
  "typeOfTrain" = "Type of train";
- "departureStation" = "Departure station";
- "destinationStation" = "Destination station";
+ "departureStation" = "From";
+ "destinationStation" = "To";
  "search" = "Search";
  "searchResults" = "Search Results";
  "vacant" = "vacant";

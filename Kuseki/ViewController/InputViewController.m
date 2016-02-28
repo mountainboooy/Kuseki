@@ -18,6 +18,7 @@
 #import "KUReviewMusterController.h"
 
 #define NO_SELECTED_INDEX 99
+#define PICKERVIEW_HEIGHT 240
 
 @interface
 InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MITextFieldDelegate, THDatePickerDelegate> {
@@ -256,8 +257,9 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             
 
         case 4: {
-            UIButton *bt_search = (UIButton *)[cell viewWithTag:1];
-            [bt_search addTarget:self action:@selector(btSearchPressed) forControlEvents:UIControlEventTouchUpInside];
+            UIButton *btSearch = (UIButton *)[cell viewWithTag:1];
+            [btSearch setTitle:NSLocalizedString(@"Search", nil) forState:UIControlStateNormal];
+            [btSearch addTarget:self action:@selector(btSearchPressed) forControlEvents:UIControlEventTouchUpInside];
             break;
         }
     }
@@ -617,7 +619,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [UIView animateWithDuration:0.3
                      animations:^{
                          _bottomSpace_picker_train.constant = 0;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
+                         _tableView.contentInset = UIEdgeInsetsMake(0, 0, PICKERVIEW_HEIGHT, 0);
                          [self.view layoutIfNeeded];
                      }];
 
@@ -634,7 +636,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [UIView animateWithDuration:0.3
                      animations:^{
                          _bottomSpace_picker_train.constant = -300;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+                         _tableView.contentInset = UIEdgeInsetsZero;
                          [self.view layoutIfNeeded];
                      }];
 }
@@ -646,7 +648,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [UIView animateWithDuration:0.3
                      animations:^{
                          _bottomSpace_picker_dep.constant = -0;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
+                         _tableView.contentInset = UIEdgeInsetsMake(0, 0, PICKERVIEW_HEIGHT, 0);
                          [self.view layoutIfNeeded];
                      }];
 
@@ -663,7 +665,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [UIView animateWithDuration:0.3
         animations:^{
             _bottomSpace_picker_dep.constant = -300;
-            _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+            _tableView.contentInset = UIEdgeInsetsZero;
             [self.view layoutIfNeeded];
         }
         completion:^(BOOL finished) {}];
@@ -675,7 +677,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [UIView animateWithDuration:0.3
                      animations:^{
                          _bottomSpace_picker_arr.constant = -0;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
+                         _tableView.contentInset = UIEdgeInsetsMake(0, 0, PICKERVIEW_HEIGHT, 0);
                          [self.view layoutIfNeeded];
                      }];
 
@@ -693,21 +695,20 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         animations:^{
             _bottomSpace_picker_arr.constant = -300;
             [self.view layoutIfNeeded];
-            _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+            _tableView.contentInset = UIEdgeInsetsZero;
         }
         completion:^(BOOL finished) {}];
+  
 }
 
 - (void)keyboardWillAppear:(NSNotification *)notification
 {
-    [UIView animateWithDuration:0.3
-                     animations:^{ _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0); }];
+
 }
 
 - (void)keyboardWillDisappear:(NSNotification *)notification
 {
-    [UIView animateWithDuration:0.3
-                     animations:^{ _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); }];
+
 }
 
 - (void)updateStations
