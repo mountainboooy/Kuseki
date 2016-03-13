@@ -276,27 +276,27 @@
     switch (seatValue) {
         
         case SEAT_VACANT:{
-            imgName = @"ic_vacant";
+            imgName = @"vacant";
             break;
         }
             
         case SEAT_BIT:{
-            imgName = @"ic_bit";
+            imgName = @"slightly";
             break;
         }
             
         case SEAT_FULL:{
-            imgName = @"ic_full";
+            imgName = @"occupied";
             break;
         }
             
         case SEAT_INVALID:{
-            imgName = @"ic_invalid";
+            imgName = @"not_available";
             break;
         }
             
         case SEAT_NOT_EXIST_SMOKINGSEAT:{
-            imgName = @"ic_not_exist";
+            imgName = @"no_smoking_car";
             break;
         }
             
