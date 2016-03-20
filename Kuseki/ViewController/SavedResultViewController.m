@@ -20,6 +20,7 @@
 
     // outlet
     __weak IBOutlet UITableView *_tableView;
+    __weak IBOutlet UIBarButtonItem *_btBack;
 
     // model
     KUResponseManager *_responseManager;
@@ -71,6 +72,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setTitle];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self setBackButton];
 }
 
 #pragma mark -
@@ -237,8 +243,12 @@
 #pragma mark -
 #pragma mark button action
 
-- (IBAction)btBackPressed:(id)sender
-{
+- (void)setBackButton {
+    NSString *imgName = NSLocalizedString(@"backButton", nil);
+    [_btBack setImage:[UIImage imageNamed:imgName]];
+}
+
+- (IBAction)btBackPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -310,7 +320,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
+    label.textColor = [UIColor whiteColor];
     label.text = @"検索結果";
     self.navigationItem.titleView = label;
 }

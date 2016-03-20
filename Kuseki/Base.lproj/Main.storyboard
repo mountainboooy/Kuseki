@@ -2823,20 +2823,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vhT-zp-IEz">
-                        <barButtonItem key="leftBarButtonItem" image="bt_back" style="plain" id="cGr-sk-p4L">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zbs-XY-yFe">
-                                <rect key="frame" x="16" y="0.0" width="80" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="bt_back">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btBackPressed:" destination="9lU-IC-3KP" eventType="touchUpInside" id="PqU-bk-phI"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Bc7-0f-opp">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="backBtPressed:" destination="9lU-IC-3KP" id="3G8-KI-6Dp"/>
+                                <action selector="btBackPressed:" destination="9lU-IC-3KP" id="ZLk-ph-25P"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2844,6 +2834,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="_btBack" destination="Bc7-0f-opp" id="l3I-NO-uAz"/>
                         <outlet property="_tableView" destination="6Jk-Uq-RWM" id="LV6-yW-U0P"/>
                     </connections>
                 </viewController>
