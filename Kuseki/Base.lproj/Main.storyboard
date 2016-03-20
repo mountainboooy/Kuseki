@@ -2922,8 +2922,9 @@
                     <tabBarItem key="tabBarItem" title="保存リスト" image="bookmark" selectedImage="bookmark_selected" id="9No-iU-lwt">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W1x-s3-Na0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="W1x-s3-Na0">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1647058824" green="0.21176470589999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="TrM-p4-qN0" kind="relationship" relationship="rootViewController" id="EbV-wR-86a"/>
@@ -2942,15 +2943,15 @@
                         <viewControllerLayoutGuide type="bottom" id="qls-4i-UZ5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ndT-Lj-hfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-OV-nTc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell0" id="qHF-hS-lrH">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="105"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell0" rowHeight="105" id="qHF-hS-lrH">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qHF-hS-lrH" id="XRb-ph-lyL">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="104.5"/>
@@ -3135,8 +3136,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="保存した検索条件" id="34J-xe-vFA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ekf-kh-8vK">
-                            <color key="tintColor" white="0.38370122350000002" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" image="trash" id="ekf-kh-8vK">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="btTrashPressed:" destination="TrM-p4-qN0" id="IQZ-Jl-INs"/>
                             </connections>
@@ -3150,130 +3151,11 @@
             </objects>
             <point key="canvasLocation" x="1007" y="-116"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="KhY-BV-cLd">
-            <objects>
-                <viewController id="C8y-gi-L5H" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gnH-eR-9EA"/>
-                        <viewControllerLayoutGuide type="bottom" id="I1W-Xc-xwn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5TX-sH-ww5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K5X-qa-5tW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="dH9-Dr-Hkk">
-            <objects>
-                <viewController id="WBO-dx-JUz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9ez-4i-qOH"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zxb-Qq-ieo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IUH-9m-x8h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="chN-Cc-xHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="mgA-vJ-UIm">
-            <objects>
-                <viewController id="Bek-SJ-9OW" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="J07-Q4-P2b"/>
-                        <viewControllerLayoutGuide type="bottom" id="3iO-zL-mqN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="E8s-Cs-v7A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5nX-fC-WwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
         <!--Storyboard Reference-->
         <scene sceneID="pEt-qu-yyU">
             <objects>
                 <viewControllerPlaceholder id="WbZ-PW-3EE" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml7-xR-iCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="LZY-dw-ga5">
-            <objects>
-                <viewController id="0TR-ZI-BfR" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aU8-x5-DH4"/>
-                        <viewControllerLayoutGuide type="bottom" id="NwW-m4-PYL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iUL-Ge-b6g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u6N-OR-2zf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Nh7-af-7Qr">
-            <objects>
-                <viewController id="7xL-za-OFq" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oH9-Op-7Zl"/>
-                        <viewControllerLayoutGuide type="bottom" id="j73-eR-kcm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UuB-Mi-Jh2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gfV-mM-84o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="uD8-eO-rwt">
-            <objects>
-                <viewController id="wyu-qA-aNL" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hF2-RD-PgS"/>
-                        <viewControllerLayoutGuide type="bottom" id="L3v-sd-maN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KHs-Ou-Bys">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2tp-is-APJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="q4g-Nd-qub">
-            <objects>
-                <viewController id="z3w-0D-SQJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qzf-be-ptW"/>
-                        <viewControllerLayoutGuide type="bottom" id="xNR-Oz-UxD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="W3N-2x-o4m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LYR-lV-zVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
@@ -3302,5 +3184,6 @@
         <image name="navbar" width="320" height="64"/>
         <image name="shape" width="25" height="25"/>
         <image name="shape_selected" width="25" height="25"/>
+        <image name="trash" width="26" height="28"/>
     </resources>
 </document>

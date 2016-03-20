@@ -65,8 +65,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma  mark -
-#pragma  makrk tableView
+#pragma  mark - table view
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -85,6 +84,10 @@
     
     [self updateCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 105;
 }
 
 
@@ -112,29 +115,6 @@
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:4];
     lb_arr_stn.text= [KUStationsManager localizedStation:condition.arr_stn];
 }
-
-
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header0"];
-    UILabel *lb_date = (UILabel *)[cell viewWithTag:1];
-    UILabel *lb_time = (UILabel *)[cell viewWithTag:2];
-    UILabel *lb_departure = (UILabel *)[cell viewWithTag:3];
-    UILabel *lb_destination = (UILabel *)[cell viewWithTag:4];
-    lb_date.text = NSLocalizedString(@"rideDate", nil);
-    lb_time.text = NSLocalizedString(@"rideTime", nil);
-    lb_departure.text = NSLocalizedString(@"departureStation", nil);
-    lb_destination.text = NSLocalizedString(@"destinationStation", nil);
-    
-    
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 45;
-}
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -215,7 +195,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:17];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor =[UIColor colorWithRed:0.39 green:0.39 blue:0.39 alpha:1];
+    label.textColor =[UIColor whiteColor];
     label.text = NSLocalizedString(@"savedHistory", nil);
     self.navigationItem.titleView = label;
     
