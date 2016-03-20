@@ -135,11 +135,8 @@
     
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    UILabel *lb_month = (UILabel*)[cell viewWithTag:4];
-    lb_month.text = _condition.month;
-    
-    UILabel *lb_day = (UILabel*)[cell viewWithTag:5];
-    lb_day.text = _condition.day;
+    UILabel *lbDate = (UILabel *)[cell viewWithTag:4];
+    lbDate.text = _condition.stringDate;
     
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
