@@ -35,7 +35,7 @@
     [super viewDidLoad];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setTitle];
     
     _conditionManager = [KUSearchConditionManager sharedManager];
@@ -100,20 +100,20 @@
     KUSearchCondition *condition = _conditionManager.conditions[indexPath.row];
     
     //月日
-    UILabel *lb_month_day = (UILabel*)[cell viewWithTag:1];
-    lb_month_day.text = [NSString stringWithFormat:@"%@/%@", condition.month, condition.day];
+    UILabel *lbDate = (UILabel*)[cell viewWithTag:1];
+    lbDate.text = [condition stringDate];
     
     //時間
-    UILabel *lb_time = (UILabel*)[cell viewWithTag:2];
-    lb_time.text = [NSString stringWithFormat:@"%@ : %@",condition.hour, condition.minute];
+    UILabel *lbTime = (UILabel*)[cell viewWithTag:2];
+    lbTime.text = [NSString stringWithFormat:@"%@ : %@",condition.hour, condition.minute];
     
     //dep_stn
-    UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:3];
-    lb_dep_stn.text = [KUStationsManager localizedStation:condition.dep_stn];
+    UILabel *lbDepStation = (UILabel*)[cell viewWithTag:3];
+    lbDepStation.text = [KUStationsManager localizedStation:condition.dep_stn];
     
     //arr_stn
-    UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:4];
-    lb_arr_stn.text= [KUStationsManager localizedStation:condition.arr_stn];
+    UILabel *lbArrStation = (UILabel*)[cell viewWithTag:4];
+    lbArrStation.text= [KUStationsManager localizedStation:condition.arr_stn];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
