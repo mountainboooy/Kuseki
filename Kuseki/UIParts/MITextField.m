@@ -108,8 +108,8 @@
     if (!_inputAccessoryView) {
         
         //baseView
-        _inputAccessoryView = [[UIToolbar alloc]initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width , 44)];
-        _inputAccessoryView.backgroundColor = [UIColor colorWithRed:0.4 green:0.38 blue:0.36 alpha:0.8];
+        _inputAccessoryView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width , 44)];
+        _inputAccessoryView.backgroundColor = [UIColor colorWithRed:0.819 green:0.831 blue:0.858 alpha:1];
         
         //button_close
         UIButton *bt_close = [UIButton buttonWithType:UIButtonTypeCustom];
