@@ -461,7 +461,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     textField.text = @"";
 
     // table scroll
-    [_tableView scrollToRowAtIndexPath:textField.indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:textField.indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
@@ -628,7 +628,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [self setFocusColorWithSelectedIndex:indexPath.row];
 
     // table スクロール
-    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)hidePickerTrain
@@ -658,7 +658,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     // table スクロール
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)hidePickerDep
@@ -689,7 +689,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     // table スクロール
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)hidePickerArr
