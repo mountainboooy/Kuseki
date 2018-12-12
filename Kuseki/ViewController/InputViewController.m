@@ -200,7 +200,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
             focus_view.alpha = (indexPath.row == _selected_index) ? 0.2 : 0;
             
             //localization
-            lb_trainType.text = NSLocalizedString(@"Type of train", nil);
+            lb_trainType.text = NSLocalizedString(@"typeOfTrain", nil);
 
             break;
         }
