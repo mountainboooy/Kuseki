@@ -316,6 +316,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
         case 2: {  // train types
             [self hidePickerArr];
             [self hidePickerDep];
+            [self hidePickerTrain];
             [self showPickerTrain];
             break;
         }
@@ -460,7 +461,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     textField.text = @"";
 
     // table scroll
-    [_tableView scrollToRowAtIndexPath:textField.indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:textField.indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)textFieldDidEndEditing:(MITextField *)textField
@@ -614,10 +615,11 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (void)showPickerTrain
 {
     [self.view endEditing:YES];
+    [self.view layoutIfNeeded];
+    _bottomSpace_picker_train.constant = 0;
+    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 300, 0);
     [UIView animateWithDuration:0.3
                      animations:^{
-                         _bottomSpace_picker_train.constant = 0;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
                          [self.view layoutIfNeeded];
                      }];
 
@@ -626,15 +628,16 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
     [self setFocusColorWithSelectedIndex:indexPath.row];
 
     // table スクロール
-    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)hidePickerTrain
 {
+    [self.view layoutIfNeeded];
+    _bottomSpace_picker_train.constant = -300;
+    _tableView.contentInset = UIEdgeInsetsZero;
     [UIView animateWithDuration:0.3
                      animations:^{
-                         _bottomSpace_picker_train.constant = -300;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
                          [self.view layoutIfNeeded];
                      }];
 }
@@ -642,11 +645,11 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 // picker_dep
 - (void)showPickerDep
 {
-
+    [self.view layoutIfNeeded];
+    _bottomSpace_picker_dep.constant = -0;
+    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 300, 0);
     [UIView animateWithDuration:0.3
                      animations:^{
-                         _bottomSpace_picker_dep.constant = -0;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
                          [self.view layoutIfNeeded];
                      }];
 
@@ -655,15 +658,16 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     // table スクロール
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)hidePickerDep
 {
+    [self.view layoutIfNeeded];
+    _bottomSpace_picker_dep.constant = -300;
+    _tableView.contentInset = UIEdgeInsetsZero;
     [UIView animateWithDuration:0.3
         animations:^{
-            _bottomSpace_picker_dep.constant = -300;
-            _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
             [self.view layoutIfNeeded];
         }
         completion:^(BOOL finished) {}];
@@ -672,10 +676,11 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 // picker_arr
 - (void)showPickerArr
 {
+    [self.view layoutIfNeeded];
+    _bottomSpace_picker_arr.constant = -0;
+    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 300, 0);
     [UIView animateWithDuration:0.3
                      animations:^{
-                         _bottomSpace_picker_arr.constant = -0;
-                         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0);
                          [self.view layoutIfNeeded];
                      }];
 
@@ -684,30 +689,39 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 
     // table スクロール
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
-    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (void)hidePickerArr
 {
+    [self.view layoutIfNeeded];
+    _bottomSpace_picker_arr.constant = -300;
+    _tableView.contentInset = UIEdgeInsetsZero;
     [UIView animateWithDuration:0.3
         animations:^{
-            _bottomSpace_picker_arr.constant = -300;
             [self.view layoutIfNeeded];
-            _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         }
         completion:^(BOOL finished) {}];
 }
 
 - (void)keyboardWillAppear:(NSNotification *)notification
 {
+    [self.view layoutIfNeeded];
+    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 300, 0);
     [UIView animateWithDuration:0.3
-                     animations:^{ _tableView.contentInset = UIEdgeInsetsMake(64, 0, 300, 0); }];
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
 }
 
 - (void)keyboardWillDisappear:(NSNotification *)notification
 {
+    [self.view layoutIfNeeded];
+    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [UIView animateWithDuration:0.3
-                     animations:^{ _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0); }];
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
 }
 
 - (void)updateStations
@@ -790,7 +804,7 @@ InputViewController () <UITableViewDataSource, UITableViewDelegate, UIPickerView
 - (void)btNextDepPressed
 {
     [self hidePickerDep];
-    [self showPickerArr];
+    //[self showPickerArr];
 }
 
 - (void)btCloseDepPressed
