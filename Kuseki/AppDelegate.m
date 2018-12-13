@@ -17,6 +17,7 @@
 #import "Flurry.h"
 #import "KUReviewMusterController.h"
 #import "NSUserDefaults+ClearAllData.h"
+@import GoogleMobileAds;
 
 @interface AppDelegate () <KUSavedResponsesManagerDelegate, UIAlertViewDelegate>
 @end
@@ -34,6 +35,9 @@
     
     //ReviewMusterController
     [self setUpReviewMusterController];
+    
+    // Initialize Google Mobile Ads SDK
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-1424580573410744~7400800536"];
 
     return YES;
 }
