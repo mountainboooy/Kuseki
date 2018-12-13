@@ -72,7 +72,7 @@
 		05F8357318A4F15D00A1CA5B /* KUSavedResponsesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F8357218A4F15D00A1CA5B /* KUSavedResponsesManager.m */; };
 		05FC27F818A0E64A00C2A0F7 /* KUNotificationTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */; };
 		05FC27FB18A1044A00C2A0F7 /* KUNotificationTargetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */; };
-		3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F9F7F9724E48608E62F1F2 /* libPods.a */; };
+		DD05E9E02656739DFCC4EED1 /* libPods-KusekiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B60005E4D2F6108566943A /* libPods-KusekiTests.a */; };
 		E00942DD1C52819F00926DF1 /* KUDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */; };
 		E00942E41C5310E400926DF1 /* NSDate+IntegerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942E31C5310E400926DF1 /* NSDate+IntegerDate.m */; };
 		E02464EC1C5516770037A44C /* KUReviewMusterController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02464EB1C5516770037A44C /* KUReviewMusterController.m */; };
@@ -95,6 +95,7 @@
 		E0E874251C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
 		E0E874261C47EA5400504B33 /* Factory in Resources */ = {isa = PBXBuildFile; fileRef = E0E874241C47EA5400504B33 /* Factory */; };
 		E0E966EF1C54EBF900EE4FC5 /* KUDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */; };
+		F95EDB796E9D3E5DC61380FD /* libPods-Kuseki.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150F03EE6D00768968AEB694 /* libPods-Kuseki.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,8 +191,13 @@
 		05FC27F718A0E64A00C2A0F7 /* KUNotificationTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTarget.m; sourceTree = "<group>"; };
 		05FC27F918A1044900C2A0F7 /* KUNotificationTargetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUNotificationTargetsManager.h; sourceTree = "<group>"; };
 		05FC27FA18A1044900C2A0F7 /* KUNotificationTargetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUNotificationTargetsManager.m; sourceTree = "<group>"; };
+		071E5A97AFBC7B6EA5ED6B15 /* Pods-KusekiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KusekiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KusekiTests/Pods-KusekiTests.release.xcconfig"; sourceTree = "<group>"; };
+		150F03EE6D00768968AEB694 /* libPods-Kuseki.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kuseki.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A054E91275E02DB1E116679 /* Pods-KusekiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KusekiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KusekiTests/Pods-KusekiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		34F9F7F9724E48608E62F1F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		55B60005E4D2F6108566943A /* libPods-KusekiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KusekiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CF9C12C8D157DB53B71CC5FA /* Pods-Kuseki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuseki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kuseki/Pods-Kuseki.debug.xcconfig"; sourceTree = "<group>"; };
 		E00942DB1C52819F00926DF1 /* KUDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KUDatePickerViewController.h; sourceTree = "<group>"; };
 		E00942DC1C52819F00926DF1 /* KUDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KUDatePickerViewController.m; sourceTree = "<group>"; };
 		E00942E21C5310E400926DF1 /* NSDate+IntegerDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+IntegerDate.h"; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 		E066172C1C342ECF0033E9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E066172E1C342ED30033E9B4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E0E874241C47EA5400504B33 /* Factory */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Factory; sourceTree = "<group>"; };
+		F02CFCA0036B1C5A9A6A41EC /* Pods-Kuseki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kuseki.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kuseki/Pods-Kuseki.release.xcconfig"; sourceTree = "<group>"; };
 		F373E19D040F121801F0602B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,7 +230,7 @@
 				05DFAAAA19642A01006D5AF2 /* libFlurry_5.1.0.a in Frameworks */,
 				0589B106188403F900DBE642 /* UIKit.framework in Frameworks */,
 				0589B102188403F900DBE642 /* Foundation.framework in Frameworks */,
-				3C656A90EF3C42AA91DBAB0D /* libPods.a in Frameworks */,
+				F95EDB796E9D3E5DC61380FD /* libPods-Kuseki.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +244,7 @@
 				0589B123188403FA00DBE642 /* UIKit.framework in Frameworks */,
 				0589B122188403FA00DBE642 /* Foundation.framework in Frameworks */,
 				054C262918A5FBF100BC1F79 /* libPods.a in Frameworks */,
+				DD05E9E02656739DFCC4EED1 /* libPods-KusekiTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +295,8 @@
 				0589B105188403F900DBE642 /* UIKit.framework */,
 				0589B120188403FA00DBE642 /* XCTest.framework */,
 				34F9F7F9724E48608E62F1F2 /* libPods.a */,
+				150F03EE6D00768968AEB694 /* libPods-Kuseki.a */,
+				55B60005E4D2F6108566943A /* libPods-KusekiTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -465,6 +475,10 @@
 			children = (
 				F373E19D040F121801F0602B /* Pods.debug.xcconfig */,
 				C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */,
+				CF9C12C8D157DB53B71CC5FA /* Pods-Kuseki.debug.xcconfig */,
+				F02CFCA0036B1C5A9A6A41EC /* Pods-Kuseki.release.xcconfig */,
+				1A054E91275E02DB1E116679 /* Pods-KusekiTests.debug.xcconfig */,
+				071E5A97AFBC7B6EA5ED6B15 /* Pods-KusekiTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -476,12 +490,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0589B130188403FA00DBE642 /* Build configuration list for PBXNativeTarget "Kuseki" */;
 			buildPhases = (
+				C01B4A9F36BBA41551FCC934 /* [CP] Check Pods Manifest.lock */,
 				B6DD254BC4514A33858A797A /* Check Pods Manifest.lock */,
 				0589B0FA188403F900DBE642 /* Sources */,
 				0589B0FB188403F900DBE642 /* Frameworks */,
 				0589B0FC188403F900DBE642 /* Resources */,
-				7B16045DC7CF47C88E31A789 /* Copy Pods Resources */,
-				884F0FB3C3461498119F5340 /* Embed Pods Frameworks */,
+				E43AB86B51003584F74D55BC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -496,9 +510,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0589B133188403FA00DBE642 /* Build configuration list for PBXNativeTarget "KusekiTests" */;
 			buildPhases = (
+				4833C0847650EF0BCBB7F46D /* [CP] Check Pods Manifest.lock */,
 				0589B11B188403FA00DBE642 /* Sources */,
 				0589B11C188403FA00DBE642 /* Frameworks */,
 				0589B11D188403FA00DBE642 /* Resources */,
+				FD4FDD63D2517DD7FB66E3E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -583,34 +599,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7B16045DC7CF47C88E31A789 /* Copy Pods Resources */ = {
+		4833C0847650EF0BCBB7F46D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KusekiTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		884F0FB3C3461498119F5340 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B6DD254BC4514A33858A797A /* Check Pods Manifest.lock */ = {
@@ -626,6 +634,80 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C01B4A9F36BBA41551FCC934 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kuseki-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E43AB86B51003584F74D55BC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Kuseki/Pods-Kuseki-resources.sh",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDateDay.xib",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDatePickerViewController.xib",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/Media.xcassets",
+			);
+			name = "Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDateDay.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDatePickerViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kuseki/Pods-Kuseki-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD4FDD63D2517DD7FB66E3E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KusekiTests/Pods-KusekiTests-resources.sh",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDateDay.xib",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDatePickerViewController.xib",
+				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/Media.xcassets",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDateDay.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDatePickerViewController.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KusekiTests/Pods-KusekiTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -759,7 +841,7 @@
 /* Begin XCBuildConfiguration section */
 		0589B12E188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CF9C12C8D157DB53B71CC5FA /* Pods-Kuseki.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -792,6 +874,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -799,7 +882,7 @@
 		};
 		0589B12F188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
+			baseConfigurationReference = F02CFCA0036B1C5A9A6A41EC /* Pods-Kuseki.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -825,6 +908,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -832,7 +916,7 @@
 		};
 		0589B131188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CF9C12C8D157DB53B71CC5FA /* Pods-Kuseki.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -862,7 +946,7 @@
 		};
 		0589B132188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
+			baseConfigurationReference = F02CFCA0036B1C5A9A6A41EC /* Pods-Kuseki.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -892,7 +976,7 @@
 		};
 		0589B134188403FA00DBE642 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F373E19D040F121801F0602B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1A054E91275E02DB1E116679 /* Pods-KusekiTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -923,7 +1007,7 @@
 		};
 		0589B135188403FA00DBE642 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C41D9432F35C0553835BE6F9 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 071E5A97AFBC7B6EA5ED6B15 /* Pods-KusekiTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kuseki.app/Kuseki";
 				FRAMEWORK_SEARCH_PATHS = (

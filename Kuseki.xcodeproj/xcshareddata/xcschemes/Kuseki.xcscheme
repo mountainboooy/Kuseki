@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D767837B81E8CD71B8D201C0DDAF3F27"
+               BuildableName = "libPods-Kuseki.a"
+               BlueprintName = "Pods-Kuseki"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "0589B0FD188403F900DBE642"
                BuildableName = "Kuseki.app"
                BlueprintName = "Kuseki"
