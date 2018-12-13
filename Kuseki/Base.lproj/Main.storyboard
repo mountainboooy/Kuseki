@@ -449,7 +449,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-f6-Rc8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header0" rowHeight="68" id="abH-E5-9KJ">
@@ -797,10 +797,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkH-8k-B2A" customClass="GADBannerView">
+                                <rect key="frame" x="27.5" y="617" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="2CB-Pe-zcN"/>
+                                    <constraint firstAttribute="height" constant="50" id="gp3-BH-doi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4uq-rE-sfY" firstAttribute="top" secondItem="BzC-f6-Rc8" secondAttribute="bottom" id="kMA-NX-XOG"/>
+                            <constraint firstItem="NkH-8k-B2A" firstAttribute="centerX" secondItem="1XA-uZ-09H" secondAttribute="centerX" id="GRq-OI-zdt"/>
+                            <constraint firstItem="4uq-rE-sfY" firstAttribute="top" secondItem="NkH-8k-B2A" secondAttribute="bottom" id="RVd-P5-p79"/>
+                            <constraint firstItem="4uq-rE-sfY" firstAttribute="top" secondItem="BzC-f6-Rc8" secondAttribute="bottom" constant="50" id="kMA-NX-XOG"/>
                             <constraint firstAttribute="trailing" secondItem="BzC-f6-Rc8" secondAttribute="trailing" id="ng5-CX-PBW"/>
                             <constraint firstItem="BzC-f6-Rc8" firstAttribute="top" secondItem="1XA-uZ-09H" secondAttribute="top" id="xAA-mg-fmQ"/>
                             <constraint firstItem="BzC-f6-Rc8" firstAttribute="leading" secondItem="1XA-uZ-09H" secondAttribute="leading" id="yhJ-Tr-vq3"/>
@@ -838,6 +848,7 @@
                     <connections>
                         <outlet property="_btSave" destination="Jvk-rU-ww1" id="cir-lS-KOw"/>
                         <outlet property="_tableView" destination="BzC-f6-Rc8" id="hbU-SG-mhB"/>
+                        <outlet property="bannerView" destination="NkH-8k-B2A" id="fSI-2k-jbq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p83-TC-olz" userLabel="First Responder" sceneMemberID="firstResponder"/>

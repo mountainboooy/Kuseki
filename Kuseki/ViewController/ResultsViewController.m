@@ -17,6 +17,7 @@
 #import "Flurry.h"
 #import "KUStationsManager.h"
 #import "KUReviewMusterController.h"
+@import GoogleMobileAds;
 
 @interface ResultsViewController ()
 <UITableViewDataSource, UITableViewDelegate>
@@ -25,6 +26,7 @@
     //outlet
     __weak IBOutlet UITableView *_tableView;
     __weak IBOutlet UIButton *_btSave;
+    __weak IBOutlet GADBannerView *bannerView;
     
     //model
     KUSearchCondition    *_condition;
@@ -42,6 +44,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //admob
+    self->bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self->bannerView.rootViewController = self;
+    [self->bannerView loadRequest:[GADRequest request]];
     
     //tableView
     _tableView.dataSource = self;
