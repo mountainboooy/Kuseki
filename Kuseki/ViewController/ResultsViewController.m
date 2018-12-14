@@ -20,7 +20,7 @@
 @import GoogleMobileAds;
 
 @interface ResultsViewController ()
-<UITableViewDataSource, UITableViewDelegate, GADBannerViewDelegate>
+<UITableViewDataSource, UITableViewDelegate>
 
 {
     //outlet
@@ -52,7 +52,6 @@
     GADRequest *request = [GADRequest request];
     request.testDevices = @[ @"271c2a55c170420e3160f4d77d4a97b0" ];
     [self->bannerView loadRequest:request];
-    self->bannerView.delegate = self;
     
     //tableView
     _tableView.dataSource = self;
@@ -366,16 +365,6 @@
 
 - (void)fireReviewTrigger {
     [KUReviewMusterController fireEventWithKey:@"DID_BECOME_ACTIVE" viewController:self];
-}
-
-#pragma mark -admob
-- (void)adViewDidReceiveAd:(GADBannerView *)adView {
-    NSLog(@"adViewDidReceiveAd");
-}
-
-- (void)adView:(GADBannerView *)adView
-didFailToReceiveAdWithError:(GADRequestError *)error {
-    NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
 }
 
 @end
