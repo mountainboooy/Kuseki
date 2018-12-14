@@ -31,6 +31,9 @@
     [datePicker setAutoCloseOnSelectDate:YES];
     datePicker.slideAnimationDuration = .2;
     [datePicker setAllowSelectionOfSelectedDate:NO];
+    [datePicker setSelectedBackgroundColor:[UIColor colorWithRed:0 green:0.49 blue:1.0 alpha:1.0]];
+    [datePicker setCurrentDateColor:[UIColor colorWithRed:0 green:0.49 blue:1.0 alpha:1.0]];
+
     
     
     return (KUDatePickerViewController *)datePicker;

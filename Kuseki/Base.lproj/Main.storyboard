@@ -449,7 +449,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-f6-Rc8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header0" rowHeight="68" id="abH-E5-9KJ">
@@ -797,10 +797,44 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYc-2m-GCn">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADVERTISEMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcj-cU-fc0">
+                                        <rect key="frame" x="87.5" y="14.5" width="200" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="9oS-xU-Ohj"/>
+                                            <constraint firstAttribute="height" constant="21" id="uTj-66-vw0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NkH-8k-B2A" customClass="GADBannerView">
+                                        <rect key="frame" x="27.5" y="0.0" width="320" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="2CB-Pe-zcN"/>
+                                            <constraint firstAttribute="height" constant="50" id="gp3-BH-doi"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Bcj-cU-fc0" firstAttribute="centerY" secondItem="yYc-2m-GCn" secondAttribute="centerY" id="4ST-Y8-jww"/>
+                                    <constraint firstItem="NkH-8k-B2A" firstAttribute="centerY" secondItem="yYc-2m-GCn" secondAttribute="centerY" id="6eE-Wq-BeG"/>
+                                    <constraint firstItem="Bcj-cU-fc0" firstAttribute="centerX" secondItem="yYc-2m-GCn" secondAttribute="centerX" id="dW8-g6-Lzh"/>
+                                    <constraint firstAttribute="height" constant="50" id="gve-It-Tvm"/>
+                                    <constraint firstItem="NkH-8k-B2A" firstAttribute="centerX" secondItem="yYc-2m-GCn" secondAttribute="centerX" id="icR-hF-ZyR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4uq-rE-sfY" firstAttribute="top" secondItem="BzC-f6-Rc8" secondAttribute="bottom" id="kMA-NX-XOG"/>
+                            <constraint firstItem="yYc-2m-GCn" firstAttribute="leading" secondItem="1XA-uZ-09H" secondAttribute="leading" id="9hk-ti-Qqz"/>
+                            <constraint firstItem="4uq-rE-sfY" firstAttribute="top" secondItem="yYc-2m-GCn" secondAttribute="bottom" id="R1p-uJ-Gbj"/>
+                            <constraint firstAttribute="trailing" secondItem="yYc-2m-GCn" secondAttribute="trailing" id="dvU-gF-YTv"/>
+                            <constraint firstItem="4uq-rE-sfY" firstAttribute="top" secondItem="BzC-f6-Rc8" secondAttribute="bottom" constant="50" id="kMA-NX-XOG"/>
                             <constraint firstAttribute="trailing" secondItem="BzC-f6-Rc8" secondAttribute="trailing" id="ng5-CX-PBW"/>
                             <constraint firstItem="BzC-f6-Rc8" firstAttribute="top" secondItem="1XA-uZ-09H" secondAttribute="top" id="xAA-mg-fmQ"/>
                             <constraint firstItem="BzC-f6-Rc8" firstAttribute="leading" secondItem="1XA-uZ-09H" secondAttribute="leading" id="yhJ-Tr-vq3"/>
@@ -838,6 +872,7 @@
                     <connections>
                         <outlet property="_btSave" destination="Jvk-rU-ww1" id="cir-lS-KOw"/>
                         <outlet property="_tableView" destination="BzC-f6-Rc8" id="hbU-SG-mhB"/>
+                        <outlet property="bannerView" destination="NkH-8k-B2A" id="fSI-2k-jbq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p83-TC-olz" userLabel="First Responder" sceneMemberID="firstResponder"/>
