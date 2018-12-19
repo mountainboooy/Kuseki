@@ -289,6 +289,13 @@
 			<string>Sakudaira</string>
 			<string>Ueda</string>
 			<string>Nagano</string>
+			<string>Iiyama</string>
+			<string>Joetsu-Myoko</string>
+			<string>Itoigawa</string>
+			<string>Kurobe-Unazukionsen</string>
+			<string>Toyama</string>
+			<string>Shin-Takaoka</string>
+			<string>Kanazawa</string>
 		</array>
 		<key>ja</key>
 		<array>
@@ -310,6 +317,13 @@
 			<string>佐久平</string>
 			<string>上田</string>
 			<string>長野</string>
+			<string>飯山</string>
+			<string>上越妙高</string>
+			<string>糸魚川</string>
+			<string>黒部宇奈月温泉</string>
+			<string>富山</string>
+			<string>新高岡</string>
+			<string>金沢</string>
 		</array>
 	</dict>
 </dict>
