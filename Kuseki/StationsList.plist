@@ -209,6 +209,9 @@
 			<string>Hachinohe</string>
 			<string>Shichinohe-Towada</string>
 			<string>Shin-Aomori</string>
+			<string>Okutsugaru-Imabetsu</string>
+			<string>Kikonai</string>
+			<string>Shin-Hakodate-Hokuto</string>
 			<string>Yonezawa</string>
 			<string>Takahata</string>
 			<string>Akayu</string>
@@ -250,6 +253,9 @@
 			<string>八戸</string>
 			<string>七戸十和田</string>
 			<string>新青森</string>
+			<string>奥津軽いまべつ</string>
+			<string>木古内</string>
+			<string>新函館北斗</string>
 			<string>米沢</string>
 			<string>高畠</string>
 			<string>赤湯</string>
@@ -289,6 +295,13 @@
 			<string>Sakudaira</string>
 			<string>Ueda</string>
 			<string>Nagano</string>
+			<string>Iiyama</string>
+			<string>Joetsu-Myoko</string>
+			<string>Itoigawa</string>
+			<string>Kurobe-Unazukionsen</string>
+			<string>Toyama</string>
+			<string>Shin-Takaoka</string>
+			<string>Kanazawa</string>
 		</array>
 		<key>ja</key>
 		<array>
@@ -310,6 +323,13 @@
 			<string>佐久平</string>
 			<string>上田</string>
 			<string>長野</string>
+			<string>飯山</string>
+			<string>上越妙高</string>
+			<string>糸魚川</string>
+			<string>黒部宇奈月温泉</string>
+			<string>富山</string>
+			<string>新高岡</string>
+			<string>金沢</string>
 		</array>
 	</dict>
 </dict>
