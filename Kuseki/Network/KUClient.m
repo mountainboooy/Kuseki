@@ -39,8 +39,7 @@
     //action
     _completion = completion;
     _failure = failure;
-    
-    //url
+
     NSString *base_url_str = [_base_url absoluteString];
     NSString *full_url_str = [NSString stringWithFormat:@"%@%@",base_url_str, path];
     NSURL *url = [NSURL URLWithString:full_url_str];
