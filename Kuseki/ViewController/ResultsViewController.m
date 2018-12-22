@@ -66,6 +66,9 @@
     //notification reviewMuster
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireReviewTrigger) name:UIApplicationDidBecomeActiveNotification object:nil];
     
+    //toolbar
+    [_btnBeforeHour setAction:@selector(updateResult)];
+    
     //model
     _responseManager = [KUResponseManager sharedManager];
     
@@ -327,6 +330,22 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 68;
+}
+
+- (void)btnBeforeHourPressed {
+    
+}
+
+- (void)btnBeforeDatePressed {
+    
+}
+
+- (void)btnAfterHourPressed {
+    
+}
+
+- (void)btnAfterDatePressed {
+    
 }
 
 
