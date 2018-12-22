@@ -27,6 +27,10 @@
     __weak IBOutlet UITableView *_tableView;
     __weak IBOutlet UIButton *_btSave;
     __weak IBOutlet GADBannerView *bannerView;
+    __weak IBOutlet UIBarButtonItem *_btnBeforeHour;
+    __weak IBOutlet UIBarButtonItem *_btnBeforeDate;
+    __weak IBOutlet UIBarButtonItem *_btnAfterDate;
+    __weak IBOutlet UIBarButtonItem *_btnAfterHour;
     
     //model
     KUSearchCondition    *_condition;
