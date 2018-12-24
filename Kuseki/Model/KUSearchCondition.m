@@ -8,6 +8,7 @@
 
 #import "KUSearchCondition.h"
 #import "KUDBClient.h"
+#import <NSDate+DateTools.h>
 static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
 
 @implementation KUSearchCondition
@@ -104,6 +105,15 @@ static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
     _dep_stn = @"東京";
     _arr_stn = @"新大阪";
     _year = @"0";
+}
+
+- (void)subtractHour {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateBySubtractingHours:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
 }
 
 

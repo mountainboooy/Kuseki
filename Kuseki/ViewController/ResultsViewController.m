@@ -67,32 +67,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireReviewTrigger) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     //toolbar
-    [_btnBeforeHour setAction:@selector(updateResult)];
+    [_btnBeforeHour setAction:@selector(btnBeforeHourPressed)];
     
     //model
     _responseManager = [KUResponseManager sharedManager];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
-    [_responseManager getResponsesWithParam:_condition completion:^{
-        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-        [_tableView reloadData];
-        
-    } failure:^(NSHTTPURLResponse *res, NSError *err) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-        if (res || err) {//通信問題、サーバーエラーなど
-            NSString* title = [NSString stringWithFormat:@"statusCode:%ld",res.statusCode];
-            NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
-            [AppDelegate showAlertWithTitle:title message:message completion:nil];
-            
-            return;
-        }
-        
-        if(!res && !err){//入力内容に問題あり
-            NSString *message = @"条件に合う空席情報は見つかりませんでした";
-            [AppDelegate showAlertWithTitle:nil message:message completion:nil];
-            return;
-        }
-    }];
+    //update
+    [self update];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -333,7 +314,8 @@
 }
 
 - (void)btnBeforeHourPressed {
-    
+    [_condition subtractHour];
+    [self update];
 }
 
 - (void)btnBeforeDatePressed {
@@ -389,5 +371,31 @@
 - (void)fireReviewTrigger {
     [KUReviewMusterController fireEventWithKey:@"DID_BECOME_ACTIVE" viewController:self];
 }
+
+- (void)update {
+    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+    [_responseManager getResponsesWithParam:_condition completion:^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+        [_tableView reloadData];
+        
+    } failure:^(NSHTTPURLResponse *res, NSError *err) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+        if (res || err) {//通信問題、サーバーエラーなど
+            NSString* title = [NSString stringWithFormat:@"statusCode:%ld",res.statusCode];
+            NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
+            [AppDelegate showAlertWithTitle:title message:message completion:nil];
+            
+            return;
+        }
+        
+        if(!res && !err){//入力内容に問題あり
+            NSString *message = @"条件に合う空席情報は見つかりませんでした";
+            [AppDelegate showAlertWithTitle:nil message:message completion:nil];
+            return;
+        }
+    }];
+}
+
+
 
 @end

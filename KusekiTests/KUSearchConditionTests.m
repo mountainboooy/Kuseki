@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "KUSearchCondition.h"
 #import "NSUserDefaults+ClearAllData.h"
+#import <NSDate+DateTools.h>
 
 @interface KUSearchConditionTests : XCTestCase
 
@@ -134,6 +135,31 @@
     
     KUSearchCondition * previousCondition = [KUSearchCondition previousCondition];
     XCTAssertEqualObjects(previousCondition.dep_stn, @"品川", @"前回の検索結果の保存に失敗");
+}
+
+- (void)testSubstractHour {
+    NSDictionary *dic = @{@"identifier" : @"111",
+                          @"year": @"2019",
+                          @"month"  : @"1",
+                          @"day"    : @"15",
+                          @"hour"   : @"21",
+                          @"minute" : @"30",
+                          @"train"  : @"train",
+                          @"dep_stn": @"tokyo",
+                          @"arr_stn": @"hakata"
+                          };
+    
+    // モック
+    KUSearchCondition *condition = [[KUSearchCondition alloc]initWithDictionary:dic];
+    
+    // 期待される値
+    NSDate* expectedDate = [NSDate dateWithYear:2019 month:1 day:15 hour:20 minute:30 second:0];
+    
+    //モックの設定を1時間前のものに変更
+    [condition subtractHour];
+    NSDate *subtractedDate = [NSDate dateWithYear:[condition.year integerValue] month:[condition.month integerValue] day:[condition.day integerValue] hour:[condition.hour integerValue] minute:[condition.minute integerValue] second:0];
+    
+    XCTAssertTrue([subtractedDate isEqualToDate:expectedDate]);
 }
 
 

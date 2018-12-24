@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DateTools (2.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6)
+  - DateTools
   - FMDB
   - Google-Mobile-Ads-SDK
   - MBProgressHUD (~> 0.8)
@@ -39,6 +41,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - DateTools
     - FMDB
     - Google-Mobile-Ads-SDK
     - KNSemiModalViewController_hons82
@@ -47,12 +50,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Google-Mobile-Ads-SDK: d028682d7450749a1955679da050eaf70d997b3e
   KNSemiModalViewController_hons82: 0fd274ce19ef79407af5ad2d4fdf30c74c8c75c8
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   THCalendarDatePicker: ef12c9d8477125a840463617eca83d0b7842ceb2
 
-PODFILE CHECKSUM: 77e0ed80c9d5d7ed884a73fd70eafec4353f8f7b
+PODFILE CHECKSUM: 88a6afed8725355196dfed616dd284c68b65874b
 
 COCOAPODS: 1.5.3
