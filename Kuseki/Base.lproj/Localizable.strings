@@ -34,13 +34,15 @@
  "notificationFeature" = "Notification feature";
  "descriptionForNotification" = "Turn on the notification feature for the train you focused. When the vacancy situation was changed, this app notify will notify you.";
 
-
 "searchButton" = "bt_search_en";
 "saveButton" = "bt_save_en";
-
- 
 
  "trainType1" = "Nozomi, Hikari, Sakura, Mizuho, Tsubame";
  "trainType2" = "Kodama";
  "trainType3" = "Hayabusa, Hayate, Yamabiko, Nasuno, Tsubasa, Komachi";
  "trainType4" = "Toki, Tanigawa, Kagayaki, Hakutaka, Asama, Tsurugi";
+
+"minusHour" = "-1hour";
+"plusHour" = "+1hour";
+"minusDate" = "-1day";
+"plusDate" = "+1day";

@@ -46,3 +46,8 @@
 "trainType2" = "こだま";
 "trainType3" = "はやぶさ・はやて・やまびこ・なすの・つばさ・こまち";
 "trainType4" = "とき・たにがわ・かがやき・はくたか・あさま・つるぎ";
+
+"minusHour" = "1時間前";
+"plusHour" = "1時間後";
+"minusDate" = "前日";
+"plusDate" = "翌日";

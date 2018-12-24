@@ -69,6 +69,10 @@
     [_btnBeforeDate setAction:@selector(btnBeforeDatePressed)];
     [_btnAfterHour setAction:@selector(btnAfterHourPressed)];
     [_btnAfterDate setAction:@selector(btnAfterDatePressed)];
+    _btnBeforeHour.title = NSLocalizedString(@"minusHour", nil);
+    _btnAfterHour.title = NSLocalizedString(@"plusHour", nil);
+    _btnBeforeDate.title = NSLocalizedString(@"minusDate", nil);
+    _btnAfterDate.title = NSLocalizedString(@"plusDate", nil);
     
     
     //model
