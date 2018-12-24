@@ -68,6 +68,10 @@
     
     //toolbar
     [_btnBeforeHour setAction:@selector(btnBeforeHourPressed)];
+    [_btnBeforeDate setAction:@selector(btnBeforeDatePressed)];
+    [_btnAfterHour setAction:@selector(btnAfterHourPressed)];
+    [_btnAfterDate setAction:@selector(btnAfterDatePressed)];
+    
     
     //model
     _responseManager = [KUResponseManager sharedManager];
@@ -319,15 +323,18 @@
 }
 
 - (void)btnBeforeDatePressed {
-    
+    [_condition subtractDate];
+    [self update];
 }
 
 - (void)btnAfterHourPressed {
-    
+    [_condition addHour];
+    [self update];
 }
 
 - (void)btnAfterDatePressed {
-    
+    [_condition addDate];
+    [self update];
 }
 
 

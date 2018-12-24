@@ -32,5 +32,8 @@ typedef void (^KUSearchConditionFailure)();
 - (BOOL)isTooOld;
 - (NSString*)yearFromMonth:(NSString*)month;
 - (void)subtractHour;
+- (void)subtractDate;
+- (void)addHour;
+- (void)addDate;
 
 @end

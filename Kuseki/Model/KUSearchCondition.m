@@ -116,6 +116,33 @@ static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
     self.hour = [NSString stringWithFormat:@"%ld", date.hour];
 }
 
+- (void)subtractDate {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateBySubtractingDays:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
+}
+
+- (void)addHour {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateByAddingHours:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
+}
+
+- (void)addDate {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateByAddingDays:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
+}
+
 
 #pragma  mark -
 #pragma  mark validation
