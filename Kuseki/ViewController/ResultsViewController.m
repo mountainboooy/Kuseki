@@ -144,6 +144,9 @@
     UILabel *lb_day = (UILabel*)[cell viewWithTag:5];
     lb_day.text = _condition.day;
     
+    UILabel *lb_time = (UILabel*)[cell viewWithTag:9];
+    lb_time.text = [NSString stringWithFormat:@"%@:%@", _condition.hour, _condition.minute];
+    
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
     lb_dep_stn.text = [KUStationsManager localizedStation:_condition.dep_stn];
@@ -407,6 +410,7 @@
         if(!res && !err){//入力内容に問題あり
             NSString *message = @"条件に合う空席情報は見つかりませんでした";
             [AppDelegate showAlertWithTitle:nil message:message completion:nil];
+            [_tableView reloadData];
             return;
         }
     }];
