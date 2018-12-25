@@ -276,7 +276,7 @@
                                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_change_station.png" translatesAutoresizingMaskIntoConstraints="NO" id="yPY-bB-bA0">
+                                                <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flip" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPY-bB-bA0">
                                                     <rect key="frame" x="14" y="44" width="52" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -404,18 +404,20 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="空席検索" id="qDr-3Y-zov">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Xe8-zh-Qaz">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="Xe8-zh-Qaz">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="EuP-i4-f1G">
                                 <rect key="frame" x="337" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.38370123505592346" green="0.38370123505592346" blue="0.38370123505592346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="btInfomationPressed:" destination="rIa-Ei-UiY" eventType="touchUpInside" id="FQc-nu-QB4"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" red="1" green="0.37315034530000002" blue="0.43601160989999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -1712,7 +1714,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="保存した検索条件" id="34J-xe-vFA">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ekf-kh-8vK">
-                            <color key="tintColor" red="0.38370123505592346" green="0.38370123505592346" blue="0.38370123505592346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="btTrashPressed:" destination="TrM-p4-qN0" id="IQZ-Jl-INs"/>
                             </connections>
@@ -1732,7 +1734,7 @@
         <image name="bt_close_picker" width="81" height="44"/>
         <image name="bt_save" width="80" height="44"/>
         <image name="bt_search" width="189" height="57"/>
-        <image name="btn_change_station.png" width="51" height="51"/>
+        <image name="flip" width="102" height="102"/>
         <image name="ic_bit" width="16" height="15"/>
         <image name="ic_full" width="15" height="15"/>
         <image name="ic_invalid" width="15" height="15"/>

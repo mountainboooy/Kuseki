@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bt_save.png",
+      "filename" : "flip.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bt_save@2xpng.png",
+      "filename" : "flip@2x.png",
       "scale" : "2x"
     },
     {
