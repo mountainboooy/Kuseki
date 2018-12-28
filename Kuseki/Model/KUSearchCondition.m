@@ -8,6 +8,7 @@
 
 #import "KUSearchCondition.h"
 #import "KUDBClient.h"
+#import <NSDate+DateTools.h>
 static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
 
 @implementation KUSearchCondition
@@ -106,6 +107,42 @@ static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
     _year = @"0";
 }
 
+- (void)subtractHour {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateBySubtractingHours:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
+}
+
+- (void)subtractDate {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateBySubtractingDays:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
+}
+
+- (void)addHour {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateByAddingHours:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
+}
+
+- (void)addDate {
+    NSDate *date = [NSDate dateWithYear:[self.year integerValue] month:[self.month integerValue] day:[self.day integerValue] hour:[self.hour integerValue] minute:[self.minute integerValue] second:0];
+    date = [date dateByAddingDays:1];
+    self.year = [NSString stringWithFormat:@"%ld", date.year];
+    self.month = [NSString stringWithFormat:@"%ld", date.month];
+    self.day = [NSString stringWithFormat:@"%ld", date.day];
+    self.hour = [NSString stringWithFormat:@"%ld", date.hour];
+}
+
 
 #pragma  mark -
 #pragma  mark validation
@@ -182,6 +219,22 @@ static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
     }else{
         return [NSString stringWithFormat:@"%ld",(long)comps.year];
     }
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    KUSearchCondition * condition = [[[self class] alloc] init];
+    if (condition) {
+        condition.identifier = self.identifier;
+        condition.month = self.month;
+        condition.day = self.day;
+        condition.hour = self.hour;
+        condition.minute = self.minute;
+        condition.train = self.train;
+        condition.dep_stn = self.dep_stn;
+        condition.arr_stn = self.arr_stn;
+        condition.year = self.year;
+    }
+    return condition;
 }
 
 @end

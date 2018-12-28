@@ -30,8 +30,8 @@
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 
     // Flurry
-    [Flurry setCrashReportingEnabled:YES];
-    [Flurry startSession:@"922D54Y2HGKPS8DBTVZT"];
+    //[Flurry setCrashReportingEnabled:YES];
+    //[Flurry startSession:@"922D54Y2HGKPS8DBTVZT"];
     
     //ReviewMusterController
     [self setUpReviewMusterController];

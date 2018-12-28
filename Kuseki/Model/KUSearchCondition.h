@@ -11,7 +11,7 @@
 typedef void (^KUSearchConditionCompetion)();
 typedef void (^KUSearchConditionFailure)();
 
-@interface KUSearchCondition : NSObject
+@interface KUSearchCondition : NSObject <NSCopying>
 
 @property (nonatomic,strong) NSString *identifier;
 @property (nonatomic,strong) NSString *year;
@@ -31,6 +31,9 @@ typedef void (^KUSearchConditionFailure)();
 + (KUSearchCondition *)previousCondition;
 - (BOOL)isTooOld;
 - (NSString*)yearFromMonth:(NSString*)month;
-
+- (void)subtractHour;
+- (void)subtractDate;
+- (void)addHour;
+- (void)addDate;
 
 @end

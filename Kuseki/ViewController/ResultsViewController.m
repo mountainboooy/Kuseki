@@ -27,6 +27,10 @@
     __weak IBOutlet UITableView *_tableView;
     __weak IBOutlet UIButton *_btSave;
     __weak IBOutlet GADBannerView *bannerView;
+    __weak IBOutlet UIBarButtonItem *_btnBeforeHour;
+    __weak IBOutlet UIBarButtonItem *_btnBeforeDate;
+    __weak IBOutlet UIBarButtonItem *_btnAfterDate;
+    __weak IBOutlet UIBarButtonItem *_btnAfterHour;
     
     //model
     KUSearchCondition    *_condition;
@@ -49,9 +53,7 @@
     // test id self->bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
     self->bannerView.adUnitID = @"ca-app-pub-1424580573410744/9849325314";
     self->bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ @"271c2a55c170420e3160f4d77d4a97b0" ];
-    [self->bannerView loadRequest:request];
+    [self requestLoadAdmob];
     
     //tableView
     _tableView.dataSource = self;
@@ -62,30 +64,22 @@
     //notification reviewMuster
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireReviewTrigger) name:UIApplicationDidBecomeActiveNotification object:nil];
     
+    //toolbar
+    [_btnBeforeHour setAction:@selector(btnBeforeHourPressed)];
+    [_btnBeforeDate setAction:@selector(btnBeforeDatePressed)];
+    [_btnAfterHour setAction:@selector(btnAfterHourPressed)];
+    [_btnAfterDate setAction:@selector(btnAfterDatePressed)];
+    _btnBeforeHour.title = NSLocalizedString(@"minusHour", nil);
+    _btnAfterHour.title = NSLocalizedString(@"plusHour", nil);
+    _btnBeforeDate.title = NSLocalizedString(@"minusDate", nil);
+    _btnAfterDate.title = NSLocalizedString(@"plusDate", nil);
+    
+    
     //model
     _responseManager = [KUResponseManager sharedManager];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
-    [_responseManager getResponsesWithParam:_condition completion:^{
-        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-        [_tableView reloadData];
-        
-    } failure:^(NSHTTPURLResponse *res, NSError *err) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-        if (res || err) {//通信問題、サーバーエラーなど
-            NSString* title = [NSString stringWithFormat:@"statusCode:%ld",res.statusCode];
-            NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
-            [AppDelegate showAlertWithTitle:title message:message completion:nil];
-            
-            return;
-        }
-        
-        if(!res && !err){//入力内容に問題あり
-            NSString *message = @"条件に合う空席情報は見つかりませんでした";
-            [AppDelegate showAlertWithTitle:nil message:message completion:nil];
-            return;
-        }
-    }];
+    //update
+    [self update];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -149,6 +143,9 @@
     
     UILabel *lb_day = (UILabel*)[cell viewWithTag:5];
     lb_day.text = _condition.day;
+    
+    UILabel *lb_time = (UILabel*)[cell viewWithTag:9];
+    lb_time.text = [NSString stringWithFormat:@"%@:%@", _condition.hour, _condition.minute];
     
     UILabel *lb_dep_stn = (UILabel*)[cell viewWithTag:2];
     UILabel *lb_arr_stn = (UILabel*)[cell viewWithTag:3];
@@ -325,6 +322,26 @@
     return 68;
 }
 
+- (void)btnBeforeHourPressed {
+    [_condition subtractHour];
+    [self update];
+}
+
+- (void)btnBeforeDatePressed {
+    [_condition subtractDate];
+    [self update];
+}
+
+- (void)btnAfterHourPressed {
+    [_condition addHour];
+    [self update];
+}
+
+- (void)btnAfterDatePressed {
+    [_condition addDate];
+    [self update];
+}
+
 
 #pragma mark - private methods
 
@@ -366,5 +383,39 @@
 - (void)fireReviewTrigger {
     [KUReviewMusterController fireEventWithKey:@"DID_BECOME_ACTIVE" viewController:self];
 }
+
+- (void)requestLoadAdmob {
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[ @"271c2a55c170420e3160f4d77d4a97b0" ];
+    [self->bannerView loadRequest:request];
+}
+
+- (void)update {
+    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+    [_responseManager getResponsesWithParam:_condition completion:^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+        [_tableView reloadData];
+        [self requestLoadAdmob];
+        
+    } failure:^(NSHTTPURLResponse *res, NSError *err) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+        if (res || err) {//通信問題、サーバーエラーなど
+            NSString* title = [NSString stringWithFormat:@"statusCode:%ld",res.statusCode];
+            NSString *message = @"空席情報を取得できませんでした。後ほどお試しください";
+            [AppDelegate showAlertWithTitle:title message:message completion:nil];
+            
+            return;
+        }
+        
+        if(!res && !err){//入力内容に問題あり
+            NSString *message = @"条件に合う空席情報は見つかりませんでした";
+            [AppDelegate showAlertWithTitle:nil message:message completion:nil];
+            [_tableView reloadData];
+            return;
+        }
+    }];
+}
+
+
 
 @end
