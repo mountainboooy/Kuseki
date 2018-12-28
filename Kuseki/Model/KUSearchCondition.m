@@ -221,4 +221,20 @@ static NSString *const PREVIOUS_CONDITION = @"PREIOUSD_CONDITION";
     }
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    KUSearchCondition * condition = [[[self class] alloc] init];
+    if (condition) {
+        condition.identifier = self.identifier;
+        condition.month = self.month;
+        condition.day = self.day;
+        condition.hour = self.hour;
+        condition.minute = self.minute;
+        condition.train = self.train;
+        condition.dep_stn = self.dep_stn;
+        condition.arr_stn = self.arr_stn;
+        condition.year = self.year;
+    }
+    return condition;
+}
+
 @end

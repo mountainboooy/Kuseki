@@ -11,6 +11,6 @@
 
 @interface ResultsViewController : UIViewController
 
-@property (nonatomic,strong) KUSearchCondition *condition;
+@property (nonatomic,copy) KUSearchCondition *condition;
 
 @end

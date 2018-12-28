@@ -11,7 +11,7 @@
 typedef void (^KUSearchConditionCompetion)();
 typedef void (^KUSearchConditionFailure)();
 
-@interface KUSearchCondition : NSObject
+@interface KUSearchCondition : NSObject <NSCopying>
 
 @property (nonatomic,strong) NSString *identifier;
 @property (nonatomic,strong) NSString *year;
